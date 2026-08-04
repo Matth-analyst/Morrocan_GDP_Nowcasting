@@ -1,0 +1,16 @@
+﻿Déscription du Tableau ,,
+Paramètre ,Libellé du paramètre ,Déscription 
+Tableau ,Consommation de l'ONEE en combustibles (Mensuel),
+frequence,Mensuelle,
+Scenario ,Reel,
+Source ,Office National de L'Electricité et de l'Eau Potable,ONEE
+Période disponible ,2024M05 - 2026M05,
+Date de dernière mise à jour ,2026-07-02 16:08:07.0,
+Description du tableau ,,
+,,
+,,
+Déscription de(s) l'indicateur(s) associé(s) ,,
+Indicateur ,Consommation de l'ONEE en combustibles,
+Unité,Tonnes,
+Echelle ,Unité,
+Axes Fixes ,Valeurs prises ,

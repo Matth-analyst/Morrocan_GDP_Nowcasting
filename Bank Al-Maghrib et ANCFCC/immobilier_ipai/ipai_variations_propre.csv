@@ -1,0 +1,521 @@
+﻿trimestre;categorie;indicateur;variation_trimestrielle;variation_annuelle;confiance;fichier_source
+T1-2010;Global;prix (prose, a verifier);1.4;2.2;basse;DERI-IPAI-2010 Q1.pdf
+T2-2010;Global;prix;2.2;1.4;haute (lecture manuelle verifiee);DERI-IPAI-2010 Q2.pdf
+T2-2010;Global;transactions;-5.7;;haute (lecture manuelle verifiee);DERI-IPAI-2010 Q2.pdf
+T3-2010;Global;prix (prose, a verifier);2.4;;basse;DERI-IPAI-2010 Q3.pdf
+T4-2010;Global;prix;-2.0;-0.9;haute (lecture manuelle verifiee);DERI-IPAI-2010 Q4.pdf
+T1-2011;Appartement;prix;1.7;6.7;haute;DERI-IPAI-2011 Q1.pdf
+T1-2011;Global;prix;1.2;5.0;haute;DERI-IPAI-2011 Q1.pdf
+T1-2011;Maison;prix;0.7;0.7;haute;DERI-IPAI-2011 Q1.pdf
+T1-2011;Villa;prix;2.8;7.7;haute;DERI-IPAI-2011 Q1.pdf
+T1-2011;Appartement;transactions;-5.2;-9.2;haute;DERI-IPAI-2011 Q1.pdf
+T1-2011;Global;transactions;-5.5;-9.7;haute;DERI-IPAI-2011 Q1.pdf
+T1-2011;Maison;transactions;-8.1;-18.2;haute;DERI-IPAI-2011 Q1.pdf
+T1-2011;Villa;transactions;-8.9;8.6;haute;DERI-IPAI-2011 Q1.pdf
+T2-2011;Global;prix;-1.6;1.9;haute (lecture manuelle verifiee);DERI-IPAI-2011 Q2.pdf
+T2-2011;Global;transactions;-17.5;;haute (lecture manuelle verifiee);DERI-IPAI-2011 Q2.pdf
+T3-2011;Global;prix (prose, a verifier);1.1;;basse;DERI-IPAI-2011 Q3.pdf
+T4-2011;Global;prix (prose, a verifier);-0.4;;basse;DERI-IPAI 2011 Q4.pdf
+T1-2012;Global;prix (prose, a verifier);0.6;;basse;DERI-IPAI  2012 Q1.pdf
+T2-2012;Global;prix (prose, a verifier);0.8;;basse;DERI-IPAI 2012 Q2.pdf
+T3-2012;Global;prix (prose, a verifier);-0.7;;basse;DERI-IPAI 2012 Q3.pdf
+T4-2012;Global;prix (prose, a verifier);0.9;0.9;basse;DERI-IPAI 2012 Q4.pdf
+T1-2013;Global;prix;0.0;0.0;approximation (texte source qualitatif uniquement, sans chiffre precis);DERIIPAIT12013.pdf
+T3-2013;Global;prix (prose, a verifier);-1.9;;basse;DERI-IPAI T3 2013 (1).pdf
+T4-2013;Global;prix (prose, a verifier);-1.4;;basse;IPAI-T4-2013 (1).pdf
+T1-2014;Global;prix;0.0;0.1;haute (lecture manuelle verifiee);DERI-IPAI T1 2014.pdf
+T1-2014;Global;transactions;-2.6;10.1;haute (lecture manuelle verifiee);DERI-IPAI T1 2014.pdf
+T2-2014;Global;prix (prose, a verifier);-1.3;;basse;DERI-IPAI+T2+2014.pdf
+T3-2014;Global;prix (prose, a verifier);1.4;;basse;DERI-IPAI+T3+2014.pdf
+T4-2014;Global;prix (prose, a verifier);-1.4;;basse;DERI-IPAI+T4+2014.pdf
+T1-2015;Global;prix (prose, a verifier);0.1;;basse;DERI-IPAI+T1+20151852015.pdf
+T2-2015;Global;prix (prose, a verifier);0.8;0.8;basse;DERI-IPAI+T2-2015.pdf
+T3-2015;Appartement;prix;-1.5;-1.9;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Bureau;prix;-2.1;-10.0;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Foncier;prix;-2.4;-4.0;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Global;prix;-1.5;-2.2;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Local commercial;prix;-1.1;-2.6;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Maison;prix;-0.8;1.2;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Résidentiel;prix;-1.1;-1.0;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Villa;prix;5.5;5.7;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Appartement;transactions;-7.9;-8.4;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Bureau;transactions;-30.1;-6.1;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Foncier;transactions;-17.0;-9.8;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Global;transactions;-10.4;-8.7;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Local commercial;transactions;-16.2;-9.7;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Maison;transactions;-4.2;-1.6;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Résidentiel;transactions;-7.8;-8.4;haute;DERI-IPAI+T3+2015.pdf
+T3-2015;Villa;transactions;-15.3;-24.5;haute;DERI-IPAI+T3+2015.pdf
+T4-2015;Global;prix (prose, a verifier);0.5;;basse;DERI-IPAI-T4-2015.pdf
+T1-2016;Global;prix (prose, a verifier);-0.7;;basse;DERI-IPAI T1 2016.pdf
+T2-2016;Global;prix (prose, a verifier);-1.1;;basse;DERI-IPAI Q2 2016 ...pdf
+T3-2016;Appartement;prix;1.3;1.6;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Bureau;prix;9.6;1.9;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Foncier;prix;-0.3;2.4;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Global;prix;0.6;1.4;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Local commercial;prix;0.4;5.1;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Maison;prix;0.4;-2.4;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Professionnel;prix;1.5;4.4;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Résidentiel;prix;1.0;0.6;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Villa;prix;-1.2;-1.6;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Appartement;transactions;18.8;27.3;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Bureau;transactions;28.7;41.6;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Foncier;transactions;1.1;15.8;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Global;transactions;14.2;24.0;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Local commercial;transactions;5.6;18.0;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Maison;transactions;15.0;14.1;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Professionnel;transactions;8.1;20.6;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Résidentiel;transactions;18.3;26.2;haute;DERI-IPAI T3 2016 .pdf
+T3-2016;Villa;transactions;4.4;16.2;haute;DERI-IPAI T3 2016 .pdf
+T4-2016;Global;prix (prose, a verifier);2.2;;basse;DERI-IPAI-T4-2016.pdf
+T1-2017;Global;prix (prose, a verifier);2.5;;basse;DERI-IPAI T1 2017.pdf
+T2-2017;Global;prix (prose, a verifier);-1.2;;basse;DEE-IPAI T2 2017.pdf
+T3-2017;Global;prix (prose, a verifier);0.6;;basse;DEE-IPAI T3 2017_.pdf
+T4-2017;Appartement;prix;-1.9;0.7;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Bureau;prix;1.9;14.0;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Foncier;prix;-1.2;1.8;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Global;prix;-1.3;0.9;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Local commercial;prix;3.6;2.1;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Maison;prix;-2.2;-2.9;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Professionnel;prix;3.4;4.4;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Résidentiel;prix;-1.7;0.0;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Villa;prix;-1.4;-2.6;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Appartement;transactions;-9.1;-12.2;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Bureau;transactions;-3.6;-29.9;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Foncier;transactions;20.7;-2.5;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Global;transactions;-2.4;-11.2;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Local commercial;transactions;1.9;-13.8;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Maison;transactions;-2.6;-24.8;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Professionnel;transactions;1.2;-16.0;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Résidentiel;transactions;-8.6;-13.2;haute;DERI-IPAI T4 2017 .pdf
+T4-2017;Villa;transactions;0.5;-22.9;haute;DERI-IPAI T4 2017 .pdf
+T1-2018;Appartement;prix;0.2;-0.2;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Bureau;prix;1.4;-1.0;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Foncier;prix;-1.1;-0.3;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Global;prix;-0.1;-0.4;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Local commercial;prix;-0.2;-0.6;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Maison;prix;1.2;-2.3;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Professionnel;prix;0.1;-0.5;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Résidentiel;prix;0.2;-0.7;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Villa;prix;-2.0;-7.2;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Appartement;transactions;-3.9;-3.1;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Bureau;transactions;29.4;-3.0;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Foncier;transactions;-4.9;16.1;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Global;transactions;-2.3;1.5;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Local commercial;transactions;11.7;7.5;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Maison;transactions;4.0;3.6;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Professionnel;transactions;13.8;6.2;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Résidentiel;transactions;-3.3;-3.0;haute;DERI-IPAI T1 2018VF .pdf
+T1-2018;Villa;transactions;7.1;-13.6;haute;DERI-IPAI T1 2018VF .pdf
+T2-2018;Appartement;prix;-0.1;0.1;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Bureau;prix;-0.5;1.8;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Foncier;prix;1.0;2.4;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Global;prix;0.0;0.9;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Local commercial;prix;-1.9;1.0;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Maison;prix;-2.0;-1.4;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Professionnel;prix;-1.7;1.4;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Résidentiel;prix;-0.3;0.1;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Villa;prix;3.6;3.6;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Appartement;transactions;4.2;-5.5;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Bureau;transactions;-12.8;-7.3;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Foncier;transactions;-7.2;13.4;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Global;transactions;0.4;-0.5;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Local commercial;transactions;-9.1;8.6;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Maison;transactions;-1.1;8.5;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Professionnel;transactions;-9.6;6.3;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Résidentiel;transactions;4.2;-4.4;haute;DERI-IPAI T2 2018 .pdf
+T2-2018;Villa;transactions;17.9;12.3;haute;DERI-IPAI T2 2018 .pdf
+T3-2018;Appartement;prix;0.1;-1.1;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Bureau;prix;-13.5;-9.7;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Foncier;prix;-1.5;-0.9;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Global;prix;-0.3;-0.7;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Local commercial;prix;2.3;3.8;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Maison;prix;1.6;0.4;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Professionnel;prix;-1.0;1.0;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Résidentiel;prix;0.4;-0.6;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Villa;prix;0.9;1.8;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Appartement;transactions;0.9;-1.7;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Bureau;transactions;-1.7;14.8;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Foncier;transactions;-4.8;4.7;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Global;transactions;-1.1;0.3;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Local commercial;transactions;-9.1;-0.4;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Maison;transactions;5.3;10.0;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Professionnel;transactions;-8.2;1.5;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Résidentiel;transactions;0.8;-1.0;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T3-2018;Villa;transactions;-17.9;8.0;haute;DERI-IPAI T3 2018VF 15 nov.pdf
+T4-2018;Appartement;prix;0.1;0.6;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Bureau;prix;12.0;-3.3;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Foncier;prix;0.8;-2.4;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Global;prix;0.3;-0.4;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Local commercial;prix;-1.1;-0.5;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Maison;prix;-1.2;0.8;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Professionnel;prix;1.4;-1.2;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Résidentiel;prix;0.0;0.8;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Villa;prix;1.5;5.9;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Appartement;transactions;8.1;14.6;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Bureau;transactions;14.8;30.7;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Foncier;transactions;15.7;-0.7;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Global;transactions;11.2;12.4;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Local commercial;transactions;21.3;16.6;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Maison;transactions;17.1;30.7;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Professionnel;transactions;20.5;18.3;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Résidentiel;transactions;9.1;16.0;haute;DERI-IPAI T4 2018vf .pdf
+T4-2018;Villa;transactions;32.0;39.7;haute;DERI-IPAI T4 2018vf .pdf
+T1-2019;Appartement;prix;-0.9;-0.2;haute;IPAI T1 2019.pdf
+T1-2019;Bureau;prix;3.6;-3.2;haute;IPAI T1 2019.pdf
+T1-2019;Foncier;prix;-0.4;0.3;haute;IPAI T1 2019.pdf
+T1-2019;Global;prix;-0.7;-0.2;haute;IPAI T1 2019.pdf
+T1-2019;Local commercial;prix;0.1;-0.2;haute;IPAI T1 2019.pdf
+T1-2019;Maison;prix;-1.3;-1.4;haute;IPAI T1 2019.pdf
+T1-2019;Professionnel;prix;0.9;-0.5;haute;IPAI T1 2019.pdf
+T1-2019;Résidentiel;prix;-1.1;-0.3;haute;IPAI T1 2019.pdf
+T1-2019;Villa;prix;-5.1;0.0;haute;IPAI T1 2019.pdf
+T1-2019;Appartement;transactions;-13.0;4.4;haute;IPAI T1 2019.pdf
+T1-2019;Bureau;transactions;8.2;11.0;haute;IPAI T1 2019.pdf
+T1-2019;Foncier;transactions;-12.2;-7.4;haute;IPAI T1 2019.pdf
+T1-2019;Global;transactions;-12.7;1.1;haute;IPAI T1 2019.pdf
+T1-2019;Local commercial;transactions;-11.0;-6.3;haute;IPAI T1 2019.pdf
+T1-2019;Maison;transactions;-15.8;6.6;haute;IPAI T1 2019.pdf
+T1-2019;Professionnel;transactions;-8.5;-4.0;haute;IPAI T1 2019.pdf
+T1-2019;Résidentiel;transactions;-13.4;4.5;haute;IPAI T1 2019.pdf
+T1-2019;Villa;transactions;-21.5;2.7;haute;IPAI T1 2019.pdf
+T2-2019;Appartement;prix;-0.3;-0.2;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Bureau;prix;-1.0;-4.3;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Foncier;prix;-0.8;-1.9;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Global;prix;-0.6;-0.9;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Local commercial;prix;-1.6;-1.0;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Maison;prix;-1.1;-1.0;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Professionnel;prix;-1.5;-1.4;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Résidentiel;prix;-0.4;-0.3;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Villa;prix;0.2;-1.5;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Appartement;transactions;-2.6;-4.1;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Bureau;transactions;-5.9;18.1;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Foncier;transactions;-19.3;-20.1;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Global;transactions;-7.3;-8.0;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Local commercial;transactions;-16.6;-14.7;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Maison;transactions;-11.6;-5.4;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Professionnel;transactions;-15.0;-10.5;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Résidentiel;transactions;-3.0;-4.4;haute;DERI-IPAI T2 2019 VF.pdf
+T2-2019;Villa;transactions;2.4;-11.0;haute;DERI-IPAI T2 2019 VF.pdf
+T3-2019;Appartement;prix;1.0;0.8;haute;DERI-IPAI T3 2019vf.pdf
+T3-2019;Bureau;prix;1.9;12.0;haute;DERI-IPAI T3 2019vf.pdf
+T3-2019;Global;prix;0.9;0.9;haute;DERI-IPAI T3 2019vf.pdf
+T3-2019;Résidentiel;prix;0.9;0.4;haute;DERI-IPAI T3 2019vf.pdf
+T3-2019;Appartement;transactions;3.9;-0.5;haute;DERI-IPAI T3 2019vf.pdf
+T3-2019;Bureau;transactions;-25.8;-11.0;haute;DERI-IPAI T3 2019vf.pdf
+T3-2019;Global;transactions;6.0;-0.8;haute;DERI-IPAI T3 2019vf.pdf
+T3-2019;Local commercial;transactions;6.1;-1.2;haute;DERI-IPAI T3 2019vf.pdf
+T3-2019;Résidentiel;transactions;3.7;-0.8;haute;DERI-IPAI T3 2019vf.pdf
+T4-2019;Appartement;prix;-0.4;-0.5;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Bureau;prix;-6.3;-2.8;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Foncier;prix;-0.8;-0.9;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Maison;prix;-0.4;-1.4;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Résidentiel;prix;-0.4;-0.6;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Villa;prix;-0.2;-3.5;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Appartement;transactions;-3.4;-10.2;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Foncier;transactions;0.0;-14.1;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Local commercial;transactions;14.1;-6.6;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Maison;transactions;9.5;-8.7;haute;DERI-IPAI T4 2019vf.pdf
+T4-2019;Professionnel;transactions;17.0;-4.9;haute;DERI-IPAI T4 2019vf.pdf
+T1-2020;Foncier;prix;-1.1;-1.2;haute;IPAI T1 2020.pdf
+T1-2020;Global;prix;-1.6;-1.4;haute;IPAI T1 2020.pdf
+T1-2020;Local commercial;prix;-5.4;-2.6;haute;IPAI T1 2020.pdf
+T1-2020;Maison;prix;-3.3;-3.2;haute;IPAI T1 2020.pdf
+T1-2020;Professionnel;prix;-3.3;-2.0;haute;IPAI T1 2020.pdf
+T1-2020;Résidentiel;prix;-1.8;-1.5;haute;IPAI T1 2020.pdf
+T1-2020;Villa;prix;-5.2;-4.7;haute;IPAI T1 2020.pdf
+T1-2020;Appartement;transactions;-33.1;-30.8;haute;IPAI T1 2020.pdf
+T1-2020;Foncier;transactions;-27.2;-28.7;haute;IPAI T1 2020.pdf
+T1-2020;Local commercial;transactions;-26.2;-22.1;haute;IPAI T1 2020.pdf
+T1-2020;Maison;transactions;-33.3;-27.7;haute;IPAI T1 2020.pdf
+T1-2020;Résidentiel;transactions;-32.9;-30.6;haute;IPAI T1 2020.pdf
+T2-2020;Appartement;prix;-3.7;-3.7;haute;IPAI T2 2020 VF.pdf
+T2-2020;Bureau;prix;1.4;2.5;haute;IPAI T2 2020 VF.pdf
+T2-2020;Foncier;prix;-3.0;-2.7;haute;IPAI T2 2020 VF.pdf
+T2-2020;Global;prix;-3.3;-3.3;haute;IPAI T2 2020 VF.pdf
+T2-2020;Local commercial;prix;-1.5;-1.9;haute;IPAI T2 2020 VF.pdf
+T2-2020;Maison;prix;-5.1;-6.7;haute;IPAI T2 2020 VF.pdf
+T2-2020;Professionnel;prix;-0.9;-1.3;haute;IPAI T2 2020 VF.pdf
+T2-2020;Villa;prix;-0.8;-3.1;haute;IPAI T2 2020 VF.pdf
+T2-2020;Appartement;transactions;-37.2;-54.9;haute;IPAI T2 2020 VF.pdf
+T2-2020;Bureau;transactions;-52.9;-61.1;haute;IPAI T2 2020 VF.pdf
+T2-2020;Global;transactions;-42.8;-56.1;haute;IPAI T2 2020 VF.pdf
+T2-2020;Maison;transactions;-59.0;-66.6;haute;IPAI T2 2020 VF.pdf
+T2-2020;Résidentiel;transactions;-38.2;-55.3;haute;IPAI T2 2020 VF.pdf
+T2-2020;Villa;transactions;-17.9;-44.5;haute;IPAI T2 2020 VF.pdf
+T3-2020;Appartement;prix;3.4;-1.1;haute;IPAI T3-2020.pdf
+T3-2020;Bureau;prix;3.2;3.8;haute;IPAI T3-2020.pdf
+T3-2020;Foncier;prix;3.6;-0.4;haute;IPAI T3-2020.pdf
+T3-2020;Global;prix;3.6;-0.8;haute;IPAI T3-2020.pdf
+T3-2020;Local commercial;prix;5.5;3.0;haute;IPAI T3-2020.pdf
+T3-2020;Maison;prix;4.8;-2.7;haute;IPAI T3-2020.pdf
+T3-2020;Professionnel;prix;5.1;3.0;haute;IPAI T3-2020.pdf
+T3-2020;Villa;prix;5.4;0.8;haute;IPAI T3-2020.pdf
+T3-2020;Appartement;transactions;96.0;-14.8;haute;IPAI T3-2020.pdf
+T3-2020;Foncier;transactions;188.8;0.1;haute;IPAI T3-2020.pdf
+T3-2020;Maison;transactions;138.4;-26.1;haute;IPAI T3-2020.pdf
+T3-2020;Résidentiel;transactions;96.2;-15.3;haute;IPAI T3-2020.pdf
+T3-2020;Villa;transactions;35.1;-10.1;haute;IPAI T3-2020.pdf
+T4-2020;Appartement;prix;1.4;0.9;haute;IPAI T4-2020.pdf
+T4-2020;Bureau;prix;-12.1;-6.3;haute;IPAI T4-2020.pdf
+T4-2020;Foncier;prix;-0.5;0.5;haute;IPAI T4-2020.pdf
+T4-2020;Global;prix;0.6;0.6;haute;IPAI T4-2020.pdf
+T4-2020;Local commercial;prix;1.1;-0.1;haute;IPAI T4-2020.pdf
+T4-2020;Maison;prix;2.4;0.5;haute;IPAI T4-2020.pdf
+T4-2020;Professionnel;prix;-1.0;-1.0;haute;IPAI T4-2020.pdf
+T4-2020;Villa;prix;-1.5;0.8;haute;IPAI T4-2020.pdf
+T4-2020;Appartement;transactions;39.0;23.3;haute;IPAI T4-2020.pdf
+T4-2020;Bureau;transactions;33.5;22.9;haute;IPAI T4-2020.pdf
+T4-2020;Global;transactions;39.2;27.1;haute;IPAI T4-2020.pdf
+T4-2020;Local commercial;transactions;17.6;25.2;haute;IPAI T4-2020.pdf
+T4-2020;Professionnel;transactions;19.6;24.9;haute;IPAI T4-2020.pdf
+T4-2020;Résidentiel;transactions;39.7;22.1;haute;IPAI T4-2020.pdf
+T1-2021;Appartement;prix;-1.1;0.9;haute;IPAI T1-2021.pdf
+T1-2021;Bureau;prix;7.5;1.9;haute;IPAI T1-2021.pdf
+T1-2021;Foncier;prix;1.4;2.9;haute;IPAI T1-2021.pdf
+T1-2021;Global;prix;0.0;1.8;haute;IPAI T1-2021.pdf
+T1-2021;Local commercial;prix;-0.9;3.0;haute;IPAI T1-2021.pdf
+T1-2021;Maison;prix;-0.6;1.8;haute;IPAI T1-2021.pdf
+T1-2021;Professionnel;prix;0.3;2.9;haute;IPAI T1-2021.pdf
+T1-2021;Villa;prix;0.8;4.6;haute;IPAI T1-2021.pdf
+T1-2021;Bureau;transactions;8.6;81.3;haute;IPAI T1-2021.pdf
+T1-2021;Global;transactions;-17.4;52.0;haute;IPAI T1-2021.pdf
+T1-2021;Local commercial;transactions;1.2;72.2;haute;IPAI T1-2021.pdf
+T1-2021;Professionnel;transactions;2.3;73.5;haute;IPAI T1-2021.pdf
+T2-2021;Appartement;prix;-6.4;-3.7;haute;IPAI T2 FR 2021.pdf
+T2-2021;Bureau;prix;-8.4;-13.3;haute;IPAI T2 FR 2021.pdf
+T2-2021;Local commercial;prix;-7.1;-3.1;haute;IPAI T2 FR 2021.pdf
+T2-2021;Maison;prix;-2.5;4.2;haute;IPAI T2 FR 2021.pdf
+T2-2021;Résidentiel;prix;-5.6;-2.3;haute;IPAI T2 FR 2021.pdf
+T2-2021;Appartement;transactions;22.7;183.6;haute;IPAI T2 FR 2021.pdf
+T2-2021;Bureau;transactions;-22.2;191.2;haute;IPAI T2 FR 2021.pdf
+T2-2021;Foncier;transactions;29.2;393.9;haute;IPAI T2 FR 2021.pdf
+T2-2021;Global;transactions;18.8;220.5;haute;IPAI T2 FR 2021.pdf
+T2-2021;Local commercial;transactions;-20.5;199.9;haute;IPAI T2 FR 2021.pdf
+T2-2021;Résidentiel;transactions;22.0;186.8;haute;IPAI T2 FR 2021.pdf
+T2-2021;Villa;transactions;15.0;132.1;haute;IPAI T2 FR 2021.pdf
+T3-2021;Appartement;prix;-0.6;-7.4;haute;IPAI T3 2021 VF.pdf
+T3-2021;Foncier;prix;1.5;-3.7;haute;IPAI T3 2021 VF.pdf
+T3-2021;Local commercial;prix;-1.0;-8.7;haute;IPAI T3 2021 VF.pdf
+T3-2021;Maison;prix;0.0;-1.3;haute;IPAI T3 2021 VF.pdf
+T3-2021;Professionnel;prix;-0.9;-9.5;haute;IPAI T3 2021 VF.pdf
+T3-2021;Résidentiel;prix;-0.5;-6.3;haute;IPAI T3 2021 VF.pdf
+T3-2021;Villa;prix;-2.1;-7.1;haute;IPAI T3 2021 VF.pdf
+T3-2021;Appartement;transactions;-46.0;-19.0;haute;IPAI T3 2021 VF.pdf
+T3-2021;Bureau;transactions;25.2;62.5;haute;IPAI T3 2021 VF.pdf
+T3-2021;Global;transactions;-40.9;-10.1;haute;IPAI T3 2021 VF.pdf
+T3-2021;Local commercial;transactions;-3.4;2.8;haute;IPAI T3 2021 VF.pdf
+T3-2021;Résidentiel;transactions;-45.1;-17.1;haute;IPAI T3 2021 VF.pdf
+T4-2021;Appartement;prix;0.3;-8.8;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Bureau;prix;-0.4;-0.6;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Foncier;prix;-0.2;-3.7;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Global;prix;0.2;-6.0;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Local commercial;prix;2.7;-6.3;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Maison;prix;0.9;-3.2;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Professionnel;prix;2.3;-5.2;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Villa;prix;-1.4;-7.1;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Appartement;transactions;44.8;-17.6;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Foncier;transactions;20.9;-16.5;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Global;transactions;35.1;-14.7;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Local commercial;transactions;26.8;7.0;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Maison;transactions;24.0;4.4;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Professionnel;transactions;20.6;6.5;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Résidentiel;transactions;43.2;-16.8;haute;IPAI-T4-2021 (1).pdf
+T4-2021;Villa;transactions;33.1;-32.3;haute;IPAI-T4-2021 (1).pdf
+T1-2022;Appartement;prix;-0.2;-6.6;haute;IPAI-T1-2022.pdf
+T1-2022;Bureau;prix;-5.8;-13.5;haute;IPAI-T1-2022.pdf
+T1-2022;Foncier;prix;0.0;-2.9;haute;IPAI-T1-2022.pdf
+T1-2022;Global;prix;-0.3;-4.9;haute;IPAI-T1-2022.pdf
+T1-2022;Local commercial;prix;-0.6;-6.8;haute;IPAI-T1-2022.pdf
+T1-2022;Maison;prix;-0.6;-2.4;haute;IPAI-T1-2022.pdf
+T1-2022;Professionnel;prix;-2.5;-8.6;haute;IPAI-T1-2022.pdf
+T1-2022;Villa;prix;0.5;-6.6;haute;IPAI-T1-2022.pdf
+T1-2022;Appartement;transactions;-10.2;-6.7;haute;IPAI-T1-2022.pdf
+T1-2022;Foncier;transactions;-11.2;-15.7;haute;IPAI-T1-2022.pdf
+T1-2022;Maison;transactions;-10.2;-4.6;haute;IPAI-T1-2022.pdf
+T1-2022;Résidentiel;transactions;-9.8;-6.6;haute;IPAI-T1-2022.pdf
+T1-2022;Villa;transactions;16.5;-8.2;haute;IPAI-T1-2022.pdf
+T2-2022;Appartement;prix;0.2;-0.5;haute;IPAI T2 FR 2022.pdf
+T2-2022;Bureau;prix;8.5;1.9;haute;IPAI T2 FR 2022.pdf
+T2-2022;Foncier;prix;0.1;1.8;haute;IPAI T2 FR 2022.pdf
+T2-2022;Global;prix;0.2;0.4;haute;IPAI T2 FR 2022.pdf
+T2-2022;Maison;prix;-0.2;0.5;haute;IPAI T2 FR 2022.pdf
+T2-2022;Professionnel;prix;1.1;-0.4;haute;IPAI T2 FR 2022.pdf
+T2-2022;Villa;prix;3.7;1.2;haute;IPAI T2 FR 2022.pdf
+T2-2022;Foncier;transactions;-3.7;-37.7;haute;IPAI T2 FR 2022.pdf
+T2-2022;Global;transactions;4.6;-22.5;haute;IPAI T2 FR 2022.pdf
+T2-2022;Local commercial;transactions;-0.8;6.2;haute;IPAI T2 FR 2022.pdf
+T2-2022;Professionnel;transactions;-1.9;7.2;haute;IPAI T2 FR 2022.pdf
+T2-2022;Résidentiel;transactions;8.1;-20.4;haute;IPAI T2 FR 2022.pdf
+T2-2022;Villa;transactions;5.8;-15.8;haute;IPAI T2 FR 2022.pdf
+T3-2022;Appartement;prix;0.4;0.6;haute;IPAI T3 2022.pdf
+T3-2022;Bureau;prix;1.9;3.0;haute;IPAI T3 2022.pdf
+T3-2022;Foncier;prix;0.8;2.3;haute;IPAI T3 2022.pdf
+T3-2022;Global;prix;0.6;1.3;haute;IPAI T3 2022.pdf
+T3-2022;Local commercial;prix;1.8;2.4;haute;IPAI T3 2022.pdf
+T3-2022;Maison;prix;1.6;1.7;haute;IPAI T3 2022.pdf
+T3-2022;Professionnel;prix;2.0;2.5;haute;IPAI T3 2022.pdf
+T3-2022;Villa;prix;-2.8;0.3;haute;IPAI T3 2022.pdf
+T3-2022;Appartement;transactions;11.1;61.7;haute;IPAI T3 2022.pdf
+T3-2022;Foncier;transactions;13.8;19.8;haute;IPAI T3 2022.pdf
+T3-2022;Local commercial;transactions;4.5;15.1;haute;IPAI T3 2022.pdf
+T3-2022;Maison;transactions;14.6;40.7;haute;IPAI T3 2022.pdf
+T3-2022;Professionnel;transactions;4.9;11.4;haute;IPAI T3 2022.pdf
+T3-2022;Résidentiel;transactions;11.3;60.8;haute;IPAI T3 2022.pdf
+T3-2022;Villa;transactions;12.7;92.7;haute;IPAI T3 2022.pdf
+T4-2022;Appartement;prix;-0.7;-0.3;haute;IPAI T4 2022.pdf
+T4-2022;Bureau;prix;0.1;2.4;haute;IPAI T4 2022.pdf
+T4-2022;Foncier;prix;-0.7;1.2;haute;IPAI T4 2022.pdf
+T4-2022;Global;prix;-0.7;0.3;haute;IPAI T4 2022.pdf
+T4-2022;Local commercial;prix;0.0;0.5;haute;IPAI T4 2022.pdf
+T4-2022;Maison;prix;-1.5;0.5;haute;IPAI T4 2022.pdf
+T4-2022;Professionnel;prix;0.0;0.5;haute;IPAI T4 2022.pdf
+T4-2022;Résidentiel;prix;-0.8;-0.1;haute;IPAI T4 2022.pdf
+T4-2022;Villa;prix;-2.2;0.3;haute;IPAI T4 2022.pdf
+T4-2022;Bureau;transactions;-12.4;-12.5;haute;IPAI T4 2022.pdf
+T4-2022;Foncier;transactions;-1.3;-5.1;haute;IPAI T4 2022.pdf
+T4-2022;Global;transactions;-4.8;-5.2;haute;IPAI T4 2022.pdf
+T4-2022;Local commercial;transactions;-4.9;-16.8;haute;IPAI T4 2022.pdf
+T4-2022;Professionnel;transactions;-6.1;-16.2;haute;IPAI T4 2022.pdf
+T4-2022;Résidentiel;transactions;-5.5;-3.5;haute;IPAI T4 2022.pdf
+T1-2023;Appartement;prix;0.0;0.0;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Bureau;prix;-0.6;7.1;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Foncier;prix;0.9;2.0;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Global;prix;0.3;0.8;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Local commercial;prix;1.3;2.1;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Professionnel;prix;1.1;3.7;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Résidentiel;prix;-0.2;-0.1;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Villa;prix;-1.2;-0.5;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Bureau;transactions;18.5;12.0;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Foncier;transactions;-10.6;0.0;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Global;transactions;-14.8;2.5;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Local commercial;transactions;-7.4;1.8;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Professionnel;transactions;-3.7;3.5;haute;DSGD-IPAI T1 2023.pdf
+T1-2023;Résidentiel;transactions;-17.3;3.0;haute;DSGD-IPAI T1 2023.pdf
+T2-2023;Appartement;prix;-0.5;-0.4;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Bureau;prix;0.5;0.6;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Foncier;prix;0.3;0.9;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Global;prix;-0.3;0.1;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Local commercial;prix;-0.3;2.4;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Professionnel;prix;-0.4;2.1;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Résidentiel;prix;-0.5;-0.5;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Villa;prix;-1.5;-5.7;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Bureau;transactions;-7.2;21.0;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Foncier;transactions;-15.7;-6.9;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Global;transactions;-12.0;-4.9;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Local commercial;transactions;-18.8;-7.5;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Professionnel;transactions;-16.9;-3.2;haute;DSGD-IPAI T2 2023 VF.pdf
+T2-2023;Résidentiel;transactions;-10.3;-4.7;haute;DSGD-IPAI T2 2023 VF.pdf
+T3-2023;Bureau;prix;3.5;3.5;haute;DERI-IPAI T3 2023.pdf
+T3-2023;Foncier;prix;0.3;1.1;haute;DERI-IPAI T3 2023.pdf
+T3-2023;Global;prix;0.7;0.3;haute;DERI-IPAI T3 2023.pdf
+T3-2023;Local commercial;prix;0.8;1.2;haute;DERI-IPAI T3 2023.pdf
+T3-2023;Professionnel;prix;1.3;1.7;haute;DERI-IPAI T3 2023.pdf
+T3-2023;Bureau;transactions;-9.2;4.0;haute;DERI-IPAI T3 2023.pdf
+T3-2023;Global;transactions;-4.5;-7.2;haute;DERI-IPAI T3 2023.pdf
+T3-2023;Local commercial;transactions;-15.9;-16.5;haute;DERI-IPAI T3 2023.pdf
+T3-2023;Professionnel;transactions;-14.7;-13.2;haute;DERI-IPAI T3 2023.pdf
+T4-2023;Foncier;prix;0.3;2.1;haute;IPAI-T4-2023 (1).pdf
+T4-2023;Local commercial;prix;-1.4;0.4;haute;IPAI-T4-2023 (1).pdf
+T4-2023;Bureau;transactions;-3.1;14.2;haute;IPAI-T4-2023 (1).pdf
+T4-2023;Foncier;transactions;13.2;1.6;haute;IPAI-T4-2023 (1).pdf
+T4-2023;Global;transactions;2.0;-3.1;haute;IPAI-T4-2023 (1).pdf
+T4-2023;Local commercial;transactions;11.3;-1.3;haute;IPAI-T4-2023 (1).pdf
+T4-2023;Maison;transactions;-4.7;-10.7;haute;IPAI-T4-2023 (1).pdf
+T4-2023;Professionnel;transactions;8.6;1.0;haute;IPAI-T4-2023 (1).pdf
+T4-2023;Résidentiel;transactions;-1.4;-4.8;haute;IPAI-T4-2023 (1).pdf
+T4-2023;Villa;transactions;3.7;-11.9;haute;IPAI-T4-2023 (1).pdf
+T1-2024;Foncier;prix;-0.1;1.2;haute;Publication IPAI T1 2024.pdf
+T1-2024;Local commercial;prix;0.7;-1.5;haute;Publication IPAI T1 2024.pdf
+T1-2024;Villa;prix;-2.3;-0.2;haute;Publication IPAI T1 2024.pdf
+T1-2024;Appartement;transactions;-13.9;-2.2;haute;Publication IPAI T1 2024.pdf
+T1-2024;Bureau;transactions;-1.6;-7.5;haute;Publication IPAI T1 2024.pdf
+T1-2024;Global;transactions;-13.8;-3.1;haute;Publication IPAI T1 2024.pdf
+T1-2024;Local commercial;transactions;-19.9;-16.3;haute;Publication IPAI T1 2024.pdf
+T1-2024;Maison;transactions;-21.3;-13.7;haute;Publication IPAI T1 2024.pdf
+T1-2024;Résidentiel;transactions;-14.3;-3.1;haute;Publication IPAI T1 2024.pdf
+T1-2024;Villa;transactions;-18.5;-21.6;haute;Publication IPAI T1 2024.pdf
+T2-2024;Foncier;prix;0.5;-0.6;haute;IPAI T2 2024.pdf
+T2-2024;Professionnel;prix;-0.3;0.4;haute;IPAI T2 2024.pdf
+T2-2024;Foncier;transactions;-10.2;25.6;haute;IPAI T2 2024.pdf
+T2-2024;Global;transactions;-8.2;12.1;haute;IPAI T2 2024.pdf
+T2-2024;Local commercial;transactions;-17.2;-3.0;haute;IPAI T2 2024.pdf
+T2-2024;Professionnel;transactions;-15.9;-2.3;haute;IPAI T2 2024.pdf
+T2-2024;Résidentiel;transactions;-6.7;11.1;haute;IPAI T2 2024.pdf
+T2-2024;Villa;transactions;3.0;-2.6;haute;IPAI T2 2024.pdf
+T3-2024;Bureau;prix;-4.0;-2.4;haute;IPAI T3-2024 FR.pdf
+T3-2024;Foncier;prix;-0.4;-0.6;haute;IPAI T3-2024 FR.pdf
+T3-2024;Local commercial;prix;-0.4;-0.7;haute;IPAI T3-2024 FR.pdf
+T3-2024;Villa;prix;-0.9;-1.9;haute;IPAI T3-2024 FR.pdf
+T3-2024;Appartement;transactions;-31.4;-14.9;haute;IPAI T3-2024 FR.pdf
+T3-2024;Bureau;transactions;-29.2;-17.7;haute;IPAI T3-2024 FR.pdf
+T3-2024;Foncier;transactions;-15.9;3.4;haute;IPAI T3-2024 FR.pdf
+T3-2024;Global;transactions;-28.9;-13.1;haute;IPAI T3-2024 FR.pdf
+T3-2024;Local commercial;transactions;-43.7;-31.8;haute;IPAI T3-2024 FR.pdf
+T3-2024;Maison;transactions;-11.2;-12.0;haute;IPAI T3-2024 FR.pdf
+T3-2024;Professionnel;transactions;-41.1;-29.2;haute;IPAI T3-2024 FR.pdf
+T3-2024;Résidentiel;transactions;-30.4;-14.8;haute;IPAI T3-2024 FR.pdf
+T3-2024;Villa;transactions;-22.8;-20.1;haute;IPAI T3-2024 FR.pdf
+T4-2024;Bureau;prix;2.2;0.1;haute;IPAI T4-2024 (1).pdf
+T4-2024;Foncier;prix;1.4;1.0;haute;IPAI T4-2024 (1).pdf
+T4-2024;Foncier;transactions;35.2;16.5;haute;IPAI T4-2024 (1).pdf
+T4-2024;Global;transactions;43.9;17.7;haute;IPAI T4-2024 (1).pdf
+T4-2024;Local commercial;transactions;74.4;1.2;haute;IPAI T4-2024 (1).pdf
+T4-2024;Maison;transactions;24.2;6.8;haute;IPAI T4-2024 (1).pdf
+T4-2024;Professionnel;transactions;79.9;10.8;haute;IPAI T4-2024 (1).pdf
+T4-2024;Résidentiel;transactions;42.7;18.9;haute;IPAI T4-2024 (1).pdf
+T4-2024;Villa;transactions;46.1;16.9;haute;IPAI T4-2024 (1).pdf
+T1-2025;Foncier;prix;-2.5;-0.1;haute;Publication IPAI T1 2025.pdf
+T1-2025;Villa;prix;-1.1;-0.7;haute;Publication IPAI T1 2025.pdf
+T1-2025;Appartement;transactions;-29.0;-14.5;haute;Publication IPAI T1 2025.pdf
+T1-2025;Bureau;transactions;-40.5;-9.5;haute;Publication IPAI T1 2025.pdf
+T1-2025;Foncier;transactions;-33.1;-16.4;haute;Publication IPAI T1 2025.pdf
+T1-2025;Global;transactions;-30.3;-15.2;haute;Publication IPAI T1 2025.pdf
+T1-2025;Local commercial;transactions;-28.9;-20.0;haute;Publication IPAI T1 2025.pdf
+T1-2025;Maison;transactions;-34.6;-15.3;haute;Publication IPAI T1 2025.pdf
+T1-2025;Professionnel;transactions;-31.4;-18.2;haute;Publication IPAI T1 2025.pdf
+T1-2025;Résidentiel;transactions;-29.3;-14.5;haute;Publication IPAI T1 2025.pdf
+T1-2025;Villa;transactions;-31.8;-8.9;haute;Publication IPAI T1 2025.pdf
+T2-2025;Professionnel;prix;-0.2;-0.3;haute;IPAI T2 2025.pdf
+T2-2025;Global;transactions;-10.8;-21.2;haute;IPAI T2 2025.pdf
+T2-2025;Local commercial;transactions;-13.3;-22.5;haute;IPAI T2 2025.pdf
+T2-2025;Maison;transactions;-16.2;-26.9;haute;IPAI T2 2025.pdf
+T2-2025;Professionnel;transactions;-13.3;-20.9;haute;IPAI T2 2025.pdf
+T2-2025;Résidentiel;transactions;-15.1;-25.9;haute;IPAI T2 2025.pdf
+T2-2025;Villa;transactions;23.7;11.4;haute;IPAI T2 2025.pdf
+T3-2025;Bureau;prix;-0.8;0.9;haute;IPAI T3-2025.pdf
+T3-2025;Foncier;prix;1.3;1.0;haute;IPAI T3-2025.pdf
+T3-2025;Local commercial;prix;0.7;1.7;haute;IPAI T3-2025.pdf
+T3-2025;Villa;prix;-0.8;1.8;haute;IPAI T3-2025.pdf
+T3-2025;Appartement;transactions;15.7;26.7;haute;IPAI T3-2025.pdf
+T3-2025;Bureau;transactions;12.3;43.6;haute;IPAI T3-2025.pdf
+T3-2025;Foncier;transactions;9.3;21.0;haute;IPAI T3-2025.pdf
+T3-2025;Global;transactions;14.0;26.6;haute;IPAI T3-2025.pdf
+T3-2025;Local commercial;transactions;11.9;59.4;haute;IPAI T3-2025.pdf
+T3-2025;Maison;transactions;19.3;1.9;haute;IPAI T3-2025.pdf
+T3-2025;Professionnel;transactions;12.0;56.2;haute;IPAI T3-2025.pdf
+T3-2025;Résidentiel;transactions;15.7;25.7;haute;IPAI T3-2025.pdf
+T3-2025;Villa;transactions;9.7;62.3;haute;IPAI T3-2025.pdf
+T4-2025;Appartement;prix;0.1;0.3;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Foncier;prix;0.4;0.0;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Local commercial;prix;0.4;0.2;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Maison;prix;0.5;0.1;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Résidentiel;prix;0.1;0.2;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Villa;prix;2.3;2.4;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Appartement;transactions;15.4;0.4;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Bureau;transactions;49.2;4.7;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Foncier;transactions;25.4;12.0;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Global;transactions;18.4;3.6;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Local commercial;transactions;25.2;8.2;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Maison;transactions;8.5;-0.9;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Professionnel;transactions;29.6;7.5;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Résidentiel;transactions;15.0;0.6;haute;Publication-IPAI T4 2025 (1).pdf
+T4-2025;Villa;transactions;13.8;23.0;haute;Publication-IPAI T4 2025 (1).pdf
+T1-2026;Foncier;prix;-3.0;-0.6;haute;IPAI T1 2026 (1).pdf
+T1-2026;Local commercial;prix;-1.1;0.0;haute;IPAI T1 2026 (1).pdf
+T1-2026;Global;transactions;-40.2;-9.3;haute;IPAI T1 2026 (1).pdf
+T1-2026;Local commercial;transactions;-40.4;-4.9;haute;IPAI T1 2026 (1).pdf
+T1-2026;Maison;transactions;-51.6;-25.3;haute;IPAI T1 2026 (1).pdf
+T1-2026;Professionnel;transactions;-40.2;-3.6;haute;IPAI T1 2026 (1).pdf
+T1-2026;Résidentiel;transactions;-38.4;-10.7;haute;IPAI T1 2026 (1).pdf
+T1-2026;Villa;transactions;-53.1;-13.6;haute;IPAI T1 2026 (1).pdf

@@ -1,0 +1,16 @@
+﻿Déscription du Tableau ,,
+Paramètre ,Libellé du paramètre ,Déscription 
+Tableau ,Usage moyen mensuel sortant par client (Trimestriel),
+frequence,Trimestrielle,
+Scenario ,Reel,
+Source ,ANRT,ANRT: Agence Nationale de Réglementation des Télécommunications
+Période disponible ,2010T1 - 2018T3,
+Date de dernière mise à jour ,2020-02-04 11:49:44.0,
+Description du tableau ,,
+,,
+,,
+Déscription de(s) l'indicateur(s) associé(s) ,,
+Indicateur ,Usage moyen mensuel sortant par client,
+Unité,minute/mois/client,
+Echelle ,Unité,
+Axes Fixes ,Valeurs prises ,

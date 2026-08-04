@@ -1,0 +1,17 @@
+﻿Déscription du Tableau ,,
+Paramètre ,Libellé du paramètre ,Déscription 
+Tableau ,Ventes ONEE d'électricité,
+frequence,Annuelle,
+Scenario ,Reel,
+Source ,Office National de L'Electricité et de l'Eau Potable,ONEE
+Période disponible ,1994 - 2021,
+Date de dernière mise à jour ,2022-10-06 14:26:44.0,
+Description du tableau ,,
+,,
+,,
+Déscription de(s) l'indicateur(s) associé(s) ,,
+Indicateur ,Ventes ONEE d'électricité,
+Unité,GWH,
+Echelle ,Unité,
+Axes Fixes ,Valeurs prises ,
+Région/Province,Total des régions,

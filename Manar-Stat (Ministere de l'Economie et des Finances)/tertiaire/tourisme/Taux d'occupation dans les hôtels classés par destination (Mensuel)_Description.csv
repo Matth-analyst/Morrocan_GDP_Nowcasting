@@ -1,0 +1,18 @@
+﻿Déscription du Tableau ,,
+Paramètre ,Libellé du paramètre ,Déscription 
+Tableau ,Taux d'occupation dans les hôtels classés par destination (Mensuel),
+frequence,Mensuelle,
+Scenario ,Reel,
+Source ,Ministère du tourisme,MT
+Période disponible ,2007M01 - 2019M08,
+Date de dernière mise à jour ,2019-12-31 16:44:34.0,
+Description du tableau ,,
+,,
+,,
+Déscription de(s) l'indicateur(s) associé(s) ,,
+Indicateur ,Taux d'occupation dans les hôtels classés,
+Unité,Pourcentage,
+Echelle ,Sans échelle,
+Axes Fixes ,Valeurs prises ,
+Catégorie d'hébergement,Total,
+Région/Province,Total des régions,

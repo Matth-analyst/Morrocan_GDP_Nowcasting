@@ -1,0 +1,16 @@
+﻿Déscription du Tableau ,,
+Paramètre ,Libellé du paramètre ,Déscription 
+Tableau ,Facture moyenne mensuelle par client internet (trimestriel),
+frequence,Trimestrielle,
+Scenario ,Reel,
+Source ,ANRT,ANRT: Agence Nationale de Réglementation des Télécommunications
+Période disponible ,2010T4 - 2016T4,
+Date de dernière mise à jour ,2020-02-04 11:56:15.0,
+Description du tableau ,,
+,,
+,,
+Déscription de(s) l'indicateur(s) associé(s) ,,
+Indicateur ,Facture moyenne mensuelle par client,
+Unité,DHHT/mois/client,
+Echelle ,Unité,
+Axes Fixes ,Valeurs prises ,

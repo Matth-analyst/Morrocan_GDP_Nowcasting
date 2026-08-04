@@ -1,0 +1,17 @@
+﻿Déscription du Tableau ,,
+Paramètre ,Libellé du paramètre ,Déscription 
+Tableau ,Parc de la téléphonie mobile par opérateur (trimestriel),
+frequence,Trimestrielle,
+Scenario ,Reel,
+Source ,ANRT,ANRT: Agence Nationale de Réglementation des Télécommunications
+Période disponible ,2006T1 - 2025T1,
+Date de dernière mise à jour ,2025-06-12 15:12:44.0,
+Description du tableau ,,
+,,
+,,
+Déscription de(s) l'indicateur(s) associé(s) ,,
+Indicateur ,Parc de téléphone,
+Unité,Nombre,
+Echelle ,Mille,
+Axes Fixes ,Valeurs prises ,
+services télécom,Téléphone mobile,
