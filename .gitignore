@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# Fichiers temporaires Excel (verrous ouverts par l'application)
+~$*.xlsx
+
+# Sortie regenerable de graphify (graphe de connaissances)
+graphify-out/
