@@ -38,8 +38,8 @@ import numpy as np
 import pandas as pd
 from datetime import date
 
-IN = "/home/claude/parsed_branches_v2.pkl"
-OUT = "/home/claude/criteria_results.pkl"
+IN = "parsed_branches_v2.pkl"
+OUT = "criteria_results.pkl"
 
 TODAY = date(2026, 8, 11)  # date de référence pour le critère de fraîcheur
 

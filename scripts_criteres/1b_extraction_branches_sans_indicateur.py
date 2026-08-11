@@ -21,8 +21,8 @@ from datetime import date
 from openpyxl import load_workbook
 import pickle
 
-SRC = "/mnt/user-data/uploads/Etude_sectorielle_Maroc_2_complete.xlsx"
-OUT = "/home/claude/extra_branches.pkl"
+SRC = "Etude_sectorielle_Maroc_2_complete.xlsx"
+OUT = "extra_branches.pkl"
 
 EXTRA_BRANCHES = ["Administration publique", "Éducation-santé",
                    "Services aux entreprises", "Autres services"]
