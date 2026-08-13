@@ -51,17 +51,31 @@ theme_app <- bs_theme(
   "border-radius" = "0.6rem",
   "card-border-color" = "#E5E7EB"
 ) %>%
-  bs_add_rules("
+  # Palette explicite pour le mode sombre (Bootstrap 5.3, data-bs-theme="dark")
+  bs_add_rules('
+    [data-bs-theme="dark"] {
+      --bs-body-bg: #12161C;
+      --bs-body-color: #E5E7EB;
+      --bs-card-bg: #1A1F27;
+      --bs-border-color: #2B3038;
+    }
     .navbar-brand { font-weight: 700; letter-spacing: -0.02em; }
     .value-box-title { font-size: 0.82rem !important; opacity: 0.85; }
     .value-box-value { font-weight: 700 !important; }
     .card { box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
     .card-header { font-weight: 600; background-color: #F8FAFC !important; }
+    [data-bs-theme="dark"] .card-header { background-color: #20262F !important; }
     .badge-branche-couverte { background-color: #2E74B5; }
     .badge-branche-non-couverte { background-color: #7F7F7F; }
     .signe-atypique { color: #C00000; font-weight: 600; }
     footer.app-footer { color: #9CA3AF; font-size: 0.78rem; padding: 1.2rem 0; text-align: center; }
-  ")
+    [data-bs-theme="dark"] .dataTable { color: #E5E7EB; }
+    [data-bs-theme="dark"] table.dataTable thead th { color: #E5E7EB; }
+    [data-bs-theme="dark"] .form-control, [data-bs-theme="dark"] .form-select {
+      background-color: #1A1F27; color: #E5E7EB; border-color: #2B3038;
+    }
+    .bslib-dark-mode-toggle { color: #FFFFFF; }
+  ')
 
 # ----------------------------------------------------------------------------
 # CHARGEMENT DES DONNEES DE DEPART -- UNE SEULE FOIS PAR PROCESSUS R, PAS PAR
@@ -309,7 +323,11 @@ España) ; Miller & Chin (1996, FRB Minneapolis).
         tags$iframe(src = "Rapport_GDPNow_Maroc.pdf",
                      style = "width:100%; height:88vh; border:none;")
     )
-  )
+  ),
+
+  # ---------------------------------------------------------- MODE CLAIR/SOMBRE
+  nav_spacer(),
+  nav_item(input_dark_mode(id = "mode_sombre", mode = "light"))
 )
 
 # ============================================================================
@@ -327,6 +345,7 @@ server <- function(input, output, session) {
 
   output$table_sources_cibles <- renderDT({
     d <- donnees()
+    mg <- mode_graph()
     df <- tableau_sources_cibles(d$cibles, d$sources_cibles) %>%
       transmute(Branche = branche,
                 `Institution / source` = ifelse(is.na(source) | source == "", "Non renseignée", source),
@@ -334,9 +353,11 @@ server <- function(input, output, session) {
                 Début = lbl_trim(debut),
                 Fin = lbl_trim(fin),
                 `Nb obs.` = n)
+    couleurs_groupe <- if (mg$sombre) c("#1E3A5A", "#2A2E36") else c("#DDEBF7", "#F2F2F2")
     datatable(df, rownames = FALSE, filter = "top",
               options = list(pageLength = 16, dom = "tip"), class = "compact stripe") %>%
-      formatStyle("Groupe", backgroundColor = styleEqual(c("Couverte", "Non couverte"), c("#DDEBF7", "#F2F2F2")))
+      formatStyle("Groupe", backgroundColor = styleEqual(c("Couverte", "Non couverte"), couleurs_groupe),
+                  color = mg$fg)
   })
 
   output$table_sources_indicateurs <- renderDT({
@@ -394,6 +415,43 @@ server <- function(input, output, session) {
     updateSelectizeInput(session, "ajout_indicateur", choices = indics_branche, server = TRUE)
   })
 
+  # --- Couleurs des graphiques Plotly/ggplot, adaptees au mode clair/sombre -
+  # (input_dark_mode() ne change que le CSS du cote client ; les graphiques
+  # sont rendus cote serveur et doivent donc etre re-thematises explicitement
+  # a chaque bascule, sinon leur fond reste blanc en mode sombre)
+  mode_graph <- reactive({
+    sombre <- identical(input$mode_sombre, "dark")
+    list(
+      sombre = sombre,
+      fg = if (sombre) "#E5E7EB" else "#1F2937",
+      grille = if (sombre) "#333A44" else "#E5E7EB"
+    )
+  })
+
+  themer_plotly <- function(p) {
+    mg <- mode_graph()
+    p %>% layout(
+      paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+      font = list(color = mg$fg),
+      xaxis = list(gridcolor = mg$grille, zerolinecolor = mg$grille, color = mg$fg),
+      yaxis = list(gridcolor = mg$grille, zerolinecolor = mg$grille, color = mg$fg),
+      legend = list(font = list(color = mg$fg))
+    )
+  }
+
+  theme_gg_mode <- function() {
+    mg <- mode_graph()
+    theme(
+      panel.background = element_rect(fill = "transparent", color = NA),
+      plot.background = element_rect(fill = "transparent", color = NA),
+      legend.background = element_rect(fill = "transparent", color = NA),
+      legend.key = element_rect(fill = "transparent", color = NA),
+      panel.grid = element_line(color = mg$grille),
+      text = element_text(color = mg$fg),
+      axis.text = element_text(color = mg$fg)
+    )
+  }
+
   # --------------------------------------------------------------- DASHBOARD
   output$vb_nowcast <- renderText({
     req(resultats())
@@ -421,21 +479,26 @@ server <- function(input, output, session) {
       geom_col() + coord_flip() +
       scale_fill_manual(values = c("Couverte (bridge + BVAR)" = COULEUR_PRIMAIRE, "Non couverte (AR(4))" = COULEUR_SECONDAIRE)) +
       labs(x = NULL, y = "Contribution au Δlog du PIB", fill = NULL) +
-      theme_minimal(base_size = 11) + theme(legend.position = "top")
-    ggplotly(p, tooltip = "text") %>% layout(legend = list(orientation = "h", y = 1.08))
+      theme_minimal(base_size = 11) + theme(legend.position = "top") + theme_gg_mode()
+    themer_plotly(ggplotly(p, tooltip = "text")) %>% layout(legend = list(orientation = "h", y = 1.08))
   })
 
   output$plot_groupes <- renderPlotly({
     req(resultats())
+    mg <- mode_graph()
     df <- tibble(groupe = c("Couverte", "Non couverte"), n = c(length(BRANCHES_COUVERTES), length(BRANCHES_NON_COUVERTES)))
     plot_ly(df, labels = ~groupe, values = ~n, type = "pie", hole = 0.55,
-            marker = list(colors = c(COULEUR_PRIMAIRE, COULEUR_SECONDAIRE)),
-            textinfo = "label+value", showlegend = FALSE) %>%
-      layout(margin = list(l = 10, r = 10, t = 10, b = 10))
+            marker = list(colors = c(COULEUR_PRIMAIRE, COULEUR_SECONDAIRE),
+                          line = list(color = if (mg$sombre) "#12161C" else "#FFFFFF", width = 1)),
+            textinfo = "label+value", textfont = list(color = mg$fg), showlegend = FALSE) %>%
+      layout(margin = list(l = 10, r = 10, t = 10, b = 10),
+             paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+             font = list(color = mg$fg))
   })
 
   output$table_previsions <- renderDT({
     req(resultats())
+    mg <- mode_graph()
     df <- resultats()$nowcast$previsions %>%
       mutate(groupe = ifelse(branche %in% BRANCHES_COUVERTES, "Couverte", "Non couverte")) %>%
       transmute(Branche = branche, Groupe = groupe,
@@ -444,9 +507,11 @@ server <- function(input, output, session) {
                 `Part du PIB` = sprintf("%.1f%%", part*100),
                 `Contribution` = round(contribution, 5)) %>%
       arrange(desc(Contribution))
+    couleurs_groupe <- if (mg$sombre) c("#1E3A5A", "#2A2E36") else c("#DDEBF7", "#F2F2F2")
     datatable(df, rownames = FALSE, options = list(pageLength = 16, dom = "tip"),
               class = "compact stripe") %>%
-      formatStyle("Groupe", backgroundColor = styleEqual(c("Couverte", "Non couverte"), c("#DDEBF7", "#F2F2F2")))
+      formatStyle("Groupe", backgroundColor = styleEqual(c("Couverte", "Non couverte"), couleurs_groupe),
+                  color = mg$fg)
   })
 
   # --------------------------------------------------------------- EXPLORATION
@@ -458,26 +523,32 @@ server <- function(input, output, session) {
 
   output$plot_serie_branche <- renderPlotly({
     req(resultats())
+    mg <- mode_graph()
     df <- resultats()$cibles %>% filter(branche == input$explo_branche)
     y_var <- if (input$explo_transfo == "niveau") "va" else "dlog_va"
     df <- df %>% filter(!is.na(.data[[y_var]]))
     p <- ggplot(df, aes(date, .data[[y_var]])) +
-      geom_hline(yintercept = if (input$explo_transfo == "dlog") 0 else NA, color = "grey80") +
+      geom_hline(yintercept = if (input$explo_transfo == "dlog") 0 else NA, color = mg$grille) +
       geom_line(color = COULEUR_PRIMAIRE, linewidth = 0.6) +
       labs(x = NULL, y = if (input$explo_transfo == "niveau") "Mdh" else "Δlog",
            title = input$explo_branche) +
-      theme_minimal(base_size = 12)
-    ggplotly(p)
+      theme_minimal(base_size = 12) + theme_gg_mode()
+    themer_plotly(ggplotly(p))
   })
 
   output$plot_correlation <- renderPlotly({
     req(resultats())
+    mg <- mode_graph()
     mat_large <- resultats()$cibles %>% select(branche, date, dlog_va) %>%
       pivot_wider(names_from = branche, values_from = dlog_va) %>% arrange(date)
     mat_cor <- cor(mat_large[,-1], use = "pairwise.complete.obs")
+    fond_mediane <- if (mg$sombre) "#1A1F27" else "white"
     plot_ly(x = colnames(mat_cor), y = rownames(mat_cor), z = mat_cor, type = "heatmap",
-            colors = colorRamp(c(COULEUR_ACCENT, "white", COULEUR_PRIMAIRE)), zmin = -1, zmax = 1) %>%
-      layout(margin = list(l = 150, b = 150))
+            colors = colorRamp(c(COULEUR_ACCENT, fond_mediane, COULEUR_PRIMAIRE)), zmin = -1, zmax = 1) %>%
+      layout(margin = list(l = 150, b = 150),
+             paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+             font = list(color = mg$fg),
+             xaxis = list(color = mg$fg), yaxis = list(color = mg$fg))
   })
 
   output$plot_indicateurs_vs_cible <- renderPlotly({
@@ -490,8 +561,8 @@ server <- function(input, output, session) {
       scale_color_manual(values = c(`FALSE` = COULEUR_PRIMAIRE, `TRUE` = COULEUR_ALERTE)) +
       facet_wrap(~indicateur, scales = "free") +
       labs(x = "Δlog indicateur", y = "Δlog VA") +
-      theme_minimal(base_size = 10) + theme(legend.position = "none")
-    ggplotly(p, tooltip = "text")
+      theme_minimal(base_size = 10) + theme(legend.position = "none") + theme_gg_mode()
+    themer_plotly(ggplotly(p, tooltip = "text"))
   })
 
   # --------------------------------------------------------------- MODELE
@@ -564,8 +635,8 @@ server <- function(input, output, session) {
       geom_line(linewidth = 0.8) + geom_point(size = 2) +
       scale_color_manual(values = c("Modèle" = COULEUR_PRIMAIRE, "AR(2)" = COULEUR_ACCENT)) +
       labs(x = NULL, y = "Erreur absolue (Δlog)", color = NULL) +
-      theme_minimal(base_size = 11)
-    ggplotly(p)
+      theme_minimal(base_size = 11) + theme_gg_mode()
+    themer_plotly(ggplotly(p))
   })
 
   # --------------------------------------------------------------- AJOUT DE DONNEES
@@ -614,6 +685,13 @@ server <- function(input, output, session) {
               format(resultats()$date_maj, "%d/%m/%Y %H:%M"),
               nrow(resultats()$cibles), nrow(resultats()$indicateurs)))
   })
+
+  # Les tableaux de la page Sources doivent etre a jour des l'ouverture de
+  # l'app (et pas seulement calcules la premiere fois que l'onglet devient
+  # visible), notamment pour que le theme clair/sombre choisi des le depart
+  # s'y applique immediatement.
+  outputOptions(output, "table_sources_cibles", suspendWhenHidden = FALSE)
+  outputOptions(output, "table_sources_indicateurs", suspendWhenHidden = FALSE)
 }
 
 shinyApp(ui, server)
