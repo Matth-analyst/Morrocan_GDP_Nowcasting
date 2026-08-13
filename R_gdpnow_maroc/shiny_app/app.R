@@ -73,7 +73,8 @@ charger_donnees_completes <- function() {
   ajouts_indicateurs <- if (file.exists(CHEMIN_AJOUTS_INDICATEURS)) {
     read.csv(CHEMIN_AJOUTS_INDICATEURS, stringsAsFactors = FALSE) %>% mutate(date = as.Date(date))
   } else NULL
-  fusionner_donnees_ajoutees(base$cibles, base$indicateurs, ajouts_cibles, ajouts_indicateurs)
+  fusion <- fusionner_donnees_ajoutees(base$cibles, base$indicateurs, ajouts_cibles, ajouts_indicateurs)
+  c(fusion, list(sources_cibles = base$sources_cibles))
 }
 
 # ============================================================================
@@ -272,6 +273,31 @@ Fernández Cerezo (2023, Banco de España) pour le critère de corrélation.
 España) ; Miller & Chin (1996, FRB Minneapolis).
       ")
     )
+  ),
+
+  # ---------------------------------------------------------- SOURCES
+  nav_panel(
+    title = "Sources", icon = icon("database"),
+    p(class = "text-muted",
+      "Institution productrice, période couverte et statut de chaque série utilisée par le modèle ",
+      "— variables cibles (valeur ajoutée par branche) et indicateurs infra-annuels."),
+    card(
+      card_header("Variables cibles (valeur ajoutée par branche, 16 séries)"),
+      DTOutput("table_sources_cibles")
+    ),
+    card(
+      card_header("Indicateurs infra-annuels utilisés dans les équations de passerelle (41 séries)"),
+      DTOutput("table_sources_indicateurs")
+    )
+  ),
+
+  # ---------------------------------------------------------- RAPPORT
+  nav_panel(
+    title = "Rapport", icon = icon("file-pdf"),
+    div(style = "margin: -0.75rem -0.75rem 0 -0.75rem;",
+        tags$iframe(src = "Rapport_GDPNow_Maroc.pdf",
+                     style = "width:100%; height:88vh; border:none;")
+    )
   )
 )
 
@@ -284,6 +310,38 @@ server <- function(input, output, session) {
   donnees <- reactiveVal(charger_donnees_completes())
   resultats <- reactiveVal(NULL)
   backtest_res <- reactiveVal(NULL)
+
+  # --------------------------------------------------------------- SOURCES
+  lbl_trim <- function(d) sprintf("T%d-%d", (month(d)-1)%/%3 + 1, year(d))
+
+  output$table_sources_cibles <- renderDT({
+    d <- donnees()
+    df <- tableau_sources_cibles(d$cibles, d$sources_cibles) %>%
+      transmute(Branche = branche,
+                `Institution / source` = ifelse(is.na(source) | source == "", "Non renseignée", source),
+                Groupe = ifelse(couverte, "Couverte", "Non couverte"),
+                Début = lbl_trim(debut),
+                Fin = lbl_trim(fin),
+                `Nb obs.` = n)
+    datatable(df, rownames = FALSE, filter = "top",
+              options = list(pageLength = 16, dom = "tip"), class = "compact stripe") %>%
+      formatStyle("Groupe", backgroundColor = styleEqual(c("Couverte", "Non couverte"), c("#DDEBF7", "#F2F2F2")))
+  })
+
+  output$table_sources_indicateurs <- renderDT({
+    d <- donnees()
+    df <- tableau_sources_indicateurs(d$indicateurs) %>%
+      transmute(Branche = branche, Indicateur = indicateur,
+                `Institution / source` = ifelse(is.na(source) | source == "", "Non renseignée", source),
+                Fréquence = str_to_sentence(frequence),
+                Début = format(debut, "%Y-%m"), Fin = format(fin, "%Y-%m"),
+                `Nb obs.` = n,
+                `Signe atypique` = ifelse(signe_atypique, "Oui", ""))
+    datatable(df, rownames = FALSE, filter = "top",
+              options = list(pageLength = 15, dom = "tip"), class = "compact stripe") %>%
+      formatStyle("Signe atypique", color = styleEqual("Oui", COULEUR_ALERTE),
+                  fontWeight = styleEqual("Oui", "bold"))
+  })
 
   recalculer <- function() {
     d <- isolate(donnees())

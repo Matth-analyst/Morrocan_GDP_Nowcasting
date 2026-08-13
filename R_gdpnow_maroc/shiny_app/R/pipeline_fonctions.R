@@ -85,7 +85,30 @@ lire_feuille_branche <- function(chemin, nom_feuille) {
 importer_donnees <- function(chemin_classeur) {
   brut <- map(TOUTES_BRANCHES, ~ lire_feuille_branche(chemin_classeur, .x))
   names(brut) <- TOUTES_BRANCHES
-  list(cibles = map_dfr(brut, "cible"), indicateurs = map_dfr(brut, "indicateurs"))
+  sources_cibles <- tibble(branche = TOUTES_BRANCHES,
+                            source = map_chr(brut, ~ as.character(.x$source_cible %||% NA)))
+  list(cibles = map_dfr(brut, "cible"), indicateurs = map_dfr(brut, "indicateurs"),
+       sources_cibles = sources_cibles)
+}
+
+`%||%` <- function(a, b) if (is.null(a) || length(a) == 0 || is.na(a)) b else a
+
+#' Tableau de synthese des sources des variables cibles (une ligne par branche)
+tableau_sources_cibles <- function(cibles, sources_cibles) {
+  cibles %>% group_by(branche) %>%
+    summarise(debut = min(date), fin = max(date), n = n(), .groups = "drop") %>%
+    left_join(sources_cibles, by = "branche") %>%
+    mutate(couverte = branche %in% BRANCHES_COUVERTES) %>%
+    arrange(match(branche, TOUTES_BRANCHES))
+}
+
+#' Tableau de synthese des sources des indicateurs infra-annuels (une ligne par serie)
+tableau_sources_indicateurs <- function(indicateurs) {
+  if (is.null(indicateurs) || nrow(indicateurs) == 0) return(tibble())
+  indicateurs %>%
+    group_by(branche, indicateur, source, frequence, signe_atypique) %>%
+    summarise(debut = min(date), fin = max(date), n = n(), .groups = "drop") %>%
+    arrange(match(branche, TOUTES_BRANCHES), indicateur)
 }
 
 #' Fusionne les donnees importees avec des observations ajoutees manuellement
