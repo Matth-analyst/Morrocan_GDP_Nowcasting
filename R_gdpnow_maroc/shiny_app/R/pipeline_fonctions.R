@@ -82,6 +82,8 @@ lire_feuille_branche <- function(chemin, nom_feuille) {
 }
 
 #' Importe l'integralite du classeur (cibles + indicateurs, toutes branches)
+#' Operation couteuse (~9s, 16 feuilles Excel) : a n'appeler qu'une fois par
+#' processus R, jamais par session utilisateur -- voir importer_donnees_avec_cache().
 importer_donnees <- function(chemin_classeur) {
   brut <- map(TOUTES_BRANCHES, ~ lire_feuille_branche(chemin_classeur, .x))
   names(brut) <- TOUTES_BRANCHES
@@ -89,6 +91,21 @@ importer_donnees <- function(chemin_classeur) {
                             source = map_chr(brut, ~ as.character(.x$source_cible %||% NA)))
   list(cibles = map_dfr(brut, "cible"), indicateurs = map_dfr(brut, "indicateurs"),
        sources_cibles = sources_cibles)
+}
+
+#' Meme resultat que importer_donnees(), mais met en cache sur disque (.rds)
+#' et ne relit le classeur Excel que si celui-ci a ete modifie depuis le
+#' dernier cache -- evite de payer ~9s de lecture Excel a chaque redemarrage
+#' du serveur (et plus jamais par session, cf. app.R qui n'appelle ceci
+#' qu'une fois, au niveau module, avant shinyApp()).
+importer_donnees_avec_cache <- function(chemin_classeur, chemin_cache) {
+  if (file.exists(chemin_cache) &&
+      file.info(chemin_cache)$mtime > file.info(chemin_classeur)$mtime) {
+    return(readRDS(chemin_cache))
+  }
+  res <- importer_donnees(chemin_classeur)
+  saveRDS(res, chemin_cache)
+  res
 }
 
 `%||%` <- function(a, b) if (is.null(a) || length(a) == 0 || is.na(a)) b else a

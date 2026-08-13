@@ -27,6 +27,7 @@ suppressMessages({
 source("R/pipeline_fonctions.R")
 
 CHEMIN_CLASSEUR <- "data/Series_retenues_modelisation.xlsx"
+CHEMIN_CACHE_IMPORT <- "data/.cache_import_base.rds"
 CHEMIN_AJOUTS_CIBLES <- "data/ajouts_cibles.csv"
 CHEMIN_AJOUTS_INDICATEURS <- "data/ajouts_indicateurs.csv"
 
@@ -44,8 +45,8 @@ theme_app <- bs_theme(
   bg = "#FBFCFD", fg = "#1F2937",
   primary = COULEUR_PRIMAIRE, secondary = COULEUR_SECONDAIRE,
   success = COULEUR_OK, danger = COULEUR_ALERTE, warning = COULEUR_ACCENT,
-  base_font = font_google("Inter", local = FALSE),
-  heading_font = font_google("Inter", wght = 600, local = FALSE),
+  base_font = font_google("Inter", local = TRUE),
+  heading_font = font_google("Inter", wght = 600, local = TRUE),
   "navbar-bg" = COULEUR_PRIMAIRE,
   "border-radius" = "0.6rem",
   "card-border-color" = "#E5E7EB"
@@ -63,18 +64,28 @@ theme_app <- bs_theme(
   ")
 
 # ----------------------------------------------------------------------------
-# CHARGEMENT DES DONNEES DE DEPART (au demarrage de l'app)
+# CHARGEMENT DES DONNEES DE DEPART -- UNE SEULE FOIS PAR PROCESSUS R, PAS PAR
+# SESSION UTILISATEUR. La lecture du classeur Excel (16 feuilles) coute ~9s ;
+# la relancer a chaque connexion est ce qui rendait l'app lente a charger.
+# Ici, DONNEES_BASE et RESULTATS_BASE sont calcules une seule fois, au niveau
+# module (avant shinyApp()), et partages par toutes les sessions.
 # ----------------------------------------------------------------------------
+DONNEES_BASE <- importer_donnees_avec_cache(CHEMIN_CLASSEUR, CHEMIN_CACHE_IMPORT)
+RESULTATS_BASE <- executer_pipeline_complet(DONNEES_BASE$cibles, DONNEES_BASE$indicateurs)
+
+#' Fusionne les donnees de base (deja chargees en memoire, cf. DONNEES_BASE)
+#' avec les eventuelles observations ajoutees manuellement via l'app -- ne
+#' relit jamais le classeur Excel, operation rapide (quelques ms).
 charger_donnees_completes <- function() {
-  base <- importer_donnees(CHEMIN_CLASSEUR)
   ajouts_cibles <- if (file.exists(CHEMIN_AJOUTS_CIBLES)) {
     read.csv(CHEMIN_AJOUTS_CIBLES, stringsAsFactors = FALSE) %>% mutate(date = as.Date(date))
   } else NULL
   ajouts_indicateurs <- if (file.exists(CHEMIN_AJOUTS_INDICATEURS)) {
     read.csv(CHEMIN_AJOUTS_INDICATEURS, stringsAsFactors = FALSE) %>% mutate(date = as.Date(date))
   } else NULL
-  fusion <- fusionner_donnees_ajoutees(base$cibles, base$indicateurs, ajouts_cibles, ajouts_indicateurs)
-  c(fusion, list(sources_cibles = base$sources_cibles))
+  fusion <- fusionner_donnees_ajoutees(DONNEES_BASE$cibles, DONNEES_BASE$indicateurs,
+                                       ajouts_cibles, ajouts_indicateurs)
+  c(fusion, list(sources_cibles = DONNEES_BASE$sources_cibles))
 }
 
 # ============================================================================
@@ -345,13 +356,24 @@ server <- function(input, output, session) {
 
   recalculer <- function() {
     d <- isolate(donnees())
-    withProgress(message = "Recalcul du modèle en cours...", value = 0.3, {
-      res <- executer_pipeline_complet(d$cibles, d$indicateurs)
-      incProgress(0.7)
-      resultats(res)
-    })
+    # Si aucune observation n'a ete ajoutee manuellement, les donnees sont
+    # identiques a DONNEES_BASE : on reutilise le pipeline deja calcule au
+    # demarrage du serveur (RESULTATS_BASE) au lieu de le relancer, ce qui
+    # rend le chargement quasi instantane pour l'immense majorite des
+    # sessions (aucun ajout n'a encore ete fait).
+    aucun_ajout <- nrow(d$cibles) == nrow(DONNEES_BASE$cibles) &&
+                   nrow(d$indicateurs) == nrow(DONNEES_BASE$indicateurs)
+    if (aucun_ajout) {
+      resultats(RESULTATS_BASE)
+    } else {
+      withProgress(message = "Recalcul du modèle en cours...", value = 0.3, {
+        res <- executer_pipeline_complet(d$cibles, d$indicateurs)
+        incProgress(0.7)
+        resultats(res)
+      })
+    }
   }
-  isolate(recalculer())  # calcul initial au demarrage
+  isolate(recalculer())  # instantane au demarrage (reutilise RESULTATS_BASE)
 
   # --- Mise a jour dynamique du selecteur de trimestre pour l'ajout de cible
   observe({
