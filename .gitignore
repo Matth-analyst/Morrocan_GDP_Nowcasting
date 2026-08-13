@@ -7,6 +7,9 @@ __pycache__/
 
 # Sortie regenerable de graphify (graphe de connaissances)
 graphify-out/
-.claude/
+
 # Cache de l'app Shiny (regenere automatiquement depuis le classeur source)
 R_gdpnow_maroc/shiny_app/data/.cache_*.rds
+
+# Configuration locale de l'outil Claude Code (specifique a la machine)
+.claude/
