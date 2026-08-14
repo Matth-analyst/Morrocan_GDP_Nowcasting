@@ -1,5 +1,10 @@
 # GDPNow-Maroc — Pipeline de nowcasting sectoriel du PIB (R)
 
+> ⚠️ **Errata (14/08/2026)** — Une erreur d'alignement des dates a été
+> détectée et corrigée dans le classeur source `Series_retenues_modelisation.xlsx`.
+> Voir la section « Errata » en bas de ce document pour le détail complet
+> (cause, portée, impact sur les résultats).
+
 Implémentation complète, en R, du modèle de nowcasting sectoriel du PIB marocain,
 adapté du modèle GDPNow de la Federal Reserve Bank d'Atlanta (Higgins, 2014) à
 une logique offre (production par branche d'activité) plutôt que demande.
@@ -127,3 +132,107 @@ le PIB total, avec test de Diebold-Mariano.
    (cf. figure `02_croissance_toutes_branches.png`) — aucune variable
    indicatrice de rupture structurelle n'a été introduite dans le BVAR,
    ce qui peut affecter l'estimation du prior et des écarts-types.
+
+## Errata (14/08/2026)
+
+**Le problème.** Dans le classeur `Series_retenues_modelisation.xlsx`,
+lorsqu'une branche avait plusieurs indicateurs de même fréquence (par
+exemple les 6 séries mensuelles de la branche Pêche), une seule colonne
+de dates était partagée entre eux, remplie « si la cellule est vide ».
+Or différents indicateurs d'une même branche n'ont pas forcément
+exactement le même nombre d'observations ni la même couverture
+temporelle (155 à 173 mois selon la série, pour la Pêche). Résultat :
+au-delà du point où les séries divergeaient, les valeurs se
+retrouvaient silencieusement alignées sur de mauvaises dates.
+
+**Portée.** Toutes les branches couvertes ayant plus d'un indicateur de
+même fréquence étaient concernées (Pêche, Industrie de transformation,
+Électricité-gaz-eau, Immobilier, Finances et assurances). Les branches à
+un seul indicateur (Industrie d'extraction, Hébergement-restauration)
+n'étaient pas affectées, faute de partage possible.
+
+**Ce qui N'était PAS affecté.** La sélection des 41 séries elle-même et
+leurs coefficients de corrélation affichés (calculés en Python à partir
+de vraies paires date/valeur, jamais via le classeur Excel) restent
+corrects et inchangés. Seul l'export Excel, et tout ce qui en a été
+recalculé côté R (bridge equations, backtest, figures), était concerné.
+
+**Correction.** Chaque indicateur dispose désormais de sa propre colonne
+de dates dédiée, immédiatement à sa gauche — plus aucun partage. Vérifié
+systématiquement sur les 7 branches couvertes après correction : toutes
+les séquences de dates sont strictement croissantes.
+
+**Impact sur les résultats.** Le pipeline complet a été relancé avec les
+données corrigées. Le nowcast agrégé du PIB reste inchangé
+(+0,86 %), mais un résultat intermédiaire a changé : le poids δ (BVAR)
+de la branche Finances et assurances passe de 0,06 à 0,00 (la bridge
+equation, recalculée sur des données désormais correctement alignées,
+explique légèrement moins bien la cible qu'estimé précédemment). Le
+RMSFE du backtest est quasiment inchangé (0,0074 contre 0,0067 pour
+l'AR(2), p-value du test de Diebold-Mariano à 0,238 contre 0,236
+précédemment).
+
+### Deuxième correction (même jour) — valeurs manquantes rendues visibles
+
+**Le problème.** Une fois le premier bug corrigé (une colonne de dates
+dédiée par indicateur), un second défaut est apparu : les mois ou
+trimestres sans valeur observée étaient simplement **absents** de la
+séquence plutôt que représentés par une cellule vide. Par exemple, pour
+l'indicateur AINBIDA (branche Pêche), la séquence de dates passait
+directement de 2010-10 à 2011-02, sans qu'aucune trace ne signale que
+novembre 2010, décembre 2010 et janvier 2011 étaient des mois sans
+donnée — un lecteur pouvait à tort penser que la série était continue à
+cet endroit.
+
+**Vérification effectuée.** Les valeurs elles-mêmes (10, 10, 25796, 3...)
+ont été confrontées au fichier source brut de l'Office National des
+Pêches (`Débarquements des produits de la pêche côtière et artisanale
+par port en quantité (mensuel).csv`) et se sont révélées exactes — le
+problème ne portait donc que sur la représentation des trous, pas sur
+les valeurs elles-mêmes.
+
+**Correction.** Chaque indicateur affiche désormais un calendrier
+**complet et continu** (mois par mois, ou trimestre par trimestre, du
+premier au dernier point observé), avec une **cellule vide, surlignée en
+orange clair**, pour chaque période sans donnée. Le nombre exact de
+périodes manquantes est indiqué en toutes lettres dans la ligne source
+de chaque indicateur (ex. « 34 mois manquants sur 189 » pour AINBIDA).
+
+**Impact sur les résultats.** Aucun — les valeurs et leurs dates réelles
+étaient déjà correctes après la première correction ; seule leur mise en
+forme dans le classeur a changé. Le pipeline R a été relancé par
+précaution : résultats strictement identiques à ceux de la première
+correction.
+
+### Troisième vérification (même jour) — audit systématique des 41 séries
+
+À la demande explicite de l'utilisateur, les 41 séries retenues ont été
+recomparées une par une à leurs fichiers sources bruts (Manar-Stat, Bank
+Al-Maghrib, Office National des Pêches), au-delà du seul cas d'AINBIDA
+déjà traité.
+
+**Résultat** : 40 séries sur 41 correctement extraites (valeurs et
+nombre d'observations strictement conformes à la source). **Une
+troisième erreur, distincte des deux premières, a été trouvée et
+corrigée** :
+
+- **Recettes touristiques (branche Hébergement-restauration)** : la
+  série extraite était **tronquée** à 217 observations (2007-12 à
+  2025-12), alors que la source réelle (`Tourisme.xlsx`) remonte à
+  **1994-01**, soit 381 observations disponibles — 164 points d'historique
+  perdus (43 %), sans lien avec les deux bugs précédents. Corrigé en
+  ré-extrayant directement depuis le fichier source. La corrélation à la
+  cible a été recalculée sur la série complète (r passe de +0,44 à
+  +0,36, toujours largement au-dessus du seuil de rétention de 0,25).
+
+**Impact sur les résultats.** Léger mais réel : le nowcast agrégé passe
+de +0,86 % à **+0,85 %**, et le poids δ (BVAR) de la branche
+Hébergement-restauration passe de 0,24 à 0,34 (la bridge equation,
+disposant désormais de 17 ans d'historique supplémentaire, explique
+mieux la cible qu'avant).
+
+**Ce qui n'a pas pu être vérifié de façon exhaustive** : les 3 séries
+IPAI (branche Immobilier) n'ont pas été re-confrontées à leurs bulletins
+PDF sources dans cette passe — elles avaient déjà fait l'objet d'une
+vérification et de plusieurs corrections dédiées, documentées
+séparément, lors de leur extraction initiale.
