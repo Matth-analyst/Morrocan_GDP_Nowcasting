@@ -78,7 +78,7 @@ def lire_ipai():
                     v = float(t)
                 except ValueError:
                     continue
-                agg[(f'IPAI {cat} — {ind} [{suff}]',)][k] = v
+                agg[(f'IPAI {cat} : {ind} [{suff}]',)][k] = v
     out = []
     for (nom,), vals in agg.items():
         if len(vals) >= 8:
@@ -135,7 +135,7 @@ def deja_utilisees(wb2):
         return vus
     for r in wb2['Audit'].iter_rows(min_row=2, values_only=True):
         if r and r[2] and r[3]:
-            vus.add((Path(str(r[2]).split('—')[-1].strip()).name, str(r[3]).strip()))
+            vus.add((Path(str(r[2]).split(':')[-1].strip()).name, str(r[3]).strip()))
             vus.add(str(r[3]).strip())
     return vus
 
@@ -264,12 +264,12 @@ def main():
         for k, s in va.items():
             if k.startswith(sansacc(lib_va)[:24]):
                 cible = dict(s)
-                cible['serie'] = 'VA %s — base 2014 rétropolée (MDH)' % nom
+                cible['serie'] = 'VA %s : base 2014 rétropolée (MDH)' % nom
                 break
         if cible:
             trim.insert(0, cible)
 
-        ws.cell(2, depart).value = ('AJOUTS issus du data lake — non presents dans '
+        ws.cell(2, depart).value = ('AJOUTS issus du data lake : non presents dans '
                                     'la version precedente')
         ws.cell(2, depart).font = F_TITRE
 
@@ -281,7 +281,7 @@ def main():
 
         fin = depart
         if trim:
-            fin = ecrire_bloc(ws, depart, 'AJOUTS — INDICATEURS TRIMESTRIELS',
+            fin = ecrire_bloc(ws, depart, 'AJOUTS : INDICATEURS TRIMESTRIELS',
                               BL_T, H_T, 'Trimestre', etendue(trim, per_t_all), trim)
             for s in trim:
                 o = sorted(s['valeurs'])
@@ -289,7 +289,7 @@ def main():
                                s['fichier'], o[0], o[-1], len(o)])
         if mens:
             c0 = fin + 2
-            fin = ecrire_bloc(ws, c0, 'AJOUTS — INDICATEURS MENSUELS',
+            fin = ecrire_bloc(ws, c0, 'AJOUTS : INDICATEURS MENSUELS',
                               BL_M, H_M, 'Mois', etendue(mens, per_m_all), mens)
             for s in mens:
                 o = sorted(s['valeurs'])
@@ -323,7 +323,7 @@ def main():
         if ann:
             c0 = fin + 2
             annees = sorted({a for s in ann for a in s['valeurs']})
-            fin = ecrire_bloc(ws, c0, 'BLOC ANNUEL — calage et désagrégation'
+            fin = ecrire_bloc(ws, c0, 'BLOC ANNUEL : calage et désagrégation'
                               + (' (%d autres séries non retenues)' % trop if trop else ''),
                               BL_A, H_A, 'Année', annees, ann)
             for s in ann:

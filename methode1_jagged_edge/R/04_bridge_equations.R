@@ -214,7 +214,7 @@ p6 <- ggplot(df_delta, aes(branche, poids, fill = composante)) +
   geom_col(position = "stack") + coord_flip() +
   scale_fill_manual(values = c("BVAR" = "#7F7F7F", "Bridge equation" = "#2E74B5")) +
   labs(title = "Pondération BVAR vs. équation de passerelle, par branche",
-       subtitle = "Avec traitement du jagged edge (lissage de Kalman) — poids optimal en échantillon",
+       subtitle = "Avec traitement du jagged edge (lissage de Kalman) : poids optimal en échantillon",
        x = NULL, y = "Poids", fill = NULL)
 ggsave(file.path(DOSSIER_FIGURES, "06_poids_bvar_vs_bridge.png"), p6, width = 8, height = 5, dpi = 150)
 

@@ -1,4 +1,4 @@
-# Note méthodologique complète — Méthode 2 (MIDAS)
+# Note méthodologique complète : Méthode 2 (MIDAS)
 
 Document autonome. **Version 2** : critères recalculés et rejustifiés
 individuellement, en cohérence avec la révision faite pour la Méthode 1.
@@ -12,33 +12,33 @@ individuellement, en cohérence avec la révision faite pour la Méthode 1.
 
 $$\Delta\log(VA)_t = \beta_0 + \beta_1 m_{1,t} + \beta_2 m_{2,t} + \beta_3 m_{3,t} + \varepsilon_t$$
 
-**k = 3 prédicteurs** (hors constante) — ce nombre encadre toute la
+**k = 3 prédicteurs** (hors constante) : ce nombre encadre toute la
 sélection ci-dessous, et la distingue structurellement de la Méthode 1
 (k=1).
 
 ---
 
-## 2. Critère de sélection dédié — chaque seuil justifié
+## 2. Critère de sélection dédié : chaque seuil justifié
 
 | # | Critère | Seuil |
 |---|---|---|
 | 1 | Fréquence | Mensuelle uniquement (structurel : MIDAS exige m1,m2,m3) |
 | 2 | Longueur brute (pré-filtre) | ≥ 12 observations natives |
 | 3 | Fraîcheur | ≤ 450 jours |
-| 4 | Densité interne | ≥ 80 % (Schulz & Grimes, 2002 — identique Méthode 1) |
+| 4 | Densité interne | ≥ 80 % (Schulz & Grimes, 2002 : identique Méthode 1) |
 | 5 | Pertinence statistique | Test F joint (α=0,10) **et** R² ≥ 0,05, sur ≥ 14 trimestres complets |
 
-### Critère 5 en détail — pourquoi 14 trimestres, pas 12
+### Critère 5 en détail : pourquoi 14 trimestres, pas 12
 
 Même logique que la Méthode 1 (n − k − 1 ≥ 10 degrés de liberté
 résiduels), mais **k=3 ici, pas k=1**. La version précédente de ce critère
-avait été recopiée de la Méthode 1 sans être adaptée — avec seulement 12
+avait été recopiée de la Méthode 1 sans être adaptée : avec seulement 12
 trimestres et 4 paramètres à estimer (3 coefficients + constante), il ne
 restait que 8 degrés de liberté, insuffisant. Corrigé : **n ≥ 14
 trimestres** (14 − 3 − 1 = 10).
 
 **Pourquoi pas la règle de Green (1991)** : pour k=3, elle imposerait
-N ≥ 107 — mais en **trimestres**, ce qui correspondrait à environ 27 ans
+N ≥ 107 : mais en **trimestres**, ce qui correspondrait à environ 27 ans
 de données mensuelles *sans le moindre trou*, une exigence qu'aucune de
 nos séries n'atteint. Comme pour la Méthode 1, cette règle (conçue pour
 des contextes d'enquête) est explicitement écartée au profit d'un plancher
@@ -60,7 +60,7 @@ valide un modèle au pouvoir explicatif dérisoire.
 
 ---
 
-## 3. Résultat de la sélection — 37 séries
+## 3. Résultat de la sélection : 37 séries
 
 | Branche | Séries Méthode 1 (bridge, k=1) | Séries Méthode 2 (MIDAS, k=3) |
 |---|---|---|
@@ -75,7 +75,7 @@ valide un modèle au pouvoir explicatif dérisoire.
 
 ---
 
-## 4. Jagged edge — identique à la Méthode 1
+## 4. Jagged edge : identique à la Méthode 1
 
 Même mécanisme (lissage de Kalman) pour reconstruire chaque indicateur
 sur un calendrier mensuel complet avant de construire m1/m2/m3.
@@ -89,7 +89,7 @@ bridge+BVAR déjà combinée de la Méthode 1.
 
 ---
 
-## 6. Résultat — signal d'alerte confirmé après la révision des critères
+## 6. Résultat : signal d'alerte confirmé après la révision des critères
 
 | | Méthode 1 | Méthode 2 (MIDAS) |
 |---|---|---|
@@ -98,7 +98,7 @@ bridge+BVAR déjà combinée de la Méthode 1.
 | RMSFE repère AR(2) | 0,0067 | 0,0067 |
 | Diebold-Mariano | p=0,394 (non significatif) | **p=0,096 (significatif, en défaveur de MIDAS)** |
 
-**Résultat inchangé après la révision des critères** — la correction du
+**Résultat inchangé après la révision des critères** : la correction du
 seuil de trimestres (12→14) et de densité (75%→80%) n'a pas modifié la
 composition des 37 séries de façon significative. La sous-performance de
 MIDAS n'était donc pas un artefact d'un seuil mal calibré : c'est un
@@ -106,7 +106,7 @@ résultat robuste à cette révision.
 
 **Explication la plus probable** (Foroni, Marcellino & Schumacher, 2015) :
 le U-MIDAS (3 coefficients libres, non contraints) expose à un
-sur-ajustement en échantillon sur des séries courtes — une spécification
+sur-ajustement en échantillon sur des séries courtes : une spécification
 contrainte (Almon) réduirait probablement ce risque, non implémentée ici.
 
 ---
@@ -176,7 +176,7 @@ contrainte (Almon) réduirait probablement ce risque, non implémentée ici.
 4. Aucun suivi du signe économique des coefficients m1/m2/m3
 5. α=0,10 et R²≥0,05 restent des choix assumés, non dérivés d'une règle externe
 
-## 10. Mise à jour finale — spécification Almon implémentée et testée
+## 10. Mise à jour finale : spécification Almon implémentée et testée
 
 La piste recommandée en section 9 a été mise en œuvre : remplacement des 3
 coefficients libres (β1, β2, β3, U-MIDAS) par une contrainte d'Almon de
@@ -195,13 +195,13 @@ soit 2 paramètres au lieu de 3.
 **Amélioration réelle, conforme au diagnostic** (Foroni, Marcellino &
 Schumacher, 2015) : contraindre les coefficients réduit bien le
 sur-ajustement. MIDAS n'est plus prouvé significativement pire que l'AR(2)
-— mais reste, en valeur absolue, moins précis que la Méthode 1 (RMSFE
+: mais reste, en valeur absolue, moins précis que la Méthode 1 (RMSFE
 0,0065) dans toutes les configurations testées, y compris en combinaison.
 
 ## 11. Recommandation finale
 
 **Conserver la spécification Almon** comme version de référence de MIDAS
 si cette méthode doit être présentée, mais **retenir la Méthode 1 comme
-modèle principal** — MIDAS reste, dans toutes les configurations testées
+modèle principal** : MIDAS reste, dans toutes les configurations testées
 (seule, combinée, U-MIDAS ou Almon), la méthode la moins performante des
 trois.

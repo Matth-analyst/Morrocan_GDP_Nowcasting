@@ -8,8 +8,8 @@ Uniformise la signalisation visuelle de la fiabilite des donnees :
 
 Statuts -> couleur :
   'oui'                                          -> aucune couleur (donnee normale)
-  'oui — réaligné'                                -> bleu (DDEBF7) : date corrigee pendant l'audit
-  'confirmé par l’auteur — date non vérifiée'     -> orange (FFE699) : source confirmee par
+  'oui : réaligné'                                -> bleu (DDEBF7) : date corrigee pendant l'audit
+  'confirmé par l’auteur : date non vérifiée'     -> orange (FFE699) : source confirmee par
                                                       l'auteur de BDD SECTORIEL, alignement
                                                       des dates non verifiable faute de fichier
                                                       primaire retrouve
@@ -31,7 +31,7 @@ BLEU = PatternFill('solid', fgColor='DDEBF7')
 ORANGE = PatternFill('solid', fgColor='FFE699')
 GRIS = PatternFill('solid', fgColor='D9D9D9')
 
-STATUT_CONFIRME = 'confirmé par l’auteur — date non vérifiée'
+STATUT_CONFIRME = 'confirmé par l’auteur : date non vérifiée'
 
 
 def couleur_pour(statut):
@@ -108,8 +108,8 @@ def main():
     entetes = [
         ('Légende des couleurs', None, Font(bold=True, size=11)),
         ('Vérifiée (valeur + date confirmées dans la data lake)', BLANC, None),
-        ('Vérifiée — réalignée (date corrigée pendant l’audit)', BLEU, None),
-        ('Confirmée par l’auteur — alignement non vérifiable', ORANGE, None),
+        ('Vérifiée : réalignée (date corrigée pendant l’audit)', BLEU, None),
+        ('Confirmée par l’auteur : alignement non vérifiable', ORANGE, None),
         ('Reconstruite (chaînage / recalcul, pas une série brute)', GRIS, None),
     ]
     for i, (texte, fill, font) in enumerate(entetes):

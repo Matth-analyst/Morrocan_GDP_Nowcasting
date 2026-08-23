@@ -92,7 +92,7 @@ def freq_std(v):
         return 'Semestrielle'
     if 'annuel' in f:
         return 'Annuelle'
-    return '—'
+    return ':'
 
 
 def periode_std(v, freq):
@@ -133,7 +133,7 @@ def freq_depuis_periode(p):
         return 'Campagne agricole'
     if re.fullmatch(r'\d{4}', s):
         return 'Annuelle'
-    return '—'
+    return ':'
 
 
 def annee_de(p):
@@ -180,7 +180,7 @@ def creer_feuilles(wb, lake, annuel, alt_pib, va):
         if nom in wb.sheetnames:
             del wb[nom]
         ws = wb.create_sheet(nom[:31])
-        ws.cell(1, 1).value = 'BRANCHE — %s' % nom
+        ws.cell(1, 1).value = 'BRANCHE : %s' % nom
         ws.cell(1, 1).font = F_TITRE
         ws.sheet_view.showGridLines = False
 
@@ -197,7 +197,7 @@ def creer_feuilles(wb, lake, annuel, alt_pib, va):
             for s in va.values():
                 if sansacc(s['serie']).startswith(sansacc(lib)[:20]):
                     d = dict(s)
-                    d['serie'] = 'VA %s — base 2014 rétropolée (MDH)' % nom
+                    d['serie'] = 'VA %s : base 2014 rétropolée (MDH)' % nom
                     cibles.append(d)
                     break
             ws.cell(2, 1).value = ('Branche des comptes nationaux absente de la '
@@ -238,7 +238,7 @@ def creer_feuilles(wb, lake, annuel, alt_pib, va):
         if ind:
             c0 = fin + 2
             annees = sorted({a for s in ind for a in s['valeurs']})
-            ecrire_bloc(ws, c0, 'BLOC ANNUEL — calage et désagrégation',
+            ecrire_bloc(ws, c0, 'BLOC ANNUEL : calage et désagrégation',
                         BL_A, H_A, 'Année', annees, ind)
             for s in ind:
                 o = sorted(s['valeurs'])
@@ -303,7 +303,7 @@ def refaire_metadonnees(wb, lignes_ajouts):
         d, fi = periode_std(deb, None), periode_std(fin, None)
         f = freq_depuis_periode(d)
         align = ('non vérifié' if str(statut).startswith('NON')
-                 else 'oui — réaligné' if str(statut).startswith('REALIGNEE')
+                 else 'oui : réaligné' if str(statut).startswith('REALIGNEE')
                  else 'oui')
         decl = declarees.get((norm(feuille), norm(colonne)[:34]))
         inst, attrib = prod.pour(fichier, serie or colonne, decl)
@@ -315,8 +315,8 @@ def refaire_metadonnees(wb, lignes_ajouts):
                 fic = '%s  ⚠ base consolidée, source primaire inconnue' % repris
                 ser_src = colonne
             else:
-                fic = '— origine inconnue'
-                ser_src = '—'
+                fic = ': origine inconnue'
+                ser_src = ':'
         wm.append([feuille, colonne, role, f,
                    d, fi, annee_de(d), annee_de(fi), nobs,
                    inst, attrib, fic, ser_src, 'Colonne d’origine', align])
@@ -345,7 +345,7 @@ def refaire_metadonnees(wb, lignes_ajouts):
             wm.cell(r, 15).fill = PatternFill('solid', fgColor='FFC7CE')
         if wm.cell(r, 3).value in ('Variable cible', 'Cible alternative'):
             wm.cell(r, 3).fill = PatternFill('solid', fgColor='FCE4D6')
-        if str(wm.cell(r, 10).value).startswith('—'):
+        if str(wm.cell(r, 10).value).startswith(':'):
             wm.cell(r, 10).fill = PatternFill('solid', fgColor='FFF2CC')
         if wm.cell(r, 11).value == 'communiqué par l’auteur de la base':
             wm.cell(r, 11).fill = PatternFill('solid', fgColor='DDEBF7')
@@ -421,7 +421,7 @@ def lisez_moi(wb):
         del wb['Lisez-moi']
     ws = wb.create_sheet('Lisez-moi', 0)
     lignes = [
-        ('ÉTUDE SECTORIELLE MAROC — tableau de synthèse', 'titre'),
+        ('ÉTUDE SECTORIELLE MAROC : tableau de synthèse', 'titre'),
         ('', ''),
         ('Objet', 'section'),
         ('Nowcasting du PIB marocain par branche d’activité (approche offre). '
@@ -439,7 +439,7 @@ def lisez_moi(wb):
         ('', ''),
         ('Feuilles de service', 'section'),
         ('Sommaire   : nombre de colonnes par branche, liens cliquables.', ''),
-        ('Métadonnées: une ligne par colonne — rôle, fréquence, couverture, '
+        ('Métadonnées: une ligne par colonne : rôle, fréquence, couverture, '
          'fichier source, série d’origine, statut d’alignement.', ''),
         ('Audit      : reconstruction des colonnes d’origine (colonnes '
          'réalignées, vérifiées, ou restées sans source).', ''),

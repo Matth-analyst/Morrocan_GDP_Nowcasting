@@ -1,4 +1,4 @@
-# Note méthodologique complète — Méthode 3 (DFM)
+# Note méthodologique complète : Méthode 3 (DFM)
 
 Document autonome, à lire indépendamment du reste de la conversation.
 
@@ -22,7 +22,7 @@ indicateurs du même groupe ? »**
 
 ---
 
-## 2. Sélection des indicateurs — depuis la base complète
+## 2. Sélection des indicateurs : depuis la base complète
 
 Conformément à la demande, la sélection est repartie de la **base
 complète** (727 indicateurs bruts au total sur les 8 branches couvertes),
@@ -33,13 +33,13 @@ complète** (727 indicateurs bruts au total sur les 8 branches couvertes),
 | 1 | Fréquence | Mensuelle uniquement (nécessité structurelle du facteur mensuel) |
 | 2 | Longueur brute | ≥ 12 observations natives |
 | 3 | Fraîcheur | ≤ 450 jours |
-| 4 | Densité interne | ≥ 80 % (Schulz & Grimes, 2002 — identique Méthodes 1 et 2) |
+| 4 | Densité interne | ≥ 80 % (Schulz & Grimes, 2002 : identique Méthodes 1 et 2) |
 | 5 | Co-mouvement (item-reste) | r_reste ≥ 0,30, ≥ 2 indicateurs retenus par branche |
 
-### Critère 5 — la vraie différence avec les Méthodes 1 et 2
+### Critère 5 : la vraie différence avec les Méthodes 1 et 2
 
 **Référence** : Nunnally, J.C. & Bernstein, I.H. (1994), *Psychometric
-Theory* (3e éd.), McGraw-Hill — seuil de référence le plus cité en
+Theory* (3e éd.), McGraw-Hill : seuil de référence le plus cité en
 analyse factorielle exploratoire pour la corrélation item-reste
 (« corrected item-total correlation ») : un item doit corréler à au moins
 **0,30** avec le score moyen des autres items pour être considéré comme
@@ -52,18 +52,18 @@ appartient au même facteur latent que les autres candidats de sa branche.
 Pour chaque indicateur i d'une branche, on calcule sa corrélation avec la
 moyenne des autres candidats (l'indicateur étant exclu de son propre
 score de comparaison, pour ne pas gonfler artificiellement sa corrélation
-avec lui-même — version « corrigée » recommandée par Nunnally & Bernstein
+avec lui-même : version « corrigée » recommandée par Nunnally & Bernstein
 plutôt que la corrélation item-total brute).
 
 **Le critère de non-redondance (critère 7 des Méthodes 1 et 2) est
-explicitement écarté ici** — une forte corrélation entre deux indicateurs
+explicitement écarté ici** : une forte corrélation entre deux indicateurs
 n'est pas un problème pour un DFM, c'est précisément ce qui permet au
 facteur de capter le signal commun plutôt que le bruit individuel de
 chaque série.
 
 ---
 
-## 3. Résultat de la sélection — 141 séries, très inégalement réparties
+## 3. Résultat de la sélection : 141 séries, très inégalement réparties
 
 | Branche | Nb indicateurs retenus | r_reste (min - max) |
 |---|---|---|
@@ -74,15 +74,15 @@ chaque série.
 | Finances et assurances | 9 | 0,340 - 0,763 |
 
 **Trois branches à zéro** (Immobilier, Hébergement-restauration,
-Construction) — vérifié individuellement, pas un bug : leurs candidats
+Construction) : vérifié individuellement, pas un bug : leurs candidats
 mensuels ne partagent pas de dynamique commune suffisante (ex. Immobilier :
 crédit habitat et crédit promoteurs immobiliers ont un r_reste de
-0,06-0,16 seulement — deux réalités économiques différentes, pas un
+0,06-0,16 seulement : deux réalités économiques différentes, pas un
 défaut de données).
 
 **Pêche et Électricité concentrent l'essentiel des séries retenues (65 et
 62)**, avec des corrélations item-reste extrêmement élevées (jusqu'à
-0,98) — économiquement cohérent : des dizaines de ports de pêche mesurent
+0,98) : économiquement cohérent : des dizaines de ports de pêche mesurent
 au fond le même phénomène national (cycle de la pêche), un cas d'usage
 qui correspond exactement à ce pour quoi un modèle à facteur est conçu.
 
@@ -96,7 +96,7 @@ Pour chaque branche éligible (≥2 indicateurs retenus) :
    algorithme EM (converge en 26-39 itérations selon la branche)
 3. Le comblement des données manquantes se fait nativement dans
    l'algorithme EM (le lisseur de Kalman gère les valeurs manquantes à
-   l'échelle du système entier) — pas besoin ici du comblement série par
+   l'échelle du système entier) : pas besoin ici du comblement série par
    série de la Méthode 1, une différence méthodologique assumée : c'est
    la même famille de méthode (lissage de Kalman) appliquée au niveau
    multivarié plutôt que série par série.
@@ -110,7 +110,7 @@ la Méthode 1.
 
 ---
 
-## 5. Résultat — un signal partagé, mais pas de miracle
+## 5. Résultat : un signal partagé, mais pas de miracle
 
 | | Méthode 1 (bridge) | Méthode 2 (MIDAS) | Méthode 3 (DFM) |
 |---|---|---|---|
@@ -133,7 +133,7 @@ qui en résulte explique presque rien de la valeur ajoutée sectorielle.
 Explication la plus probable : le facteur commun extrait de dizaines de
 séries de captures physiques par port capture un phénomène de volume
 (cycle naturel de la pêche, saisonnalité), alors que la valeur ajoutée
-sectorielle dépend aussi des prix et de la transformation — deux choses
+sectorielle dépend aussi des prix et de la transformation : deux choses
 que le facteur, construit uniquement à partir de volumes physiques, ne
 capture pas. Une piste non explorée ici : construire le facteur à partir
 d'un mélange volumes/valeurs plutôt que des seules séries physiques.
@@ -156,16 +156,16 @@ d'un mélange volumes/valeurs plutôt que des seules séries physiques.
 ## 7. Limites assumées
 
 1. R² très faibles pour Pêche et Électricité malgré un facteur statistiquement bien identifié (voir section 5)
-2. Aucune des trois méthodes ne bat significativement l'AR(2) — résultat honnête, pas maquillé
-3. Le seuil item-reste (0,30) vient de la psychométrie, jamais testé formellement en contexte macroéconomique — adaptation assumée, pas une reprise standard de la littérature du nowcasting
+2. Aucune des trois méthodes ne bat significativement l'AR(2) : résultat honnête, pas maquillé
+3. Le seuil item-reste (0,30) vient de la psychométrie, jamais testé formellement en contexte macroéconomique : adaptation assumée, pas une reprise standard de la littérature du nowcasting
 4. 3 branches sur 8 couvertes n'ont aucun facteur estimable, repli statique sur la Méthode 1
-5. Un seul facteur extrait par branche (r=1) — un DFM à plusieurs facteurs n'a pas été testé, faute de temps
+5. Un seul facteur extrait par branche (r=1) : un DFM à plusieurs facteurs n'a pas été testé, faute de temps
 
 ## 8. Recommandation
 
 Aucune des trois méthodes ne se détache clairement. Le DFM a l'avantage
 d'exploiter un panel beaucoup plus large sans souffrir du sur-ajustement
 observé pour MIDAS, mais son pouvoir explicatif réel (R²) reste faible
-pour les branches où le pool est le plus riche — un signal à creuser
+pour les branches où le pool est le plus riche : un signal à creuser
 (mélanger volumes et valeurs, tester plusieurs facteurs) avant de le
 préférer à la Méthode 1.

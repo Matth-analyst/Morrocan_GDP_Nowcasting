@@ -27,7 +27,7 @@ CLASSEUR = ROOT / 'Etude_sectorielle_Maroc_2_complete.xlsx'
 AVANT = Path(r'C:\Users\HP\AppData\Local\Temp\claude_restore\avant_retrait.xlsx')
 
 AUTEUR = 'Alim ATCHADAM (fichier BDD SECTORIEL.xlsx, créé 22/07/2026)'
-STATUT = 'confirmé par l’auteur — date non vérifiée'
+STATUT = 'confirmé par l’auteur : date non vérifiée'
 ORANGE = PatternFill('solid', fgColor='FFE699')
 
 A_RESTAURER = [
@@ -50,7 +50,7 @@ A_RESTAURER = [
     ('Information-communication', 'Parc liaisons Data Entreprises Nationale (T1-2018)', 'ANRT / Manar-Stat'),
     ('Information-communication', 'Parc des noms de domaine «.ma»', 'ANRT / Manar-Stat'),
     ('Information-communication', 'Nouveaux enregistrements durant le trimestre', 'ANRT / Manar-Stat'),
-    ('Information-communication', 'Trafic voix sortant Mobile — Trafic voix sortant du Mobile', 'ANRT / Manar-Stat'),
+    ('Information-communication', 'Trafic voix sortant Mobile : Trafic voix sortant du Mobile', 'ANRT / Manar-Stat'),
 ]
 
 
@@ -107,7 +107,7 @@ def main():
 
         ws.cell(3, c_ins).value = titre
         ws.cell(4, c_ins).value = 'BDD SECTORIEL (source institutionnelle confirmée : %s)' % inst
-        ws.cell(2, c_ins).value = 'RESTAUREE — %s — auteur : %s' % (STATUT, AUTEUR)
+        ws.cell(2, c_ins).value = 'RESTAUREE : %s : auteur : %s' % (STATUT, AUTEUR)
         ws.cell(3, c_ins).fill = ORANGE
 
         lignes_axe = {}

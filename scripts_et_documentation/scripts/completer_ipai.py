@@ -44,7 +44,7 @@ NOUVEAUX = [
     ('T4-2024', 'Global', 'prix', '1.1', '0.8', 'haute (lecture manuelle verifiee)',
      'IPAI T4-2024.pdf'),
     ('T1-2025', 'Global', 'prix', '-1.8', '0.0', 'haute (lecture manuelle verifiee) '
-     '— RUPTURE METHODOLOGIQUE : IPAI elargi a 83 conservations foncieres (bulletin N62)',
+     ': RUPTURE METHODOLOGIQUE : IPAI elargi a 83 conservations foncieres (bulletin N62)',
      'Publication IPAI T1 2025.pdf'),
     ('T2-2025', 'Global', 'prix', '-0.2', '0.0', 'haute (lecture manuelle verifiee)',
      'IPAI T2 2025.pdf'),

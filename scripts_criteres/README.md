@@ -1,4 +1,4 @@
-# Scripts de sélection des séries — GDPNow-Maroc
+# Scripts de sélection des séries : GDPNow-Maroc
 
 Ces trois scripts reproduisent exactement la sélection rigoureuse des 41 séries
 utilisée dans l'étude (document « Critères et état des lieux » et classeur
@@ -30,14 +30,14 @@ l'emplacement réel du classeur source sur ta machine.
 ## Pour retester d'autres seuils
 
 Tous les seuils du script 2 sont regroupés en constantes en haut du fichier
-(`SEUIL_LONGUEUR_MIN`, `SEUIL_FRAICHEUR_MENSUEL_JOURS`, etc.) — les modifier
+(`SEUIL_LONGUEUR_MIN`, `SEUIL_FRAICHEUR_MENSUEL_JOURS`, etc.) : les modifier
 directement là plutôt que dans le corps du code, pour garder une trace claire
 de ce qui a été testé.
 
 ## Limites connues à garder en tête
 
 - Le critère 6 (cohérence du signe économique) n'est pas un filtre automatique
-  — seulement calculé et conservé dans le résultat (`r` peut être négatif).
+  : seulement calculé et conservé dans le résultat (`r` peut être négatif).
   7 des 41 séries retenues ont un signe contre-intuitif à examiner avant
   intégration définitive dans le modèle (voir `annexe_verification_series.md`).
 - La correspondance entre une série et son « institution productrice » réelle

@@ -123,7 +123,7 @@ def main():
 
     ws.cell(3, c_ins).value = 'IPAI Global (indice reconstruit, base 100 interne)'
     ws.cell(4, c_ins).value = ('Bank Al-Maghrib/ANCFCC (chaînage des variations '
-                               'trimestrielles extraites de 72 bulletins) — '
+                               'trimestrielles extraites de 72 bulletins) : '
                                'NON recalé sur la base officielle 100=2006')
     ws.cell(2, c_ins).value = (
         'RECONSTRUCTION : base 100 = T%d-%d (premier trimestre du plus long '

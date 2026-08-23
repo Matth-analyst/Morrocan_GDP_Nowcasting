@@ -1,4 +1,4 @@
-# Morrocan GDP Nowcasting — GDPNow-Maroc
+# Morrocan GDP Nowcasting : GDPNow-Maroc
 
 Nowcasting sectoriel du PIB marocain : classeur de données synthétique fiabilisé
 (`Etude_sectorielle_Maroc_2_complete.xlsx`) et modèle de nowcasting branche par
@@ -6,7 +6,7 @@ branche (`R_gdpnow_maroc/`), avec une application Shiny interactive.
 
 Le rapport méthodologique complet (ancrage littérature, équations, résultats,
 limites) est disponible à la racine : [`Rapport_GDPNow_Maroc.pdf`](Rapport_GDPNow_Maroc.pdf)
-— également consultable directement dans l'onglet **Rapport** de l'application.
+: également consultable directement dans l'onglet **Rapport** de l'application.
 
 ## Lancer l'application Shiny
 
@@ -28,7 +28,7 @@ install.packages(c("readxl", "dplyr", "tidyr", "ggplot2", "lubridate", "purrr",
 > install.packages(c(...), lib = Sys.getenv("R_LIBS_USER"))
 > ```
 
-### Option 1 — depuis un terminal (PowerShell / Git Bash)
+### Option 1 : depuis un terminal (PowerShell / Git Bash)
 
 Depuis la racine du projet :
 
@@ -40,7 +40,7 @@ Adaptez le chemin de `Rscript.exe` à votre installation de R. L'application
 s'ouvre automatiquement dans votre navigateur par défaut, sur
 `http://localhost:8901`.
 
-### Option 2 — depuis RStudio ou une console R
+### Option 2 : depuis RStudio ou une console R
 
 ```r
 setwd("chemin/vers/R_gdpnow_maroc/shiny_app")

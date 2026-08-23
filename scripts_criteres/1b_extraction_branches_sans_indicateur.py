@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-ÉTAPE 1b — Extraction des 4 branches ajoutées après coup (cible seule).
+ÉTAPE 1b : Extraction des 4 branches ajoutées après coup (cible seule).
 
 Rôle : Administration publique, Éducation-santé, Services aux entreprises
 et Autres services ont été ajoutées au classeur après les 12 branches
@@ -30,7 +30,7 @@ EXTRA_BRANCHES = ["Administration publique", "Éducation-santé",
 
 def parse_date_label(lbl):
     """Reconnaît 'T1-2014' et '2014T1' (les deux ordres rencontrés selon
-    les feuilles) — voir script 1a pour la liste complète des formats."""
+    les feuilles) : voir script 1a pour la liste complète des formats."""
     if lbl is None:
         return None
     s = str(lbl).strip()

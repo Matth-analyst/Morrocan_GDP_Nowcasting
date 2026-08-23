@@ -283,7 +283,7 @@ def main():
                 cible = s
                 break
 
-        colonnes_t = ([('VA %s — variable cible (MDH)' % nom, cible, True)]
+        colonnes_t = ([('VA %s : variable cible (MDH)' % nom, cible, True)]
                       if cible else [])
         colonnes_t += [(s['serie'], s, False) for s in trim]
         colonnes_m = [(s['serie'], s, False) for s in mens]
@@ -300,7 +300,7 @@ def main():
         per_m = etendue(colonnes_m, per_m_all) if colonnes_m else []
 
         # titre
-        ws.cell(1, 1).value = 'BRANCHE — %s' % nom
+        ws.cell(1, 1).value = 'BRANCHE : %s' % nom
         ws.cell(1, 1).font = F_TITRE
         ws.cell(2, 1).value = (
             '%d indicateur(s) trimestriel(s) · %d mensuel(s) · '
@@ -373,7 +373,7 @@ def main():
 
     # ---- feuille Sommaire --------------------------------------------------
     wsom = wb.create_sheet('Sommaire', 0)
-    wsom.append(['ÉTUDE SECTORIELLE MAROC — base de travail nowcasting'])
+    wsom.append(['ÉTUDE SECTORIELLE MAROC : base de travail nowcasting'])
     wsom.cell(1, 1).font = Font(bold=True, size=16, color='1F3864')
     wsom.append(['Variable cible : valeur ajoutée trimestrielle, base 2014 '
                  'rétropolée 28 branches (1998T1 → 2026T1, 113 trimestres)'])

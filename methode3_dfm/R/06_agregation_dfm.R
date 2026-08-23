@@ -14,7 +14,7 @@ previsions <- bind_rows(prev_couvertes, prev_non_couvertes) %>%
 
 croissance_pib_nowcast <- sum(previsions$contribution, na.rm = TRUE)
 
-cat("\n=== NOWCAST DU PIB (variante DFM) — prochain trimestre ===\n\n")
+cat("\n=== NOWCAST DU PIB (variante DFM) : prochain trimestre ===\n\n")
 print(previsions %>% arrange(desc(contribution)) %>% mutate(across(c(prevision, part, contribution), ~round(., 4))))
 cat(sprintf("\nCroissance trimestrielle du PIB (Δlog), nowcast DFM : %+.4f (%.2f %%)\n",
             croissance_pib_nowcast, croissance_pib_nowcast * 100))
@@ -29,7 +29,7 @@ previsions_fig <- previsions %>%
 p <- ggplot(previsions_fig, aes(branche, contribution, fill = groupe)) +
   geom_col() + coord_flip() +
   scale_fill_manual(values = c("DFM" = "#2E74B5", "Repli Méthode 1" = "#7F9CB5", "AR(4)" = "#BFBFBF")) +
-  labs(title = "Contribution de chaque branche au nowcast du PIB — Méthode DFM",
+  labs(title = "Contribution de chaque branche au nowcast du PIB : Méthode DFM",
        subtitle = sprintf("Croissance trimestrielle agrégée : %+.2f %%", croissance_pib_nowcast * 100),
        x = NULL, y = "Contribution (points de Δlog)", fill = NULL)
 ggsave(file.path(DOSSIER_FIGURES, "07_contributions_pib_dfm.png"), p, width = 8, height = 7, dpi = 150)

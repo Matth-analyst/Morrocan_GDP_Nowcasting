@@ -108,7 +108,7 @@ charger_donnees_completes <- function() {
 ui <- page_navbar(
   title = "GDPNow-Maroc",
   theme = theme_app,
-  window_title = "GDPNow-Maroc — Nowcasting sectoriel du PIB",
+  window_title = "GDPNow-Maroc : Nowcasting sectoriel du PIB",
   fillable = FALSE,
 
   # -------------------------------------------------------------- DASHBOARD
@@ -185,7 +185,7 @@ ui <- page_navbar(
           "(Higgins, 2014, équation 8). δ = poids attribué au BVAR."),
         DTOutput("table_bridge")
       ),
-      nav_panel("AR(4) — branches non couvertes",
+      nav_panel("AR(4) : branches non couvertes",
         p(class = "text-muted", "Prévision autorégressive pure, faute d'indicateur d'activité validé ",
           "(même traitement que Higgins, 2014, applique aux sous-composantes sans série mensuelle)."),
         DTOutput("table_ar4")
@@ -269,7 +269,7 @@ plutôt que demande.
 
 **Architecture du modèle :**
 
-1. **BVAR trimestriel** (16 branches, prior Minnesota, méthode des observations fictives —
+1. **BVAR trimestriel** (16 branches, prior Minnesota, méthode des observations fictives :
    Litterman 1986 ; Bańbura, Giannone & Reichlin 2010) : sert de prévision de repli et de
    composante de base pour toutes les branches.
 2. **Équations de passerelle** (7 branches disposant d'un indicateur validé) : régression
@@ -282,7 +282,7 @@ plutôt que demande.
 
 **Sélection des indicateurs :** 41 séries retenues sur 1235 recensées, après application
 de 8 critères (fréquence, longueur, fraîcheur, densité interne, corrélation à la cible,
-cohérence du signe, non-redondance, cible unique par branche) — inspirés de
+cohérence du signe, non-redondance, cible unique par branche) : inspirés de
 Fernández Cerezo (2023, Banco de España) pour le critère de corrélation.
 
 **Limites assumées :**
@@ -305,7 +305,7 @@ España) ; Miller & Chin (1996, FRB Minneapolis).
     title = "Sources", icon = icon("database"),
     p(class = "text-muted",
       "Institution productrice, période couverte et statut de chaque série utilisée par le modèle ",
-      "— variables cibles (valeur ajoutée par branche) et indicateurs infra-annuels."),
+      ": variables cibles (valeur ajoutée par branche) et indicateurs infra-annuels."),
     card(
       card_header("Variables cibles (valeur ajoutée par branche, 16 séries)"),
       DTOutput("table_sources_cibles")
@@ -622,7 +622,7 @@ server <- function(input, output, session) {
       ),
       div(class = if (signif) "alert alert-success" else "alert alert-secondary",
           if (signif) "Écart de précision statistiquement significatif (seuil 10%)."
-          else "Écart non significatif — échantillon de test court, à interpréter avec prudence.")
+          else "Écart non significatif : échantillon de test court, à interpréter avec prudence.")
     )
   })
 

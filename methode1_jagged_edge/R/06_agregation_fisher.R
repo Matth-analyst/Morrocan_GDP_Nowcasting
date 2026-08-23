@@ -43,7 +43,7 @@ previsions <- bind_rows(prev_couvertes, prev_non_couvertes) %>%
 # tronquee au premier ordre -- suffisant pour une approximation trimestrielle)
 croissance_pib_nowcast <- sum(previsions$contribution)
 
-cat("\n=== NOWCAST DU PIB MAROCAIN — prochain trimestre ===\n\n")
+cat("\n=== NOWCAST DU PIB MAROCAIN : prochain trimestre ===\n\n")
 print(previsions %>% arrange(desc(contribution)) %>%
         mutate(across(c(prevision, part, contribution), ~round(., 4))))
 cat(sprintf("\nCroissance trimestrielle du PIB (Δlog), nowcast agrégé : %+.4f (%.2f %%)\n",

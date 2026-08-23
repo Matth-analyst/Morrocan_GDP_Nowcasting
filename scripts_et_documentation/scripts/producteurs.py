@@ -11,7 +11,7 @@ Trois niveaux d'information, du plus fiable au moins fiable :
    series dont aucun fichier source n'a ete retrouve.
 3. A defaut, deduction a partir du dossier d'origine.
 
-Quand le producteur n'est ni atteste ni communique, on ecrit "— (non documenté)"
+Quand le producteur n'est ni atteste ni communique, on ecrit ": (non documenté)"
 plutot que de deviner.
 """
 
@@ -103,7 +103,7 @@ class Producteurs:
             if any(ns.startswith(k[:22]) or k.startswith(ns[:22]) for k in cles):
                 return inst, 'communiqué par l’auteur de la base'
 
-        if fichier and str(fichier) not in ('—', '?', 'None'):
+        if fichier and str(fichier) not in (':', '?', 'None'):
             # les series annuelles portent un fichier du type
             # "<nom du tableau> (manar_panel)" : on retire le suffixe pour
             # retrouver la fiche descriptive du tableau d'origine
@@ -122,9 +122,9 @@ class Producteurs:
                 return ('Manar-Stat (DEPF, Ministère de l’Économie et des Finances)',
                         'déduit du dossier d’origine')
 
-        if source_declaree and str(source_declaree) not in ('None', '', '—', '?'):
+        if source_declaree and str(source_declaree) not in ('None', '', ':', '?'):
             return str(source_declaree), 'déclaré dans le classeur d’origine'
-        return '— (non documenté)', '—'
+        return ': (non documenté)', ':'
 
 
 if __name__ == '__main__':
@@ -132,9 +132,9 @@ if __name__ == '__main__':
     print('%d fiches descriptives chargees' % len(p.desc))
     for f, s in [
         (r"Manar-Stat (Ministere de l'Economie et des Finances)\secondaire\mines\Indice de production minière base 2015 (trimestriel).csv", 'Industries extractives'),
-        ('—', 'Moyenne des precipitations'),
-        ('—', 'Masse monétaire (M3)'),
-        ('—', 'Prix internationaux de Phosphate'),
+        (':', 'Moyenne des precipitations'),
+        (':', 'Masse monétaire (M3)'),
+        (':', 'Prix internationaux de Phosphate'),
         (r'Bank Al-Maghrib et ANCFCC\credit_bancaire_par_branche\17-x.csv', 'Agriculture et pêche'),
     ]:
         print('  %-30s -> %s' % (s[:30], p.pour(f, s)))

@@ -457,7 +457,7 @@ def main():
                   % str(err)[:60])
             time.sleep(60)
     else:
-        sys.exit("portail injoignable — reessayer plus tard")
+        sys.exit("portail injoignable : reessayer plus tard")
     arbre = m.arborescence()
     sect = trouver(arbre, ID_SECTORIEL)
     if sect is None:
@@ -569,7 +569,7 @@ def ecrire_journal(journal, cibles, sect):
     else:
         deja = ("# Journal de collecte Manar-Stat\n\n"
                 "Source : Banque de donnees Manar-Stat, DEPF, Ministere de l'Economie\n"
-                "et des Finances du Maroc — https://manar.finances.gov.ma\n\n"
+                "et des Finances du Maroc : https://manar.finances.gov.ma\n\n"
                 "Methode : export XLSX natif du portail (bouton \"Exporter vers Excel\"),\n"
                 "converti en CSV (separateur `;`, encodage UTF-8 BOM). Delai de %.0f s\n"
                 "entre chaque tableau.\n" % DELAI)
@@ -578,7 +578,7 @@ def ecrire_journal(journal, cibles, sect):
     ko = [e for e in journal if e["statut"] != "ok"]
     lignes = ["\n\n---\n\n## Execution du %s\n"
               % datetime.now().strftime("%d/%m/%Y a %H:%M"),
-              "%d tableaux traites — %d recuperes, %d en echec.\n"
+              "%d tableaux traites : %d recuperes, %d en echec.\n"
               % (len(journal), len(ok), len(ko))]
 
     if ok:

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-ÉTAPE 1a — Extraction des données brutes depuis le classeur consolidé.
+ÉTAPE 1a : Extraction des données brutes depuis le classeur consolidé.
 
 Rôle : lit chaque feuille de branche du classeur Excel et en extrait,
 sans aucun filtre, la variable cible et tous les indicateurs candidats,
@@ -17,7 +17,7 @@ Chaque feuille de branche mélange plusieurs blocs (variable cible,
 indicateurs mensuels, indicateurs trimestriels, parfois plusieurs blocs
 successifs ajoutés au fil de la collecte). Une première version de ce
 script (v1) déterminait le type d'une colonne (date ou indicateur) en
-regardant uniquement sa 5e ligne — ce qui ratait des centaines de
+regardant uniquement sa 5e ligne : ce qui ratait des centaines de
 colonnes dont la première valeur était vide. Cette version (v2) corrige
 le problème : on regarde le TYPE DOMINANT (date vs numérique) de TOUTES
 les valeurs non vides de la colonne avant de la classer, puis chaque
@@ -25,7 +25,7 @@ indicateur est rattaché à la DERNIÈRE colonne de dates rencontrée avant
 lui dans l'ordre des colonnes.
 
 LIMITE CONNUE : le champ "freq" renvoyé pour chaque indicateur n'est pas
-renseigné à cette étape (toujours None) — la fréquence réelle est
+renseigné à cette étape (toujours None) : la fréquence réelle est
 recalculée à partir des dates elles-mêmes dans le script 2 (méthode plus
 fiable qu'une étiquette de colonne, qui peut être absente ou ambiguë).
 """

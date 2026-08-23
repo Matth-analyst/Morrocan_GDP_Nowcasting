@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-ÉTAPE 2 — Application de la cascade de critères de sélection.
+ÉTAPE 2 : Application de la cascade de critères de sélection.
 
 Rôle : pour chaque branche, choisit une cible unique (parmi les variantes
 trouvées à l'étape 1), puis teste chaque indicateur candidat contre les
@@ -15,7 +15,7 @@ Dépendances : numpy, pandas
     pip install numpy pandas
 
 SEUILS UTILISÉS (version assouplie, après un premier passage trop strict
-qui éliminait la quasi-totalité des séries — voir le document
+qui éliminait la quasi-totalité des séries : voir le document
 "Critères et état des lieux" pour la justification de chaque seuil) :
     - Longueur minimale        : 24 observations
     - Fraîcheur (mensuel)      : dernière observation à ≤ 450 jours
@@ -27,10 +27,10 @@ qui éliminait la quasi-totalité des séries — voir le document
                                   est conservé
 
 NOTE IMPORTANTE : le critère 6 (cohérence du signe économique) n'est PAS
-appliqué comme filtre automatique ici — il est seulement calculé (le
+appliqué comme filtre automatique ici : il est seulement calculé (le
 signe de r est conservé dans le résultat) pour permettre un examen
 manuel a posteriori. C'est ce qui a permis de repérer, après coup, que
-7 des 41 séries finalement retenues ont un signe contre-intuitif — à
+7 des 41 séries finalement retenues ont un signe contre-intuitif : à
 vérifier avant intégration définitive dans le modèle.
 """
 import pickle
@@ -71,7 +71,7 @@ def infer_freq(serie):
 
 def expected_count(dmin, dmax, freq):
     """Nombre d'observations attendu entre deux dates si la série était
-    complète à sa fréquence — sert au calcul de densité (critère 4)."""
+    complète à sa fréquence : sert au calcul de densité (critère 4)."""
     months = (dmax.year - dmin.year) * 12 + (dmax.month - dmin.month) + 1
     if freq == "mensuel":
         return months
@@ -139,12 +139,12 @@ def appliquer_criteres_branche(branche, data):
         serie = ind["serie"]
         freq = infer_freq(serie)
 
-        # Critère 1 — fréquence
+        # Critère 1 : fréquence
         if freq not in ("mensuel", "trimestriel"):
             rejets.append((nom, "C1-frequence", freq))
             continue
 
-        # Critère 2 — longueur minimale
+        # Critère 2 : longueur minimale
         if len(serie) < SEUIL_LONGUEUR_MIN:
             rejets.append((nom, "C2-longueur", len(serie)))
             continue
@@ -152,19 +152,19 @@ def appliquer_criteres_branche(branche, data):
         dates_only = sorted(d for d, v in serie)
         dmin, dmax = dates_only[0], dates_only[-1]
 
-        # Critère 3 — fraîcheur
+        # Critère 3 : fraîcheur
         if not freshness_ok(dmax, freq):
             rejets.append((nom, "C3-fraicheur", str(dmax)))
             continue
 
-        # Critère 4 — densité interne
+        # Critère 4 : densité interne
         exp = expected_count(dmin, dmax, freq)
         densite = len(serie) / exp if exp > 0 else 0
         if densite < SEUIL_DENSITE_MIN:
             rejets.append((nom, "C4-densite", f"{densite:.0%}"))
             continue
 
-        # Critère 5 — corrélation avec la cible (sur les Δlog, à fréquence trimestrielle)
+        # Critère 5 : corrélation avec la cible (sur les Δlog, à fréquence trimestrielle)
         serie_pour_corr = to_quarterly(serie) if freq == "mensuel" else serie
         ind_ld = log_diff(serie_pour_corr)
         common = cible_ld.index.intersection(ind_ld.index)
@@ -179,7 +179,7 @@ def appliquer_criteres_branche(branche, data):
         retenus.append(dict(nom=nom, source=ind["source"], freq=freq, nobs=len(serie),
                              debut=str(dmin), fin=str(dmax), densite=densite, r=r))
 
-    # Critère 7 — non-redondance entre indicateurs retenus
+    # Critère 7 : non-redondance entre indicateurs retenus
     if len(retenus) > 1:
         series_map = {}
         for ind in data["indicateurs"]:

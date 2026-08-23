@@ -134,7 +134,7 @@ p5 <- ggplot(df_prev, aes(branche, prevision, fill = prevision > 0)) +
   geom_col() +
   coord_flip() +
   scale_fill_manual(values = c(`TRUE` = "#2E74B5", `FALSE` = "#C55A11"), guide = "none") +
-  labs(title = sprintf("Prévision BVAR de croissance trimestrielle — %s",
+  labs(title = sprintf("Prévision BVAR de croissance trimestrielle : %s",
                         format(prochain_trimestre, "%Y T%q") %>% str_replace("%q", "")),
        subtitle = "Modèle autorégressif bayésien à prior Minnesota, 16 branches, 5 retards",
        x = NULL, y = "Δlog prévu")

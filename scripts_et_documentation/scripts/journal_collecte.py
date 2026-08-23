@@ -64,10 +64,10 @@ def lire(chemin):
 
 def main():
     out = []
-    out.append("# Journal de collecte — Manar-Stat, domaine Sectoriel\n")
+    out.append("# Journal de collecte : Manar-Stat, domaine Sectoriel\n")
     out.append("Source : banque de donnees Manar-Stat, Direction des Etudes et des")
     out.append("Previsions Financieres (DEPF), Ministere de l'Economie et des Finances")
-    out.append("du Maroc — <https://manar.finances.gov.ma>\n")
+    out.append("du Maroc : <https://manar.finances.gov.ma>\n")
     out.append("Perimetre : integralite du domaine **Sectoriel** a partir de la rubrique")
     out.append("*Mines* jusqu'a la fin de l'arborescence (Secondaire a partir de Mines,")
     out.append("puis Tertiaire dans son ensemble).\n")
@@ -75,10 +75,10 @@ def main():
 
     out.append("## Methode\n")
     out.append("Collecte en HTTP pur (`requests`), sans navigateur automatise :\n")
-    out.append("1. `AjaxConsultation.getListDomaineTableau` (DWR) — arborescence complete ;")
-    out.append("2. `POST Consultation_consulterTable` — ouverture du tableau ;")
-    out.append("3. filtre de periodes ZK — **elargissement a la grille 1960-2027** ;")
-    out.append("4. `exportToXLS` — export Excel natif du portail ;")
+    out.append("1. `AjaxConsultation.getListDomaineTableau` (DWR) : arborescence complete ;")
+    out.append("2. `POST Consultation_consulterTable` : ouverture du tableau ;")
+    out.append("3. filtre de periodes ZK : **elargissement a la grille 1960-2027** ;")
+    out.append("4. `exportToXLS` : export Excel natif du portail ;")
     out.append("5. conversion en CSV (separateur `;`, encodage UTF-8 BOM), colonnes")
     out.append("   entierement vides elidees.\n")
     out.append("> **Point critique.** Sans l'etape 3, le portail ne renvoie que les")
@@ -98,7 +98,7 @@ def main():
         fichiers = sorted(f for f in os.listdir(dossier)
                           if f.endswith(".csv")) if os.path.isdir(dossier) else []
         total_att += attendu
-        detail.append("\n### %s — `%s/%s/`\n" % (titre, parent, sous))
+        detail.append("\n### %s : `%s/%s/`\n" % (titre, parent, sous))
         detail.append("| Tableau | Frequence | Debut | Fin | Series |")
         detail.append("|---|---|---|---|---|")
         n_ok = 0

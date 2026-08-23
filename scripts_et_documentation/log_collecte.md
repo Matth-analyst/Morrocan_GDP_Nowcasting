@@ -1,8 +1,8 @@
-# Journal de collecte — Manar-Stat, domaine Sectoriel
+# Journal de collecte : Manar-Stat, domaine Sectoriel
 
 Source : banque de donnees Manar-Stat, Direction des Etudes et des
 Previsions Financieres (DEPF), Ministere de l'Economie et des Finances
-du Maroc — <https://manar.finances.gov.ma>
+du Maroc : <https://manar.finances.gov.ma>
 
 Perimetre : integralite du domaine **Sectoriel** a partir de la rubrique
 *Mines* jusqu'a la fin de l'arborescence (Secondaire a partir de Mines,
@@ -14,10 +14,10 @@ Genere le 03/08/2026 a 18:46.
 
 Collecte en HTTP pur (`requests`), sans navigateur automatise :
 
-1. `AjaxConsultation.getListDomaineTableau` (DWR) — arborescence complete ;
-2. `POST Consultation_consulterTable` — ouverture du tableau ;
-3. filtre de periodes ZK — **elargissement a la grille 1960-2027** ;
-4. `exportToXLS` — export Excel natif du portail ;
+1. `AjaxConsultation.getListDomaineTableau` (DWR) : arborescence complete ;
+2. `POST Consultation_consulterTable` : ouverture du tableau ;
+3. filtre de periodes ZK : **elargissement a la grille 1960-2027** ;
+4. `exportToXLS` : export Excel natif du portail ;
 5. conversion en CSV (separateur `;`, encodage UTF-8 BOM), colonnes
    entierement vides elidees.
 
@@ -55,7 +55,7 @@ chaque tableau.
 ## Detail par rubrique
 
 
-### Mines — `manar_secondaire/mines/`
+### Mines : `manar_secondaire/mines/`
 
 | Tableau | Frequence | Debut | Fin | Series |
 |---|---|---|---|---|
@@ -80,7 +80,7 @@ chaque tableau.
 | Production des produits miniers (en volume) | Annuelle | 1980 | 2021 | 8 |
 | Production et utilisation des phosphates | Annuelle | 1980 | 2021 | 4 |
 
-### Construction — `manar_secondaire/construction/`
+### Construction : `manar_secondaire/construction/`
 
 | Tableau | Frequence | Debut | Fin | Series |
 |---|---|---|---|---|
@@ -95,7 +95,7 @@ chaque tableau.
 | Ventes locales du ciment (mensuel cumulé) | Mensuelle | 1995M01 | 2026M05 | 1 |
 | Ventes locales du ciment annuel | Annuelle | 1980 | 2023 | 1 |
 
-### Eau — `manar_secondaire/eau/`
+### Eau : `manar_secondaire/eau/`
 
 | Tableau | Frequence | Debut | Fin | Series |
 |---|---|---|---|---|
@@ -103,7 +103,7 @@ chaque tableau.
 | Taux de remplissage des barrages | Annuelle | 1992 | 2021 | 15 |
 | Ventes de l'ONE-BE | Annuelle | 1983 | 2021 | 4 |
 
-### Energie — `manar_secondaire/energie/`
+### Energie : `manar_secondaire/energie/`
 
 | Tableau | Frequence | Debut | Fin | Series |
 |---|---|---|---|---|
@@ -137,7 +137,7 @@ chaque tableau.
 | Énergie appelée nette (mensuel) | Mensuelle | 1996M01 | 2026M05 | 16 |
 | Énergie appelée nette annuelle | Annuelle | 1994 | 2022 | 16 |
 
-### Industrie — `manar_secondaire/industrie/`
+### Industrie : `manar_secondaire/industrie/`
 
 | Tableau | Frequence | Debut | Fin | Series |
 |---|---|---|---|---|
@@ -172,7 +172,7 @@ chaque tableau.
 | Valeurs ajoutées des entreprises industrielles | Annuelle | 1990 | 2020 | 129 |
 | Valeurs ajoutées industrielles par grand secteur | Annuelle | 1990 | 2020 | 6 |
 
-### Transports — `manar_tertiaire/transports/`
+### Transports : `manar_tertiaire/transports/`
 
 | Tableau | Frequence | Debut | Fin | Series |
 |---|---|---|---|---|
@@ -194,7 +194,7 @@ chaque tableau.
 | Trafic portuaire géré par l'ANP (mensuel) | Mensuelle | 2009M06 | 2023M11 | 5 |
 | Voyageur kilométré (Ferroviaire) | Annuelle | 1992 | 2015 | 3 |
 
-### Tourisme — `manar_tertiaire/tourisme/`
+### Tourisme : `manar_tertiaire/tourisme/`
 
 | Tableau | Frequence | Debut | Fin | Series |
 |---|---|---|---|---|
@@ -214,7 +214,7 @@ chaque tableau.
 | Taux d'occupation dans les hôtels classés (annuel) | Annuelle | 1997 | 2021 | 1 |
 | Taux d'occupation dans les hôtels classés par destination (Mensuel) | Mensuelle | 2007M01 | 2019M07 | 13 |
 
-### Poste et telecommunications — `manar_tertiaire/telecommunications/`
+### Poste et telecommunications : `manar_tertiaire/telecommunications/`
 
 | Tableau | Frequence | Debut | Fin | Series |
 |---|---|---|---|---|
@@ -265,7 +265,7 @@ chaque tableau.
 | parc global de la téléphonie mobile | Annuelle | 1990 | 2021 | 3 |
 | valeur des mandats de la poste | Annuelle | 1980 | 2016 | 2 |
 
-### Assurances — `manar_tertiaire/assurances/`
+### Assurances : `manar_tertiaire/assurances/`
 
 | Tableau | Frequence | Debut | Fin | Series |
 |---|---|---|---|---|
@@ -290,7 +290,7 @@ chaque tableau.
 
 ## Execution du 03/08/2026 a 18:50
 
-8 tableaux traites — 7 recuperes, 1 en echec.
+8 tableaux traites : 7 recuperes, 1 en echec.
 
 
 ### Tableaux recuperes
@@ -316,7 +316,7 @@ chaque tableau.
 
 ## Execution du 03/08/2026 a 18:51
 
-7 tableaux traites — 7 recuperes, 0 en echec.
+7 tableaux traites : 7 recuperes, 0 en echec.
 
 
 ### Tableaux recuperes
@@ -336,7 +336,7 @@ chaque tableau.
 
 ## Execution du 03/08/2026 a 19:21
 
-13 tableaux traites — 10 recuperes, 3 en echec.
+13 tableaux traites : 10 recuperes, 3 en echec.
 
 
 ### Tableaux recuperes

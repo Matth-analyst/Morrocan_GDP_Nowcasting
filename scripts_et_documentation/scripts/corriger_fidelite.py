@@ -71,7 +71,7 @@ A_RETIRER = [
     ('Information-communication', 'Parc liaisons Data Entreprises Nationale (T1-2018)'),
     ('Information-communication', 'Parc des noms de domaine «.ma»'),
     ('Information-communication', 'Nouveaux enregistrements durant le trimestre'),
-    ('Information-communication', 'Trafic voix sortant Mobile — Trafic voix sortant du Mobile'),
+    ('Information-communication', 'Trafic voix sortant Mobile : Trafic voix sortant du Mobile'),
     ('Finances et assurances', 'Dépôts à vue auprés des banques'),
     ('Finances et assurances', 'Masse monétaire (M3)'),
     ('Finances et assurances', 'Avoirs officiels de réserve'),
@@ -205,7 +205,7 @@ def main():
     if 'Colonnes retirées' in wb.sheetnames:
         del wb['Colonnes retirées']
     wr = wb.create_sheet('Colonnes retirées')
-    wr.append(['Colonnes retirées du classeur — audit de fidélité'])
+    wr.append(['Colonnes retirées du classeur : audit de fidélité'])
     wr.cell(1, 1).font = Font(bold=True, size=14, color='C00000')
     wr.append(['Recherche exhaustive dans les 481 fichiers du data lake (valeur '
                'exacte + date, tolérance quasi nulle) et tests de transformation '

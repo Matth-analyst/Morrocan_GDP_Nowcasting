@@ -13,7 +13,7 @@ p1 <- ggplot(cibles, aes(date, va)) +
   geom_line(color = "#2E74B5", linewidth = 0.5) +
   facet_wrap(~ branche, scales = "free_y", ncol = 4) +
   labs(title = "Valeur ajoutée trimestrielle par branche (1998–2026)",
-       subtitle = "Base 2014, prix chaînés, rétropolée — source HCP",
+       subtitle = "Base 2014, prix chaînés, rétropolée : source HCP",
        x = NULL, y = "Mdh") +
   theme(strip.text = element_text(size = 7.5), axis.text = element_text(size = 6))
 ggsave(file.path(DOSSIER_FIGURES, "01_va_niveaux_toutes_branches.png"), p1, width = 12, height = 8, dpi = 150)

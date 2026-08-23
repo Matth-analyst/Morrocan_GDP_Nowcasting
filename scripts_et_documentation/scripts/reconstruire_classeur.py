@@ -198,7 +198,7 @@ def charger_catalogue():
                                        ('variation_annuelle', 'var. annuelle')):
                     v = nombre(row.get(champ, ''))
                     if v is not None:
-                        agg[(f'{cat_} — {ind}', suffixe)][k] = v
+                        agg[(f'{cat_} : {ind}', suffixe)][k] = v
         for (serie, suffixe), vals in agg.items():
             if len(vals) >= 5:
                 cat.append({'origine': 'Bank Al-Maghrib / ANCFCC (IPAI)',
@@ -285,7 +285,7 @@ def main():
                     continue
                 s, methode, score = apparier(obs, cat, type_axe)
                 if s is None:
-                    audit.append([feuille, str(nom)[:80], '?', '', 'NON IDENTIFIEE — conservee',
+                    audit.append([feuille, str(nom)[:80], '?', '', 'NON IDENTIFIEE : conservee',
                                   len(obs), obs[0][0], obs[-1][0],
                                   'meilleur score %d / %d' % (score, len(obs))])
                     continue
@@ -298,7 +298,7 @@ def main():
                         ecrits += 1
                 dispo = sorted(vals)
                 audit.append([feuille, str(nom)[:80],
-                              '%s — %s' % (s['origine'], s['tableau'][:60]),
+                              '%s : %s' % (s['origine'], s['tableau'][:60]),
                               s['serie'][:60],
                               'REALIGNEE' if methode == 'position' else 'verifiee (deja alignee)',
                               ecrits, dispo[0], dispo[-1], ''])

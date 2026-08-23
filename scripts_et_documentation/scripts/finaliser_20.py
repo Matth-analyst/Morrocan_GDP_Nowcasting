@@ -60,7 +60,7 @@ def main():
         wm.append([feuille, titre.strip(), 'Indicateur', type_axe,
                   debut, fin, cle_annee(debut), cle_annee(fin), len(vals),
                   inst, 'communiqué par l’auteur de la base', AUTEUR,
-                  titre.strip(), 'Restaurée — source confirmée par l’auteur', STATUT])
+                  titre.strip(), 'Restaurée : source confirmée par l’auteur', STATUT])
         wm.cell(wm.max_row, 15).fill = ORANGE
         n_ajoutees += 1
     print('Metadonnees : %d colonnes restaurees ajoutees' % n_ajoutees)

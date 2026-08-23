@@ -2,8 +2,8 @@
 """
 Met a jour les feuilles de service apres restaurer_confirmees.py :
 - Metadonnees : ajoute une ligne par colonne restauree
-  (role=Indicateur, origine="Restaurée — source confirmée par l'auteur",
-  alignement="confirmé par l'auteur — date non vérifiée")
+  (role=Indicateur, origine="Restaurée : source confirmée par l'auteur",
+  alignement="confirmé par l'auteur : date non vérifiée")
 - Colonnes retirées : ne garde que les 21 colonnes encore effectivement
   retirees (retire les 10 qui ont ete restaurees)
 - Sommaire : recalcule les compteurs
@@ -63,7 +63,7 @@ def main():
                   debut, fin, cle_periode_annee(debut), cle_periode_annee(fin),
                   len(vals), inst, 'communiqué par l’auteur de la base',
                   'Bases consolidees (multi-sources)\\BDD SECTORIEL_MENSUEL.csv',
-                  titre.strip(), 'Restaurée — source confirmée par l’auteur',
+                  titre.strip(), 'Restaurée : source confirmée par l’auteur',
                   STATUT])
         r = wm.max_row
         wm.cell(r, 15).fill = ORANGE
@@ -85,7 +85,7 @@ def main():
             'arrondi). Aucune correspondance trouvée pour ces colonnes. 10 colonnes '
             'supplémentaires, initialement retirées pour la même raison, ont été '
             'restaurées après confirmation de leur institution productrice par '
-            'l’auteur de la base — voir Métadonnées, statut "confirmé par l’auteur — '
+            'l’auteur de la base : voir Métadonnées, statut "confirmé par l’auteur : '
             'date non vérifiée".')
         print('Colonnes retirées : %d lignes restantes (10 retirees de cette liste)'
               % (wr.max_row - 4))

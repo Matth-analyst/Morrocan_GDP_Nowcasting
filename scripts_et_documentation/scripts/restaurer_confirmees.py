@@ -15,7 +15,7 @@ Les 21 autres colonnes retirees (phosphates OCP, ANRT, IPAI niveau,
 electricite, commerce Office des Changes...) restent retirees : aucune
 source n'a ete confirmee pour elles.
 
-Statut applique aux colonnes restaurees : "confirmé par l'auteur — date NON
+Statut applique aux colonnes restaurees : "confirmé par l'auteur : date NON
 vérifiée" (ni plus, ni moins que ce que l'on sait reellement).
 
 Les valeurs sont reprises A L'IDENTIQUE de la version du classeur juste
@@ -49,7 +49,7 @@ A_RESTAURER = {
     ('Commerce', 'Indice EXPORTATIONS'): 'HCP (Haut-Commissariat au Plan)',
 }
 
-STATUT = 'confirmé par l’auteur — date non vérifiée'
+STATUT = 'confirmé par l’auteur : date non vérifiée'
 ORANGE = PatternFill('solid', fgColor='FFE699')
 
 
@@ -118,7 +118,7 @@ def main():
 
         ws.cell(3, c_ins).value = titre
         ws.cell(4, c_ins).value = 'BDD SECTORIEL (source institutionnelle confirmée : %s)' % inst
-        ws.cell(2, c_ins).value = 'RESTAUREE — %s' % STATUT
+        ws.cell(2, c_ins).value = 'RESTAUREE : %s' % STATUT
         ws.cell(3, c_ins).fill = ORANGE
 
         # ecrire les valeurs en reutilisant les lignes de l'axe actuel quand la

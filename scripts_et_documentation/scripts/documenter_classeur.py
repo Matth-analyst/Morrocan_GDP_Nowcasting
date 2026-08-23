@@ -83,7 +83,7 @@ def main():
                                          else 'colonne d’origine')
             rempli += 1
         else:
-            wm.cell(r, col_fic).value = '—'
+            wm.cell(r, col_fic).value = ':'
             wm.cell(r, col_org).value = 'colonne d’origine'
             vide += 1
     print('Metadonnees : %d lignes documentees, %d sans source retrouvee'
@@ -116,7 +116,7 @@ def main():
     if 'Sommaire' in wb.sheetnames:
         del wb['Sommaire']
     ws = wb.create_sheet('Sommaire', 0)
-    ws.append(['ÉTUDE SECTORIELLE MAROC — tableau de synthèse complété'])
+    ws.append(['ÉTUDE SECTORIELLE MAROC : tableau de synthèse complété'])
     ws.cell(1, 1).font = Font(bold=True, size=16, color='1F3864')
     ws.append(['Colonnes d’origine (reconstruites et vérifiées) + séries '
                'ajoutées depuis le data lake.'])

@@ -1,6 +1,6 @@
-# GDPNow-Maroc — Pipeline de nowcasting sectoriel du PIB (R)
+# GDPNow-Maroc : Pipeline de nowcasting sectoriel du PIB (R)
 
-> ⚠️ **Errata (14/08/2026)** — Une erreur d'alignement des dates a été
+> ⚠️ **Errata (14/08/2026)** : Une erreur d'alignement des dates a été
 > détectée et corrigée dans le classeur source `Series_retenues_modelisation.xlsx`.
 > Voir la section « Errata » en bas de ce document pour le détail complet
 > (cause, portée, impact sur les résultats).
@@ -58,41 +58,41 @@ Temps d'exécution total : quelques secondes (échantillon de 113 trimestres,
 
 ## Ce que fait chaque étape, en résumé
 
-**01 — Import.** Transforme le classeur Excel (mise en page GDPNow-like,
+**01 : Import.** Transforme le classeur Excel (mise en page GDPNow-like,
 un bloc cible + blocs d'indicateurs par fréquence) en trois tables `tidy` :
 cibles (16 branches), indicateurs (41 séries), avec dates réelles.
 
-**02 — Exploration.** Teste la stationnarité (Dickey-Fuller augmenté) en
+**02 : Exploration.** Teste la stationnarité (Dickey-Fuller augmenté) en
 niveau et en taux de croissance (Δlog) pour les 16 branches, trace les
 trajectoires, la matrice de corrélation croisée entre branches, et les
 nuages de points indicateur/cible pour vérifier visuellement le critère de
 corrélation appliqué en amont. **Résultat obtenu : 16/16 branches
-stationnaires en Δlog contre 1/16 en niveau** — justifie le choix de
+stationnaires en Δlog contre 1/16 en niveau** : justifie le choix de
 modéliser des taux de croissance dans toute la suite.
 
-**03 — BVAR trimestriel.** Estime un BVAR à 16 variables (les Δlog de VA),
+**03 : BVAR trimestriel.** Estime un BVAR à 16 variables (les Δlog de VA),
 5 retards, prior Minnesota (delta=0, retour à la moyenne, puisque les
 variables sont déjà des taux de croissance) via la méthode des observations
 fictives (Bańbura, Giannone & Reichlin, 2010), λ=0,15 (même valeur que le
 BVAR trimestriel de composantes de quantité dans GDPNow). Produit une
 prévision à un pas pour les 16 branches.
 
-**04 — Bridge equations.** Pour les 7 branches couvertes, régresse la
+**04 : Bridge equations.** Pour les 7 branches couvertes, régresse la
 croissance de la VA sur celle de chaque indicateur retenu (régression
 simple), moyenne les prévisions individuelles (faute de poids de valeur
-ajoutée nominale par sous-branche — limite documentée), puis combine cette
+ajoutée nominale par sous-branche : limite documentée), puis combine cette
 prévision "bridge" avec la prévision BVAR par moindres carrés restreints
 (poids δ ∈ [0,1] optimisé en échantillon, équation 8 de Higgins 2014).
 
-**05 — AR(4).** Pour les 9 branches sans indicateur validé, prévision
-autorégressive pure — la méthode que Higgins (2014) applique lui-même aux
+**05 : AR(4).** Pour les 9 branches sans indicateur validé, prévision
+autorégressive pure : la méthode que Higgins (2014) applique lui-même aux
 sous-composantes sans série mensuelle disponible.
 
-**06 — Agrégation.** Combine les 16 prévisions de branche, pondérées par
+**06 : Agrégation.** Combine les 16 prévisions de branche, pondérées par
 leur part de valeur ajoutée (en volume, dernier trimestre observé), en un
 nowcast de croissance du PIB total.
 
-**07 — Validation.** Backtest en pseudo temps réel sur les 8 derniers
+**07 : Validation.** Backtest en pseudo temps réel sur les 8 derniers
 trimestres : à chaque origine, tout le pipeline (BVAR, bridge equations,
 AR(4)) est ré-estimé sur les données tronquées, une prévision à un pas est
 comparée à la valeur réellement observée. Comparaison à un repère AR(2) sur
@@ -103,14 +103,14 @@ le PIB total, avec test de Diebold-Mariano.
 - **Nowcast du prochain trimestre : +0,86 %** (Δlog agrégé)
 - **Stationnarité** : 16/16 branches en Δlog
 - **Backtest (8 trimestres)** : RMSFE modèle complet = 0,0074 ; RMSFE
-  repère AR(2) = 0,0067 — **le modèle ne bat pas le repère AR(2) sur cette
+  repère AR(2) = 0,0067 : **le modèle ne bat pas le repère AR(2) sur cette
   fenêtre de test**, écart non significatif au test de Diebold-Mariano
   (p = 0,236)
 
 ## Limites méthodologiques assumées (à rappeler dans le rapport)
 
 1. **Poids d'agrégation approximatifs** : parts de valeur ajoutée *en
-   volume* (prix chaînés), non additives en toute rigueur — la vraie
+   volume* (prix chaînés), non additives en toute rigueur : la vraie
    pondération Fisher/Törnqvist demanderait les valeurs *à prix courants*,
    non disponibles pour les 16 branches à ce stade.
 2. **Absence de poids de sous-branche** (SH_T^i) : les prévisions "bridge"
@@ -118,18 +118,18 @@ le PIB total, avec test de Diebold-Mariano.
    par leur poids économique réel (équation 7 de Higgins 2014, non
    reproduite faute de données).
 3. **9 branches sur 16 sans indicateur** (~ majorité du PIB non couverte
-   par un vrai signal infra-annuel) — traitées en AR(4) pur, une pratique
+   par un vrai signal infra-annuel) : traitées en AR(4) pur, une pratique
    documentée dans la littérature de référence mais appliquée ici à une
    échelle bien plus large que dans le cas américain original.
 4. **Résultat du backtest non favorable au modèle** sur la fenêtre testée
-   (8 trimestres) — échantillon de test très court, à ne pas
+   (8 trimestres) : échantillon de test très court, à ne pas
    sur-interpréter, mais à ne pas cacher non plus.
 5. **7 des 41 indicateurs retenus ont un signe de corrélation
-   contre-intuitif** (repéré lors de la sélection rigoureuse) — inclus
+   contre-intuitif** (repéré lors de la sélection rigoureuse) : inclus
    dans les bridge equations sans traitement particulier ; un signal à
    creuser avant toute utilisation en production.
 6. **Choc Covid-19 (2020)** visible sur la quasi-totalité des séries
-   (cf. figure `02_croissance_toutes_branches.png`) — aucune variable
+   (cf. figure `02_croissance_toutes_branches.png`) : aucune variable
    indicatrice de rupture structurelle n'a été introduite dans le BVAR,
    ce qui peut affecter l'estimation du prior et des écarts-types.
 
@@ -158,7 +158,7 @@ corrects et inchangés. Seul l'export Excel, et tout ce qui en a été
 recalculé côté R (bridge equations, backtest, figures), était concerné.
 
 **Correction.** Chaque indicateur dispose désormais de sa propre colonne
-de dates dédiée, immédiatement à sa gauche — plus aucun partage. Vérifié
+de dates dédiée, immédiatement à sa gauche : plus aucun partage. Vérifié
 systématiquement sur les 7 branches couvertes après correction : toutes
 les séquences de dates sont strictement croissantes.
 
@@ -172,7 +172,7 @@ RMSFE du backtest est quasiment inchangé (0,0074 contre 0,0067 pour
 l'AR(2), p-value du test de Diebold-Mariano à 0,238 contre 0,236
 précédemment).
 
-### Deuxième correction (même jour) — valeurs manquantes rendues visibles
+### Deuxième correction (même jour) : valeurs manquantes rendues visibles
 
 **Le problème.** Une fois le premier bug corrigé (une colonne de dates
 dédiée par indicateur), un second défaut est apparu : les mois ou
@@ -181,13 +181,13 @@ séquence plutôt que représentés par une cellule vide. Par exemple, pour
 l'indicateur AINBIDA (branche Pêche), la séquence de dates passait
 directement de 2010-10 à 2011-02, sans qu'aucune trace ne signale que
 novembre 2010, décembre 2010 et janvier 2011 étaient des mois sans
-donnée — un lecteur pouvait à tort penser que la série était continue à
+donnée : un lecteur pouvait à tort penser que la série était continue à
 cet endroit.
 
 **Vérification effectuée.** Les valeurs elles-mêmes (10, 10, 25796, 3...)
 ont été confrontées au fichier source brut de l'Office National des
 Pêches (`Débarquements des produits de la pêche côtière et artisanale
-par port en quantité (mensuel).csv`) et se sont révélées exactes — le
+par port en quantité (mensuel).csv`) et se sont révélées exactes : le
 problème ne portait donc que sur la représentation des trous, pas sur
 les valeurs elles-mêmes.
 
@@ -198,13 +198,13 @@ orange clair**, pour chaque période sans donnée. Le nombre exact de
 périodes manquantes est indiqué en toutes lettres dans la ligne source
 de chaque indicateur (ex. « 34 mois manquants sur 189 » pour AINBIDA).
 
-**Impact sur les résultats.** Aucun — les valeurs et leurs dates réelles
+**Impact sur les résultats.** Aucun : les valeurs et leurs dates réelles
 étaient déjà correctes après la première correction ; seule leur mise en
 forme dans le classeur a changé. Le pipeline R a été relancé par
 précaution : résultats strictement identiques à ceux de la première
 correction.
 
-### Troisième vérification (même jour) — audit systématique des 41 séries
+### Troisième vérification (même jour) : audit systématique des 41 séries
 
 À la demande explicite de l'utilisateur, les 41 séries retenues ont été
 recomparées une par une à leurs fichiers sources bruts (Manar-Stat, Bank
@@ -219,7 +219,7 @@ corrigée** :
 - **Recettes touristiques (branche Hébergement-restauration)** : la
   série extraite était **tronquée** à 217 observations (2007-12 à
   2025-12), alors que la source réelle (`Tourisme.xlsx`) remonte à
-  **1994-01**, soit 381 observations disponibles — 164 points d'historique
+  **1994-01**, soit 381 observations disponibles : 164 points d'historique
   perdus (43 %), sans lien avec les deux bugs précédents. Corrigé en
   ré-extrayant directement depuis le fichier source. La corrélation à la
   cible a été recalculée sur la série complète (r passe de +0,44 à
@@ -233,6 +233,6 @@ mieux la cible qu'avant).
 
 **Ce qui n'a pas pu être vérifié de façon exhaustive** : les 3 séries
 IPAI (branche Immobilier) n'ont pas été re-confrontées à leurs bulletins
-PDF sources dans cette passe — elles avaient déjà fait l'objet d'une
+PDF sources dans cette passe : elles avaient déjà fait l'objet d'une
 vérification et de plusieurs corrections dédiées, documentées
 séparément, lors de leur extraction initiale.

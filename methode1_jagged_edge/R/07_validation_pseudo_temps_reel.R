@@ -167,7 +167,7 @@ df_erreurs <- tibble(date = dates_test, Modele = abs(erreurs_modele), `AR(2)` = 
 p8 <- ggplot(df_erreurs, aes(date, erreur_absolue, color = modele)) +
   geom_line(linewidth = 0.8) + geom_point(size = 2) +
   scale_color_manual(values = c("Modele" = "#2E74B5", "AR(2)" = "#C55A11")) +
-  labs(title = "Erreur de prévision absolue — modèle complet (jagged edge) vs. repère AR(2)",
+  labs(title = "Erreur de prévision absolue : modèle complet (jagged edge) vs. repère AR(2)",
        subtitle = sprintf("RMSFE modèle = %.4f | RMSFE AR(2) = %.4f", rmsfe_modele, rmsfe_ar2),
        x = NULL, y = "|Erreur| (Δlog)", color = NULL)
 ggsave(file.path(DOSSIER_FIGURES, "08_backtest_erreurs.png"), p8, width = 9, height = 5, dpi = 150)
