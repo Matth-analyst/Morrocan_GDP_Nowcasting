@@ -1,0 +1,305 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{float}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{orancre}{HTML}{BF9000}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{black}}{\thesubsubsection}{0.6em}{}
+
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+\newtcolorbox{definitionbox}[1][]{colback=gray!7,colframe=black!60,boxrule=0.4pt,arc=1pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{ancrebox}[1][]{colback=orancre!10,colframe=orancre,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Bug trouvé et corrigé},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Étapes 2b et 3 --- Facteurs communs et comblement du \emph{jagged edge}}\\[0.15cm]
+\textcolor{gray}{\large Méthodologie complète, formules, résultats et figures}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document couvre, de façon complète et pédagogique, deux étapes consécutives du travail : \textbf{l'extraction d'un facteur commun latent par branche} (Étape 2b), puis \textbf{son utilisation pour combler le \emph{jagged edge}} --- la publication asynchrone des indicateurs (Étape 3). Les deux étapes sont solidaires : la seconde ne peut exister sans la première. Chaque étape est justifiée (pourquoi), détaillée pas à pas (comment, avec toutes les formules), puis illustrée par les résultats réels obtenus sur les 45 séries retenues.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.5cm}
+
+% ============================================================================
+\part*{Partie I --- Étape 2b : le facteur commun par branche}
+\addcontentsline{toc}{part}{Partie I --- Étape 2b : le facteur commun par branche}
+% ============================================================================
+
+% ============================================================================
+\section{Pourquoi cette étape --- le problème qu'elle résout}
+% ============================================================================
+
+\subsection{Ce que le facteur n'est pas}
+
+\begin{intuition}
+On pourrait croire que le facteur sert à \emph{remplacer} les indicateurs individuels d'une branche par un résumé unique. \textbf{Ce n'est pas sa fonction principale} --- le facteur reste un outil intermédiaire, pas une fin en soi.
+\end{intuition}
+
+\subsection{Ce que le facteur est réellement --- combler le \emph{jagged edge}}
+
+Higgins\cit{1} construit son propre facteur (124 séries mensuelles, Étape 2b) pour l'utiliser ensuite, à l'Étape 3, dans une régression augmentée du facteur :
+\begin{equation}
+\Delta\log(y_{t,h}^i) = \alpha_i + \sum_{k=1}^{q}\gamma_k \Delta\log(y_{t,h-k}^i) + \sum_{j=0}^{r}\beta_j^i f_{t,h-j}
+\label{eq:facteur_augmente}
+\end{equation}
+
+\begin{definitionbox}
+\textbf{Le \emph{jagged edge}} (« bord en dents de scie ») désigne le fait qu'à une date donnée, les indicateurs ne sont jamais tous publiés simultanément --- certains sont déjà disponibles pour le mois courant, d'autres ont encore un mois ou deux de retard.
+\end{definitionbox}
+
+\begin{intuition}
+Si le crédit bancaire du mois courant est déjà publié mais que l'IPI ne l'est pas encore, un modèle qui ne regarde que l'IPI seul ne peut faire mieux qu'extrapoler son propre passé. Mais si le facteur commun de la branche a déjà capté un signal via le crédit, l'équation \ref{eq:facteur_augmente} permet d'en tirer une meilleure estimation de l'IPI manquant.
+\end{intuition}
+
+% ============================================================================
+\section{Pourquoi un facteur par branche, pas un facteur unique}
+% ============================================================================
+
+\begin{ancrebox}
+\textbf{Décision retenue} : un facteur \emph{par branche} (12 facteurs), plutôt qu'un facteur unique pour l'économie entière --- à la différence de Higgins\cit{1}.
+\end{ancrebox}
+
+\textbf{Premier argument} --- l'hétérogénéité sectorielle : un facteur unique risquerait qu'un choc propre à une seule branche (une sécheresse touchant l'agriculture) domine le résultat et donne une fausse impression de ralentissement généralisé.
+
+\textbf{Second argument} --- la couverture incomplète : 4 branches sur 16 ne disposent d'aucun indicateur retenu. Un facteur « national » n'intégrerait en réalité que 12 branches sur 16 --- une étiquette trompeuse. Un facteur par branche porte un nom honnête.
+
+% ============================================================================
+\section{Étape 0 --- Constitution du panel, et la trimestrialisation}
+\label{sec:trimestrialisation}
+% ============================================================================
+
+Pour chaque branche, le panel comprend les séries \textbf{retenues} (ancres et sélection Niveau 2), \textbf{à l'exclusion de la cible}.
+
+\begin{definitionbox}
+Certaines séries sont trimestrielles, d'autres mensuelles. Pour une série mensuelle $x_m$, la valeur trimestrialisée au trimestre $t$ (mois $m_1,m_2,m_3$) est la moyenne simple :
+\begin{equation}
+\bar{x}_t = \frac{1}{3}\left(x_{m_1} + x_{m_2} + x_{m_3}\right)
+\label{eq:trimestrialisation}
+\end{equation}
+\end{definitionbox}
+
+% ============================================================================
+\section{Étapes 1--2 --- Transformation et standardisation}
+% ============================================================================
+
+\begin{equation}
+\Delta\log(x_{i,t}) = \log(x_{i,t}) - \log(x_{i,t-1})
+\label{eq:deltalog}
+\end{equation}
+\begin{equation}
+\tilde{x}_{i,t} = \frac{\Delta\log(x_{i,t}) - \bar{x}_i}{\sigma_i}
+\label{eq:standardisation}
+\end{equation}
+où $\bar{x}_i,\sigma_i$ sont calculés sur les seules valeurs observées de $i$.
+
+% ============================================================================
+\section{Étapes 3--4 --- Panel troué et algorithme EM}
+% ============================================================================
+
+\begin{definitionbox}
+\textit{« Stock and Watson (2002) describe a method for estimating principal components when some series are missing at the beginning of the sample »}\cit{2} --- citée par Higgins\cit{1} pour son propre facteur.
+\end{definitionbox}
+
+\textbf{Initialisation} : les valeurs manquantes de $\tilde{X}$ sont mises à 0.
+
+\textbf{Extraction (étape M)}, par SVD :
+\begin{equation}
+\tilde{X}^{(k)} = U\Sigma V^\top, \qquad F_t^{(k)} = U_{t,1}\cdot\Sigma_{1,1}, \qquad \Lambda_i^{(k)} = V_{i,1}
+\label{eq:svd}
+\end{equation}
+
+\textbf{Convention de signe} : le facteur est orienté positivement corrélé à la première série du panel.
+
+\textbf{Ré-estimation (étape E)} :
+\begin{equation}
+\hat{\tilde{x}}_{i,t}^{(k+1)} = \Lambda_i^{(k)} \cdot F_t^{(k)} \qquad \text{pour } (i,t) \text{ manquant}
+\label{eq:reestimation}
+\end{equation}
+
+\textbf{Convergence} :
+\begin{equation}
+\max_t \left| F_t^{(k+1)} - F_t^{(k)} \right| < 10^{-6}, \qquad \text{plafond 300 itérations}
+\label{eq:convergence}
+\end{equation}
+
+% ============================================================================
+\section{Correction méthodologique --- déflation systématique}
+\label{sec:correction_deflation}
+% ============================================================================
+
+\begin{alertebox}
+\textbf{Incohérence trouvée après la première construction de ce document} : seules 5 séries (celles spécifiquement récupérées par le test statistique post-déflation, voir \texttt{03\_Deflation\_Series\_Nominales}) avaient été effectivement déflatées dans le classeur. Les 24 ancres et les 16 séries de la sélection Niveau 2 d'origine, quand elles sont monétaires, étaient restées en valeur \textbf{nominale} --- les facteurs et le comblement du jagged edge avaient donc été construits en mélangeant, dans un même panel, des séries en dirhams courants et des séries déjà en volume réel.
+
+\textbf{Correction appliquée} : identification exhaustive, colonne par colonne (pas par mot-clé automatique, qui avait initialement manqué plusieurs séries sans « MDH » explicite dans leur nom, comme « TOTAL EXPORTATIONS (1000) » ou « Masse monétaire (M3) »), de \textbf{10 séries monétaires} encore nominales : Céphalopodes (Pêche), M3, Crédit bancaire, Secteur privé, Sociétés non financières privées (Finances), Recettes touristiques (Hébergement), Crédit bancaire BTP (Construction), Total exportations, Total importations (Commerce), Crédits à l'immobilier. Toutes déflatées avec la même série IPC reconstruite, puis les Étapes 2b et 3 \textbf{entièrement relancées}.
+\end{alertebox}
+
+% ============================================================================
+\section{Résultats de l'Étape 2b (après correction)}
+% ============================================================================
+
+\begin{resultatbox}
+\textbf{10 branches sur 12 convergent véritablement} --- même verdict qu'avant la correction (les 2 exceptions, Industrie d'extraction et Commerce, sont les mêmes), un signe rassurant que la dynamique générale n'a pas été bouleversée, seule la composition exacte du signal a changé pour les branches concernées par la déflation.
+\end{resultatbox}
+
+\begin{center}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Branche} & \textbf{Séries} & \textbf{Trimestres} & \textbf{Itérations} \\
+\midrule
+Agriculture & 2 & 25 & 2 \\
+Information-communication & 2 & 80 & 2 \\
+Pêche & 2 & 65 & 18 \\
+Finances et assurances & 6 & 65 & 25 \\
+Immobilier & 3 & 65 & 40 \\
+Hébergement-restauration & 2 & 72 & 37 \\
+Transports & 2 & 68 & 67 \\
+Industrie de transformation & 15 & 64 & 72 \\
+Électricité, gaz, eau & 4 & 65 & 81 \\
+Construction & 2 & 125 & 91 \\
+Commerce & 3 & 61 & 300 (non convergé) \\
+Industrie d'extraction & 2 & 112 & 300 (non convergé) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{intuition}
+Les 2 branches à convergence immédiate (2 itérations) sont toujours celles à 0\% de valeurs manquantes --- Agriculture et Information-communication, non concernées par la correction (aucune de leurs séries n'était monétaire). Cohérence interne préservée.
+\end{intuition}
+
+\subsection{Figures}
+
+Toutes les figures de facteurs (une par branche, 12 au total, régénérées après correction) sont disponibles dans le dossier \texttt{figures/} --- voir la note finale du document pour le détail complet.
+
+% ============================================================================
+\part*{Partie II --- Étape 3 : combler le \emph{jagged edge}}
+\addcontentsline{toc}{part}{Partie II --- Étape 3 : combler le jagged edge}
+% ============================================================================
+
+% ============================================================================
+\section{Pourquoi cette étape}
+% ============================================================================
+
+\begin{intuition}
+C'est la suite directe et l'unique finalité de la Partie I : le facteur construit précédemment sert maintenant, pour \textbf{chacune des 45 séries retenues individuellement}, à estimer l'équation \ref{eq:facteur_augmente} --- avec ses propres retards $q$ et ceux du facteur $r$, choisis par AIC, exactement comme Higgins\cit{1} le fait pour ses propres régressions augmentées du facteur.
+\end{intuition}
+
+% ============================================================================
+\section{Comment --- sélection AIC de $(q,r)$}
+% ============================================================================
+
+\subsection{La grille testée}
+
+Pour chaque série $i$, toutes les combinaisons $q\in\{0,\dots,4\}$, $r\in\{0,\dots,4\}$ (25 modèles) sont estimées par MCO, sur un échantillon commun (nécessaire pour comparer les AIC entre eux) :
+\begin{equation}
+(q^\star, r^\star) = \operatorname*{arg\,min}_{q,r} \text{AIC}(q,r), \qquad \text{AIC} = 2k - 2\ln(\hat{L})
+\label{eq:aic}
+\end{equation}
+où $k$ est le nombre de paramètres du modèle et $\hat{L}$ sa vraisemblance maximisée.
+
+\subsection{Réestimation finale et prévision}
+
+Le modèle retenu $(q^\star,r^\star)$ est réestimé sur toutes les observations disponibles pour cette combinaison précise (pas seulement l'échantillon commun de la recherche en grille, pour ne perdre aucune donnée utile). Si le facteur dispose d'assez de retard pour construire tous les régresseurs du trimestre suivant, une \textbf{prévision hors-échantillon} est produite --- c'est elle qui, en usage réel, comblerait un indicateur pas encore publié.
+
+\subsection{Le cas particulier des séries déjà en variation}
+\label{sec:cas_ipai}
+
+\begin{alertebox}
+Une série (« IPAI Résidentiel --- transactions ») est, contrairement à toutes les autres, \textbf{déjà exprimée en taux de variation} (reconstruite par interpolation de Denton, section précédente du travail) --- pas un niveau positif. Lui appliquer l'équation \ref{eq:deltalog} standard (filtrer les valeurs positives puis prendre le log) supprimait à tort la moitié de ses points (les trimestres à variation négative), la faisant chuter sous le seuil minimal exploitable. \textbf{Corrigé} : cette série est détectée par son nom et directement ramenée à une échelle décimale ($\div 100$), sans nouvelle différenciation logarithmique.
+\end{alertebox}
+
+% ============================================================================
+\section{Résultats de l'Étape 3}
+% ============================================================================
+
+\begin{resultatbox}
+\textbf{45 séries sur 45 traitées avec succès}, sur les données correctement déflatées. \textbf{17 séries} disposent d'une prévision hors-échantillon exploitable pour le prochain trimestre (contre 16 avant la correction --- une série supplémentaire en bénéficie désormais, la déflation ayant changé la structure de couverture temporelle du facteur pour sa branche).
+\end{resultatbox}
+
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Retard $q$ retenu (propre à la série)} & \textbf{Nombre de séries} \\
+\midrule
+0 & 4 \\ 1 & 5 \\ 2 & 6 \\ 3 & 13 \\ 4 & 17 \\
+\bottomrule
+\end{tabular}
+\hspace{1cm}
+\begin{tabular}{lr}
+\toprule
+\textbf{Retard $r$ retenu (facteur)} & \textbf{Nombre de séries} \\
+\midrule
+0 & 13 \\ 1 & 2 \\ 2 & 6 \\ 3 & 11 \\ 4 & 13 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{intuition}
+$q=4$ est le choix le plus fréquent (17 séries sur 45) --- l'AIC privilégie souvent le plus grand nombre de retards propres autorisé par la grille testée, suggérant qu'une grille encore plus large ($q>4$) pourrait, pour certaines séries, être informative --- une extension possible non explorée ici.
+\end{intuition}
+
+\subsection{Figures}
+
+Les 45 figures d'ajustement (série observée vs ajustée, avec prévision quand disponible) sont disponibles dans le dossier \texttt{figures/} --- voir la note finale du document.
+
+% ============================================================================
+\section{Synthèse et suite}
+% ============================================================================
+
+\begin{resultatbox}
+Les deux étapes sont maintenant complètes et opérationnelles : 12 facteurs par branche, 45 équations de prévision individuelles, prêtes à combler le jagged edge en usage réel. La suite logique du travail est la construction des \textbf{bridge equations} (Étape 4 de Higgins) --- reliant chaque branche à sa cible (VA), en utilisant ces mêmes séries désormais complétées.
+\end{resultatbox}
+
+\begin{ancrebox}
+\textbf{Où trouver les figures.} Ce document ne reproduit aucune figure --- elles sont toutes disponibles dans le dossier \texttt{figures/} (même dossier que les scripts R) :
+\begin{itemize}[leftmargin=1.3em]
+\item \texttt{figures/<branche>\_facteur.png} : les 12 figures de l'Étape 2b, une par branche (évolution du facteur + charges)
+\item \texttt{figures/<branche>\_<série>\_ajustement.png} : les 45 figures de l'Étape 3, une par série (série observée vs ajustée, avec prévision quand disponible)
+\end{itemize}
+\end{ancrebox}
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7.
+\item \hypertarget{ref2}{} Stock, J.H. \& Watson, M.W. (2002). \textit{Macroeconomic Forecasting Using Diffusion Indexes}. Journal of Business \& Economic Statistics, 20(2), 147--162.
+\end{enumerate}
+
+\end{document}

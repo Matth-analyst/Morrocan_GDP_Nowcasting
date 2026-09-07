@@ -1,0 +1,13 @@
+branche,n_series,n_trimestres,n_iterations,statut
+Agriculture,2,25,2,OK
+Peche,2,65,18,OK
+Industrie_transformation,15,64,72,OK
+Industrie_extraction,2,112,300,OK
+Finances_assurances,6,65,25,OK
+Hebergement_restauration,2,72,37,OK
+Construction,2,125,91,OK
+Commerce,3,61,300,OK
+Transports,2,68,67,OK
+Electricite_gaz_eau,4,65,81,OK
+Information_communication,2,80,2,OK
+Immobilier,3,65,40,OK

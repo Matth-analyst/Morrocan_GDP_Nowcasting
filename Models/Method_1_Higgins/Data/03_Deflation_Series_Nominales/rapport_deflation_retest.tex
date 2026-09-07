@@ -1,0 +1,154 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{violetselect}{HTML}{7030A0}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{violetselect}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Résultat notable},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Méthode},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Déflation des séries nominales et retest}\\[0.15cm]
+\textcolor{violetselect}{\large 58 candidats déflatés, 5 nouvelles sélections}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Les 58 indicateurs nominaux (crédit bancaire, comptes débiteurs, crédits à l'équipement, M3, recettes touristiques, primes d'assurance, commerce extérieur) retenus dans les 11 branches concernées ont été déflatés par l'IPC reconstruit, puis retestés selon la procédure du Niveau 2 (Student + FDR par branche). \textbf{5 séries, rejetées sous leur forme nominale, sont retenues une fois déflatées} --- dont 2 pour la branche Électricité, qui ne disposait jusqu'ici d'aucune série au-delà de ses ancres.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Méthode}
+% ============================================================================
+
+\subsection{Déflation}
+
+Pour chaque série nominale $x_t$ et le point IPC du même mois :
+\begin{equation}
+x_t^{\text{réel}} = \frac{x_t^{\text{nominal}}}{\text{IPC}_t / 100}
+\end{equation}
+
+\subsection{Retest}
+
+Identique à la procédure du Niveau 2 déjà établie : $\Delta\log$, corrélation de Pearson sur le train (T1-2010 à T1-2021), test de Student ($\alpha=0{,}10$, $|r|\geq0{,}15$), correction FDR (Benjamini-Hochberg) \textbf{séparément pour chaque branche}, appliquée uniquement aux candidats \textbf{non-ancres}.
+
+\begin{noteboxbleu}
+Les ancres (Crédit bancaire pour Finances/Construction, Crédits à l'immobilier, Recettes touristiques, Total exportations/importations pour Commerce) sont déflatées elles aussi, par cohérence --- mais \textbf{ne sont jamais retestées} : leur statut d'ancre reste acquis, indépendamment du résultat. Leur corrélation déflatée est indiquée à titre informatif dans les tableaux ci-dessous.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Résultat global}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Candidats nominaux testés (hors ancres)} & 47 \\
+\textbf{Nouvellement retenus après déflation} & \textbf{5} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{alertebox}
+\textbf{Électricité, gaz, eau} passe de 0 à \textbf{2} séries retenues --- cette branche ne disposait jusqu'ici que de ses 2 ancres, sans aucun renfort statistique. La déflation change ce constat.
+\end{alertebox}
+
+% ============================================================================
+\section{Les 5 nouvelles sélections, en détail}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\small
+\begin{tabular}{p{3cm}p{5.5cm}rrr}
+\toprule
+\textbf{Branche} & \textbf{Série} & \textbf{$r$ nominal} & \textbf{$r$ réel} & \textbf{$p_{BH}$} \\
+\midrule
+Immobilier & Crédits à l'habitat & 0,197 & 0,366 & 0,044 \\
+Finances & Comptes débiteurs et crédits de trésorerie & 0,304 & 0,383 & 0,046 \\
+Finances & Primes versées (assurance) & $-$0,660 & $-$0,665 & 0,046 \\
+Électricité & Crédit bancaire Électricité, gaz et eau & $-$0,069 & $-$0,339 & 0,037 \\
+Électricité & Comptes débiteurs et crédits de trésorerie & $-$0,229 & $-$0,426 & 0,012 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\subsection{Pourquoi ces cas précisément}
+
+\textbf{Électricité} : le saut de corrélation est le plus spectaculaire ($r$ multiplié par 5 pour le crédit bancaire, par près de 2 pour les comptes débiteurs) --- cohérent avec l'idée que le secteur électrique, à forte intensité capitalistique, est sensible aux conditions de financement réelles (coût du capital net d'inflation), pas seulement à leur montant nominal.
+
+\textbf{Primes d'assurance} : la corrélation était déjà forte en nominal ($-0{,}660$) et le reste quasiment à l'identique une fois déflatée --- la déflation ne change ici presque rien, cette série était déjà robuste.
+
+\subsection{Cas où la déflation dégrade la corrélation --- également informatif}
+
+\begin{fichebox}
+Certains candidats voient leur $r$ \textbf{diminuer} après déflation (ex. Crédits à l'équipement Électricité : $0{,}008 \to -0{,}213$, mais encore rejeté) --- confirmant que la déflation n'est pas un simple renforcement systématique : elle isole un vrai signal réel, qui peut aussi bien atténuer qu'amplifier une corrélation initialement dominée par un effet de prix.
+\end{fichebox}
+
+% ============================================================================
+\section{Effet sur les ancres (informatif, sans changement de statut)}
+% ============================================================================
+
+\begin{center}
+\small
+\begin{tabular}{p{3cm}p{5.5cm}rr}
+\toprule
+\textbf{Branche} & \textbf{Ancre} & \textbf{$r$ nominal} & \textbf{$r$ réel} \\
+\midrule
+Finances & Crédit bancaire (vue d'ensemble) & 0,509 & 0,514 \\
+Finances & Crédit bancaire Activités financières & 0,202 & 0,200 \\
+Hébergement & Recettes touristiques & 0,485 & 0,487 \\
+Construction & Crédit bancaire Bâtiment et travaux publics & $-$0,023 & $-$0,043 \\
+Immobilier & Crédits à l'immobilier & 0,113 & \textbf{0,306} \\
+Commerce & Total exportations & 0,009 & 0,007 \\
+Commerce & Total importations & $-$0,001 & $-$0,004 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{noteboxbleu}
+\textbf{L'ancre Immobilier (Crédits à l'immobilier) gagne beaucoup en force} une fois déflatée (0,113 → 0,306) --- sans que cela ne change son statut (elle était déjà ancre), mais c'est un signal encourageant sur la pertinence du choix initial, maintenant renforcé par une mesure plus propre.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Synthèse et mise à jour du classeur}
+% ============================================================================
+
+\begin{fichebox}
+Le classeur final (\texttt{GDPNow\_Maroc\_classeur\_complet\_final.xlsx}) est mis à jour : les 5 séries nouvellement retenues sont déplacées du bloc « Non sélectionné » vers un nouveau sous-bloc \textbf{« Sélection après déflation »}, distinct de la sélection Niveau 2 d'origine, pour garder une trace claire de leur origine (retenues seulement après correction de l'effet prix, pas dès le premier test).
+\end{fichebox}
+
+\end{document}

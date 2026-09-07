@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{bleuclair}{HTML}{2E74B5}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Diagnostic requalifié en cours de route},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Substitution par proxy --- enquête de conjoncture}\\[0.15cm]
+\textcolor{orangealerte}{\large Le diagnostic initial était erroné : pas de substitution nécessaire}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent La dernière technique de gestion des valeurs manquantes identifiée chez Higgins (2014) --- substituer une série interrompue par une source proxy équivalente --- devait s'appliquer à l'enquête mensuelle de conjoncture dans l'industrie (Bank Al-Maghrib), dont notre base s'arrêtait en octobre 2024. \textbf{Vérification faite, ce diagnostic était faux} : l'enquête elle-même n'a jamais cessé d'être publiée --- c'est notre propre collecte de données qui s'est arrêtée, pas la source. Aucune substitution n'est donc nécessaire ; un simple rafraîchissement de collecte suffirait, mais reste techniquement bloqué à ce stade.
+\end{abstract}
+
+% ============================================================================
+\section{Ce qui avait été établi avant ce document}
+% ============================================================================
+
+Dans le rapport de justification économique d'Industrie de transformation, les 42 séries de l'enquête de conjoncture avaient été signalées comme interrompues, dernière observation au 2024-10-01 --- écartées du filtre de qualité (avec fraîcheur), puis réintégrées dans la version « sans fraîcheur » de la sélection, avec la réserve explicite qu'une recherche de substitut actif restait à faire.
+
+% ============================================================================
+\section{Vérification effectuée}
+% ============================================================================
+
+\begin{alertebox}
+Une recherche directe sur le site de Bank Al-Maghrib confirme que \textbf{l'enquête mensuelle de conjoncture dans l'industrie est toujours publiée, chaque mois, jusqu'en janvier 2026 au moins} (bulletin N°277, portant sur les résultats de janvier 2026, menée du 2 au 26 février 2026). Un bulletin de novembre 2024 confirme également la continuité de la publication à cette date.
+
+\textbf{Le problème n'a donc jamais été une interruption de l'enquête elle-même} --- c'est la collecte de données qui alimente notre base (\texttt{STAGE.zip}) qui s'est arrêtée à cette date, vraisemblablement lors de la dernière mise à jour de ce dossier de travail.
+\end{alertebox}
+
+% ============================================================================
+\section{Ce qui bloque la correction complète, honnêtement}
+% ============================================================================
+
+\begin{fichebox}
+Contrairement aux bulletins IPAI (simples fichiers PDF, extraits avec succès dans une étape précédente de ce travail), le site \texttt{bkam.ma} \textbf{bloque les requêtes automatisées} (protection anti-robot) --- empêchant l'extraction directe des valeurs chiffrées des bulletins manquants (novembre 2024 à aujourd'hui, soit une quinzaine de bulletins).
+\end{fichebox}
+
+% ============================================================================
+\section{Conclusion et action recommandée}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{Aucune substitution par proxy n'est nécessaire} --- la conclusion de cette dernière technique est différente de ce qui était prévu, mais tout aussi utile à documenter : le diagnostic initial (« série interrompue, chercher un remplaçant ») était incorrect, corrigé en « série toujours active, notre collecte est simplement datée ».
+
+\textbf{Action recommandée, non réalisée ici} : télécharger manuellement les bulletins mensuels de novembre 2024 à aujourd'hui depuis \texttt{bkam.ma/Statistiques/Enquetes/Enquete-mensuelle-de-conjoncture-dans-l-industrie}, puis appliquer la même procédure d'extraction déjà utilisée avec succès pour l'IPAI --- une tâche de collecte, pas de méthode statistique nouvelle à développer.
+\end{fichebox}
+
+\end{document}

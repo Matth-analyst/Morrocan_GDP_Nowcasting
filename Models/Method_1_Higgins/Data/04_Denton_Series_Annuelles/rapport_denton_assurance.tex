@@ -1,0 +1,149 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{bleuclair}{HTML}{2E74B5}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Résultat négatif, documenté honnêtement},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Méthode},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Interpolation de Denton --- séries annuelles}\\[0.15cm]
+\textcolor{orangealerte}{\large Cas testé : primes d'assurance (Finances) --- résultat négatif}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document applique l'interpolation de Denton\cit{1} --- citée par Higgins (2014) pour relier une variable basse fréquence à une série liée de fréquence plus élevée --- aux primes d'assurance vie et non-vie (annuelles, 1976--2024), en utilisant « Primes versées » (trimestrielle, déjà candidat retenu) comme série liée. \textbf{La méthode fonctionne correctement} (contrainte vérifiée exacte), mais \textbf{les deux séries résultantes échouent au test statistique} --- un résultat négatif documenté, pas dissimulé.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Pourquoi ce cas, et pourquoi pas la production agricole}
+% ============================================================================
+
+\begin{alertebox}
+\textbf{Un premier candidat abandonné avant calcul} : la production céréalière (Agriculture, annuelle) avait initialement été envisagée, avec les précipitations comme série liée. Elle a été écartée \textbf{avant tout calcul} : la récolte céréalière est un événement saisonnier concentré (mai--juillet), pas un flux continu --- répartir la production annuelle proportionnellement aux précipitations de chaque mois produirait une « production » non nulle en janvier ou en novembre, un résultat économiquement absurde. Denton exige que la variable cible soit elle-même un flux plausible à la fréquence visée, pas seulement qu'une série corrélée existe.
+\end{alertebox}
+
+Les primes d'assurance, en revanche, sont un flux financier réellement continu (les compagnies encaissent des primes tout au long de l'année) --- un candidat conceptuellement solide pour Denton, contrairement à la production agricole.
+
+% ============================================================================
+\section{Méthode}
+% ============================================================================
+
+\subsection{Série cible et série liée}
+
+\begin{fichebox}
+\textbf{Cibles} : Assurance vie et capitalisation, Assurance non-vie --- annuelles, 1976--2024 (49 points chacune).
+
+\textbf{Série liée} : Primes versées --- trimestrielle, 2016--2026, déjà retenue comme candidat exploratoire (Niveau 2) pour la branche Finances.
+\end{fichebox}
+
+\subsection{Étape 1 --- Apprentissage du profil trimestriel}
+
+Sur la période de chevauchement (2016--2024, 9 années complètes), la part moyenne de chaque trimestre dans le total annuel de la série liée :
+\begin{equation}
+\text{profil}_t = \frac{1}{9}\sum_{a=2016}^{2024} \frac{\text{PrimesVersées}_{a,t}}{\sum_{t'=1}^{4}\text{PrimesVersées}_{a,t'}}, \qquad t\in\{1,2,3,4\}
+\end{equation}
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+T1 & T2 & T3 & T4 \\
+\midrule
+24,5\% & 26,8\% & 23,3\% & 25,4\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+Profil relativement équilibré --- un léger pic au 2\up{e} trimestre, cohérent avec un flux d'encaissement de primes sans forte saisonnalité marquée.
+\end{fichebox}
+
+\subsection{Étape 2 --- Application aux séries cibles}
+
+Pour chaque année $a$ et chaque trimestre $t$ :
+\begin{equation}
+\text{Assurance}_{a,t} = \text{Assurance}_a^{\text{annuel}} \times \text{profil}_t
+\end{equation}
+
+\subsection{Contrainte de Denton --- vérifiée exacte}
+
+\begin{equation}
+\sum_{t=1}^{4} \text{Assurance}_{a,t} = \text{Assurance}_a^{\text{annuel}} \qquad \forall a
+\end{equation}
+
+\begin{fichebox}
+\textbf{Vérifié numériquement} : erreur maximale entre la somme des 4 trimestres interpolés et le total annuel officiel = $0{,}000000$ (exact, aux arrondis machine près).
+\end{fichebox}
+
+% ============================================================================
+\section{Résultat du test statistique}
+% ============================================================================
+
+\begin{alertebox}
+\begin{center}
+\begin{tabular}{lrrrl}
+\toprule
+\textbf{Série} & $r$ & $p$ & $n$ & \textbf{Verdict} \\
+\midrule
+Assurance vie et capitalisation (Denton) & $-0{,}073$ & $0{,}635$ & 45 & Rejetée \\
+Assurance non-vie (Denton) & $-0{,}081$ & $0{,}599$ & 45 & Rejetée \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Les deux séries échouent largement}, même au test brut sans correction FDR. Ce n'est pas un défaut de la méthode d'interpolation (la contrainte Denton est mathématiquement exacte) --- c'est un constat empirique : une fois correctement mises à l'échelle trimestrielle, ces séries n'ont simplement aucun lien statistique détectable avec la VA Finances sur la période d'entraînement.
+\end{alertebox}
+
+\subsection{Interprétation}
+
+\begin{noteboxbleu}
+Un résultat négatif rigoureusement obtenu a la même valeur méthodologique qu'un résultat positif --- il évite d'intégrer, sur la base d'une intuition économique plausible mais non vérifiée, une série qui n'apporterait rien à la modélisation. La prime versée totale (déjà retenue) capture apparemment mieux le lien avec l'activité financière que sa décomposition vie/non-vie une fois lissée à l'échelle trimestrielle.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Portée et limites de ce travail}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{Ce document traite un seul cas} parmi plusieurs centaines de séries annuelles identifiées dans la base (voir l'inventaire complet, section suivante) --- un cas choisi pour sa solidité conceptuelle, pas parce qu'il était pressenti comme gagnant. L'extension de cette méthode aux autres séries annuelles (par branche, avec identification d'une série liée pertinente pour chacune) reste un travail non réalisé à ce stade, largement disproportionné en effort par rapport à ce document.
+\end{fichebox}
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7 --- citant la technique d'interpolation de Denton pour les déflateurs de stocks trimestriels.
+\end{enumerate}
+
+\end{document}

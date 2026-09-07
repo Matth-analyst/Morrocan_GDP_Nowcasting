@@ -1,0 +1,145 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Point de vigilance},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Note méthodologique},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection des indicateurs}\\[0.15cm]
+\textcolor{gray}{\large Justifications économiques et filtres --- Branche Finances et assurances}\\[0.1cm]
+\textcolor{orangealerte}{\normalsize Sans contrainte de fraîcheur}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le filtre économique a priori et le filtre de qualité de la donnée appliqués à la branche Finances et assurances. \textbf{30 indicateurs} sont retenus à l'issue de ces deux filtres --- \textbf{aucun rejet} au filtre de qualité, un résultat inhabituel dans cette procédure.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Contexte}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{47 indicateurs bruts} extraits. Après filtre économique et filtre de fréquence : \textbf{30 candidats}. Après filtre de qualité (longueur et densité, sans fraîcheur) : \textbf{30 candidats retenus} --- aucun rejet à cette étape.
+\end{fichebox}
+
+Cette branche est, par nature, la mieux documentée par les statistiques bancaires officielles (Bank Al-Maghrib publie des ventilations mensuelles détaillées du crédit) --- ce qui explique à la fois le grand nombre de candidats et l'absence de rejet au filtre de qualité : les séries monétaires et bancaires marocaines sont généralement complètes et régulièrement mises à jour.
+
+% ============================================================================
+\section{Deux séries mal classées, exclues avant tout filtre}
+% ============================================================================
+
+\begin{alertebox}
+Deux colonnes présentes dans la feuille source --- \textit{« Tomates, primeurs »} et \textit{« Pommes de terre, primeurs »} (issues de la table \textit{« Production des principales cultures agricoles »}) --- n'ont \textbf{aucun lien économique} avec Finances et assurances. Il s'agit manifestement d'une erreur de rattachement lors de la consolidation du classeur, cohérente avec un défaut déjà identifié pour cette branche dans les tout premiers travaux de ce projet. Exclues avant tout comptage.
+\end{alertebox}
+
+% ============================================================================
+\section{Le filtre économique a priori, par catégorie}
+% ============================================================================
+
+\subsection{Crédit bancaire --- vue d'ensemble (3 séries)}
+
+\textbf{Source} : Bank Al-Maghrib.
+
+\textbf{Justification économique} : le crédit bancaire total et les crédits à la consommation mesurent directement l'activité du secteur bancaire --- son propre extrant, en quelque sorte, puisque le crédit \emph{est} l'activité économique du secteur financier, pas seulement un intrant comme pour les autres branches.
+
+\subsection{Crédit --- ventilation par objet économique (8 séries)}
+
+\textbf{Source} : Bank Al-Maghrib, table 12 (ventilation par objet économique).
+
+\textbf{Justification économique} : comptes débiteurs, crédits à l'équipement, créances diverses, crédits à caractère financier, autres crédits, créances en souffrance --- une décomposition fonctionnelle du crédit bancaire total, chaque poste reflétant une facette différente de l'activité du secteur (financement courant, investissement, créances impayées comme indicateur de la qualité du portefeuille).
+
+\subsection{Crédit --- ventilation par secteur institutionnel (14 séries)}
+
+\textbf{Source} : Bank Al-Maghrib, table 13 (ventilation par secteur institutionnel des emprunteurs).
+
+\textbf{Justification économique} : \textbf{la catégorie la plus directement pertinente pour cette branche précise} --- plusieurs de ces postes désignent directement d'autres acteurs du secteur financier lui-même (Sociétés de financement, Établissements de crédit assimilés, OPCVM autres que monétaires, Autres sociétés financières) --- une mesure de l'activité interbancaire et parafinancière, pas seulement du crédit accordé à l'économie réelle par les banques.
+
+\subsection{Agrégats monétaires (3 séries)}
+
+\textbf{Source} : BDD SECTORIEL (Bank Al-Maghrib).
+
+\textbf{Justification économique} : dépôts à vue, masse monétaire M3, avoirs officiels de réserve --- les agrégats macro-financiers les plus classiques du suivi bancaire et monétaire, directement liés à l'activité du secteur.
+
+\subsection{Assurance --- agrégats (2 séries)}
+
+\textbf{Source} : BDD SECTORIEL (ACAPS --- Autorité de Contrôle des Assurances et de la Prévoyance Sociale).
+
+\textbf{Justification économique} : primes versées et prestations constituent les deux faces de l'activité assurantielle --- la collecte de primes (l'extrant commercial du secteur) et les prestations versées (l'activité de couverture des sinistres). Aucune ambiguïté sur la pertinence économique de ces deux séries pour la branche.
+
+% ============================================================================
+\section{Catégories écartées par la fréquence, pas par la plausibilité}
+% ============================================================================
+
+\begin{noteboxbleu}
+\textbf{16 séries détaillées de primes d'assurance par type} (vie et capitalisation, non-vie, responsabilité civile, incendie, assistance, risques techniques, réassurance, maritime, aviation, grêle, vol, crédit...) et \textbf{la valeur des opérations au centre de chèques postaux} sont économiquement tout à fait plausibles --- mais publiées en fréquence \textbf{annuelle} (Manar-Stat), structurellement incompatibles avec un modèle trimestriel, exactement comme les données de rendement agricole détaillées pour la branche Agriculture. Écartées pour cette raison, pas pour un défaut de pertinence.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Étape} & \textbf{Nombre de candidats} \\
+\midrule
+Indicateurs bruts (après retrait de 2 séries mal classées) & 47 \\
+Après filtre économique + fréquence & 30 \\
+Après filtre de qualité (sans fraîcheur) & \textbf{30} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Catégorie} & \textbf{Retenus} \\
+\midrule
+Crédit --- secteur institutionnel & 14 \\
+Crédit --- objet économique & 8 \\
+Crédit bancaire (vue d'ensemble) & 3 \\
+Agrégats monétaires & 3 \\
+Assurance --- agrégats & 2 \\
+\midrule
+\textbf{Total} & \textbf{30} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

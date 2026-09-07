@@ -1,0 +1,166 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{orancre}{HTML}{BF9000}
+\definecolor{violetselect}{HTML}{7030A0}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{violetselect}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{selectbox}[1][]{colback=violetselect!8,colframe=violetselect,boxrule=0.8pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{ancrebox}[1][]{colback=orancre!10,colframe=orancre,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Résultat notable},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Méthode --- correction apportée},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Niveau 2 : le test statistique}\\[0.15cm]
+\textcolor{violetselect}{\large Ancres conservées sans test --- exploratoires testés avec FDR}\\[0.1cm]
+\textcolor{gray}{\normalsize Version 2 --- correction méthodologique}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le résultat du Niveau 2 de la sélection, \textbf{après correction d'une erreur de compréhension de la version précédente}. \textbf{Les 24 ancres du Niveau 1 sont conservées intégralement, sans être soumises au test statistique} --- c'est leur statut d'ancre lui-même, décidé a priori, qui justifie leur présence, pas un résultat de test. Seuls les \textbf{410 candidats non-ancres} sont testés, avec correction FDR par branche. \textbf{16 d'entre eux} sont retenus (sélection Niveau 2, bloc violet).
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Correction méthodologique par rapport à la version précédente}
+% ============================================================================
+
+\begin{noteboxbleu}
+\textbf{Erreur de la version précédente} : les 24 ancres avaient été testées statistiquement au même titre que les candidats exploratoires, et certaines avaient été \emph{rejetées} faute de significativité (par exemple, Poisson pélagique n'était retenu que de justesse, et 16 des 24 ancres échouaient au test). \textbf{Ce n'était pas la bonne logique.}
+
+\textbf{Principe corrigé} : une ancre est retenue par construction --- c'est précisément tout l'intérêt de la démarche à deux niveaux inspirée de Higgins\cit{1}, qui ne soumet jamais son choix de série (motivé par la correspondance BEA) à un test de significativité concurrentiel. Une ancre \textbf{reste une ancre}, quel que soit le résultat qu'aurait donné un test sur elle. Seuls les candidats \textbf{non désignés comme ancres} passent par le test statistique + FDR, et c'est ce second groupe, et lui seul, qui alimente la nouvelle sélection (bloc violet).
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Structure du classeur, mise à jour}
+% ============================================================================
+
+Chaque feuille de branche comporte désormais \textbf{7 blocs}, chacun avec sa propre colonne de dates, avec la distinction trimestriel/mensuel appliquée non seulement au reste non sélectionné (comme avant) mais aussi \textbf{à l'intérieur des ancres et de la sélection Niveau 2} :
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Bloc} & \textbf{Couleur} & \textbf{Contenu} \\
+\midrule
+CIBLE & Vert & VA de la branche \\
+ANCRES --- Trimestriel & Or & Ancres Niveau 1, jamais testées, fréquence trimestrielle \\
+ANCRES --- Mensuel & Or & Ancres Niveau 1, jamais testées, fréquence mensuelle \\
+SÉLECTION N2 --- Trimestriel & Violet & Non-ancres retenues après test+FDR, trimestriel \\
+SÉLECTION N2 --- Mensuel & Violet & Non-ancres retenues après test+FDR, mensuel \\
+NON SÉLECTIONNÉ --- Trimestriel & Bleu & Non-ancres rejetées, trimestriel \\
+NON SÉLECTIONNÉ --- Mensuel & Orange & Non-ancres rejetées, mensuel \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ============================================================================
+\section{Résultat global}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Groupe} & \textbf{Nombre} \\
+\midrule
+Ancres (Niveau 1, conservées sans test) & 24 \\
+Sélection Niveau 2 (non-ancres retenues après FDR) & 16 \\
+Non sélectionné (non-ancres rejetées) & 394 \\
+\midrule
+\textbf{Total} & \textbf{434} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+% ============================================================================
+\section{Résultat détaillé, branche par branche}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Branche} & \textbf{Ancres} & \textbf{Sélection N2} & \textbf{Non sélectionné} \\
+\midrule
+Agriculture & 2 & 0 & 3 \\
+Pêche & 2 & 0 & 72 \\
+Industrie de transformation & 2 & \textbf{13} & 74 \\
+Industrie d'extraction & 2 & 0 & 15 \\
+Finances et assurances & 2 & 2 & 26 \\
+Hébergement-restauration & 2 & 0 & 30 \\
+Construction & 2 & 0 & 30 \\
+Commerce & 2 & 1 & 17 \\
+Transports & 2 & 0 & 5 \\
+Électricité, gaz, eau & 2 & 0 & 79 \\
+Information-communication & 2 & 0 & 31 \\
+Immobilier & 2 & 0 & 12 \\
+\midrule
+\textbf{Total} & \textbf{24} & \textbf{16} & \textbf{394} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{alertebox}
+\textbf{Industrie de transformation concentre 13 des 16 sélections Niveau 2} --- les autres branches n'en totalisent que 3 (2 pour Finances, 1 pour Commerce). Les candidats retenus pour Industrie de transformation sont presque tous des séries IPI par sous-filière, avec des corrélations très fortes (jusqu'à $r=0{,}91$ pour l'IPI Réparation de machines) --- assez fortes pour survivre à une correction FDR appliquée sur 87 candidats testés dans cette seule branche.
+\end{alertebox}
+
+% ============================================================================
+\section{Ce que ça signifie pour la suite}
+% ============================================================================
+
+\begin{selectbox}
+\textbf{Le pool final de séries directement disponibles pour les bridge equations, branche par branche} :
+\begin{itemize}[leftmargin=1.3em]
+\item \textbf{Ancres (24)} --- utilisables telles quelles, leur statut ne dépend pas du test
+\item \textbf{Sélection Niveau 2 (16)} --- validées statistiquement, viennent s'ajouter aux ancres de leur branche
+\item \textbf{Non sélectionné (394)} --- écartées à ce stade, mais leur liste reste disponible (bloc bleu/orange) pour une réexploration future si la méthode ou les données évoluent
+\end{itemize}
+
+Cinq branches (Transports, Électricité, Information-communication, Immobilier, Agriculture) ne disposent donc, au final, \textbf{que de leurs 2 ancres} comme séries exploitables pour la construction des bridge equations --- aucun candidat exploratoire n'étant venu s'y ajouter après le test.
+\end{selectbox}
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7.
+\end{enumerate}
+
+\end{document}

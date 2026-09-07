@@ -1,0 +1,160 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Correction apportée en cours de vérification},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Note méthodologique},#1}
+\newtcolorbox{fichierbox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Résultats complets disponibles},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection des indicateurs}\\[0.15cm]
+\textcolor{gray}{\large Justifications économiques et filtres --- Branche Pêche}\\[0.1cm]
+\textcolor{orangealerte}{\normalsize Version 2 --- sans contrainte de fraîcheur}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le filtre économique a priori et le filtre de qualité de la donnée appliqués à la branche Pêche. \textbf{74 indicateurs} sont retenus à l'issue de ces deux filtres --- le test statistique n'est volontairement pas traité ici.
+
+\textbf{Version 2} : le critère de fraîcheur (dernière observation récente) a été retiré du filtre de qualité, dans le but d'examiner ensuite --- comme le fait Higgins (2014) pour ses propres séries interrompues --- des solutions de substitution ou de raccordement plutôt qu'une simple exclusion.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Contexte}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{83 indicateurs bruts} extraits de la base source. Après filtre économique et filtre de fréquence : \textbf{81 candidats}. Après filtre de qualité (longueur et densité, \textbf{sans fraîcheur}) : \textbf{74 candidats retenus}.
+\end{fichebox}
+
+\begin{noteboxbleu}
+\textbf{Résultat de robustesse} : le retrait du critère de fraîcheur \textbf{ne change strictement rien} au résultat pour cette branche --- les mêmes 74 candidats sont retenus, avec ou sans ce critère. Les 7 candidats écartés au filtre de qualité (section \ref{sec:qualite}) le sont tous pour des raisons de longueur ou de densité, jamais uniquement pour un manque de fraîcheur : Ougnit et les deux séries Échinodermes-oursins, en particulier, échouent \emph{aussi} sur la densité, indépendamment de leur ancienneté. La branche Pêche ne bénéficierait donc d'aucune récupération de candidat si une démarche de substitution à la Higgins était tentée ici.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Le filtre économique a priori}
+% ============================================================================
+
+\subsection{Débarquements par port, en quantité (60 ports retenus)}
+
+\textbf{Source} : Office National des Pêches / Manar-Stat, \textit{« Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel) »}.
+
+\textbf{Justification économique} : le tonnage débarqué dans chaque port constitue une mesure directe et physique de l'activité de pêche côtière et artisanale --- l'extrant premier du secteur, avant toute transformation ou commercialisation. La ventilation par port permet de capter la diversité géographique de l'activité (façades atlantique et méditerranéenne, pêche industrielle concentrée dans quelques grands ports contre pêche artisanale dispersée sur le littoral).
+
+\begin{fichierbox}
+Liste complète des 60 ports retenus (avec source, période de couverture, densité) : \texttt{resultats/peche\_sans\_fraicheur.csv}. Parmi les principaux : Agadir, Al Hoceima, Casablanca, Dakhla, Essaouira, Laâyoune, Larache, Nador, Safi, Tan Tan, Tanger.
+\end{fichierbox}
+
+\subsection{Débarquements par espèce, en quantité et en valeur (12 séries retenues)}
+
+\textbf{Source} : Office National des Pêches / Manar-Stat, \textit{« Débarquements des produits de la pêche côtière et artisanale par espèce »} (déclinaisons quantité et valeur).
+
+\textbf{Justification économique} : même nature de donnée que les séries par port (extrant physique et économique direct), mais ventilée cette fois par catégorie d'espèce plutôt que par lieu de débarquement --- une décomposition complémentaire, pas redondante, de la même activité globale. Chacune des \textbf{6 espèces} (Poisson pélagique, Poisson blanc, Céphalopodes, Coquillages, Crustacés, Algues) est disponible en deux variantes --- \textbf{quantité} (tonnage) et \textbf{valeur} (Mdh) --- soit 12 séries au total, chacune apportant une information distincte (le volume physique débarqué n'évolue pas nécessairement comme sa valeur marchande, notamment en cas de variation des prix).
+
+\subsection{Crédit bancaire sectoriel (2 candidats)}
+
+\textbf{Source} : Bank Al-Maghrib, tables de ventilation par branche d'activité.
+
+\textbf{Justification économique} : le crédit de trésorerie et le crédit à l'équipement financent respectivement le cycle d'exploitation courant et l'investissement productif du secteur --- un raisonnement identique à celui déjà établi pour Agriculture.
+
+\begin{alertebox}
+\textbf{Même réserve que pour Agriculture, vérifiée à l'identique.} Les deux séries --- \textit{« Comptes débiteurs et crédits de trésorerie »} et \textit{« Crédits à l'équipement »} --- sont, à la source (Bank Al-Maghrib), publiées uniquement sous une ligne combinée \textbf{« Agriculture et pêche »}, jamais désagrégée. Vérifié par comparaison directe : les valeurs sont strictement identiques entre les feuilles Agriculture et Pêche du classeur consolidé, chiffre pour chiffre. Ces deux candidats mesurent donc un signal de financement du \textbf{secteur primaire combiné}, pas de la pêche isolément.
+\end{alertebox}
+
+% ============================================================================
+\section{Le filtre de qualité de la donnée (sans fraîcheur)}
+\label{sec:qualite}
+% ============================================================================
+
+Deux critères mécaniques appliqués ici : longueur minimale (12 observations), densité interne (au moins 80\% de couverture sur la période disponible). Le critère de fraîcheur est \textbf{volontairement omis} dans cette version.
+
+\begin{fichebox}
+\textbf{7 candidats écartés à ce stade}, sur les 81 issus du filtre économique --- tous pour un motif de \textbf{densité}, à l'exception d'aucun cas de fraîcheur pure (voir note méthodologique ci-dessus) :
+
+\begin{center}
+\small
+\begin{tabular}{p{5cm}p{3.5cm}p{5cm}}
+\toprule
+\textbf{Indicateur} & \textbf{Critère échoué} & \textbf{Détail} \\
+\midrule
+Sidi Boulfdail (port) & Densité & 80\% (tout juste sous le seuil) \\
+Skhirat (port) & Densité & 77\% \\
+Bouznika (port) & Densité & 72\% \\
+Moulay Bousselham (port) & Densité & 64\% \\
+Ougnit (port) & Densité & Sous le seuil, indépendamment de la fraîcheur \\
+Échinodermes-oursins (quantité) & Densité & Sous le seuil, indépendamment de la fraîcheur \\
+Échinodermes-oursins (valeur) & Densité & Sous le seuil, indépendamment de la fraîcheur \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Étape} & \textbf{Nombre de candidats} \\
+\midrule
+Indicateurs bruts extraits & 83 \\
+Après filtre économique + fréquence & 81 \\
+Après filtre de qualité (sans fraîcheur) & \textbf{74} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Catégorie} & \textbf{Retenus} \\
+\midrule
+Débarquements par port (quantité) & 60 \\
+Débarquements par espèce (quantité + valeur) & 12 \\
+Crédit bancaire sectoriel (combiné agriculture+pêche) & 2 \\
+\midrule
+\textbf{Total} & \textbf{74} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{fichierbox}
+Liste et caractéristiques complètes des 74 candidats retenus à ce stade : \texttt{resultats/peche\_sans\_fraicheur.csv}.
+\end{fichierbox}
+
+\end{document}

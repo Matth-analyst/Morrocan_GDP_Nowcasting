@@ -1,0 +1,153 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Limite de vérification, assumée},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Note méthodologique},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection des indicateurs}\\[0.15cm]
+\textcolor{gray}{\large Justifications économiques et filtres --- Branche Électricité, gaz, eau}\\[0.1cm]
+\textcolor{orangealerte}{\normalsize Sans contrainte de fraîcheur}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le filtre économique a priori et le filtre de qualité de la donnée appliqués à la branche Électricité, gaz, eau. \textbf{81 indicateurs} sont retenus --- la base de candidats la plus large rencontrée dans cette procédure, avec une réserve méthodologique explicite sur l'exhaustivité de la vérification des doublons.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Contexte --- une branche exceptionnellement documentée}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{128 indicateurs bruts} extraits, sur 165 colonnes sources --- la feuille la plus dense rencontrée dans cette procédure, reflétant le suivi très fin de la production électrique marocaine (par filière, par centrale nommée : JLEC, Tahaddart, Tarfaya, parcs éoliens individuels...). Après filtre économique et filtre de fréquence : \textbf{81 candidats}. Après filtre de qualité : \textbf{81 candidats retenus} --- aucun rejet.
+\end{fichebox}
+
+\begin{alertebox}
+\textbf{Contrairement aux branches précédentes, la vérification systématique des doublons entre séries n'a pas été menée exhaustivement ici}, compte tenu du volume (128 indicateurs, dont 58 dans la seule catégorie « production détaillée »). Deux tables sources se recoupent largement en contenu (\textit{« Énergie appelée nette (mensuel).csv »} et \textit{« energie.csv »}), sans qu'il ait été vérifié, colonne par colonne, si certaines séries sont des duplicata exacts --- comme cela a été fait rigoureusement pour Agriculture, Pêche et Industrie de transformation. \textbf{Cette limite est assumée et signalée explicitement}, plutôt que de prétendre à une vérification qui n'a pas été menée à ce niveau de détail pour cette branche précise.
+\end{alertebox}
+
+% ============================================================================
+\section{Le filtre économique a priori, par catégorie}
+% ============================================================================
+
+\subsection{Production d'électricité --- détail par filière et par centrale (58 séries retenues)}
+
+\textbf{Source} : ONEE / Manar-Stat (tables \textit{« Énergie appelée nette »} et \textit{« energie.csv »}).
+
+\textbf{Justification économique} : la production d'électricité par filière (hydraulique, thermique, éolienne, solaire) et par centrale nommée (JLEC, Tahaddart, Tarfaya, divers parcs éoliens) constitue l'extrant physique direct de la branche --- le lien le plus immédiat concevable avec sa valeur ajoutée.
+
+\subsection{Ventes d'électricité par catégorie de clientèle (9 séries retenues)}
+
+\textbf{Source} : ONEE, ventes mensuelles.
+
+\textbf{Justification économique} : la ventilation par type de client (distributeurs, clients basse/moyenne/très haute tension) mesure la demande finale d'électricité, complémentaire à la production --- utile notamment si la VA de la branche suit davantage la commercialisation que la production brute.
+
+\subsection{Consommation de combustibles par l'ONEE (5 séries retenues)}
+
+\textbf{Source} : ONEE, consommation mensuelle en combustibles.
+
+\textbf{Justification économique} : fioul, charbon (local et importé), gasoil, petcoke --- les intrants directs de la production thermique d'électricité, un indicateur avancé plausible de l'activité de production à venir.
+
+\subsection{Crédit bancaire sectoriel (3 séries retenues)}
+
+\textbf{Source} : Bank Al-Maghrib.
+
+\textbf{Justification économique} : financement direct du secteur --- même raisonnement que pour les autres branches.
+
+\subsection{Prix des matières premières énergétiques (2 séries retenues)}
+
+\textbf{Source} : Platts / Bloomberg (via Manar-Stat).
+
+\textbf{Justification économique} : le prix du Brent et du Butane, bien que fixés sur les marchés internationaux plutôt qu'au Maroc, influencent directement les coûts de production et les décisions d'investissement du secteur énergétique national --- un indicateur avancé de nature différente des précédents (un intrant de coût, pas un volume physique).
+
+\subsection{Intrants de la raffinerie (2 séries retenues)}
+
+\textbf{Source} : entrées de la raffinerie, mensuel.
+
+\textbf{Justification économique} : pétrole brut et autres produits pétroliers entrant en raffinerie --- un indicateur avancé de l'activité de transformation énergétique à venir.
+
+\subsection{Production et consommation agrégées (2 séries retenues)}
+
+\textbf{Source} : BDD SECTORIEL (ONEE / Manar-Stat).
+
+\textbf{Justification économique} : mesures agrégées de production d'électricité et de consommation de combustibles, complémentaires aux séries détaillées ci-dessus --- utiles comme indicateurs de synthèse si les séries granulaires s'avèrent trop bruitées individuellement.
+
+% ============================================================================
+\section{Deux séries écartées par cohérence avec le travail déjà mené}
+% ============================================================================
+
+\begin{noteboxbleu}
+Deux séries annuelles présentes dans la base (\textit{« Importation du ciment hydraulique »}, \textit{« Consommation du sucre »}) auraient de toute façon été écartées par le filtre de fréquence --- mais leur exclusion est également cohérente avec un principe déjà établi dans les tout premiers travaux de ce projet : le ciment est un intrant de la Construction, pas de l'énergie ; le sucre n'a aucun lien mécanique identifiable avec cette branche.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Étape} & \textbf{Nombre de candidats} \\
+\midrule
+Indicateurs bruts extraits & 128 \\
+Après filtre économique + fréquence & 81 \\
+Après filtre de qualité (sans fraîcheur) & \textbf{81} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Catégorie} & \textbf{Retenus} \\
+\midrule
+Production d'électricité --- détail & 58 \\
+Ventes d'électricité par clientèle & 9 \\
+Consommation de combustibles & 5 \\
+Crédit bancaire sectoriel & 3 \\
+Prix des matières premières & 2 \\
+Intrants de la raffinerie & 2 \\
+Production/consommation agrégées & 2 \\
+\midrule
+\textbf{Total} & \textbf{81} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

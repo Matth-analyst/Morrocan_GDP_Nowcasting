@@ -1,0 +1,129 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Bug d'extraction trouvé et corrigé},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Note méthodologique},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection des indicateurs}\\[0.15cm]
+\textcolor{gray}{\large Justifications économiques et filtres --- Branche Information-communication}\\[0.1cm]
+\textcolor{orangealerte}{\normalsize Sans contrainte de fraîcheur}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le filtre économique a priori et le filtre de qualité de la donnée appliqués à la branche Information-communication. \textbf{33 indicateurs} sont retenus à l'issue de ces deux filtres, après correction d'un bug d'extraction détaillé ci-dessous.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Un bug d'extraction trouvé et corrigé}
+% ============================================================================
+
+\begin{alertebox}
+\textbf{Deux blocs entiers de colonnes étaient exclus par erreur.} La cible rétropolée (colonne 23) partage sa colonne de dates avec 12 indicateurs Internet (colonnes 24--35) --- l'exclusion de la cible avait été codée en excluant tout le bloc de dates correspondant, entraînant la disparition accidentelle des 12 candidats Internet. De même, la plage retirée pour les variantes du PIB (initialement 37--56) recouvrait par erreur 6 véritables indicateurs ANRT (colonnes 49--55, agrégats sectoriels), qui ne sont pas des variantes de la cible. Corrigé en excluant précisément les colonnes de la cible elle-même, sans exclure les colonnes voisines qui partagent la même référence de dates. Résultat avant correction : 15 candidats ; après correction : 33.
+\end{alertebox}
+
+% ============================================================================
+\section{Contexte}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{57 indicateurs bruts} extraits (après correction). Après filtre économique et filtre de fréquence : \textbf{34 candidats}. Après filtre de qualité : \textbf{33 candidats retenus}.
+\end{fichebox}
+
+% ============================================================================
+\section{Le filtre économique a priori, par catégorie}
+% ============================================================================
+
+\subsection{Téléphonie --- fixe et mobile (15 séries retenues)}
+
+\textbf{Source} : ANRT (Agence Nationale de Réglementation des Télécommunications) / Manar-Stat.
+
+\textbf{Justification économique} : le parc d'abonnés (mobile global et par opérateur, fixe résidentiel et professionnel), les parts de marché par opérateur, le revenu moyen par minute de communication (ARPM, fixe et mobile) et le trafic voix sortant du fixe constituent l'ensemble des mesures directes de l'activité du secteur des télécommunications --- volume (parc, trafic) et valeur (ARPM) combinés.
+
+\subsection{Internet et téléphonie fixe --- détail (12 séries retenues)}
+
+\textbf{Source} : ANRT, parc des abonnés Internet et téléphonie fixe.
+
+\textbf{Justification économique} : publiphones, abonnés Internet (total, ADSL, liaisons louées, 3G, offres data), taux de pénétration, noms de domaine « .ma », facture moyenne par client --- une décomposition fine de l'activité Internet, distincte de la téléphonie vocale mais tout aussi directement liée à l'activité du secteur.
+
+\subsection{Agrégats sectoriels (6 séries retenues)}
+
+\textbf{Source} : BDD SECTORIEL (ANRT / Manar-Stat).
+
+\textbf{Justification économique} : taux de pénétration du mobile, parc Internet global, taux de pénétration de l'Internet, parc de liaisons data entreprises, parc de noms de domaine, nouveaux enregistrements --- des mesures de synthèse complémentaires aux séries détaillées, potentiellement moins bruitées si les séries individuelles s'avèrent trop volatiles.
+
+% ============================================================================
+\section{Le filtre de qualité}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{1 seul candidat écarté}, sur les 34 issus du filtre économique : \textit{« Trafic voix sortant Mobile »} (BDD SECTORIEL), densité de 70\%.
+\end{fichebox}
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Étape} & \textbf{Nombre de candidats} \\
+\midrule
+Indicateurs bruts extraits (après correction du bug) & 57 \\
+Après filtre économique + fréquence & 34 \\
+Après filtre de qualité (sans fraîcheur) & \textbf{33} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Catégorie} & \textbf{Retenus} \\
+\midrule
+Téléphonie (fixe et mobile) & 15 \\
+Internet et téléphonie fixe --- détail & 12 \\
+Agrégats sectoriels & 6 \\
+\midrule
+\textbf{Total} & \textbf{33} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

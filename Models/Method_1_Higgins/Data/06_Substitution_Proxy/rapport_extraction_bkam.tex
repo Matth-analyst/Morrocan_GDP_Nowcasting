@@ -1,0 +1,88 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{bleuclair}{HTML}{2E74B5}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Limite honnêtement documentée},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Extraction des 213 bulletins BAM --- Enquête de conjoncture industrie}\\[0.15cm]
+\textcolor{orangealerte}{\large Résultats partiels, honnêtement documentés}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent 213 bulletins mensuels (2009--2026) fournis par l'utilisateur ont été traités via \texttt{pdfplumber} (extraction de la vraie structure de tableau, pas du texte brut). \textbf{95 bulletins extraits avec succès} (2014--2026), comblant 15 des mois manquants de notre trou d'origine (novembre 2024 à aujourd'hui). Un bug non résolu limite l'extraction du tableau global à 7 questions ; les données par branche (5 branches × 12 questions, 57 séries) sont en revanche correctement extraites.
+\end{abstract}
+
+% ============================================================================
+\section{Ce qui a été extrait avec succès}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{95 bulletins sur 212} (extraction réussie), couvrant février 2014 à juin 2026 --- avec un remplissage particulièrement bon de 2019 à 2026.
+
+\textbf{Notre trou d'origine} (novembre 2024 et au-delà) : \textbf{15 des 19 mois manquants comblés}.
+
+\textbf{Données par branche} : 5 branches (agroalimentaire, chimie-parachimie, électrique-électronique, mécanique-métallurgie, textile-cuir), 12 questions chacune --- 57 combinaisons, correctement extraites via lecture de la structure réelle du tableau (colonnes Hausse/Stagnation/Baisse/Pas de visibilité/Solde d'opinion, la valeur SO isolée précisément à sa position).
+
+\textbf{Tableau global simple} (Carnets de commandes, Stocks de produits finis) : 78 points chacun, 2014--2026, extraction propre.
+\end{fichebox}
+
+% ============================================================================
+\section{Ce qui reste bogué, non résolu}
+% ============================================================================
+
+\begin{alertebox}
+Le tableau global à 7 questions (Production, Nouvelles commandes, Ventes, Prix des produits finis --- la série qu'on espérait le plus, notamment pour tester un signal de prix jamais exploité) \textbf{ne s'extrait correctement que pour un seul bulletin sur 95} --- la logique de détection des colonnes échoue sur la structure réelle de ce tableau précis, dont la mise en page varie apparemment davantage que les autres selon les bulletins. Non corrigé, faute de temps proportionné au gain attendu.
+\end{alertebox}
+
+\textbf{117 bulletins non extraits} : deux causes distinctes ---
+\begin{itemize}[leftmargin=1.3em]
+\item Noms de fichiers à l'encodage corrompu (caractères accentués mal interprétés, ex. \texttt{\#U00e9} pour « é ») --- empêche la reconnaissance automatique de la date, sur une quinzaine de fichiers.
+\item Bulletins de la période \textasciitilde2016--2018, dont la mise en page PDF ne comporte pas de bordures de tableau détectables par \texttt{pdfplumber} --- nécessiterait une méthode d'extraction positionnelle différente, non développée ici.
+\end{itemize}
+
+% ============================================================================
+\section{Un fait notable, à vérifier dans un travail futur}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{3 des 13 séries déjà retenues} au Niveau 2 pour Industrie de transformation sont des séries de conjoncture par branche (« Évolution des ventes », courant et anticipé). Si l'extraction actuelle comble des trous \textbf{à l'intérieur} de la période d'entraînement (2010--2021) pour ces séries précises --- pas seulement après 2024 ---, un retest pourrait changer leur corrélation. \textbf{Non vérifié dans ce document}, faute de temps : les données extraites couvrent surtout 2019--2026, avec un effet potentiel sur le train encore à quantifier.
+\end{fichebox}
+
+% ============================================================================
+\section{Ce qu'il resterait à faire}
+% ============================================================================
+
+\begin{enumerate}[leftmargin=1.4em]
+\item Corriger l'extraction du tableau global à 7 questions (la plus grande valeur potentielle restante --- notamment la série de prix, jamais testée)
+\item Traiter les bulletins 2016--2018 par une méthode positionnelle (sans dépendre des bordures de tableau)
+\item Vérifier si les données récupérées changent le statut des 3 séries de conjoncture déjà retenues
+\end{enumerate}
+
+\end{document}

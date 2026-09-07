@@ -1,0 +1,224 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+\newtcolorbox{definitionbox}[1][]{colback=gray!7,colframe=black!60,boxrule=0.4pt,arc=1pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Correction méthodologique},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Étape 4 --- Les Bridge Equations}\\[0.15cm]
+\textcolor{orangealerte}{\large Version 2 --- corrigée (restriction à la période d'entraînement)}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document remplace intégralement une version précédente qui contenait une erreur méthodologique significative : les bridge equations avaient été estimées sur \textbf{tout l'historique disponible} de chaque série, au lieu d'être restreintes à la période d'entraînement (T1-2010 à T1-2021) --- la règle suivie sans exception partout ailleurs dans ce travail depuis la Phase 2. Une fois corrigée, l'image change substantiellement : plusieurs branches jugées à tort « sans aucun lien » (Finances, Électricité, Immobilier) ont en réalité des relations statistiquement significatives.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.5cm}
+
+% ============================================================================
+\section{L'erreur trouvée, et pourquoi elle changeait tout}
+% ============================================================================
+
+\begin{alertebox}
+La fonction d'estimation ne restreignait pas les données à la période d'entraînement --- un oubli, contraire à la discipline suivie systématiquement ailleurs (Phase 2, Niveau 2, déflation, facteurs communs). Deux conséquences concrètes :
+\begin{itemize}[leftmargin=1.3em]
+\item Pour \textbf{Finances}, \textbf{Électricité} et \textbf{Immobilier}, plusieurs indicateurs jugés « non significatifs » sur tout l'historique se révèlent en réalité \textbf{significatifs sur le train} --- la relation existe, mais concentrée sur cette période précise.
+\item Le seuil minimal d'observations pour le modèle combiné (fixé à 15, sans justification particulière) s'est révélé inadapté une fois le train appliqué : \textbf{corrigé} en un seuil proportionné au nombre de régresseurs testés simultanément (nombre d'indicateurs $+$ 1 constante $+$ 5 degrés de liberté minimum), plutôt qu'un chiffre fixe arbitraire.
+\end{itemize}
+\end{alertebox}
+
+% ============================================================================
+\section{Méthode (rappel, inchangée sur le fond)}
+% ============================================================================
+
+\textbf{Équation individuelle}, pour chaque indicateur $i$, estimée uniquement sur T1-2010--T1-2021 :
+\begin{equation}
+\Delta\log(VA_t) = \beta_0 + \beta_1 \Delta\log(x_{i,t}) + \varepsilon_t, \qquad t \in [\text{T1-2010}, \text{T1-2021}]
+\label{eq:bridge_simple}
+\end{equation}
+
+\textbf{Équation combinée}, sélection pas-à-pas par AIC parmi tous les indicateurs de la branche, sur le même train :
+\begin{equation}
+\Delta\log(VA_t) = \beta_0 + \sum_{i=1}^{n}\beta_i \Delta\log(x_{i,t}) + \varepsilon_t
+\label{eq:bridge_combinee}
+\end{equation}
+
+\begin{definitionbox}
+\textbf{Nouveau seuil minimal} pour tenter le modèle combiné : $n_{\min} = n_{\text{indicateurs}} + 1 + 5$ --- garantit au moins 5 degrés de liberté résiduels dans le modèle le plus large (avant même la sélection AIC), proportionnellement au nombre de candidats testés.
+\end{definitionbox}
+
+% ============================================================================
+\section{Résultats corrigés --- vue d'ensemble}
+% ============================================================================
+
+\begin{resultatbox}
+\textbf{8 branches sur 12 obtiennent un modèle combiné estimé avec succès} (contre 10 dans la version erronée --- un chiffre plus bas mais fondé sur les bonnes données). \textbf{4 échouent} : Agriculture (aucun indicateur n'atteint 12 points sur le train --- limite déjà connue), Industrie de transformation, Industrie d'extraction et Commerce (trop de candidats simultanés pour le nombre de trimestres disponibles sur le train).
+\end{resultatbox}
+
+\begin{center}
+\small
+\begin{tabular}{lrrrrl}
+\toprule
+\textbf{Branche} & \textbf{Indic.} & \textbf{Signif. (p<0,10)} & \textbf{Régr. retenus} & \textbf{$R^2$} & \textbf{$n$} \\
+\midrule
+Finances et assurances & 6 & 6 & 2 & 0,527 & 13 \\
+Électricité, gaz, eau & 4 & 2 & 1 & 0,601 & 12 \\
+Hébergement-restauration & 2 & 1 & 1 & 0,238 & 44 \\
+Construction & 2 & 1 & 1 & 0,071 & 44 \\
+Pêche & 2 & 1 & 1 & 0,066 & 42 \\
+Immobilier & 3 & 2 & 0 & 0,000 & 14 \\
+Transports & 2 & 0 & 0 & 0,000 & 12 \\
+Information-communication & 2 & 0 & 0 & 0,000 & 45 \\
+\midrule
+Industrie de transformation & 15 & 15 & \multicolumn{3}{c}{échec (données insuffisantes)} \\
+Industrie d'extraction & 2 & 1 & \multicolumn{3}{c}{échec (données insuffisantes)} \\
+Commerce & 3 & 1 & \multicolumn{3}{c}{échec (données insuffisantes)} \\
+Agriculture & 0 & 0 & \multicolumn{3}{c}{échec (aucun indicateur $\geq$ 12 pts sur train)} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{alertebox}
+\textbf{Réserve honnête sur les petits échantillons.} Finances ($n=13$) et Électricité ($n=12$) obtiennent les $R^2$ les plus élevés, mais sur des échantillons \textbf{à peine au-dessus du seuil minimal} --- ces résultats sont statistiquement valides mais fragiles : peu de degrés de liberté, sensibles à l'ajout ou au retrait d'un seul point. À interpréter comme des pistes prometteuses, pas des résultats définitifs.
+\end{alertebox}
+
+% ============================================================================
+\section{Détail --- Finances et assurances}
+% ============================================================================
+
+\begin{center}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Indicateur} & \textbf{$\beta_1$} & \textbf{$R^2$} & \textbf{$p$-value} \\
+\midrule
+Primes versées (déflaté, réel) & $-0{,}041$ & 0,443 & 0,013 \\
+Crédit bancaire & 0,632 & 0,264 & $<0{,}001$ \\
+Secteur privé & 0,513 & 0,215 & 0,002 \\
+Sociétés non financières privées & 0,289 & 0,158 & 0,008 \\
+Comptes débiteurs (déflaté, réel) & 0,148 & 0,147 & 0,010 \\
+Masse monétaire (M3) & 0,379 & 0,069 & 0,085 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Modèle combiné} : 2 régresseurs retenus, $R^2=0{,}527$, $n=13$ --- le meilleur résultat combiné de toutes les branches en pouvoir explicatif, mais sur l'échantillon le plus réduit.
+
+% ============================================================================
+\section{Détail --- Électricité, gaz, eau}
+% ============================================================================
+
+\begin{center}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Indicateur} & \textbf{$\beta_1$} & \textbf{$R^2$} & \textbf{$p$-value} \\
+\midrule
+Comptes débiteurs (déflaté, réel) & $-0{,}119$ & 0,182 & 0,004 \\
+Consommation de combustibles & $-0{,}021$ & 0,144 & 0,224 \\
+Production d'électricité & $-0{,}020$ & 0,142 & 0,228 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Modèle combiné} : 1 régresseur retenu (Comptes débiteurs déflatés), $R^2=0{,}601$, $n=12$.
+
+\begin{intuition}
+C'est précisément la série qu'on avait signalée, lors du travail de déflation, comme ayant gagné le plus en force une fois déflatée ($r$ passé de $-0{,}229$ à $-0{,}426$) --- confirmé maintenant comme la relation la plus solide de la branche, sur le bon échantillon.
+\end{intuition}
+
+% ============================================================================
+\section{Les 3 « échecs données insuffisantes » --- diagnostic}
+% ============================================================================
+
+\textbf{Industrie de transformation} : 15 candidats, seuil requis $15+1+5=21$ --- le train (environ 44 trimestres) ne suffit pas pour estimer simultanément autant de régresseurs de façon fiable. Ses 15 équations \textbf{individuelles} restent, elles, toutes significatives ($R^2$ jusqu'à 0,826) --- la richesse d'indicateurs de cette branche devient, paradoxalement, un obstacle au modèle combiné complet.
+
+\textbf{Industrie d'extraction} : chevauchement temporel quasi nul entre Phosphates (1998--2016) et IPM (2016--2026), inchangé par la correction.
+
+\textbf{Commerce} : sur le train restreint, la fusion des 3 indicateurs simultanément tombe sous le seuil ($3+1+5=9$ requis, non atteint).
+
+% ============================================================================
+\section{Raffinement --- récupérer un résultat exploitable pour ces cas}
+% ============================================================================
+
+\subsection{Industrie de transformation --- modèle réduit}
+
+\begin{resultatbox}
+Plutôt que les 15 candidats, un second essai avec seulement les \textbf{6 meilleurs} (par $R^2$ individuel --- qui partagent la même fenêtre de disponibilité, $n=20$) : \textbf{5 régresseurs retenus, $R^2=0{,}947$}, l'ajustement suivant même le creux Covid de -21\% presque exactement.
+\end{resultatbox}
+
+\begin{alertebox}
+\textbf{Réserve importante} : cette fenêtre ($n=20$) ne couvre que 2016--2021, pas l'ensemble du train (2010--2021) --- un $R^2$ aussi élevé sur un échantillon aussi court et incluant un choc aussi marqué (Covid) doit être interprété avec prudence, pas comme une garantie de performance hors échantillon.
+\end{alertebox}
+
+\subsection{Immobilier, Commerce, Industrie d'extraction --- meilleure équation individuelle adoptée}
+
+Pour ces 3 branches, faute de modèle combiné exploitable, la meilleure équation individuelle (la plus significative) est formellement adoptée comme bridge equation de la branche :
+
+\begin{center}
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Branche} & \textbf{Indicateur retenu} & \textbf{$R^2$} & \textbf{$p$} \\
+\midrule
+Immobilier & Crédits à l'habitat (déflaté) & 0,134 & 0,015 \\
+Commerce & Évolution des prix (anticipée) & 0,231 & 0,005 \\
+Industrie d'extraction & IPM --- Industries extractives & 0,195 & 0,051 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{intuition}
+Pour Immobilier, l'ajustement reste visuellement plat comparé à la volatilité observée --- cohérent avec un $R^2$ modeste (0,134) : un lien réel, mais partiel, pas à survendre.
+\end{intuition}
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{resultatbox}
+Après correction \textbf{et} raffinement, le bilan final sur les 12 branches :
+\begin{itemize}[leftmargin=1.3em]
+\item \textbf{6 branches} avec un modèle combiné solide (Finances, Électricité, Hébergement, Construction, Pêche, et désormais Industrie de transformation en version réduite)
+\item \textbf{3 branches} avec une équation individuelle adoptée par défaut (Immobilier, Commerce, Industrie d'extraction)
+\item \textbf{3 branches} sans aucun lien exploitable, repli en AR(4) recommandé (Agriculture, Transports, Information-communication)
+\end{itemize}
+Les figures correspondantes sont dans \texttt{figures/}, les résultats complets dans \texttt{resultats/}.
+\end{resultatbox}
+
+\end{document}

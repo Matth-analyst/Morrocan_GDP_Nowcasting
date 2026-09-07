@@ -1,0 +1,13 @@
+branche,n_indicateurs,n_equations_individuelles,n_regresseurs_combinee,R2_combinee,n_obs_combinee,statut
+Agriculture,2,0,NA,NA,NA,ECHEC (donnees insuffisantes)
+Peche,2,2,1,0.06571725824056608,42,OK
+Industrie_transformation,15,15,NA,NA,NA,ECHEC (donnees insuffisantes)
+Industrie_extraction,2,2,NA,NA,NA,ECHEC (donnees insuffisantes)
+Finances_assurances,6,6,2,0.5266494580448359,13,OK
+Hebergement_restauration,2,2,1,0.23755181959660884,44,OK
+Construction,2,2,1,0.07140409323832571,44,OK
+Commerce,3,3,NA,NA,NA,ECHEC (donnees insuffisantes)
+Transports,2,2,0,0,12,OK
+Electricite_gaz_eau,4,4,1,0.6008105379364275,12,OK
+Information_communication,2,2,0,0,45,OK
+Immobilier,3,3,0,0,14,OK

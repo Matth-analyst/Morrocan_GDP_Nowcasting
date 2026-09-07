@@ -1,0 +1,189 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Bug d'extraction trouvé et corrigé},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Note méthodologique},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection des indicateurs}\\[0.15cm]
+\textcolor{gray}{\large Justifications économiques et filtres --- Branche Immobilier}\\[0.1cm]
+\textcolor{orangealerte}{\normalsize Sans contrainte de fraîcheur}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le filtre économique a priori et le filtre de qualité de la donnée appliqués à la branche Immobilier, incluant une extraction de bulletins IPAI manquants et l'application d'un seuil de densité dédié. \textbf{14 indicateurs} sont retenus au final --- 4 séries de crédit et 10 catégories IPAI, avec une réserve importante concernant l'indice « Global » lui-même (détaillée section \ref{sec:seuil}).
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Deux bugs d'extraction trouvés et corrigés en cours de route}
+% ============================================================================
+
+\begin{alertebox}
+\textbf{Bug 1 --- ordre des vérifications.} Le nom de 19 colonnes (détail IPAI par catégorie, colonnes 11--29) est porté en ligne 4 du classeur, pas en ligne 3 comme pour la majorité des autres indicateurs. Le code de secours prévu pour ce cas était placé \emph{après} le test qui rejette une colonne sans nom --- il ne s'exécutait donc jamais. Corrigé en inversant l'ordre des deux instructions.
+
+\textbf{Bug 2 --- colonne de dates non détectée.} La colonne 31 contient une vraie séquence de dates trimestrielles (« 1998T1 », etc.), servant de référence à la fois pour la cible rétropolée (colonne 32) et pour l'ensemble des 36 séries de variations IPAI recalculées (colonnes 33--68, issues du fichier \texttt{ipai\_variations\_propre.csv}, construit précédemment à partir de 72 bulletins BAM/ANCFCC). Cette colonne ne porte cependant \textbf{aucun texte d'en-tête}, donc la détection automatique des colonnes de dates (basée sur les libellés « Mois »/« Trimestre »/« Année ») l'a manquée. Sans correction, les 36 séries de variations auraient été associées aux mauvaises dates (celles de la colonne 10, un calendrier différent) --- exactement le même type d'erreur que celle trouvée et corrigée au tout début de ce travail sur le classeur original. Corrigé en ajoutant manuellement la colonne 31 à la liste des colonnes de dates reconnues.
+\end{alertebox}
+
+% ============================================================================
+\section{Contexte, après correction}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{67 indicateurs bruts} extraits (contre 15 avant correction des deux bugs). Après filtre économique et filtre de fréquence : \textbf{59 candidats}. Après filtre de qualité (longueur et densité, sans fraîcheur) : \textbf{4 candidats retenus}.
+\end{fichebox}
+
+% ============================================================================
+\section{Le filtre économique a priori}
+% ============================================================================
+
+\subsection{Crédit immobilier (4 séries retenues)}
+
+\textbf{Source} : Bank Al-Maghrib.
+
+\textbf{Justification économique} : quatre déclinaisons du financement du secteur --- crédits à l'immobilier (ensemble), crédits à l'habitat (acquéreurs), crédits aux promoteurs immobiliers (offre nouvelle), et financement participatif à l'habitat (une sous-composante récente et distincte, à mécanisme de financement différent --- sans intérêt, conforme à la finance islamique). Ces quatre objets économiques sont suffisamment différents pour ne pas être redondants : le crédit aux promoteurs finance la construction à venir (indicateur avancé de l'offre), le crédit à l'habitat finance la demande déjà réalisée.
+
+\subsection{IPAI --- Indice des Prix des Actifs Immobiliers (55 candidats, tous rejetés au filtre de qualité)}
+
+\textbf{Source} : Bank Al-Maghrib / ANCFCC, détail par catégorie de bien (appartement, bureau, foncier, local commercial, maison, professionnel, résidentiel, villa), en prix et en transactions --- à la fois en niveau brut (19 séries) et en variations trimestrielles/annuelles déjà recalculées (36 séries, issues du travail antérieur de reconstruction par chaînage des 72 bulletins).
+
+\textbf{Justification économique} : l'IPAI est, conceptuellement, \textbf{l'indicateur le plus directement pertinent concevable} pour la branche Immobilier --- un indice de prix officiel du marché immobilier, construit spécifiquement à cette fin. Aucune ambiguïté sur sa plausibilité économique.
+
+% ============================================================================
+\section{Le filtre de qualité --- la vraie limite de cette branche}
+% ============================================================================
+
+\begin{noteboxbleu}
+\textbf{Les 55 candidats IPAI échouent tous sur la densité}, avec des taux de couverture allant de 40\% à 78\% --- systématiquement sous le seuil retenu (80\%). Fait notable : la densité est \textbf{rigoureusement identique} entre la version « niveau » et la version « variation précalculée » d'une même catégorie (ex. « Global — prix » : 54\% dans les deux cas) --- cohérent, puisque les deux dérivent de la même collecte trimestrielle de bulletins, avec les mêmes trimestres manquants.
+
+Ce n'est pas un problème de plausibilité économique --- au contraire, c'est l'indicateur le plus attendu pour cette branche --- mais un vrai problème de collecte historique.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Extraction de 10 bulletins IPAI manquants (T4-2023 à T1-2026)}
+% ============================================================================
+
+\subsection{Diagnostic préalable}
+
+Avant d'agir sur le seuil de densité, une vérification a été menée pour distinguer deux causes possibles : un vrai manque de publication par Bank Al-Maghrib/ANCFCC, ou une lacune de notre propre reconstruction antérieure (par chaînage de 72 bulletins). Résultat : les fichiers PDF des bulletins récents (T4-2023 à T1-2026) étaient déjà présents dans la base collectée, mais \textbf{n'avaient jamais été traités avec succès} pour certaines combinaisons catégorie/indicateur --- en particulier « Global — prix », totalement absente de la reconstruction pour cette période, malgré la présence du fichier source correspondant.
+
+\subsection{Extraction}
+
+Les 10 bulletins ont été extraits et analysés (format tableau structuré, cohérent sur l'ensemble des bulletins récents) : \textbf{179 valeurs récupérées sur 180 possibles} (10 trimestres × 9 catégories × 2 indicateurs). La seule valeur manquante (Bureau, transactions, T4-2024) correspond à un « -- » explicite dans le bulletin lui-même --- une non-publication assumée par Bank Al-Maghrib, pas un échec d'extraction.
+
+\begin{alertebox}
+\textbf{Un résultat plus nuancé qu'espéré.} L'ancienne reconstruction contenait en réalité des données \textbf{partielles et incohérentes} pour cette période (certaines catégories capturées, d'autres non, notamment « Global »), pas une absence totale comme le diagnostic initial le laissait penser. La période T4-2023--T1-2026 a donc été \textbf{intégralement remplacée} par la nouvelle extraction (vérifiée complète), plutôt que fusionnée avec l'ancienne (ce qui aurait créé des doublons ou des incohérences). Aucun doublon (trimestre, catégorie, indicateur) dans le fichier final.
+\end{alertebox}
+
+\subsection{Effet sur la densité --- une amélioration réelle mais insuffisante}
+
+\begin{noteboxbleu}
+\textbf{Résultat honnête : l'extension à 2026 ne résout pas le problème de densité.} La densité se calcule sur l'ensemble de la période couverte (du premier au dernier trimestre) --- ajouter 10 trimestres récents et complets \emph{améliore le numérateur, mais élargit le dénominateur dans les mêmes proportions}. Les vrais trous, situés dans la période 2010--2023 (catégories Foncier/Professionnel inexistantes avant 2012/2015, quelques bulletins anciens irréductibles à l'extraction automatique), restent inchangés. Pour « Global — prix » : densité passée de 54\% à seulement \textbf{61\%} --- une amélioration réelle, mais toujours loin du seuil de 80\%.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Décision --- seuil de densité dédié à l'IPAI}
+\label{sec:seuil}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{Seuil retenu : 65\%}, spécifique à l'IPAI (contre 80\% pour toutes les autres branches). Justification : (i) les trimestres manquants sont \textbf{structurellement expliqués} (évolution méthodologique documentée de Bank Al-Maghrib, pas une perte de donnée aléatoire) --- un cas différent de celui visé par le seuil général de 80\% (Schulz \& Grimes, 2002, pensé pour des essais cliniques où la donnée manquante est généralement non informative) ; (ii) le mécanisme de comblement par lissage de Kalman, déjà utilisé pour toutes les autres séries de ce travail, est précisément conçu pour ce type de structure de trous (pas aléatoire, mais concentrée sur des sous-périodes identifiables) ; (iii) sans cet assouplissement, la branche Immobilier resterait réduite à 4 indicateurs de crédit, sans aucun signal de prix --- une perte d'information disproportionnée pour l'indicateur conceptuellement le plus pertinent de la branche.
+\end{fichebox}
+
+\begin{alertebox}
+\textbf{Réserve importante, à ne pas dissimuler} : même avec ce seuil assoupli, \textbf{« Global — prix » et « Global — transactions » --- les indices vedettes --- échouent encore} (61\% et 55\%, tous deux sous 65\%). Seules des catégories plus fines passent le nouveau seuil. Ce n'est pas l'indicateur qu'on espérait récupérer au départ, mais un ensemble de composantes plus détaillées.
+\end{alertebox}
+
+\begin{center}
+\small
+\begin{tabular}{p{4.5cm}p{2cm}p{2cm}c}
+\toprule
+\textbf{Catégorie} & \textbf{Indicateur} & \textbf{Densité} & \textbf{Retenu (65\%)} \\
+\midrule
+Professionnel & prix & 82\% & Oui \\
+Foncier & prix & 79\% & Oui \\
+Bureau & prix & 79\% & Oui \\
+Résidentiel & transactions & 77\% & Oui \\
+Local commercial & transactions & 77\% & Oui \\
+Local commercial & prix & 77\% & Oui \\
+Professionnel & transactions & 72\% & Oui \\
+Global (série 1998--2017) & prix & 71\% & Oui \\
+Foncier & transactions & 70\% & Oui \\
+Bureau & transactions & 65\% & Oui \\
+\midrule
+Résidentiel & prix & 63\% & Non \\
+\textbf{Global} & \textbf{prix} & \textbf{61\%} & \textbf{Non} \\
+Appartement & prix & 57\% & Non \\
+Villa & prix & 56\% & Non \\
+\textbf{Global} & \textbf{transactions} & \textbf{55\%} & \textbf{Non} \\
+Maison & prix & 54\% & Non \\
+Appartement & transactions & 51\% & Non \\
+Maison / Villa & transactions & 44\% & Non \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Étape} & \textbf{Nombre de candidats} \\
+\midrule
+Indicateurs bruts (après correction des 2 bugs) & 67 \\
+Après filtre économique + fréquence & 59 \\
+Après filtre de qualité (crédit : 80\% ; IPAI : seuil dédié 65\%) & \textbf{14} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Catégorie} & \textbf{Retenus / Testés} \\
+\midrule
+Crédit immobilier & 4 / 4 \\
+IPAI, seuil dédié 65\% (Global exclu, voir réserve ci-dessus) & 10 / 55 \\
+\midrule
+\textbf{Total} & \textbf{14} / 59\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

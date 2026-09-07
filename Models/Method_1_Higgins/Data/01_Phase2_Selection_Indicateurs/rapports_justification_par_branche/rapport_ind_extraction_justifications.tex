@@ -1,0 +1,143 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Point de vigilance},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Note méthodologique},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection des indicateurs}\\[0.15cm]
+\textcolor{gray}{\large Justifications économiques et filtres --- Branche Industrie d'extraction}\\[0.1cm]
+\textcolor{orangealerte}{\normalsize Sans contrainte de fraîcheur}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le filtre économique a priori et le filtre de qualité de la donnée appliqués à la branche Industrie d'extraction. \textbf{17 indicateurs} sont retenus à l'issue de ces deux filtres (longueur et densité, \textbf{sans fraîcheur}) --- le test statistique n'est volontairement pas traité ici.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Contexte}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{18 indicateurs bruts} extraits de la base source --- une branche structurellement dominée par le phosphate (Maroc, premier exportateur mondial), avec un nombre de candidats bien plus restreint que Pêche ou Industrie de transformation. Après filtre économique et filtre de fréquence : \textbf{18 candidats} (aucun rejet à cette étape). Après filtre de qualité : \textbf{17 candidats retenus}.
+\end{fichebox}
+
+% ============================================================================
+\section{Le filtre économique a priori, par catégorie}
+% ============================================================================
+
+\subsection{Production et exportations physiques de phosphate et dérivés (9 séries)}
+
+\textbf{Source} : Manar-Stat / OCP, séries mensuelles de production et de commerce extérieur.
+
+\textbf{Justification économique} : le phosphate et ses dérivés (acide phosphorique, engrais) constituent le cœur de l'activité extractive marocaine. Les volumes produits et exportés sont l'extrant physique direct de la branche --- le lien le plus immédiat concevable avec sa valeur ajoutée.
+
+\begin{noteboxbleu}
+Six de ces neuf séries (Phosphates export/production, Soufre solide/liquide en valeur et en volume, Engrais) s'arrêtent entre 2011 et 2016 --- des séries historiques, non mises à jour depuis, mais conservées dans cette version sans contrainte de fraîcheur. Le soufre est retenu comme intrant direct de la transformation chimique du phosphate (acide phosphorique) --- lien mécanique connu, pas une simple corrélation fortuite.
+\end{noteboxbleu}
+
+\subsection{IPM --- Indice de Production Minière (3 sous-catégories)}
+
+\textbf{Source} : Manar-Stat, Indice de production minière, base 2015.
+
+\textbf{Justification économique} : mesure officielle et directe de l'activité extractive, décomposée en trois niveaux (industries extractives globales, extraction de minerais métalliques, autres industries extractives) --- l'équivalent, pour cette branche, de l'IPI pour l'industrie de transformation.
+
+\subsection{Crédit bancaire sectoriel (1 série)}
+
+\textbf{Source} : Bank Al-Maghrib.
+
+\textbf{Justification économique} : financement direct de l'activité extractive.
+
+\subsection{Crédit --- comptes débiteurs et crédits à l'équipement (2 séries)}
+
+\textbf{Source} : Bank Al-Maghrib, tables de ventilation par branche d'activité.
+
+\textbf{Justification économique} : financement du cycle d'exploitation courant et de l'investissement productif.
+
+\begin{noteboxbleu}
+\textbf{Vérifié sectoriel, contrairement à Agriculture et Pêche.} Les valeurs de ces deux séries pour Industrie d'extraction (1~956~Mdh au premier point pour les comptes débiteurs) sont clairement distinctes de celles d'Agriculture/Pêche (6~654~Mdh, série combinée identifiée précédemment) --- confirmation qu'ici, la ventilation Bank Al-Maghrib est bien spécifique à la branche, sans la réserve d'interprétation qui s'appliquait aux deux branches précédentes.
+\end{noteboxbleu}
+
+\subsection{Production et exportations --- BDD sectoriel (2 séries)}
+
+\textbf{Source} : BDD SECTORIEL (OCP / Manar-Stat).
+
+\textbf{Justification économique} : exportations OCP et exportations des activités extractives hors phosphate --- même nature de donnée que la première catégorie, publiées par une source complémentaire et plus récente (disponibles jusqu'en 2026).
+
+% ============================================================================
+\section{Le filtre de qualité}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{1 seul candidat écarté}, sur les 18 issus du filtre économique : \textit{« Production du phosphate brut »} (BDD SECTORIEL), densité de 64\% --- trop de trous internes dans la série, indépendamment de sa fraîcheur (elle est par ailleurs à jour).
+\end{fichebox}
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Étape} & \textbf{Nombre de candidats} \\
+\midrule
+Indicateurs bruts extraits & 18 \\
+Après filtre économique + fréquence & 18 \\
+Après filtre de qualité (sans fraîcheur) & \textbf{17} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Catégorie} & \textbf{Retenus} \\
+\midrule
+Production et exportations physiques (phosphate, soufre, engrais) & 9 \\
+IPM (sous-catégories) & 3 \\
+Crédit --- comptes débiteurs / équipement & 2 \\
+Production et exportations --- BDD sectoriel & 2 \\
+Crédit bancaire sectoriel & 1 \\
+\midrule
+\textbf{Total} & \textbf{17} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

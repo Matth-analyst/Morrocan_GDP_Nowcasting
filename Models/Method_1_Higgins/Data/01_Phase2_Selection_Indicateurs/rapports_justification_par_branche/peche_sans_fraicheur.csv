@@ -1,0 +1,75 @@
+﻿colonne,nom,categorie,freq,source,nobs,debut,fin,densite
+9,Comptes débiteurs et crédits de trésorerie — Pêche (MDH),credit_combine,trimestriel,Bank Al-Maghrib,78,2006-10-01,2026-01-01,1.009
+10,Crédits à l'équipement — Pêche (MDH),credit_combine,trimestriel,Bank Al-Maghrib,78,2006-10-01,2026-01-01,1.009
+16,POISSON PELAGIQUE,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en valeur (mensuel).csv,179,2008-12-01,2026-05-01,0.852
+17,CEPHALOPODES,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en valeur (mensuel).csv,179,2008-12-01,2026-05-01,0.852
+18,POISSON BLANC,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en valeur (mensuel).csv,179,2008-12-01,2026-05-01,0.852
+19,COQUILLAGES,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en valeur (mensuel).csv,179,2008-12-01,2026-05-01,0.852
+20,CRUSTACES,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en valeur (mensuel).csv,179,2008-12-01,2026-05-01,0.852
+21,POISSON PELAGIQUE,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en quantité (mensuel).csv,178,2008-12-01,2026-05-01,0.848
+22,CEPHALOPODES,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en quantité (mensuel).csv,178,2008-12-01,2026-05-01,0.848
+23,POISSON BLANC,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en quantité (mensuel).csv,178,2008-12-01,2026-05-01,0.848
+24,COQUILLAGES,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en quantité (mensuel).csv,178,2008-12-01,2026-05-01,0.848
+25,CRUSTACES,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en quantité (mensuel).csv,178,2008-12-01,2026-05-01,0.848
+26,ALGUES,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en quantité (mensuel).csv,176,2008-12-01,2026-05-01,0.838
+27,ALGUES,especes,mensuel,Débarquements des produits de la pêche côtière et artisanale par espèce en valeur (mensuel).csv,175,2010-09-01,2026-05-01,0.926
+28,MEDITERRANEE,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+29,CALA IRIS,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+30,FNIDEQ,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+31,AL HOCEIMA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+32,JEBHA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+33,M'DIQ,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+34,NADOR,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+35,RAS KEBDANA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+36,SIDI H'SAINE,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+37,TANGER,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+38,ATLANTIQUE,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+39,AGADIR,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+40,AMEGRIOU,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+41,BOUJDOUR,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+42,CASABLANCA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+43,DAKHLA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+44,EL JADIDA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+45,ESSAOUIRA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+46,IMESSOUANE,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+47,IMI OUADDAR,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+48,JORF LASFAR,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+49,LAAYOUNE,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+50,LABOUIRDA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+51,LACRAA (CAP 7),ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+52,LAKRAA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+53,LARACHE,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+54,LMHIRIZ,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+55,SAFI,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+56,SID ELGHAZI,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+57,SIDI IFNI,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+58,SOUIRIA KDIMA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+59,TAGHAZOUT,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+60,TAN TAN,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,173,2008-12-01,2026-05-01,0.824
+61,KSAR SGHIR,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,172,2008-12-01,2026-05-01,0.819
+62,DAKHLA (STOCK C),ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,172,2008-12-01,2026-05-01,0.819
+63,LASSARGA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,172,2008-12-01,2026-05-01,0.819
+64,MOHAMMEDIA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,172,2008-12-01,2026-05-01,0.819
+65,NTIRIFT,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,172,2008-12-01,2026-05-01,0.819
+66,Imoutlan,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,171,2009-12-01,2026-05-01,0.864
+67,TARFAYA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,171,2008-12-01,2026-05-01,0.814
+68,ASILAH,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,170,2008-12-01,2026-05-01,0.81
+69,MEHDIA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,170,2010-09-01,2026-05-01,0.899
+70,MARTIL,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,169,2008-12-01,2026-05-01,0.805
+71,AGLOU,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,168,2008-12-01,2026-05-01,0.8
+73,OUED LAOU,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,166,2009-12-01,2026-05-01,0.838
+75,RKOUNTE,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,157,2010-09-01,2026-05-01,0.831
+76,AINBIDA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,155,2010-09-01,2026-05-01,0.82
+77,CHMAALA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,150,2012-08-01,2026-05-01,0.904
+78,INOUAREN,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,150,2012-08-01,2026-05-01,0.904
+79,TIFNIT,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,149,2012-08-01,2026-05-01,0.898
+80,Sidi ABED,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,143,2012-08-01,2026-05-01,0.861
+81,KAA ASRAS,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,137,2013-08-01,2026-05-01,0.89
+83,TAFEDNA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,137,2013-07-01,2026-05-01,0.884
+84,TARGHA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,136,2013-11-01,2026-05-01,0.901
+85,Lahdida,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,136,2012-08-01,2026-05-01,0.819
+86,AMTAR,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,135,2013-11-01,2026-05-01,0.894
+87,BHIBEH,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,134,2013-07-01,2026-05-01,0.865
+89,SALE,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,123,2014-04-01,2026-05-01,0.842
+90,BELYOUNECH,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,121,2013-12-01,2026-05-01,0.807
+91,TAROUMA,ports,mensuel,Débarquements des produits de la pêche côtière et artisanale par port en quantité (mensuel).csv,121,2014-04-01,2026-05-01,0.829

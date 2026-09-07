@@ -1,0 +1,160 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Point de vigilance},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Note méthodologique},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection des indicateurs}\\[0.15cm]
+\textcolor{gray}{\large Justifications économiques et filtres --- Branche Hébergement-restauration}\\[0.1cm]
+\textcolor{orangealerte}{\normalsize Sans contrainte de fraîcheur}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le filtre économique a priori et le filtre de qualité de la donnée appliqués à la branche Hébergement-restauration. \textbf{32 indicateurs} sont retenus à l'issue de ces deux filtres.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Contexte}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{87 indicateurs bruts} extraits --- une branche exceptionnellement bien documentée statistiquement, le tourisme faisant l'objet d'un suivi mensuel fin (arrivées par pays d'origine, nuitées, taux d'occupation par ville). Après filtre économique et filtre de fréquence : \textbf{37 candidats}. Après filtre de qualité : \textbf{32 candidats retenus}.
+\end{fichebox}
+
+% ============================================================================
+\section{Une série exclue avant tout filtre --- un cumul, pas un flux}
+% ============================================================================
+
+\begin{alertebox}
+Deux colonnes (« Recettes touristiques (mensuel cumulé) », « Total arrivées des touristes » cumulé) ont été écartées \textbf{avant même le filtre économique}. Vérification directe des valeurs : la série croît de façon monotone au sein de chaque année (4~930 puis 6~139 puis 7~301 puis 9~980...) --- un \textbf{cumul intra-annuel}, pas une mesure de flux mensuel comparable d'un mois à l'autre. Notre méthode calcule systématiquement un $\Delta\log$ mois-à-mois : appliqué à une série cumulée, ce calcul n'aurait aucun sens économique (il mesurerait la vitesse d'accumulation, pas la variation réelle de l'activité). Les versions non cumulées équivalentes (colonnes 5--8) sont conservées à la place.
+\end{alertebox}
+
+% ============================================================================
+\section{Le filtre économique a priori, par catégorie}
+% ============================================================================
+
+\subsection{Arrivées de touristes (14 séries retenues)}
+
+\textbf{Source} : Manar-Stat / Direction du Tourisme.
+
+\textbf{Justification économique} : les arrivées de touristes (étrangers de séjour, MRE, aux frontières, et leur détail par pays d'origine --- France, Espagne, Allemagne, Royaume-Uni, Italie, Belgique, Hollande, États-Unis, Portugal, Canada, ainsi qu'une catégorie « Divers ») constituent la mesure la plus directe et la plus précoce de la demande touristique --- un indicateur avancé par nature, puisque l'arrivée précède la consommation de services d'hébergement et de restauration qu'elle génère.
+
+\subsection{Recettes touristiques (1 série retenue)}
+
+\textbf{Source} : Manar-Stat / Office des Changes.
+
+\textbf{Justification économique} : mesure monétaire directe de la dépense touristique --- le lien le plus proche concevable avec la valeur ajoutée du secteur, puisqu'elle capture à la fois le volume et le prix (contrairement aux arrivées, qui ne mesurent que le nombre de visiteurs).
+
+\subsection{Nuitées (2 séries retenues)}
+
+\textbf{Source} : Manar-Stat, ventilation touristes internationaux / nationaux.
+
+\textbf{Justification économique} : le nombre de nuitées mesure directement l'occupation réelle de la capacité d'hébergement --- plus précis que les simples arrivées, puisqu'il capture aussi la durée moyenne de séjour.
+
+\subsection{Taux d'occupation hôtelière par ville (12 séries retenues)}
+
+\textbf{Source} : Manar-Stat, enquête mensuelle sur les hôtels classés.
+
+\textbf{Justification économique} : le taux d'occupation est la mesure la plus directe de l'utilisation de la capacité d'hébergement, ville par ville (Marrakech, Agadir, Casablanca, Tanger, Fès, Rabat, Essaouira-Mogador, Ouarzazate, Meknès, Tétouan, Oujda-Essaidia, El Jadida-Mazagan) --- une décomposition géographique complémentaire aux séries nationales, permettant de capter l'hétérogénéité des destinations touristiques marocaines (balnéaire, culturel, saharien).
+
+\subsection{Crédit bancaire sectoriel (3 séries retenues)}
+
+\textbf{Source} : Bank Al-Maghrib.
+
+\textbf{Justification économique} : financement direct du secteur (crédit bancaire global, comptes débiteurs et crédits de trésorerie, crédits à l'équipement) --- même raisonnement que pour les autres branches.
+
+% ============================================================================
+\section{Le filtre de qualité}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{5 candidats écartés}, sur les 37 issus du filtre économique :
+
+\begin{center}
+\small
+\begin{tabular}{p{4.5cm}p{3.5cm}p{5cm}}
+\toprule
+\textbf{Indicateur} & \textbf{Critère échoué} & \textbf{Détail} \\
+\midrule
+Nuitées (série « Jan19 ») & Densité & 59\% \\
+Arrivées --- Pologne & Densité & 62\% \\
+Arrivées --- Chine & Longueur & Série trop courte \\
+Nuitées --- Tourisme international (source alternative) & Longueur & Série trop courte \\
+Nuitées --- Tourisme national (source alternative) & Longueur & Série trop courte \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+Les deux derniers rejets correspondent à des \textbf{versions alternatives} des nuitées internationales/nationales déjà retenues par ailleurs (colonnes 47--48) --- leur rejet n'entraîne donc aucune perte d'information réelle, une source plus complète couvrant déjà le même objet économique.
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Étape} & \textbf{Nombre de candidats} \\
+\midrule
+Indicateurs bruts (après retrait de 2 séries cumulées) & 87 \\
+Après filtre économique + fréquence & 37 \\
+Après filtre de qualité (sans fraîcheur) & \textbf{32} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Catégorie} & \textbf{Retenus} \\
+\midrule
+Arrivées de touristes (dont détail par pays) & 14 \\
+Taux d'occupation hôtelière par ville & 12 \\
+Crédit bancaire sectoriel & 3 \\
+Nuitées & 2 \\
+Recettes touristiques & 1 \\
+\midrule
+\textbf{Total} & \textbf{32} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

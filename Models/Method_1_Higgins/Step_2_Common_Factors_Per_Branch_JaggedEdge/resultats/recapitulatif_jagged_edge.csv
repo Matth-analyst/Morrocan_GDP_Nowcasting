@@ -1,0 +1,49 @@
+branche,serie,q,r,AIC,n_obs,prevision_disponible,valeur_prevue
+Agriculture,Moyenne des precipitations,3,3,-23.717750804926617,22,FALSE,NA
+Agriculture,Température_moyenne,3,2,-54.28800227392537,22,FALSE,NA
+Peche,POISSON PELAGIQUE,4,3,-9.300216752292268,61,FALSE,NA
+Peche,CEPHALOPODES,4,4,-89.76260206181578,59,FALSE,NA
+Industrie_transformation,IPI — Industries alimentaires,4,0,-105.45286017869694,36,TRUE,-0.05916099020652878
+Industrie_transformation,IPI — Industries manufacturières hors raffinage de pétrole,4,4,-183.3547054607802,36,FALSE,NA
+Industrie_transformation,IPI — Fabrication de textiles,4,3,-92.23740930153811,36,FALSE,NA
+Industrie_transformation,IPI — Industrie d’habillement,3,3,-78.34239165880767,37,FALSE,NA
+Industrie_transformation,"IPI — Travail du bois et fabrication d’articles en bois et en liège, à l’exception des meubles ; fabrication d’articles en vannerie et sparterie",3,4,-41.261592192269504,36,FALSE,NA
+Industrie_transformation,IPI — Fabrication d’autres produits minéraux non métalliques,2,0,-119.24499355889117,38,TRUE,-0.13178832842208843
+Industrie_transformation,IPI — Métallurgie,3,3,-49.29734807488134,37,FALSE,NA
+Industrie_transformation,"IPI — Fabrication de produits métalliques, à l’exclusion des machines et des équipements",3,3,-51.674642607844476,37,FALSE,NA
+Industrie_transformation,IPI — Industrie automobile,4,4,-53.70967114192828,36,FALSE,NA
+Industrie_transformation,IPI — Fabrication d’autres matériels de transport,4,3,-21.84012373251077,36,FALSE,NA
+Industrie_transformation,IPI — Réparation et installation de machines et équipements,3,3,-57.57097518023261,37,FALSE,NA
+Industrie_transformation,Taux d’Utilisation des Capacités,2,2,-241.73801523433602,60,TRUE,-0.04706239181171734
+Industrie_transformation,Evolution des ventes au cours des trois prochains mois,4,0,137.69180236814844,55,TRUE,0.5798382505432313
+Industrie_transformation,Evolution des ventes au cours des trois prochains mois (2),2,3,150.1335499375775,52,TRUE,1.4047746514909232
+Industrie_transformation,Evolution des ventes par rapport au mois précédent,1,0,123.60429631925557,41,TRUE,-1.7435971989314039
+Industrie_extraction,IPM — Industries extractives,0,4,-2645.9605201063264,36,FALSE,NA
+Industrie_extraction,Phosphates,2,2,-344.58883270656236,73,TRUE,-2.144537399702129
+Finances_assurances,Masse monétaire (M3),1,0,-405.7222300717745,64,TRUE,0.011969849074156252
+Finances_assurances,Crédit bancaire,3,0,-457.05419549933873,62,TRUE,0.006734598067737438
+Finances_assurances,Secteur privé,3,0,-492.37601979773194,62,TRUE,0.010693513367457184
+Finances_assurances,Sociétés non financières privées,3,3,-429.55661073418486,62,FALSE,NA
+Finances_assurances,"Comptes débiteurs et crédits de trésorerie (déflaté, réel)",2,4,-331.7259539609107,61,FALSE,NA
+Finances_assurances,"Primes versées (MDH) (déflaté, réel)",3,2,-50.7348156952673,30,FALSE,NA
+Hebergement_restauration,Recettes touristiques (mensuel (En millions de dirhams)),4,4,-140.98331637857973,59,FALSE,NA
+Hebergement_restauration,Arrivés de touristes étrangers de Séjour (TES),4,4,-70.541287766569,66,FALSE,NA
+Construction,Crédit bancaire Bâtiment et travaux publics (MDH),1,0,-211.67802316149664,63,TRUE,0.014080626972465454
+Construction,Vente de ciment (1000tonnes),2,2,-540.7853551307223,123,FALSE,NA
+Commerce,TOTAL EXPORTATIONS (1000),4,3,-77.4024373613852,29,FALSE,NA
+Commerce,TOTAL IMPORTATIONS  (1000),3,4,-82.7392171974341,29,FALSE,NA
+Commerce,Evolution des prix des produits finis au cours des trois prochains mois,0,0,97.9422829582945,42,TRUE,0.8046484557432054
+Transports,Trafic globale gérés par l'ANP,3,4,-120.20805578059492,51,TRUE,0.5044475707513258
+Transports,Trafic aérien (Jan 18),4,2,-45.70438010673813,29,FALSE,NA
+Electricite_gaz_eau,"Crédit bancaire Électricité, gaz et eau (MDH) (déflaté, réel)",4,4,-253.21751802592644,60,FALSE,NA
+Electricite_gaz_eau,"Comptes débiteurs et crédits de trésorerie — Électricité, gaz, eau (MDH) (déflaté, réel)",0,0,-128.24772314068218,64,TRUE,0.12215613587385887
+Electricite_gaz_eau,"Production d'électricité
+
+",4,0,-89.4250389612136,28,TRUE,0.9279235592003026
+Electricite_gaz_eau,"Consommation de combustibles (Fioul, Charbon, Gaz oil) Tonnes",4,0,-55.2653155544112,29,TRUE,0.5772931861418651
+Information_communication,Parc téléphonie mobile global (en milliers),4,4,-430.7906898225957,76,FALSE,NA
+Information_communication,Parc Internet global  (en milliers),4,4,-333.6346332686101,76,FALSE,NA
+Immobilier,IPAI Résidentiel — transactions (var. trim. %),0,0,16.605568987829873,33,TRUE,-0.01778421039315445
+Immobilier,"Crédits à l’immobilier 
+ (MDH) (Jan 18)",1,1,-570.9081481551835,64,FALSE,NA
+Immobilier,"Crédits à l'habitat (MDH) (Jan 18) (déflaté, réel)",1,1,-557.0697147450633,64,FALSE,NA

@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Correction apportée en cours de vérification},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Note méthodologique},#1}
+\newtcolorbox{fichierbox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Résultats complets disponibles},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection des indicateurs}\\[0.15cm]
+\textcolor{gray}{\large Justifications économiques et filtres --- Branche Industrie de transformation}\\[0.1cm]
+\textcolor{orangealerte}{\normalsize Version 2 --- sans contrainte de fraîcheur}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le filtre économique a priori et le filtre de qualité de la donnée appliqués à la branche Industrie de transformation. \textbf{89 indicateurs} sont retenus à l'issue de ces deux filtres --- le test statistique n'est volontairement pas traité ici.
+
+\textbf{Version 2} : le critère de fraîcheur a été retiré du filtre de qualité. Contrairement à Pêche, ce retrait change substantiellement le résultat pour cette branche --- voir section \ref{sec:impact}.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Contexte}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{90 indicateurs bruts} extraits (après retrait de 2 doublons confirmés --- voir version 1 de ce document pour le détail de cette vérification). Après filtre économique et filtre de fréquence : \textbf{89 candidats}. Après filtre de qualité (longueur et densité, \textbf{sans fraîcheur}) : \textbf{89 candidats retenus} --- \textbf{aucun rejet à ce stade}.
+\end{fichebox}
+
+% ============================================================================
+\section{L'impact du retrait de la fraîcheur, pour cette branche}
+\label{sec:impact}
+% ============================================================================
+
+\begin{noteboxbleu}
+\textbf{Résultat contrasté avec Pêche.} Pour Industrie de transformation, retirer le critère de fraîcheur change radicalement le résultat :
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+& \textbf{Avec fraîcheur (v1)} & \textbf{Sans fraîcheur (v2)} \\
+\midrule
+Candidats retenus & 46 & \textbf{89} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Les \textbf{43 candidats récupérés} sont, presque exclusivement, les 42 séries de l'enquête mensuelle de conjoncture dans l'industrie (interrompue depuis 2024-10-01, voir section \ref{sec:conjoncture}), plus une série de taux d'utilisation des capacités (« cumulé », dernière observation 2023-03-01).
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Le filtre économique a priori, par catégorie}
+% ============================================================================
+
+\subsection{Indice de Production Industrielle --- IPI (24 sous-filières)}
+
+\textbf{Source} : Manar-Stat, Indice de production industrielle, base 2015.
+
+\textbf{Justification économique} : mesure officielle et directe de l'activité manufacturière, déclinée par sous-filière (industries alimentaires, textile, chimie, pharmacie, métallurgie, automobile, électronique...). L'indicateur le plus directement lié à la valeur ajoutée manufacturière parmi tous ceux disponibles.
+
+\subsection{Taux d'Utilisation des Capacités --- TUC (2 séries, avec fraîcheur retirée)}
+
+\textbf{Source} : Manar-Stat / Ministère de l'Économie et des Finances ; et BDD SECTORIEL.
+
+\textbf{Justification économique} : mesure directe de l'intensité d'usage de l'appareil productif industriel --- indicateur avancé standard de la conjoncture manufacturière.
+
+\begin{alertebox}
+\textbf{Récupérée dans cette version} : \textit{« Utilisation des capacités de production (cumulé) »} (BDD SECTORIEL), dernière observation au 2023-03-01 --- écartée en version 1 pour fraîcheur, réintégrée ici. Sa densité et sa longueur sont correctes ; elle nécessitera, si retenue in fine, un traitement du trou 2023--2026 (comblement par lissage de Kalman, ou recherche d'une substitution active comme le ferait Higgins).
+\end{alertebox}
+
+\subsection{Crédit bancaire sectoriel (5 sous-filières)}
+
+\textbf{Source} : Bank Al-Maghrib.
+
+\textbf{Justification économique} : financement direct de chaque sous-filière --- vérifié sectoriel (valeurs distinctes par sous-filière).
+
+\subsection{Crédit --- comptes débiteurs et crédits à l'équipement, par sous-filière (10 séries)}
+
+\textbf{Source déclarée} : Bank Al-Maghrib, tables de ventilation 16 et 17.
+
+\begin{alertebox}
+\textbf{Étiquetage générique corrigé par inférence} (rappel de la version 1) : ces 10 colonnes portent un intitulé générique dans le classeur consolidé ; leur sous-filière précise a été reconstituée à partir de l'ordre de la table source Bank Al-Maghrib, hypothèse corroborée par un duplicata exact trouvé pour la sous-filière métallurgique.
+\end{alertebox}
+
+\subsection{Crédit --- agrégats du secteur entier (3 séries)}
+
+\textbf{Source} : Bank Al-Maghrib, ligne agrégée \textit{« Industries »} (toutes sous-filières confondues).
+
+\textbf{Justification économique} : complète les 10 séries par sous-filière par une mesure agrégée du financement de l'ensemble du secteur manufacturier.
+
+\subsection{Crédit à terme --- sous-filière métallurgique (1 série)}
+
+\textbf{Source} : Bank Al-Maghrib, table de ventilation des crédits par terme.
+
+\textbf{Justification économique} : dimension complémentaire (horizon de financement) aux deux autres types de crédit déjà couverts.
+
+\subsection{Commerce extérieur --- intrants et biens d'équipement industriels (2 séries)}
+
+\textbf{Source} : Office des Changes / Manar-Stat.
+
+\textbf{Justification économique} : les importations de produits finis d'équipement industriel et de demi-produits mesurent les intrants et biens d'investissement importés par le secteur --- indicateur avancé plausible de l'activité productive à venir.
+
+\subsection{Enquête mensuelle de conjoncture dans l'industrie (42 séries, récupérées dans cette version)}
+\label{sec:conjoncture}
+
+\textbf{Source} : enquêtes mensuelles de conjoncture, déclinées en 6 volets sectoriels --- agroalimentaire, industrie générale, chimie-parachimie, mécanique-métallurgie, textile-cuir, électrique-électronique --- chacun interrogé sur 7 dimensions : évolution de la production (réalisée et anticipée à 3 mois), évolution des nouvelles commandes, évolution des ventes (réalisée et anticipée), niveau des carnets de commandes, niveau des stocks de produits finis.
+
+\textbf{Justification économique} : les enquêtes de conjoncture (soldes d'opinion) sont des indicateurs avancés qualitatifs largement reconnus dans le suivi conjoncturel industriel --- une pratique standard des instituts statistiques et des banques centrales pour anticiper les inflexions d'activité avant même leur traduction dans les statistiques de production.
+
+\begin{alertebox}
+\textbf{Rappel de la limite qui a motivé cette version 2 du document.} Ces 42 séries partagent toutes la même dernière observation : \textbf{2024-10-01}. L'enquête semble interrompue depuis cette date --- soit un trou de collecte d'environ 22 mois à ce jour. Les réintégrer sans traitement revient à accepter une série se terminant près de deux ans avant aujourd'hui ; une démarche plus rigoureuse (encore à mener) consisterait à rechercher une enquête de conjoncture de substitution encore active (Bank Al-Maghrib ou HCP), à la manière du raccordement pratiqué par Higgins (2014) pour ses propres séries interrompues, plutôt que d'utiliser ces séries telles quelles.
+\end{alertebox}
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Étape} & \textbf{Nombre de candidats} \\
+\midrule
+Indicateurs bruts (après retrait de 2 doublons confirmés) & 90 \\
+Après filtre économique + fréquence & 89 \\
+Après filtre de qualité (sans fraîcheur) & \textbf{89} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Catégorie} & \textbf{Retenus} \\
+\midrule
+Enquête de conjoncture & 42 \\
+IPI (sous-filières) & 24 \\
+Crédit --- comptes débiteurs/équipement par sous-filière & 10 \\
+Crédit bancaire sectoriel & 5 \\
+Crédit --- agrégats du secteur & 3 \\
+Commerce extérieur (intrants, équipement) & 2 \\
+TUC & 2 \\
+Crédit à terme (métallurgique) & 1 \\
+\midrule
+\textbf{Total} & \textbf{89} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{fichierbox}
+Liste et caractéristiques complètes des 89 candidats retenus : \texttt{resultats/industrie\_transfo\_sans\_fraicheur.csv}.
+\end{fichierbox}
+
+\end{document}

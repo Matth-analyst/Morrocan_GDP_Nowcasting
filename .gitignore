@@ -13,3 +13,5 @@ R_gdpnow_maroc/shiny_app/data/.cache_*.rds
 
 # Configuration locale de l'outil Claude Code (specifique a la machine)
 .claude/
+
+Archive/

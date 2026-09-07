@@ -1,0 +1,183 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{bleuclair}{HTML}{2E74B5}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Résultat négatif, mais informatif},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Méthode},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Facteur commun par la méthode de Stock \& Watson (2002)}\\[0.15cm]
+\textcolor{orangealerte}{\large Branche Agriculture --- résultat négatif, mais concluant}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Higgins (2014) cite Stock \& Watson (2002)\cit{1} pour construire un facteur commun malgré des séries démarrant à des dates différentes --- exactement la situation d'Agriculture (crédit bancaire depuis 2006, précipitations/température seulement depuis 2020). Un facteur commun est extrait sur les 5 candidats de la branche par un algorithme EM itératif, couvrant l'intégralité de la période d'entraînement (\textbf{n=45}, contre n=4 pour les précipitations seules). \textbf{Le facteur échoue néanmoins au test statistique} ($r=0{,}084$) --- un résultat qui confirme qu'Agriculture manque réellement d'un indicateur pertinent, au-delà du simple problème de couverture temporelle.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Principe de la méthode}
+% ============================================================================
+
+\begin{noteboxbleu}
+\textit{« Stock and Watson (2002) describe a method for estimating principal components when some series are missing at the beginning of the sample »} --- Higgins (2014), citant Stock \& Watson pour son propre facteur à 124 séries (ISM Nonmanufacturing Index, disponible seulement depuis juillet 1997).
+\end{noteboxbleu}
+
+L'idée : au lieu d'écarter les séries à démarrage tardif (comme on l'a fait jusqu'ici pour précipitations/température), on les intègre dans un \textbf{facteur commun} estimé sur l'ensemble du panel, en tolérant leurs valeurs manquantes en début de période --- le facteur, lui, peut être estimé sur toute la période grâce aux séries plus longues (le crédit).
+
+% ============================================================================
+\section{Les 5 candidats et leur couverture}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Série} & \textbf{Début} & \textbf{Trimestres manquants (sur 78)} \\
+\midrule
+Crédit bancaire & 2006-10 & 1 \\
+Comptes débiteurs & 2006-10 & 1 \\
+Crédits à l'équipement & 2006-10 & 1 \\
+Précipitations & 2020-01 & 53 \\
+Température & 2020-01 & 53 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+% ============================================================================
+\section{L'algorithme EM (Expectation-Maximization)}
+% ============================================================================
+
+\subsection{Étape 0 --- Standardisation}
+
+Chaque série (en $\Delta\log$ trimestriel) est centrée-réduite sur sa propre période disponible :
+\begin{equation}
+\tilde{x}_{i,t} = \frac{x_{i,t} - \bar{x}_i}{\sigma_i}
+\end{equation}
+
+\subsection{Étape 1 --- Initialisation}
+
+Les valeurs manquantes (précipitations/température avant 2020) sont initialisées à 0 --- la moyenne d'une série standardisée, l'hypothèse la plus neutre possible en l'absence d'information.
+
+\subsection{Étape 2 --- Extraction du facteur (M-step)}
+
+Sur le panel complété $\tilde{X}$ ($T\times n$), le premier facteur est la composante principale dominante, obtenue par décomposition en valeurs singulières :
+\begin{equation}
+\tilde{X} = U\Sigma V^\top, \qquad F_t = U_{t,1}\cdot\Sigma_{1,1}, \qquad \Lambda_i = V_{i,1}
+\end{equation}
+où $F_t$ est le facteur à la date $t$ et $\Lambda_i$ la charge (\emph{loading}) de la série $i$ sur ce facteur.
+
+\subsection{Étape 3 --- Ré-estimation des valeurs manquantes (E-step)}
+
+Chaque valeur manquante est ré-estimée par sa projection sur le facteur :
+\begin{equation}
+\hat{\tilde{x}}_{i,t} = \Lambda_i \cdot F_t \qquad \text{pour } (i,t) \text{ manquant}
+\end{equation}
+
+\subsection{Étape 4 --- Itération jusqu'à convergence}
+
+Les étapes 2--3 sont répétées jusqu'à ce que le facteur ne change plus (tolérance $10^{-6}$).
+
+\begin{fichebox}
+\textbf{Convergence atteinte}, algorithme stable.
+\end{fichebox}
+
+% ============================================================================
+\section{Résultat de l'extraction}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{Facteur extrait sur 78 trimestres, 2007--2026} --- couverture complète, contrairement aux séries climatiques seules (4 trimestres exploitables sur le train avant cette méthode).
+
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Série} & \textbf{Charge ($\Lambda_i$)} \\
+\midrule
+Crédit bancaire & $+0{,}309$ \\
+Comptes débiteurs & $+0{,}208$ \\
+Crédits à l'équipement & $+0{,}221$ \\
+Précipitations & $-0{,}658$ \\
+Température & $+0{,}616$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Les variables climatiques dominent le facteur (charges $\pm0{,}6$) malgré leur couverture plus courte --- cohérent avec le fait qu'elles covarient plus fortement entre elles (deux mesures du même phénomène climatique) que le crédit, dont les trois variantes se ressemblent aussi mais sur une dimension différente (financement).
+\end{fichebox}
+
+% ============================================================================
+\section{Test statistique}
+% ============================================================================
+
+\begin{alertebox}
+\begin{center}
+\begin{tabular}{rrrl}
+\toprule
+$r$ & $p$ & $n$ & \textbf{Verdict} \\
+\midrule
+$0{,}084$ & $0{,}583$ & 45 & Rejeté \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Le facteur échoue nettement}, malgré une couverture désormais complète sur le train (n=45, contre n=4 pour les précipitations seules avant cette méthode).
+\end{alertebox}
+
+\subsection{Ce que ce résultat permet de conclure, précisément}
+
+\begin{noteboxbleu}
+Avant cette méthode, on ne pouvait pas distinguer deux explications possibles à l'échec d'Agriculture : \textbf{(a)} un vrai manque de recul temporel empêchant de conclure, ou \textbf{(b)} une absence réelle de lien statistique. Avec un facteur désormais testable sur 45 trimestres complets, l'explication \textbf{(b)} est confirmée : \textbf{ce n'est pas un problème de données manquantes, c'est un problème d'absence de bon indicateur} pour cette branche, avec les candidats actuellement disponibles.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Conclusion pour la branche Agriculture}
+% ============================================================================
+
+\begin{fichebox}
+Après application des quatre techniques testées sur cette branche au fil de ce travail (test statistique direct, déflation, interpolation Denton non tentée faute de candidat pertinent, et désormais Stock \& Watson), \textbf{Agriculture reste en AR(4) pur} --- un constat robuste, obtenu par plusieurs voies indépendantes plutôt que par un seul test insuffisant.
+\end{fichebox}
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Stock, J.H. \& Watson, M.W. (2002). \textit{Macroeconomic Forecasting Using Diffusion Indexes}. Journal of Business \& Economic Statistics, 20(2), 147--162.
+\item Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7.
+\end{enumerate}
+
+\end{document}

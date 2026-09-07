@@ -1,0 +1,152 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Correction apportée en cours de vérification},#1}
+\newtcolorbox{sourcebox}[1][]{colback=gray!6,colframe=black!50,boxrule=0.4pt,arc=1pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection des indicateurs}\\[0.15cm]
+\textcolor{gray}{\large Justifications économiques --- Branche Agriculture}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document présente le \textbf{filtre économique a priori} appliqué à la branche Agriculture --- la première étape de la sélection des indicateurs, dans laquelle le raisonnement économique de chaque candidat est établi \emph{avant} tout calcul de corrélation avec la valeur ajoutée. Cinq indicateurs sont retenus à ce stade et documentés individuellement ci-dessous.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Principe du filtre économique a priori}
+% ============================================================================
+
+Pour chaque branche, on établit d'abord un raisonnement économique --- un lien mécanique identifiable (un intrant, un extrant, ou une condition de financement direct de l'activité) --- avant de calculer la moindre corrélation. Ce filtre écarte, avant tout test statistique, les candidats sans justification économique défendable, quelle que soit leur corrélation apparente avec la cible.
+
+\begin{fichebox}
+\textbf{Résultat pour Agriculture} : 58 indicateurs bruts identifiés dans la base source ; \textbf{5 candidats} retenus à l'issue du filtre économique et du filtre de fréquence (voir section \ref{sec:frequence} pour ce second filtre).
+\end{fichebox}
+
+% ============================================================================
+\section{Les cinq indicateurs retenus, et leur justification}
+% ============================================================================
+
+\subsection{Crédit bancaire Agriculture et pêche (MDH)}
+
+\textbf{Source} : Bank Al-Maghrib, table de ventilation du crédit bancaire par branche d'activité.
+
+\textbf{Justification économique} : le crédit bancaire alloué au secteur constitue une condition de \textbf{financement direct} de l'activité agricole --- l'acquisition d'intrants, le financement de la trésorerie de campagne, les investissements productifs. Un indicateur avancé plausible de l'activité du secteur.
+
+\begin{sourcebox}
+\textbf{Vérification de la nature sectorielle de la série.} Contrôlé directement dans le classeur source : la valeur pour Agriculture (18~673~Mdh au premier point) diffère de celle d'Industrie d'extraction (2~830~Mdh) et de Construction (23~722~Mdh) à la même date --- confirmation que cette série est réellement ventilée par branche, pas un agrégat national dupliqué.
+\end{sourcebox}
+
+\subsection{Comptes débiteurs et crédits de trésorerie --- Agriculture (MDH)}
+
+\textbf{Source déclarée} : Bank Al-Maghrib, table de ventilation des comptes débiteurs et crédits de trésorerie par branche d'activité.
+
+\textbf{Justification économique} : les crédits de trésorerie financent le cycle d'exploitation courant (achats d'intrants, salaires, décalages de trésorerie propres au caractère saisonnier de l'activité agricole) --- un indicateur avancé plausible du dynamisme conjoncturel du secteur.
+
+\begin{alertebox}
+\textbf{Ce candidat mesure en réalité « Agriculture et pêche » combinées, pas l'agriculture seule.} Vérification effectuée en comparant les valeurs de cette série entre la feuille Agriculture et la feuille Pêche du classeur : les 25 premières observations sont \textbf{identiques au chiffre près} entre les deux branches. Remontée jusqu'au fichier source brut (\textit{``16-Ventilation des comptes débiteurs et crédits de trésorerie par branche d'activité''}, Bank Al-Maghrib) : la table officielle elle-même ne publie qu'une seule ligne, intitulée \textbf{« Agriculture et pêche »} --- il n'existe pas, à la source, de ventilation séparant les deux secteurs pour cette statistique précise. L'intitulé « Agriculture » porté dans le classeur consolidé est donc trompeur ; la série est correctement comprise comme un indicateur du secteur primaire combiné (agriculture et pêche), pas de l'agriculture isolément.
+\end{alertebox}
+
+\subsection{Crédits à l'équipement --- Agriculture (MDH)}
+
+\textbf{Source déclarée} : Bank Al-Maghrib, table de ventilation des crédits à l'équipement par branche d'activité.
+
+\textbf{Justification économique} : les crédits à l'équipement financent l'investissement productif de moyen terme (matériel agricole, infrastructures d'exploitation) --- un indicateur avancé plausible de l'investissement du secteur, complémentaire aux crédits de trésorerie (financement courant) ci-dessus.
+
+\begin{alertebox}
+\textbf{Même correction que pour le candidat précédent.} Vérifié de façon identique : valeurs strictement identiques entre les feuilles Agriculture et Pêche du classeur (7~846~Mdh au premier point, dans les deux cas). La table source brute (\textit{``17-Ventilation des crédits à l'équipement par branche d'activité''}) publie elle aussi une ligne combinée unique. Même réserve d'interprétation que ci-dessus : signal du secteur primaire combiné, pas de l'agriculture isolément.
+\end{alertebox}
+
+\subsection{Moyenne des précipitations}
+
+\textbf{Source} : BDD SECTORIEL (source institutionnelle confirmée : SIG Maroc).
+
+\textbf{Justification économique} : la pluviométrie est le déterminant climatique de premier ordre du rendement des cultures pluviales au Maroc, qui représentent la majorité de la surface agricole utile du pays.
+
+\begin{sourcebox}
+\textbf{Référence quantifiée.} La Banque mondiale\cit{1} établit que les chocs pluviométriques expliquent \textbf{près de 37\% de la variance du PIB marocain à moyen terme}, alors que l'agriculture ne représente qu'environ 13\% du PIB --- une preuve chiffrée de l'ampleur de cette dépendance climatique, bien au-delà de la seule intuition. Le même rapport souligne que l'agriculture pluviale (« bour ») représente encore près de 80\% des surfaces cultivées au Maroc et que \textit{« Agriculture performance remains highly correlated to rainfall patterns »}\cit{1}. Le Fonds Monétaire International\cit{2} confirme ce lien empiriquement dans son suivi macroéconomique le plus récent : le ralentissement de la croissance marocaine en 2024 est explicitement attribué à \textit{« low agricultural production »} consécutive à un déficit pluviométrique, avec une récolte céréalière anticipée de 33 millions de quintaux contre une moyenne d'avant-pandémie de 75 millions.
+\end{sourcebox}
+
+\subsection{Température moyenne}
+
+\textbf{Source} : BDD SECTORIEL (source institutionnelle confirmée : SIG Maroc).
+
+\textbf{Justification économique} : la température moyenne influence directement les cycles phénologiques des cultures (dates de semis, de floraison, de récolte) et le stress hydrique des plantes, en interaction avec la pluviométrie --- un second déterminant climatique reconnu, complémentaire aux précipitations plutôt que redondant avec elles (deux dimensions distinctes du climat agricole).
+
+% ============================================================================
+\section{Le second filtre : la fréquence}
+\label{sec:frequence}
+% ============================================================================
+
+Au-delà du filtre économique, un second filtre --- de nature purement structurelle, indépendant de toute plausibilité économique --- écarte les candidats dont la fréquence est incompatible avec un modèle trimestriel.
+
+\begin{fichebox}
+\textbf{50 séries écartées à ce stade} : les indicateurs de rendement, production et superficie par culture (céréales, blé, orge, maïs, légumineuses, cultures oléagineuses et sucrières, maraîchage, plantations fruitières...) sont publiés en fréquence \textbf{annuelle}. Ce ne sont pas des candidats économiquement implausibles --- au contraire, la production physique des cultures est probablement le lien le plus direct concevable avec la valeur ajoutée agricole --- mais leur fréquence les rend structurellement inutilisables dans une bridge equation ou un modèle à facteur construits sur des taux de croissance trimestriels, sans une méthode d'agrégation ad hoc non retenue dans ce travail.
+\end{fichebox}
+
+Un doublon a également été identifié et retiré : les colonnes issues des tables de ventilation trimestrielle (\textit{``Agriculture et pêche''}, sources 15--17 du classeur) reproduisent exactement les mêmes valeurs que le crédit bancaire ventilé (colonnes 7--9), une fois les conventions de datation réalignées --- conservées sous leur première occurrence uniquement.
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\small
+\begin{tabular}{p{4.3cm}p{2.2cm}p{7.3cm}}
+\toprule
+\textbf{Indicateur} & \textbf{Nature réelle} & \textbf{Justification retenue} \\
+\midrule
+Crédit bancaire Agriculture et pêche & Sectoriel (vérifié) & Financement direct de l'activité \\
+Comptes débiteurs et crédits de trésorerie & \textbf{Agriculture + Pêche combinées} & Financement du cycle d'exploitation courant \\
+Crédits à l'équipement & \textbf{Agriculture + Pêche combinées} & Financement de l'investissement productif \\
+Moyenne des précipitations & Climatique & Déterminant de premier ordre du rendement (37\% de la variance du PIB\cit{1}) \\
+Température moyenne & Climatique & Cycle phénologique et stress hydrique \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} World Bank (2023). \textit{Morocco Country Climate and Development Report --- Background Note: Water Scarcity and Droughts}. Washington, D.C.
+\item \hypertarget{ref2}{} International Monetary Fund (2024). \textit{Morocco: 2024 Article IV Consultation}. IMF Country Report No.\ 24/324.
+\end{enumerate}
+
+\end{document}

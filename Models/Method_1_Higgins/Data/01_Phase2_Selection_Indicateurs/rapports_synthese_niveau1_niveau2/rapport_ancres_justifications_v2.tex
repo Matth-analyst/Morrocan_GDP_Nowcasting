@@ -1,0 +1,192 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{orancre}{HTML}{BF9000}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{orancre}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{ancrebox}[1][]{colback=orancre!10,colframe=orancre,boxrule=0.8pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Cas fragile, assumé comme tel},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Principe},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Phase 2 --- Sélection à deux niveaux}\\[0.15cm]
+\textcolor{orancre}{\large Justification du choix des ancres, par branche}\\[0.1cm]
+\textcolor{gray}{\normalsize Version 2 --- 2 ancres par branche dans la quasi-totalité des cas}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document justifie le choix d'indicateurs \textbf{« ancres »} par branche --- des candidats désignés \emph{a priori}, avant tout calcul statistique, sur le seul critère de leur légitimité économique. \textbf{Correction apportée par rapport à la version 1} : le nombre d'ancres n'est plus systématiquement fixé à une seule par branche --- une seconde ancre est retenue partout où elle capture une \textbf{dimension économique réellement distincte} de la première (volume vs valeur, offre vs demande, financement vs activité...), jamais pour simplement ajouter un candidat supplémentaire.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Principe, et la correction apportée}
+% ============================================================================
+
+\begin{noteboxbleu}
+Comme pour la version 1 : chaque ancre est choisie avant tout test statistique, sur le seul critère de sa légitimité économique --- une démarche inspirée de la correspondance comptable que Higgins\cit{1} établit avec les sources du BEA, jamais d'un test compétitif entre candidats.
+
+\textbf{Ce qui change} : la version 1 avait implicitement limité chaque branche à une seule ancre, sans le justifier explicitement. Cette version corrige ce point --- une deuxième ancre est retenue quand elle mesure une dimension \textbf{complémentaire, pas redondante} de l'activité (par exemple : le volume et la valeur d'un même flux, quand les deux sont dominés par des composantes différentes).
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Les ancres retenues, branche par branche}
+% ============================================================================
+
+\subsection{Agriculture --- Précipitations et Température (2 ancres)}
+
+\begin{alertebox}
+\textbf{Branche restant fragile globalement} : aucun des 5 candidats n'est une mesure directe de l'activité agricole (la production, en fréquence utilisable, n'existe pas dans la base). Les deux ancres retenues sont deux \textbf{déterminants climatiques}, pas deux mesures d'activité.
+\end{alertebox}
+
+\textbf{Justification des deux ancres} : la littérature agronomique établit la pluviométrie et la température comme les deux déterminants climatiques de premier ordre du rendement agricole, mesurant des dimensions distinctes et complémentaires --- l'eau disponible (précipitations) et les conditions thermiques de croissance (température), pas une redondance de la même information. La Banque mondiale\cit{2} quantifie à 37\% la part de la variance du PIB marocain expliquée par les chocs pluviométriques.
+
+\subsection{Pêche --- Poisson pélagique et Céphalopodes (2 ancres)}
+
+\textbf{Poisson pélagique (débarquements, quantité)} : 79\% du total des captures marocaines en volume\cit{3}.
+
+\textbf{Céphalopodes (débarquements, valeur)} : le rapport officiel du Département de la Pêche Maritime\cit{3} identifie les céphalopodes comme \textit{« principal groupe d'espèces en termes de valeur (51\% du total) »}.
+
+\begin{ancrebox}
+Ces deux ancres capturent deux dimensions réellement distinctes de l'activité halieutique : le \textbf{volume} physique débarqué (dominé par le poisson pélagique) et la \textbf{valeur} commerciale (dominée par les céphalopodes) --- pas une redondance, puisque la VA mesure une contribution économique en valeur, pas seulement un tonnage.
+\end{ancrebox}
+
+\subsection{Industrie de transformation --- TUC et IPI Industries alimentaires (2 ancres)}
+
+\textbf{Taux d'Utilisation des Capacités} : seul agrégat couvrant l'ensemble du secteur manufacturier en une seule série.
+
+\textbf{IPI --- Industries alimentaires} : l'agroalimentaire est, de façon bien établie, la plus importante sous-filière manufacturière marocaine en termes de valeur ajoutée --- une seconde ancre au niveau de la sous-filière la plus représentative, complémentaire à l'agrégat global du TUC.
+
+\subsection{Industrie d'extraction --- Phosphates et IPM Industries extractives (2 ancres)}
+
+\textbf{Phosphates (production, volume)} : le Maroc détient environ 70\% des réserves mondiales de phosphate\cit{4} --- l'identité économique du secteur.
+
+\textbf{IPM --- Industries extractives} : l'indice officiel de production minière, un agrégat construit spécifiquement pour mesurer l'ensemble du secteur --- complémentaire au phosphate (un produit dominant, mais un seul produit) par une mesure d'indice couvrant statistiquement toute la branche.
+
+\subsection{Immobilier --- Crédits à l'immobilier et IPAI Résidentiel-transactions (2 ancres)}
+
+\begin{alertebox}
+\textbf{Branche restant partiellement fragile} : l'indice IPAI Global, qui aurait dû être l'ancre naturelle, a été explicitement écarté au filtre de qualité (densité de 61\%, sous le seuil dédié). Les deux ancres retenues ici sont des choix de repli, mais cette fois \textbf{complémentaires} plutôt qu'un unique candidat isolé.
+\end{alertebox}
+
+\textbf{Crédits à l'immobilier} : mesure du \textbf{financement} du secteur (le plus large agrégat parmi les 4 séries de crédit).
+
+\textbf{IPAI Résidentiel --- transactions} : mesure de \textbf{l'activité de marché} elle-même (nombre de transactions), sur la catégorie résidentielle --- la composante dominante du marché immobilier marocain en volume. Contrairement à la version 1 (une seule ancre, uniquement côté financement), cette deuxième ancre capture la dimension transactionnelle que le crédit seul ne mesure pas.
+
+\subsection{Finances et assurances --- M3 et Crédit bancaire global (2 ancres)}
+
+\textbf{Masse monétaire (M3)} : l'agrégat monétaire de référence internationalement reconnu.
+
+\textbf{Crédit bancaire (vue d'ensemble)} : mesure de la \textbf{création de crédit}, une dimension distincte de M3 (qui mesure les encours monétaires détenus par les agents économiques, pas directement l'activité de prêt des banques) --- financement de l'économie par le secteur bancaire, complémentaire à l'agrégat monétaire.
+
+\subsection{Hébergement-restauration --- Recettes touristiques et Arrivées de touristes étrangers (2 ancres)}
+
+\textbf{Recettes touristiques} : seule mesure \textbf{monétaire} (valeur) de l'activité touristique parmi les candidats retenus.
+
+\textbf{Arrivées de touristes étrangers} : mesure de \textbf{volume}, complémentaire --- la dépense moyenne par touriste pouvant varier indépendamment du nombre de visiteurs (effet prix vs effet volume), les deux dimensions apportent une information distincte.
+
+\subsection{Construction --- Vente de ciment et Crédit bancaire BTP (2 ancres)}
+
+\textbf{Vente de ciment (national)} : la mesure la plus classiquement utilisée de l'activité physique du secteur.
+
+\textbf{Crédit bancaire Bâtiment et travaux publics} : mesure du \textbf{financement} du secteur, une dimension distincte de l'activité physique elle-même (le ciment) --- le financement pouvant précéder ou anticiper la mise en chantier effective.
+
+\subsection{Commerce --- Total des exportations et Total des importations (2 ancres)}
+
+\textbf{Total des exportations} et \textbf{Total des importations} : les deux sens du flux commercial national, tous deux agrégés et sans ambiguïté de produit.
+
+\begin{ancrebox}
+Contrairement aux autres paires, celle-ci est la plus naturelle de toutes : exportations et importations ne sont jamais redondantes par construction (ce sont, par définition, deux flux physiquement distincts), et leur somme ou leur écart (balance commerciale) sont tous deux économiquement informatifs pour l'activité du secteur du commerce.
+\end{ancrebox}
+
+\subsection{Transports --- Trafic portuaire et Trafic aérien (2 ancres)}
+
+\textbf{Trafic portuaire global (ANP)} : le mode dominant, compte tenu du poids du commerce extérieur maritime dans l'économie marocaine.
+
+\textbf{Trafic aérien} : un second mode de transport, structurellement distinct (passagers et fret aérien, dynamique différente du fret maritime, davantage liée au tourisme et aux échanges à haute valeur ajoutée) --- pas une redondance du trafic portuaire.
+
+\subsection{Électricité, gaz, eau --- Production d'électricité et Consommation de combustibles (2 ancres)}
+
+\textbf{Production d'électricité (agrégée)} : mesure de \textbf{l'extrant} du secteur, en un agrégat national unique.
+
+\textbf{Consommation de combustibles (agrégée)} : mesure de \textbf{l'intrant} de la production thermique --- une dimension amont, distincte et complémentaire de l'extrant, potentiellement avancée (la consommation de combustibles précède la production qu'elle permet).
+
+\subsection{Information-communication --- Parc mobile et Parc Internet (2 ancres)}
+
+\textbf{Parc téléphonie mobile global} : historiquement la composante la plus importante du secteur en nombre d'abonnés.
+
+\textbf{Parc Internet global} : une activité structurellement distincte (données, pas voix) et en croissance, complémentaire à la téléphonie mobile plutôt que redondante --- les deux usages (voix, data) ne suivent pas nécessairement la même dynamique.
+
+% ============================================================================
+\section{Synthèse}
+% ============================================================================
+
+\begin{fichebox}
+\begin{center}
+\small
+\begin{tabular}{p{4cm}p{5.2cm}p{4.2cm}}
+\toprule
+\textbf{Branche} & \textbf{Ancres retenues} & \textbf{Dimensions couvertes} \\
+\midrule
+Agriculture & Précipitations, Température & Eau / Chaleur (climat) \\
+Pêche & Poisson pélagique, Céphalopodes & Volume / Valeur \\
+Industrie transformation & TUC, IPI alimentaire & Agrégat / Sous-filière dominante \\
+Industrie extraction & Phosphates, IPM extractives & Produit dominant / Indice officiel \\
+Immobilier & Crédit immobilier, IPAI Résidentiel & Financement / Activité \\
+Finances assurances & M3, Crédit bancaire & Encours monétaires / Création de crédit \\
+Hébergement restauration & Recettes, Arrivées & Valeur / Volume \\
+Construction & Ciment, Crédit BTP & Activité physique / Financement \\
+Commerce & Exportations, Importations & Flux sortant / Flux entrant \\
+Transports & Trafic portuaire, Trafic aérien & Maritime / Aérien \\
+Électricité gaz eau & Production, Consommation combustibles & Extrant / Intrant \\
+Information communication & Parc mobile, Parc Internet & Voix / Data \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\textbf{24 ancres au total} (contre 12 dans la version 1), sur 12 branches --- \textbf{2 ancres par branche, systématiquement}, chacune justifiée par une dimension économique distincte et non redondante de la précédente, jamais par simple juxtaposition. Deux branches (Agriculture, Immobilier) restent des cas plus fragiles, assumés comme tels, faute d'un candidat aussi directement lié à l'activité que dans les 10 autres branches.
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7.
+\item \hypertarget{ref2}{} World Bank (2023). \textit{Morocco Country Climate and Development Report --- Background Note: Water Scarcity and Droughts}. Washington, D.C.
+\item \hypertarget{ref3}{} Ministère de l'Agriculture, de la Pêche Maritime, du Développement Rural et des Eaux et Forêts (2023). \textit{Rapport d'activité --- Département de la Pêche Maritime 2023}.
+\item \hypertarget{ref4}{} Office Chérifien des Phosphates (OCP) --- position mondiale communément établie sur les réserves mondiales de phosphate (source institutionnelle, chiffre largement cité dans la presse économique marocaine et internationale).
+\end{enumerate}
+
+\end{document}
