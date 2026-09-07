@@ -1,0 +1,279 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{fichebox}[1][]{colback=vertok!6,colframe=vertok,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Approximation assumée},#1}
+\newtcolorbox{noteboxbleu}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,breakable,title={\small\bfseries Principe},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Reconstruction de l'IPC marocain, 2010--2026}\\[0.15cm]
+\textcolor{gray}{\large Déflation des séries nominales --- méthode complète et reproductible}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document expose, avec toutes les formules nécessaires à sa reproduction fidèle, la construction d'une série mensuelle unique de l'Indice des Prix à la Consommation (IPC) marocain couvrant \textbf{janvier 2010 à juillet 2026} --- en raccordant deux bases officielles du HCP (base 2006 et base 2017), la première n'étant disponible qu'en moyenne annuelle sur la période qui nous intéresse. Cette série sert à déflater les indicateurs nominaux (crédit bancaire, recettes touristiques, M3, primes d'assurance) retenus dans les phases précédentes du travail.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.3cm}
+
+% ============================================================================
+\section{Pourquoi cette reconstruction}
+% ============================================================================
+
+\subsection{Le problème}
+
+Plusieurs de nos indicateurs retenus sont exprimés en dirhams \textbf{courants} (nominaux) --- crédit bancaire, recettes touristiques, masse monétaire M3, primes d'assurance --- alors que la cible de chaque branche (la valeur ajoutée) est toujours en volume \textbf{réel}. Higgins\cit{1} traite ce problème explicitement à son Étape 2a :
+
+\begin{noteboxbleu}
+\textit{« Some of the monthly series are nominal and need to be deflated. »} --- Higgins (2014), Step 2a.
+\end{noteboxbleu}
+
+La formule de déflation elle-même est simple :
+\begin{equation}
+x_t^{\text{réel}} = \frac{x_t^{\text{nominal}}}{\text{IPC}_t / 100}
+\label{eq:deflation}
+\end{equation}
+
+\subsection{Le problème pratique rencontré}
+
+Deux séries IPC officielles existent, mais aucune seule ne couvre toute notre période d'entraînement (2010--2021) en fréquence mensuelle :
+\begin{itemize}[leftmargin=1.3em]
+\item \textbf{Base 2017}\cit{2} : mensuelle, mais seulement depuis janvier 2017
+\item \textbf{Base 2006}\cit{3} : mensuelle en principe depuis 2007, mais les seules valeurs officiellement retrouvées pour 2010--2016 sont des \textbf{moyennes annuelles}, publiées dans des rapports régionaux du HCP
+\end{itemize}
+
+D'où la nécessité d'un raccordement (\emph{splicing}), technique que Higgins\cit{1} lui-même utilise pour ses propres séries à changement de méthodologie (SIC vers NAICS).
+
+% ============================================================================
+\section{Les données sources, avec leur origine exacte}
+% ============================================================================
+
+\subsection{Série mensuelle, base 2017 (2017--2026)}
+
+\begin{fichebox}
+115 points, janvier 2017 à juillet 2026 --- fichier fourni directement par l'utilisateur, téléchargé depuis le HCP\cit{2} (« IPC 2017 par grandes divisions, Mensuel »).
+\end{fichebox}
+
+\subsection{Moyennes annuelles, base 2006 (2010--2017)}
+
+\begin{fichebox}
+\begin{center}
+\small
+\begin{tabular}{lrl}
+\toprule
+\textbf{Année} & \textbf{IPC (base 2006)} & \textbf{Source} \\
+\midrule
+2010 & 108,4 & Rapport régional HCP Casablanca\cit{4} \\
+2011 & 109,4 & idem \\
+2012 & 110,8 & idem \\
+2013 & 112,9 & idem \\
+2014 & 113,4 & idem \\
+2015 & 115,21 & calculé : $113{,}4 \times 1{,}016$ (HCP\cit{5} : +1,6\% en 2015) \\
+2016 & 116,57 & \textbf{interpolé} (aucune source directe trouvée) \\
+2017 & 117,93 & moyenne des 12 valeurs mensuelles réelles\cit{6} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\begin{alertebox}
+\textbf{2016 est la seule valeur non directement sourcée} de toute la construction. Faute d'avoir trouvé une publication HCP donnant explicitement la moyenne annuelle 2016, elle est obtenue par interpolation log-linéaire entre 2015 et 2017 (formule \ref{eq:interp_2016} ci-dessous) --- une approximation isolée et documentée, pas une donnée officielle.
+\end{alertebox}
+
+\subsection{Les 12 valeurs mensuelles réelles de 2017, base 2006 --- le point de raccord}
+
+\begin{fichebox}
+Trouvées dans un rapport régional HCP (Tanger)\cit{6}, donnant le détail mensuel national complet de l'année 2017 en base 2006 :
+\begin{center}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Jan & Fév & Mar & Avr & Mai & Jun \\
+117,7 & 117,4 & 116,7 & 116,9 & 117,5 & 117,9 \\
+\midrule
+Jul & Aoû & Sep & Oct & Nov & Déc \\
+117,3 & 117,7 & 118,7 & 118,6 & 119,1 & 119,7 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{C'est cette table qui rend le raccordement particulièrement fiable} : au lieu d'un unique point de chevauchement, on dispose de 12 points communs entre les deux bases, permettant de vérifier la stabilité du coefficient de raccord plutôt que de le supposer.
+\end{fichebox}
+
+% ============================================================================
+\section{Étape A --- Interpolation des moyennes annuelles (2010--2016)}
+% ============================================================================
+
+\subsection{Principe --- une variante simplifiée de Denton}
+
+\begin{noteboxbleu}
+Higgins\cit{1} utilise une interpolation de Denton pour relier une variable basse fréquence à une série liée de fréquence plus élevée (\textit{« interpolates a lower frequency variable with a related higher frequency one »}). Ici, \textbf{aucune série mensuelle liée n'est disponible} pour guider l'interpolation de 2010--2016 --- on utilise donc une variante simplifiée : une interpolation \textbf{log-linéaire} entre moyennes annuelles successives, \textbf{contrainte} pour que la moyenne des 12 valeurs mensuelles interpolées d'une année égale exactement sa moyenne annuelle officielle (c'est cette contrainte de cohérence qui constitue le vrai principe de Denton, au-delà du choix de la fonction d'interpolation elle-même).
+\end{noteboxbleu}
+
+\subsection{Formule d'interpolation}
+
+Pour l'année $a$ (parmi 2010 à 2016) et le mois $m\in\{1,\dots,12\}$ :
+\begin{equation}
+\log\big(\text{IPC}_{a,m}^{\text{brut}}\big) = \log(\text{IPC}_a) + \big[\log(\text{IPC}_{a+1}) - \log(\text{IPC}_a)\big] \times \frac{m-1}{12}
+\label{eq:interp_lineaire}
+\end{equation}
+
+où $\text{IPC}_a$ et $\text{IPC}_{a+1}$ sont les moyennes annuelles officielles des années $a$ et $a+1$.
+
+\subsection{Contrainte de cohérence (la vraie logique Denton)}
+
+Un facteur de correction $c_a$ est appliqué à chaque année pour forcer l'égalité exacte avec la moyenne officielle :
+\begin{equation}
+c_a = \frac{\text{IPC}_a}{\dfrac{1}{12}\sum_{m=1}^{12} \text{IPC}_{a,m}^{\text{brut}}}, \qquad
+\text{IPC}_{a,m} = \text{IPC}_{a,m}^{\text{brut}} \times c_a
+\label{eq:correction_denton}
+\end{equation}
+
+\begin{fichebox}
+\textbf{Vérification effectuée} : après application de $c_a$, la moyenne des 12 valeurs mensuelles de chaque année reproduit exactement (à $10^{-3}$ près) la moyenne annuelle officielle, pour les 7 années 2010--2016 --- confirmé numériquement.
+\end{fichebox}
+
+\subsection{Le cas particulier de 2016}
+\label{eq:interp_2016}
+
+En l'absence de source directe, la moyenne annuelle 2016 elle-même est d'abord obtenue par interpolation log-linéaire entre 2015 et 2017 :
+\begin{equation}
+\log(\text{IPC}_{2016}) = \frac{\log(\text{IPC}_{2015}) + \log(\text{IPC}_{2017})}{2} \ \Rightarrow\ \text{IPC}_{2016} = 116{,}57
+\end{equation}
+avant d'être elle-même utilisée comme ancrage dans l'équation \ref{eq:interp_lineaire} pour interpoler ses propres 12 mois.
+
+% ============================================================================
+\section{Étape B --- Le coefficient de raccordement}
+% ============================================================================
+
+\subsection{Formule}
+
+Sur les 12 mois de l'année de chevauchement (2017), pour chaque mois $m$ :
+\begin{equation}
+k_m = \frac{\text{IPC}_{2017,m}^{\text{base 2006}}}{\text{IPC}_{2017,m}^{\text{base 2017}}}
+\end{equation}
+Le coefficient retenu est la moyenne de ces 12 ratios :
+\begin{equation}
+k = \frac{1}{12}\sum_{m=1}^{12} k_m
+\label{eq:coef_raccord}
+\end{equation}
+
+\subsection{Résultat}
+
+\begin{fichebox}
+$$k = 1{,}17952 \qquad \text{écart-type des 12 } k_m : 0{,}0022$$
+\end{fichebox}
+
+\begin{noteboxbleu}
+L'écart-type très faible (0,22\% de la valeur du coefficient) confirme que le ratio entre les deux bases est \textbf{stable sur toute l'année de chevauchement} --- pas seulement vrai à un instant donné. C'est ce qui distingue un raccordement fiable d'un raccordement approximatif : on vérifie la stabilité plutôt que de la supposer.
+\end{noteboxbleu}
+
+% ============================================================================
+\section{Étape C --- Fusion en une série unique}
+% ============================================================================
+
+\subsection{Rebasculement de la partie 2010--2016}
+
+Chaque valeur interpolée (équation \ref{eq:correction_denton}) est ramenée à l'échelle de la base 2017 :
+\begin{equation}
+\text{IPC}_{t}^{\text{final}} = \frac{\text{IPC}_{t}^{\text{base 2006}}}{k} \qquad \text{pour } t < \text{janvier 2017}
+\end{equation}
+
+\subsection{La partie 2017--2026}
+
+Conservée \textbf{sans aucune modification} --- ce sont des valeurs officielles réelles, pas des estimations :
+\begin{equation}
+\text{IPC}_{t}^{\text{final}} = \text{IPC}_{t}^{\text{base 2017, officiel}} \qquad \text{pour } t \geq \text{janvier 2017}
+\end{equation}
+
+\subsection{Vérification de la continuité au point de jonction}
+
+\begin{fichebox}
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Mois} & \textbf{IPC final} \\
+\midrule
+2016-10 & 99,161 \\
+2016-11 & 99,257 \\
+2016-12 & 99,354 \\
+\textbf{2017-01} & \textbf{99,400 (valeur officielle réelle)} \\
+2017-02 & 99,500 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Aucun saut visible} à la jonction --- la transition décembre 2016 → janvier 2017 (99,354 → 99,400) est cohérente avec la tendance des mois environnants, contrairement à ce qu'on observerait avec un raccordement mal calibré.
+\end{fichebox}
+
+% ============================================================================
+\section{Résultat final}
+% ============================================================================
+
+\begin{fichebox}
+\textbf{Série IPC complète, base 2017, mensuelle : 199 points, janvier 2010 à juillet 2026.}
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Segment} & \textbf{Nature} & \textbf{Fiabilité} \\
+\midrule
+2010--2016 (84 points) & Interpolé (Denton simplifié) & Approximation, contrainte aux moyennes officielles \\
+2017--2026 (115 points) & Officiel, mensuel réel & Fiabilité maximale \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{fichebox}
+
+\subsection{Application aux séries nominales}
+
+Une fois cette série disponible, chaque indicateur nominal retenu se déflate via l'équation \ref{eq:deflation} :
+\begin{equation}
+x_t^{\text{réel}} = \frac{x_t^{\text{nominal}}}{\text{IPC}_t^{\text{final}} / 100}
+\end{equation}
+
+avant d'être retesté (corrélation, Student, FDR) exactement selon la même procédure que celle déjà appliquée au Niveau 2 --- les séries concernées sont le crédit bancaire (toutes branches), les recettes touristiques, la masse monétaire M3 et les primes d'assurance.
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7.
+\item \hypertarget{ref2}{} Haut-Commissariat au Plan. \textit{Indice des prix à la consommation (IPC 2017) par grandes divisions, Mensuel}. Fichier fourni par l'utilisateur, source hcp.ma.
+\item \hypertarget{ref3}{} Haut-Commissariat au Plan. \textit{Enquête des prix à la consommation (IPC), base 100:2006}. hcp.ma/Enquete-des-prix-a-la-consommation-IPC\_a117.html.
+\item \hypertarget{ref4}{} Direction Régionale du Grand Casablanca, HCP. Note régionale sur l'IPC, tableau « Evolution annuelle de l'IPC 2006--2014 ». hcp.ma/reg-casablanca/attachment/617911/.
+\item \hypertarget{ref5}{} Haut-Commissariat au Plan (2016). \textit{L'Indice des prix à la consommation (IPC) de l'année 2015}. hcp.ma/L-Indice-des-prix-a-la-consommation-IPC-de-l-annee-2015\_a1656.html.
+\item \hypertarget{ref6}{} Direction Régionale de Tanger, HCP. Note régionale sur l'IPC, détail mensuel national 2017. hcp.ma/region-tanger/attachment/2066184/.
+\end{enumerate}
+
+\end{document}
