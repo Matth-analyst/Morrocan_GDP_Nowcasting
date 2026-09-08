@@ -1,0 +1,111 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{bleuclair}{HTML}{2E74B5}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Découverte et correction},#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\Large Correction de la fuite de données BVAR et optimisation de la fenêtre d'entraînement\\[0.15cm]
+\normalsize\color{gray} Synthèse de l'intervention sur l'ensemble des 7 étapes}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document synthétise une correction méthodologique majeure trouvée en préparant l'optimisation de la fenêtre d'entraînement demandée : \textbf{le BVAR de l'Étape 1 n'a jamais respecté la période d'entraînement 2010--2021} utilisée par le reste du pipeline --- il utilisait toute la plage disponible (1998--2026), contaminant silencieusement le test hors-échantillon de l'Étape 7. Corrigé, puis trois fenêtres de démarrage ont été testées (1998, 2005, 2010) pour trouver la meilleure combinaison.
+\end{abstract}
+
+\section{La découverte}
+
+\begin{alertebox}
+En examinant le script \texttt{03\_bvar\_estimation\_et\_choix\_lambda.R} pour y ajouter une borne de démarrage ajustable, aucune restriction de date n'y a été trouvée --- le BVAR utilisait \texttt{Y\_complet}, construit à partir de \textbf{tout} le fichier source (1998--2026), avec sa propre validation interne à 80/20 (les 20\% derniers trimestres pour choisir $\lambda$, mais jamais mis de côté entièrement).
+
+\textbf{Conséquence} : les coefficients BVAR réutilisés dans les Étapes 5 à 7 avaient déjà « vu », au moins partiellement, la période 2021--2026 que l'Étape 7 prétendait tester en hors-échantillon --- une fuite de données silencieuse, jamais détectée jusqu'ici.
+\end{alertebox}
+
+\section{La correction apportée}
+
+Une restriction stricte (\texttt{DATE\_DEBUT\_TRAIN}, \texttt{DATE\_FIN\_TRAIN = 2021-01-01}) a été ajoutée au script d'estimation, avant toute construction de \texttt{Y\_complet} --- alignée sur la même discipline suivie partout ailleurs depuis la Phase 2. Un script d'export manquant (\texttt{05\_exporter\_coefficients\_bvar.R}) a également été créé, le fichier \texttt{coefficients\_complets\_BVAR.csv} n'ayant jusqu'ici jamais été reproduit par aucun script (un export manuel resté non tracé).
+
+\begin{alertebox}
+Un second bug d'encodage (déjà rencontré et corrigé ailleurs dans ce travail) est réapparu dans ce nouveau script d'export : \texttt{write.csv} (base R) corrompait les caractères accentués, là où \texttt{write\_csv} (readr, UTF-8 explicite) ne le fait pas. Corrigé et vérifié fonctionnellement avant de poursuivre.
+\end{alertebox}
+
+\section{Impact de la correction sur le résultat déjà obtenu}
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+& \textbf{Avant correction (fuite)} & \textbf{Après correction} \\
+\midrule
+Corrélation en-échantillon (Étape 6) & 0,671 & 0,622 \\
+Corrélation hors-échantillon (Étape 7) & 0,541 & 0,292 \\
+RMSFE hors-échantillon & 4,73 & 5,43 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{alertebox}
+\textbf{Le résultat honnête est moins bon que celui précédemment rapporté} --- attendu, puisque la version précédente bénéficiait (sans qu'on le sache) d'une information qu'un vrai modèle en production n'aurait jamais eue à ce stade. Ce n'est pas une régression du modèle, c'est la correction d'une évaluation qui était faussement optimiste.
+\end{alertebox}
+
+\section{Optimisation de la fenêtre de démarrage du BVAR}
+
+\begin{intuition}
+Le BVAR n'utilise que les VA des 16 branches (disponibles depuis 1998) --- contrairement aux bridge equations et aux AR, dont les indicateurs ne remontent souvent pas avant 2007--2010. Étendre son démarrage en arrière ne coûte donc rien en couverture d'indicateurs, et pourrait, en théorie, améliorer sa précision.
+\end{intuition}
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Démarrage BVAR} & \textbf{RMSFE validation interne} & \textbf{RMSFE final (Étape 7)} & \textbf{Corrélation finale} \\
+\midrule
+2010 & 0,1306 & 5,43 & 0,292 \\
+2005 & 0,1094 & \textbf{5,37} & \textbf{0,305} \\
+1998 & 0,0921 & 5,38 & 0,301 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{resultatbox}
+\textbf{2005 obtient le meilleur résultat final, mais l'écart entre les trois candidats est minime} (5,37 à 5,43 --- de l'ordre du bruit statistique sur seulement $n=20$ trimestres de test). Fait notable : la validation interne du BVAR s'améliore \textbf{nettement} avec plus d'historique (0,131 $\to$ 0,092, 1998 vs 2010) --- un gain réel pour le BVAR pris isolément --- \textbf{mais ce gain se propage à peine} jusqu'au résultat final agrégé.
+\end{resultatbox}
+
+\textbf{Explication} : la plupart des 16 $\delta$ (Étape 5) sont faibles (souvent $<0{,}1$) --- le résultat final dépend donc majoritairement des bridge equations et des AR, pas du BVAR. Améliorer le BVAR seul a un effet mécaniquement limité sur l'agrégat, quelle que soit sa propre qualité.
+
+\section{Décision retenue}
+
+\begin{resultatbox}
+\textbf{Après réflexion, le BVAR est ramené à 2010--2021}, strictement identique au reste du pipeline --- pas 2005, malgré son gain marginal (5,37 contre 5,43). Le gain était trop faible pour justifier une asymétrie de fenêtre entre le BVAR et tous les indicateurs (Étapes 2--4), dont la sélection elle-même n'a jamais été retestée sur une fenêtre différente. Cohérence stricte préférée à un gain marginal non généralisé au reste du modèle.
+
+\textbf{Résultat final retenu} : RMSFE hors-échantillon = \textbf{5,43} (croissance annualisée), corrélation = 0,292, sur les 20 mêmes trimestres jamais vus (2021T2--2026T1) --- le vrai goulot d'étranglement de ce travail reste, sans ambiguïté, la richesse et la qualité des indicateurs propres à chaque branche (Étapes 2--4), pas la fenêtre du BVAR.
+\end{resultatbox}
+
+\end{document}

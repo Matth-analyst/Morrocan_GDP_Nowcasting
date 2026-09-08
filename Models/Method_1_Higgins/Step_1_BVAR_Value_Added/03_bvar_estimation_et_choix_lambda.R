@@ -45,6 +45,16 @@ dir.create(DOSSIER_FIGURES,   showWarnings = FALSE, recursive = TRUE)
 
 P_RETARDS     <- 5                              # coherent avec sigma_i.rds (etape 2)
 GRILLE_LAMBDA <- c(0.01, 0.02, 0.03, 0.05, 0.10, 0.15, 0.20, 0.30) # grille elargie vers le bas
+
+# --- Restriction a la periode d'entrainement -------------------------------
+# CORRECTION : le BVAR utilisait jusqu'ici TOUTE la plage disponible
+# (1998-2026), y compris la periode reservee au test hors-echantillon
+# (Etape 7) -- une incoherence avec le reste du pipeline (Phase 2 et
+# suivantes, qui respectent strictement 2010-2021). Corrige ici : la
+# borne de fin est desormais alignee sur DATE_FIN_TRAIN, jamais depassee
+# a aucune etape de l'estimation ni de la recherche de lambda.
+DATE_DEBUT_TRAIN <- as.Date("2010-01-01")
+DATE_FIN_TRAIN   <- as.Date("2021-01-01")
 # --- Lecture et transformation (identique aux scripts precedents) ----------
 convertir_trimestre_en_date <- function(x) {
   trimestre <- as.integer(str_sub(x, 2, 2))
@@ -65,13 +75,14 @@ donnees_dlog <- donnees %>%
   mutate(across(all_of(BRANCHES), ~ log(pmax(.x, 1e-6)))) %>%
   arrange(date) %>%
   mutate(across(all_of(BRANCHES), ~ .x - lag(.x))) %>%
-  filter(!if_any(all_of(BRANCHES), is.na))
+  filter(!if_any(all_of(BRANCHES), is.na)) %>%
+  filter(date >= DATE_DEBUT_TRAIN, date <= DATE_FIN_TRAIN)   # <- restriction ajoutee
 
 Y_complet    <- as.matrix(donnees_dlog[, BRANCHES])
 dates_vec    <- donnees_dlog$date
 sigma_i      <- readRDS(FICHIER_SIGMA)[BRANCHES]   # meme ordre que les colonnes de Y
 
-cat(sprintf("Matrice Y : %d trimestres x %d branches (de %s a %s)\n\n",
+cat(sprintf("Matrice Y (RESTREINTE AU TRAIN) : %d trimestres x %d branches (de %s a %s)\n\n",
             nrow(Y_complet), N, format(min(dates_vec), "%Y-%m"), format(max(dates_vec), "%Y-%m")))
 
 # ============================================================================
