@@ -1,0 +1,170 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+\newtcolorbox{definitionbox}[1][]{colback=gray!7,colframe=black!60,boxrule=0.4pt,arc=1pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Correction par rapport à la version précédente},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Repli autorégressif --- Sélection de l'ordre $p$ par AIC}\\[0.15cm]
+\textcolor{gray}{\large Méthodologie complète, pourquoi et comment, pour les 7 branches sans lien exploitable}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document remplace une version précédente qui fixait arbitrairement $p=4$ pour les 7 branches sans bridge equation exploitable --- une convention reprise sans justification statistique, exactement le même défaut déjà identifié pour $p=5$ dans le BVAR de la Phase 1. Corrigé ici : chaque branche reçoit son \textbf{propre ordre $p^\star$}, sélectionné par AIC sur une grille $p\in\{1,\dots,8\}$ --- cohérent avec la méthode déjà utilisée pour les bridge equations (sélection de $q$ et $r$).
+\end{abstract}
+
+\tableofcontents
+\vspace{0.5cm}
+
+% ============================================================================
+\section{Pourquoi un modèle purement autorégressif, pour ces 7 branches}
+% ============================================================================
+
+\begin{intuition}
+Ces 7 branches --- 4 sans aucun indicateur retenu depuis la Phase 2 (Services aux entreprises, Administration publique, Éducation-santé, Autres services), et 3 confirmées sans lien statistique exploitable à l'Étape 4 (Agriculture, Transports, Information-communication) --- n'ont \textbf{aucune bridge equation disponible}. En l'absence de tout indicateur exploitable, la seule information restante pour prévoir leur croissance est \textbf{leur propre passé}.
+\end{intuition}
+
+C'est exactement le repli que Higgins\cit{1} utilise pour les sous-composantes sans indicateur mensuel disponible (les dortoirs, dans son propre travail) --- une méthode reconnue, pas un pis-aller improvisé.
+
+\begin{equation}
+\Delta\log(VA_t) = \alpha + \sum_{k=1}^{p}\gamma_k \Delta\log(VA_{t-k}) + \varepsilon_t
+\label{eq:ar_p}
+\end{equation}
+
+% ============================================================================
+\section{Pourquoi l'ordre $p$ doit être choisi, pas fixé d'avance}
+% ============================================================================
+
+\subsection{L'erreur de la version précédente}
+
+\begin{alertebox}
+La version précédente fixait $p=4$ pour toutes les branches, justifié uniquement par la convention « un retard par trimestre de l'année écoulée ». \textbf{Exactement le même défaut} que celui déjà documenté pour $p=5$ dans le BVAR de la Phase 1 --- une valeur copiée, jamais testée contre les données réelles de chaque branche.
+\end{alertebox}
+
+\subsection{Pourquoi un $p$ différent par branche ne pose aucun problème ici}
+
+\begin{intuition}
+Dans le BVAR de la Phase 1, un $p$ commun était \textbf{structurellement nécessaire} --- toutes les branches y forment un seul système à 16 équations simultanées (une matrice compagne commune), incompatible avec des retards différents par équation. \textbf{Ici, ce n'est plus le cas} : chaque branche a son propre modèle AR \emph{indépendant}, sans aucune contrainte partagée. Rien n'empêche mathématiquement Agriculture d'avoir $p=4$ pendant que Transports a $p=8$ --- exactement comme $q$ et $r$ variaient déjà librement d'une bridge equation à l'autre (Étape 4), sans qu'aucun $q$ ou $r$ commun n'ait jamais été imposé.
+\end{intuition}
+
+% ============================================================================
+\section{Comment --- la sélection AIC, pas à pas}
+% ============================================================================
+
+\subsection{La grille testée}
+
+Pour chaque branche, tous les ordres $p\in\{1,\dots,8\}$ sont estimés par MCO :
+\begin{equation}
+p^\star = \operatorname*{arg\,min}_{p\in\{1,\dots,8\}} \text{AIC}(p), \qquad \text{AIC} = 2k - 2\ln(\hat{L})
+\label{eq:aic_ar}
+\end{equation}
+
+\subsection{La contrainte d'échantillon commun}
+
+\begin{definitionbox}
+Les 8 modèles (un par valeur de $p$) sont d'abord tous estimés sur le \textbf{même échantillon} --- celui compatible avec le plus grand ordre testé ($p=8$, qui perd le plus d'observations en début de période à cause des retards). \textbf{Indispensable} pour que les 8 AIC soient directement comparables entre eux : comparer un AIC calculé sur 40 observations à un AIC calculé sur 44 n'aurait aucun sens, l'AIC dépendant de la taille de l'échantillon.
+\end{definitionbox}
+
+\subsection{Réestimation finale}
+
+Une fois $p^\star$ connu, le modèle final est réestimé sur \textbf{toutes} les observations disponibles pour cet ordre précis (pas seulement l'échantillon commun à $p=8$) --- pour ne pas perdre inutilement des points une fois le bon ordre déterminé.
+
+\subsection{Prévision}
+
+À partir des $p^\star$ derniers $\Delta\log$ connus (sur toute la série disponible, pas seulement le train), une prévision hors-échantillon est produite pour le trimestre suivant.
+
+% ============================================================================
+\section{Résultats}
+% ============================================================================
+
+\begin{resultatbox}
+\textbf{7 branches sur 7 estimées avec succès.} Sur les 7, \textbf{4 confirment $p^\star=4$} (la convention initiale se révèle correcte pour elles) --- mais \textbf{2 branches (Transports, Autres services) ont un ordre optimal nettement plus élevé ($p^\star=8$)}, avec un gain de pouvoir explicatif substantiel une fois le bon ordre trouvé.
+\end{resultatbox}
+
+\begin{center}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Branche} & \textbf{$p^\star$} & \textbf{$R^2$} & \textbf{$R^2$ (ancien, $p=4$)} & \textbf{Gain} \\
+\midrule
+Autres services & \textbf{8} & 0,804 & 0,556 & $+0{,}248$ \\
+Transports & \textbf{8} & 0,482 & 0,231 & $+0{,}251$ \\
+Administration publique & 4 & 0,450 & 0,450 & $0$ \\
+Éducation-santé & 4 & 0,424 & 0,424 & $0$ \\
+Services aux entreprises & 4 & 0,246 & 0,246 & $0$ \\
+Agriculture & 4 & 0,186 & 0,186 & $0$ \\
+Information-communication & 3 & 0,093 & 0,105 & $-0{,}012$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{intuition}
+Information-communication est le seul cas où le $R^2$ \emph{baisse} légèrement en changeant d'ordre ($p^\star=3$ contre $p=4$ imposé avant) --- rappel utile que l'AIC ne maximise pas le $R^2$ en soi, il pénalise la complexité : un modèle plus simple, même avec un $R^2$ marginalement inférieur, peut être préféré s'il généralise mieux.
+\end{intuition}
+
+\subsection{Exemple détaillé --- Autres services (grille AIC complète)}
+
+\begin{center}
+\small
+\begin{tabular}{lrrrrrrrr}
+\toprule
+$p$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & \textbf{8} \\
+\midrule
+AIC & $-200{,}1$ & $-198{,}1$ & $-197{,}8$ & $-216{,}0$ & $-237{,}7$ & $-239{,}2$ & $-238{,}4$ & $\mathbf{-244{,}9}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{intuition}
+Un vrai minimum global à $p=8$, pas un artefact isolé --- amélioration progressive et quasi monotone à partir de $p=4$, confirmant que cette branche a une dynamique dépendant de plusieurs trimestres passés (possiblement un cycle annuel complet, voire plus).
+\end{intuition}
+
+% ============================================================================
+\section{Sorties produites}
+% ============================================================================
+
+\begin{resultatbox}
+Pour chaque branche : \texttt{resultats/<branche>\_AR\_coefficients.csv} (le modèle final retenu), \texttt{resultats/<branche>\_AR\_grille\_AIC.csv} (les 8 AIC testés, pour vérification), \texttt{figures/<branche>\_AR\_ajustement.png}. Bilan global dans \texttt{resultats/recapitulatif\_AR.csv}.
+\end{resultatbox}
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7.
+\end{enumerate}
+
+\end{document}

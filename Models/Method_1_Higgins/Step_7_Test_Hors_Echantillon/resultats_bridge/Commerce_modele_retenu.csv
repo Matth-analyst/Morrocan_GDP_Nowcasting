@@ -1,0 +1,2 @@
+indicateur,beta0,beta1,p_value,R2,R2_ajuste,AIC,n_obs
+Evolution des prix des produits finis au cours des trois prochains mois,0.00664917451347097,0.00639577130237188,0.00535594965715038,0.23106702962561657,0.20543593061313703,-166.357221140153,32

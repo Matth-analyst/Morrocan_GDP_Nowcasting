@@ -1,0 +1,165 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+\newtcolorbox{definitionbox}[1][]{colback=gray!7,colframe=black!60,boxrule=0.4pt,arc=1pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Limite assumée},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Étape 6 --- Pondération nominale et agrégation finale}\\[0.15cm]
+\textcolor{gray}{\large Méthodologie complète, formules et résultats}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document est l'aboutissement du travail GDPNow-Maroc : agréger les 16 prévisions de croissance par branche (Étape 5) en une \textbf{unique prévision de croissance du PIB}, en suivant la méthode de pondération de Higgins\cit{1} --- une approximation de l'indice de Fisher (la méthode officielle de chaînage) par un indice de Törnqvist, utilisant des parts \textbf{nominales} et non réelles. Sur 44 trimestres testés, la série agrégée obtient une corrélation de 0,671 avec une référence de comparaison construite indépendamment.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.5cm}
+
+% ============================================================================
+\section{Pourquoi des poids nominaux, pas réels}
+% ============================================================================
+
+\begin{definitionbox}
+\textit{« This weighting uses the fact that the growth rate of a Törnqvist index is a very good approximation of the growth rate of a Fisher index »}\cit{1} --- la méthode officielle de calcul du PIB (chaînage de Fisher, utilisée aussi bien par le BEA américain que par le HCP marocain) est complexe à répliquer directement. Higgins montre qu'une simple moyenne pondérée des taux de croissance \textbf{réels}, avec des poids \textbf{nominaux}, approxime très bien le résultat officiel.
+\end{definitionbox}
+
+\begin{intuition}
+Pourquoi nominal et pas réel : les poids doivent refléter le poids économique \emph{effectif} de chaque branche dans l'économie \emph{à ce moment précis} --- en dirhams courants, ce qui inclut l'effet des prix relatifs. Un poids basé sur le volume réel (déjà «\,nettoyé\,» de l'inflation) ne capterait pas correctement l'importance relative de chaque secteur telle que l'économie la vit réellement, trimestre par trimestre.
+\end{intuition}
+
+% ============================================================================
+\section{La formule de pondération}
+% ============================================================================
+
+\subsection{Les parts nominales}
+
+Pour chaque branche $i$ et chaque trimestre $t$ :
+\begin{equation}
+SH_t^i = \frac{VA_t^{i,\text{nominal}}}{\sum_{k=1}^{16} VA_t^{k,\text{nominal}}}
+\label{eq:part_nominale}
+\end{equation}
+
+\subsection{L'agrégation --- utilisant les parts du trimestre PRÉCÉDENT}
+
+\begin{equation}
+\Delta\log(PIB_t) = \sum_{i=1}^{16} SH_{t-1}^i \times \Delta\log(VA_t^{i,\text{combiné}})
+\label{eq:aggregation}
+\end{equation}
+
+\begin{definitionbox}
+Pourquoi $SH_{t-1}$ et non $SH_t$ : au moment de produire une vraie prévision pour le trimestre $t$, les parts nominales de ce même trimestre $t$ ne sont \textbf{pas encore connues} (elles dépendent de données qui ne seront disponibles qu'après coup) --- on utilise donc les dernières parts \textbf{effectivement observables}, celles du trimestre précédent. C'est exactement la logique explicitée par Higgins\cit{1} : \textit{« we go backwards in time to construct the fitted values »}.
+\end{definitionbox}
+
+$\Delta\log(VA_t^{i,\text{combiné}})$ est la série déjà construite à l'Étape 5 (combinaison BVAR/Bridge-AR, avec $\delta$ borné à $[0,1]$).
+
+% ============================================================================
+\section{Une limite de données rencontrée, et la solution retenue}
+% ============================================================================
+
+\begin{alertebox}
+\textbf{Le problème} : les données de VA nominale à la bonne nomenclature (16 branches, base 2014) ne couvrent que \textbf{2014 à aujourd'hui} --- notre période d'entraînement commence en 2010. Les données nominales antérieures existent (base 2007), mais dans une nomenclature à \textbf{seulement 14 branches}, sans correspondance officielle retrouvée pour « Immobilier » et « Autres services » --- une recherche approfondie de la table de passage officielle du HCP n'a pas abouti.
+
+\textbf{La solution retenue} : pour les trimestres 2010-2013 (16 trimestres sur 44, soit 36\% du train), les parts nominales sont \textbf{approximées par un repli sur les parts du premier trimestre disponible en bonne nomenclature} (2014-T1) :
+\begin{equation}
+SH_t^i = SH_{\text{2014T1}}^i \qquad \text{pour } t \in [\text{2010T1}, \text{2013T4}]
+\end{equation}
+\textbf{Ce n'est pas une vraie donnée trimestrielle pour cette période} --- une approximation assumée, documentée ici explicitement plutôt que dissimulée. Les 29 trimestres restants (2014-2021, soit 64\% du train) utilisent les vraies parts nominales trimestrielles.
+\end{alertebox}
+
+% ============================================================================
+\section{Étape préalable --- reconstruction des 16 séries combinées}
+% ============================================================================
+
+\begin{intuition}
+Avant de pouvoir agréger, il a fallu reconstruire, pour les 16 branches, la série $\Delta\log(VA_t^{i,\text{combiné}})$ dans son intégralité (pas seulement le $\delta$ scalaire déjà calculé à l'Étape 5) --- en réappliquant $\delta_i \times BVAR_i + (1-\delta_i) \times \text{Bridge/AR}_i$ trimestre par trimestre, avec le $\delta$ \textbf{borné} (voir Étape 5, section sur le bornage).
+\end{intuition}
+
+% ============================================================================
+\section{Résultats}
+% ============================================================================
+
+\begin{resultatbox}
+\textbf{44 trimestres agrégés avec succès} (sur les 45 du train --- 1 trimestre perdu au tout début, faute de recul suffisant pour le BVAR à 5 retards). La série agrégée est comparée à une \textbf{référence de contrôle} : le $\Delta\log$ de la simple somme des 16 VA réelles (pas le PIB officiel, qui inclut aussi les impôts nets de subventions --- non disponibles séparément dans ce travail, mais une approximation raisonnable de la dynamique globale).
+\end{resultatbox}
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+\textbf{Indicateur} & \textbf{Valeur} \\
+\midrule
+Corrélation (PIB agrégé, référence) & 0,671 \\
+RMSE & 0,0164 \\
+$n$ & 44 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{intuition}
+La figure (\texttt{figures/PIB\_agrege\_vs\_reference.png}) montre que la série agrégée suit fidèlement la tendance générale et les points de retournement de la référence --- y compris le choc Covid de 2020 --- mais avec une amplitude \textbf{atténuée} lors des grandes variations. C'est cohérent avec la construction : plusieurs branches reposent sur des modèles AR ou des bridge equations partiellement lissés (par construction, moins réactifs qu'une vraie donnée observée), ce qui amortit mécaniquement les pics les plus extrêmes de l'agrégat final.
+\end{intuition}
+
+% ============================================================================
+\section{Sorties produites}
+% ============================================================================
+
+\begin{resultatbox}
+\begin{itemize}[leftmargin=1.3em]
+\item \texttt{resultats/croissance\_combinee\_par\_branche.csv} --- les 16 séries $\Delta\log(VA^{\text{combiné}})$
+\item \texttt{resultats/parts\_nominales.csv} --- les $SH_t^i$, trimestre par trimestre, avec le repli 2010-2013 identifiable
+\item \texttt{resultats/croissance\_PIB\_agregee.csv} --- la prévision finale de croissance du PIB, avec sa référence de comparaison
+\item \texttt{figures/PIB\_agrege\_vs\_reference.png}
+\end{itemize}
+\end{resultatbox}
+
+% ============================================================================
+\section{Ce que ce travail accomplit, et ses limites}
+% ============================================================================
+
+\begin{resultatbox}
+Ce document clôt la chaîne méthodologique complète de GDPNow-Maroc : sélection des indicateurs (Phase 2), déflation, facteurs communs par branche, comblement du jagged edge, bridge equations et AR, combinaison BVAR/Bridge, et enfin cette agrégation pondérée --- reproduisant, à chaque étape, la méthodologie de Higgins (2014) adaptée aux données et contraintes propres à l'économie marocaine.
+\end{resultatbox}
+
+Les limites assumées tout au long de ce travail restent honnêtement documentées : la déflation partielle initiale (corrigée), les bugs d'encodage systématiques de cet environnement (corrigés et tracés), l'approximation des parts nominales 2010-2013, et --- fondamentalement --- le fait que seule une minorité de branches dispose d'un lien statistique robuste avec leurs indicateurs (Industrie de transformation en tête, plusieurs autres en AR pur faute de mieux).
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7.
+\end{enumerate}
+
+\end{document}

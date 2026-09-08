@@ -1,0 +1,185 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+\newtcolorbox{definitionbox}[1][]{colback=gray!7,colframe=black!60,boxrule=0.4pt,arc=1pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Réserve honnête},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Étape 5 --- Combinaison BVAR / Bridge-AR}\\[0.15cm]
+\textcolor{gray}{\large Estimation de $\delta$ par branche, méthodologie complète et résultats}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Pour chacune des 16 branches, ce document estime le poids $\delta$ qui combine la prévision du BVAR (Phase 1) et celle de la bridge equation ou de l'AR (Étapes 4--AR), suivant exactement la méthode de Higgins\cit{1} (régression restreinte, équation 8 de son article). Les 16 $\delta$ sont obtenus, avec plusieurs bugs d'encodage rencontrés et corrigés en cours de route --- documentés ici par souci de reproductibilité.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.5cm}
+
+% ============================================================================
+\section{Pourquoi cette étape}
+% ============================================================================
+
+\begin{intuition}
+Pour la plupart des branches, on dispose maintenant de \textbf{deux prévisions concurrentes} : celle du BVAR (qui utilise les corrélations entre les 16 branches) et celle de la bridge equation ou de l'AR propre à la branche (qui utilise son indicateur spécifique, ou son propre passé). Aucune des deux n'est strictement meilleure en toutes circonstances --- Higgins propose de les \textbf{combiner}, pondérées par leur fiabilité respective.
+\end{intuition}
+
+% ============================================================================
+\section{La méthode --- régression restreinte (RLS)}
+% ============================================================================
+
+\subsection{L'équation de Higgins}
+
+\begin{equation}
+\Delta\log(VA_t) = \delta \times \Delta\log(VA_t^{\text{BVAR}}) + (1-\delta) \times \Delta\log(VA_t^{\text{Bridge/AR}}) + \varepsilon_t
+\label{eq:combinaison}
+\end{equation}
+
+\begin{definitionbox}
+\textit{« We estimate (8) with restricted least squares (RLS) and omit a constant [...] since both of the right hand side terms are already forecasts of the left hand side term »}\cit{1} --- $\delta$ n'est pas choisi par une grille (contrairement à $\lambda$ dans le BVAR), mais estimé directement comme un coefficient de régression, contraint pour que les deux poids somment à 1.
+\end{definitionbox}
+
+\subsection{L'astuce de reformulation}
+
+En soustrayant $\Delta\log(VA_t^{\text{BVAR}})$ des deux côtés de l'équation \ref{eq:combinaison} :
+\begin{equation}
+\Delta\log(VA_t) - \Delta\log(VA_t^{\text{BVAR}}) = (1-\delta)\times\left[\Delta\log(VA_t^{\text{Bridge/AR}}) - \Delta\log(VA_t^{\text{BVAR}})\right] + \varepsilon_t
+\label{eq:rls_reformule}
+\end{equation}
+
+Une régression simple \textbf{sans constante} de cette différence donne directement $(1-\delta)$ comme unique coefficient, d'où $\delta = 1 - \text{coefficient estimé}$.
+
+\subsection{Le bornage --- pourquoi et comment}
+
+\begin{definitionbox}
+Rien dans la régression RLS ne garantit $\delta\in[0,1]$ --- seule la somme des deux poids est contrainte à 1, jamais chacun individuellement. Un $\delta$ hors de cet intervalle signifie qu'un des deux poids devient \textbf{négatif}, transformant la combinaison en extrapolation (potentiellement au-delà des deux prévisions individuelles) plutôt qu'en interpolation entre elles. Règle appliquée systématiquement, à toutes les branches :
+\begin{equation}
+\delta_{\text{final}} = \max\big(0,\ \min(1,\ \delta_{\text{brut}})\big)
+\label{eq:bornage}
+\end{equation}
+\end{definitionbox}
+
+% ============================================================================
+\section{Ce qu'il a fallu reconstruire}
+% ============================================================================
+
+\begin{intuition}
+Ni le BVAR ni les bridge equations/AR n'avaient jusqu'ici sauvegardé leurs \textbf{valeurs ajustées} sous forme de série temporelle --- seulement leurs coefficients. Les deux ont dû être \textbf{reconstruits} à partir des coefficients déjà estimés, appliqués aux données d'origine.
+\end{intuition}
+
+\textbf{BVAR} : à partir des 1296 coefficients de la Phase 1 (16 équations × [1 constante + 16 branches × 5 retards]), chaque valeur ajustée est recalculée directement :
+\begin{equation}
+\widehat{\Delta\log(VA_{i,t}^{\text{BVAR}})} = \alpha_i + \sum_{l=1}^{5}\sum_{j=1}^{16} A_l[i,j]\times\Delta\log(VA_{j,t-l})
+\end{equation}
+
+\textbf{Bridge/AR} : reconstruit selon le type de modèle propre à chaque branche (combiné multi-indicateurs, individuel à un seul indicateur, ou AR), en réappliquant les coefficients sauvegardés aux séries sources originales.
+
+% ============================================================================
+\section{Bugs rencontrés et corrigés --- documentés pour la reproductibilité}
+% ============================================================================
+
+\begin{alertebox}
+\textbf{Cause racine commune à tous les bugs de cette étape} : l'environnement R utilisé tourne en locale système \texttt{"C"} (non-UTF-8, vérifié par \texttt{Sys.getlocale()}) --- toute comparaison de chaîne accentuée codée en dur dans le code source échoue silencieusement, même quand les données elles-mêmes sont correctement lues en UTF-8.
+\end{alertebox}
+
+\begin{enumerate}[leftmargin=1.4em]
+\item \textbf{Noms de branches codés en dur} (ex. \texttt{"Hébergement-restauration"}) ne correspondaient jamais aux données lues --- corrigé en résolvant chaque nom \textbf{dynamiquement} depuis le fichier Excel source, jamais tapé en dur.
+\item \textbf{Plusieurs appels \texttt{read\_csv()}} omettaient \texttt{locale(encoding="UTF-8")} --- corrigé systématiquement sur les 4 occurrences trouvées.
+\item \textbf{Un cas plus profond} (Industrie de transformation, modèle réduit) : le fichier de coefficients contenait littéralement le texte \texttt{"U+2014"} et \texttt{"U00E9"} au lieu des caractères eux-mêmes (tiret cadratin, é) --- séquelle d'un problème d'encodage lors de l'écriture par un script antérieur. Corrigé par une fonction de comparaison robuste (« squelette » alphanumérique, ignorant tout caractère non-ASCII \textbf{et} tout motif d'échappement Unicode littéral résiduel).
+\end{enumerate}
+
+% ============================================================================
+\section{Résultats}
+% ============================================================================
+
+\begin{resultatbox}
+\textbf{16 branches sur 16 estimées avec succès}, sans erreur ni avertissement une fois les corrections appliquées. \textbf{Règle de bornage appliquée systématiquement} (pas seulement à Pêche et Construction) : tout $\delta$ hors de $[0,1]$ est ramené à la borne la plus proche --- 4 branches sur 16 déclenchent cette règle.
+\end{resultatbox}
+
+\begin{center}
+\small
+\begin{tabular}{lrrrl}
+\toprule
+\textbf{Branche} & \textbf{Type de modèle} & \textbf{$\delta$ brut} & \textbf{$\delta$ final} & \textbf{Borné ?} \\
+\midrule
+Pêche & Bridge combiné & 1,435 & \textbf{1,000} & Oui \\
+Construction & Bridge combiné & 1,207 & \textbf{1,000} & Oui \\
+Hébergement-restauration & Bridge combiné & 0,685 & 0,685 & Non \\
+Électricité, gaz, eau & Bridge combiné & 0,625 & 0,625 & Non \\
+Services aux entreprises & AR & 0,614 & 0,614 & Non \\
+Immobilier & Bridge individuel & 0,316 & 0,316 & Non \\
+Agriculture & AR & 0,303 & 0,303 & Non \\
+Transports & AR & 0,261 & 0,261 & Non \\
+Information-communication & AR & 0,257 & 0,257 & Non \\
+Commerce & Bridge individuel & 0,228 & 0,228 & Non \\
+Industrie d'extraction & Bridge individuel & 0,108 & 0,108 & Non \\
+Administration publique & AR & 0,026 & 0,026 & Non \\
+Industrie de transformation & Bridge réduit & 0,024 & 0,024 & Non \\
+Finances et assurances & Bridge combiné & 0,036 & 0,036 & Non \\
+Éducation-santé & AR & $-0{,}009$ & \textbf{0,000} & Oui \\
+Autres services & AR & $-0{,}010$ & \textbf{0,000} & Oui \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{alertebox}
+\textbf{Pourquoi Pêche et Construction, précisément} : ce sont les deux bridge equations combinées avec le $R^2$ le plus faible parmi celles jugées exploitables à l'Étape 4 (respectivement 0,066 et 0,071 --- les plus bas parmi les modèles « réussis »). Quand la bridge equation apporte surtout du bruit, la régression RLS cherche activement à le \textbf{soustraire} plutôt qu'à l'ignorer simplement, d'où un poids négatif implicite sur Bridge (donc $\delta>1$). \textbf{Le bornage à $\delta=1$ revient, pour ces deux branches, à ignorer complètement leur bridge equation et à ne garder que le BVAR} --- une décision cohérente avec ce que le résultat lui-même indique, pas un contournement arbitraire.
+
+Les 2 valeurs légèrement négatives (Éducation-santé, Autres services, $\approx-0{,}01$) sont bornées à 0 --- revient à ne garder que leur AR, déjà leur meilleur résultat individuel ($R^2=0{,}42$ et $0{,}80$ respectivement).
+\end{alertebox}
+
+\subsection{Ce que ces résultats signifient, économiquement}
+
+\begin{intuition}
+Les branches avec les $\delta$ les plus élevés parmi les valeurs valides (Hébergement, Électricité, Services aux entreprises, autour de 0,6) sont celles où le \textbf{BVAR} est jugé relativement plus fiable que leur bridge equation ou leur AR propre. À l'inverse, Éducation-santé et Autres services ($\delta\approx0$) font presque exclusivement confiance à leur propre AR --- cohérent avec leurs $R^2$ élevés déjà observés à l'Étape AR (0,42 et 0,80 respectivement).
+\end{intuition}
+
+% ============================================================================
+\section{Sorties et suite}
+% ============================================================================
+
+\texttt{resultats/delta\_par\_branche.csv} (le tableau complet), \texttt{figures/<branche>\_combinaison.png} (BVAR, Bridge/AR, Combiné et VA observée, une figure par branche).
+
+\textbf{Étape suivante} : l'agrégation finale, pondérant chaque branche par son poids réel dans le PIB marocain, pour obtenir une unique prévision de croissance du PIB.
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7.
+\end{enumerate}
+
+\end{document}
