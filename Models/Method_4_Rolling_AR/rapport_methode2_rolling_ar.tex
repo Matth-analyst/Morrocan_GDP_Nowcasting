@@ -1,0 +1,194 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+\definecolor{violetmethode}{HTML}{7030A0}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+\newtcolorbox{definitionbox}[1][]{colback=gray!7,colframe=black!60,boxrule=0.4pt,arc=1pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Résultat notable},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{violetmethode}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Méthode 2 --- Rolling AR (modèle de comparaison)}\\[0.15cm]
+\textcolor{gray}{\large Réplique du modèle-repère de Higgins (2014), Table 5, modèle 1}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document construit un second modèle, indépendant du premier (\emph{Method\_1\_Higgins}) : un \textbf{Rolling AR} pur, appliqué aux 16 branches, sans aucun indicateur externe ni BVAR --- l'équivalent direct du modèle 1 (« Rolling AR(2) ») de la Table 5 de Higgins\cit{1}, le plus simple de ses 5 modèles de comparaison. Testé sur la même fenêtre hors-échantillon que la Méthode 1 (2021T2--2026T1), il obtient un RMSFE de 14,55 --- nettement moins bon que le modèle complet (5,43), confirmant qualitativement le même écart que Higgins observe dans son propre article.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.5cm}
+
+% ============================================================================
+\section{Pourquoi ce modèle --- sa place dans la comparaison de Higgins}
+% ============================================================================
+
+\begin{definitionbox}
+Higgins compare son modèle complet (GDPNow) à 5 modèles plus simples (Table 5) :
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+\textbf{Modèle (Higgins, USA, 2000--2013)} & \textbf{RMSFE} \\
+\midrule
+1. Rolling AR(2) & 2,43 \\
+2. Rolling Factor Augmented AR(2) & 1,95 \\
+3. Mixed Frequency BVAR & 1,73 \\
+4. Quarterly BVAR & 2,28 \\
+5. Tracking model (mensuel, sans BVAR) & 1,22 \\
+6. GDPNow (modèle complet) & \textbf{1,15} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{definitionbox}
+
+\begin{intuition}
+Le modèle 1 de Higgins --- un simple AR(2) roulant, sans aucun indicateur externe --- sert de \textbf{repère minimal} : le modèle complet doit au moins faire mieux que « ne rien savoir d'autre que le passé de la variable elle-même ». C'est exactly ce que cette Méthode 2 réplique pour notre propre travail --- avec une différence assumée et documentée ci-dessous.
+\end{intuition}
+
+\subsection{Une différence délibérée avec Higgins}
+
+Higgins fixe l'ordre à $p=2$ pour tous ses AR de comparaison. \textbf{Ici, $p$ est choisi par AIC, indépendamment pour chacune des 16 branches} --- cohérent avec la rigueur déjà appliquée dans notre Méthode 1 (Étape 4), plutôt que de répliquer un choix arbitraire nous-mêmes déjà identifié comme non justifié statistiquement.
+
+% ============================================================================
+\section{Méthode}
+% ============================================================================
+
+\subsection{L'AR par branche}
+
+Pour chacune des 16 branches, indépendamment :
+\begin{equation}
+\Delta\log(VA_t) = \alpha + \sum_{k=1}^{p}\gamma_k \Delta\log(VA_{t-k}) + \varepsilon_t, \qquad p^\star = \operatorname*{arg\,min}_{p\in\{1,\dots,8\}} \text{AIC}(p)
+\end{equation}
+estimé sur le même train (T1-2010--T1-2021) que la Méthode 1, avec la même grille $p\in\{1,\dots,8\}$ que l'Étape 4 du Modèle 1.
+
+\subsection{L'agrégation --- identique à la Méthode 1}
+
+\begin{equation}
+\Delta\log(PIB_t) = \sum_{i=1}^{16} SH_{t-1}^i \times \Delta\log(VA_t^{i,\text{AR}})
+\end{equation}
+Mêmes parts nominales $SH_t^i$, même repli 2010--2013 sur les parts de 2014-T1, exactement la méthode de l'Étape 6 du Modèle 1 --- \textbf{seule la source de $\Delta\log(VA_t^i)$ change} (AR seul, pas de BVAR ni de bridge equation).
+
+\subsection{Le test hors-échantillon --- même fenêtre, pour une comparaison directe}
+
+Les coefficients (dont $p^\star$, jamais retouché) sont appliqués aux 20 mêmes trimestres que la Méthode 1 (2021T2--2026T1), jamais vus par aucune estimation.
+
+% ============================================================================
+\section{Résultats}
+% ============================================================================
+
+\subsection{Les 16 ordres $p^\star$ retenus}
+
+\begin{center}
+\small
+\begin{tabular}{lrr}
+\toprule
+\textbf{Branche} & \textbf{$p^\star$} & \textbf{$R^2$ (train)} \\
+\midrule
+Autres services & 8 & 0,804 \\
+Transports & 8 & 0,482 \\
+Administration publique & 4 & 0,450 \\
+Éducation-santé & 4 & 0,424 \\
+Construction & 6 & 0,381 \\
+Pêche & 1 & 0,386 \\
+Industrie d'extraction & 5 & 0,308 \\
+Industrie de transformation & 4 & 0,322 \\
+Services aux entreprises & 4 & 0,246 \\
+Électricité, gaz, eau & 4 & 0,207 \\
+Immobilier & 4 & 0,194 \\
+Hébergement-restauration & 4 & 0,192 \\
+Agriculture & 4 & 0,186 \\
+Information-communication & 3 & 0,093 \\
+Commerce & 1 & 0,048 \\
+Finances et assurances & 1 & 0,001 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Résultat en-échantillon vs hors-échantillon}
+
+\begin{resultatbox}
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+& \textbf{En-échantillon (train)} & \textbf{Hors-échantillon (test)} \\
+\midrule
+Corrélation & 0,462 & $-0{,}060$ \\
+$n$ & 44 & 20 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{resultatbox}
+
+\begin{alertebox}
+\textbf{La corrélation devient négative hors-échantillon} --- le modèle Rolling AR pur, qui semblait capter un signal modeste sur le train (0,462), \textbf{n'a plus aucun pouvoir prédictif réel} une fois confronté à de vraies données jamais vues (RMSFE = 14,55 points de croissance annualisée). Un AR pur, sans aucune information externe à la branche elle-même, s'avère instable et peu fiable pour une vraie prévision.
+\end{alertebox}
+
+% ============================================================================
+\section{Comparaison complète --- les trois résultats côte à côte}
+% ============================================================================
+
+\begin{center}
+\small
+\begin{tabular}{lrrl}
+\toprule
+\textbf{Modèle} & \textbf{RMSFE} & \textbf{Corrélation} & \textbf{Contexte} \\
+\midrule
+Higgins --- Rolling AR(2) & 2,43 & --- & USA, 2000--2013, $p=2$ fixe \\
+Higgins --- GDPNow complet & \textbf{1,15} & --- & USA, 2000--2013 \\
+\midrule
+\textbf{Méthode 2 --- Rolling AR (nous)} & \textbf{14,55} & $-0{,}060$ & Maroc, 2021--2026, $p^\star$ par AIC \\
+\textbf{Méthode 1 --- modèle complet (nous)} & \textbf{5,43} & 0,292 & Maroc, 2021--2026 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{resultatbox}
+\textbf{Le constat qualitatif de Higgins se confirme chez nous} : le modèle complet bat nettement le simple AR --- un rapport de 2,1 pour Higgins (2,43/1,15), un rapport de 2,7 pour nous (14,55/5,43), du même ordre de grandeur relatif. \textbf{En valeur absolue, nos deux modèles sont nettement moins précis que ceux de Higgins} --- cohérent avec les limites déjà identifiées (échantillon de test 3 fois plus petit, indicateurs marocains moins denses que les séries américaines).
+\end{resultatbox}
+
+% ============================================================================
+\section{Sorties produites}
+% ============================================================================
+
+\texttt{resultats/recapitulatif\_AR\_16branches.csv}, \texttt{resultats/PIB\_agrege\_AR.csv}, \texttt{resultats/metriques\_test\_AR.csv}, \texttt{figures/} (17 figures : 16 par branche + 1 agrégat).
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7, Table 5.
+\end{enumerate}
+
+\end{document}

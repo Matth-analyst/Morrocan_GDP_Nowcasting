@@ -1,0 +1,155 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+\newtcolorbox{definitionbox}[1][]{colback=gray!7,colframe=black!60,boxrule=0.4pt,arc=1pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Résultat notable},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Méthode 3 --- Factor-Augmented Rolling AR}\\[0.15cm]
+\textcolor{gray}{\large Réplique du modèle 2 de Higgins (2014), Table 5}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Ce document construit le troisième modèle de comparaison : un AR augmenté du facteur commun de chaque branche (Étape 2b, \emph{Method\_1\_Higgins}), avec $(q,r)$ choisis par AIC --- l'équivalent du modèle 2 de Higgins\cit{1} (« Rolling Factor Augmented AR(2) »). Sur la même fenêtre de test que les Méthodes 1 et 2 (2021T2--2026T1), il obtient un RMSFE de 12,79 --- meilleur que l'AR pur (Méthode 2, 14,55) mais toujours nettement en retrait du modèle complet (Méthode 1, 5,43). Le même classement relatif que Higgins observe dans son propre article.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.5cm}
+
+% ============================================================================
+\section{Méthode}
+% ============================================================================
+
+\begin{equation}
+\Delta\log(VA_t) = \alpha + \sum_{k=1}^{q}\gamma_k \Delta\log(VA_{t-k}) + \sum_{j=0}^{r}\beta_j F_{t-j} + \varepsilon_t,
+\qquad (q^\star,r^\star) = \operatorname*{arg\,min}_{q,r\in\{0,\dots,8\}} \text{AIC}(q,r)
+\end{equation}
+
+\begin{intuition}
+Higgins fixe $q=2$ pour ce modèle de comparaison. Comme pour la Méthode 2, ce choix arbitraire n'est pas reproduit --- $(q,r)$ sont recherchés par AIC, indépendamment pour chacune des branches concernées, cohérent avec toute la rigueur déjà appliquée dans ce travail.
+\end{intuition}
+
+\subsection{Couverture --- seulement 11 branches sur 16 en Factor-AR}
+
+\begin{definitionbox}
+Le facteur commun n'existe que là où au moins 2 indicateurs ont été retenus en Phase 2 --- 12 branches (Étape 2b, Modèle 1). Les 4 branches sans aucun indicateur (Services aux entreprises, Administration publique, Éducation-santé, Autres services) restent en \textbf{AR pur} (repris tel quel de la Méthode 2, jamais réestimé).
+\end{definitionbox}
+
+\begin{alertebox}
+\textbf{Agriculture, bien que disposant d'un facteur, en est exclue elle aussi} : son facteur (précipitations/température) ne couvre que 2020--2026 --- une fois croisé avec le train (2010--2021), il ne reste que 4--5 trimestres exploitables, très en dessous du minimum requis pour une recherche $(q,r)$ fiable sur une grille $9\times9$. Repli sur l'AR pur (Méthode 2), documenté honnêtement plutôt que forcé.
+\end{alertebox}
+
+\textbf{Bilan final} : 11 branches en Factor-AR véritable, 5 en AR pur (Agriculture + les 4 sans indicateur).
+
+% ============================================================================
+\section{Résultats}
+% ============================================================================
+
+\subsection{Les 11 couples $(q^\star,r^\star)$ retenus}
+
+\begin{center}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Branche} & \textbf{$q^\star$} & \textbf{$r^\star$} & \textbf{$R^2$} & \textbf{$n$} \\
+\midrule
+Hébergement-restauration & 5 & 4 & 0,752 & 45 \\
+Industrie de transformation & 7 & 1 & 0,798 & 37 \\
+Transports & 7 & 3 & 0,611 & 40 \\
+Industrie d'extraction & 8 & 4 & 0,591 & 45 \\
+Construction & 4 & 3 & 0,504 & 45 \\
+Pêche & 1 & 0 & 0,398 & 43 \\
+Information-communication & 3 & 5 & 0,309 & 45 \\
+Immobilier & 4 & 1 & 0,247 & 40 \\
+Électricité, gaz, eau & 1 & 0 & 0,203 & 43 \\
+Finances et assurances & 0 & 0 & 0,232 & 44 \\
+Commerce & 1 & 2 & 0,164 & 38 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{En-échantillon vs hors-échantillon}
+
+\begin{resultatbox}
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+& \textbf{En-échantillon (train)} & \textbf{Hors-échantillon (test)} \\
+\midrule
+Corrélation & 0,543 & $-0{,}224$ \\
+$n$ & 44 & 20 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{resultatbox}
+
+% ============================================================================
+\section{Comparaison complète --- les trois méthodes et Higgins}
+% ============================================================================
+
+\begin{center}
+\small
+\begin{tabular}{lrrl}
+\toprule
+\textbf{Modèle} & \textbf{RMSFE} & \textbf{Corrélation} & \textbf{Contexte} \\
+\midrule
+Higgins --- Rolling AR(2) & 2,43 & --- & USA, $q=2$ fixe \\
+Higgins --- Factor Augmented AR(2) & 1,95 & --- & USA, $q=2$ fixe \\
+Higgins --- GDPNow complet & \textbf{1,15} & --- & USA \\
+\midrule
+Méthode 2 (nous) --- Rolling AR & 14,55 & $-0{,}060$ & Maroc, $p^\star$ par AIC \\
+\textbf{Méthode 3 (nous) --- Factor-Augmented AR} & \textbf{12,79} & $-0{,}224$ & Maroc, $(q^\star,r^\star)$ par AIC \\
+Méthode 1 (nous) --- modèle complet & \textbf{5,43} & 0,292 & Maroc \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{resultatbox}
+\textbf{Le même classement relatif que Higgins se confirme} : Factor-Augmented AR bat Rolling AR simple, chez lui (1,95 contre 2,43, un gain de 20\%) comme chez nous (12,79 contre 14,55, un gain de 12\%) --- \textbf{mais dans les deux cas, ni l'un ni l'autre n'approche le modèle complet}. Le facteur apporte un vrai gain, réel mais modeste, jamais suffisant à lui seul.
+\end{resultatbox}
+
+\begin{alertebox}
+\textbf{Une nuance à souligner} : le gain en RMSFE (12,79 contre 14,55) s'accompagne d'une corrélation \emph{plus négative} ($-0{,}224$ contre $-0{,}060$) --- RMSFE et corrélation mesurent des choses différentes (l'ampleur des erreurs contre le sens du co-mouvement). Le facteur réduit l'amplitude des erreurs les plus extrêmes, sans pour autant améliorer la capacité du modèle à prédire correctement la direction du mouvement.
+\end{alertebox}
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7, Table 5.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,12 @@
+branche,fichier,q,r,AIC,R2,n_obs
+Commerce,Commerce,1,2,-114.67517759520487,0.1640174051324896,38
+Construction,Construction,4,3,-215.4413073946358,0.5042530758955177,45
+"Électricité, gaz, eau",Electricite_gaz_eau,1,0,-134.1393117089499,0.2027911360648171,43
+Finances et assurances,Finances_assurances,0,0,-213.40786294819512,0.2323062732823155,44
+Hébergement-restauration,Hebergement_restauration,5,4,-84.81055349927023,0.7524100134162628,45
+Immobilier,Immobilier,4,1,-262.6698330544842,0.24653718055698154,40
+Industrie d'extraction,Industrie_extraction,8,4,-186.40720594152134,0.5907093433669945,45
+Industrie de transformation,Industrie_transformation,7,1,-150.69939576444798,0.797579977836508,37
+Information-communication,Information_communication,3,5,-138.11394429919432,0.3094400363617379,45
+Pêche,Peche,1,0,-41.10340733035382,0.398147601749903,43
+Transports,Transports,7,3,-87.35957788556709,0.6114459604191509,40

@@ -1,0 +1,17 @@
+branche,p_etoile,R2,n_obs,statut
+Industrie de transformation,4,0.32162480275637934,45,OK
+Finances et assurances,1,7.751355900436232e-4,45,OK
+Hébergement-restauration,4,0.19175533413541354,45,OK
+Pêche,1,0.38625785861761863,45,OK
+Industrie d'extraction,5,0.3081562389919262,45,OK
+Construction,6,0.3808983565114761,45,OK
+Information-communication,3,0.09266889756418456,45,OK
+Immobilier,4,0.1935280086480648,45,OK
+Agriculture,4,0.186487686074375,45,OK
+Commerce,1,0.047725593904043045,45,OK
+Transports,8,0.4815846440573985,45,OK
+"Électricité, gaz, eau",4,0.2067048169959505,45,OK
+Services aux entreprises,4,0.24636848205321762,45,OK
+Administration publique,4,0.4502363293769094,45,OK
+Éducation-santé,4,0.4242568044716491,45,OK
+Autres services,8,0.8043214077467743,45,OK

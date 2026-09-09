@@ -1,0 +1,122 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Résultat notable},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Méthode 5 --- Tracking Model ($\delta=0$)}\\[0.15cm]
+\textcolor{gray}{\large Réplique du modèle 5 de Higgins, et synthèse finale des 5 méthodes}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Le dernier des cinq modèles de comparaison : les bridge equations et AR seuls (\emph{Method\_1}, Étapes 3--4), \textbf{sans aucun BVAR} ($\delta=0$ pour toutes les branches) --- citation exacte de Higgins\cit{1} : \textit{« we set the weight on the BVAR forecasts to 0 »}. RMSFE = 8,12, corrélation = $-0{,}217$. Ce document clôt la série de cinq méthodes avec une comparaison complète, méthode par méthode, à la Table 5 de Higgins.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.5cm}
+
+% ============================================================================
+\section{Méthode}
+% ============================================================================
+
+\begin{equation}
+\Delta\log(PIB_t) = \sum_{i=1}^{16} SH_{t-1}^i \times \Delta\log(VA_t^{i,\text{Bridge/AR}})
+\end{equation}
+
+Les mêmes bridge equations et AR déjà estimés (Méthode 1, Étapes 3--4) --- aucune réestimation --- agrégés directement, sans jamais passer par le BVAR ni par $\delta$.
+
+% ============================================================================
+\section{Résultat}
+% ============================================================================
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+& \textbf{En-échantillon} & \textbf{Hors-échantillon} \\
+\midrule
+Corrélation & 0,480 & $-0{,}217$ \\
+RMSFE & --- & 8,12 \\
+$n$ & 44 & 20 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ============================================================================
+\section{Comparaison complète --- les cinq méthodes et Higgins}
+% ============================================================================
+
+\begin{center}
+\small
+\begin{tabular}{llrrl}
+\toprule
+& \textbf{Modèle} & \textbf{RMSFE} & \textbf{Corrélation} & \textbf{vs modèle complet} \\
+\midrule
+\multirow{6}{*}{Higgins}
+& 1. Rolling AR(2) & 2,43 & --- & pire \\
+& 2. Factor Augmented AR(2) & 1,95 & --- & pire \\
+& 3. Mixed Frequency BVAR & 1,73 & --- & pire \\
+& 4. Quarterly BVAR & 2,28 & --- & pire \\
+& 5. Tracking (mensuel, $\delta=0$) & 1,22 & --- & $\approx$ (n.s.) \\
+& 6. GDPNow complet & \textbf{1,15} & --- & référence \\
+\midrule
+\multirow{5}{*}{Nous}
+& Méthode 2 --- Rolling AR & 14,55 & $-0{,}060$ & pire \\
+& Méthode 3 --- Factor-Augmented AR & 12,79 & $-0{,}224$ & pire \\
+& Méthode 5 --- Tracking ($\delta=0$) & 8,12 & $-0{,}217$ & pire \\
+& \textbf{Méthode 4 --- BVAR simple ($\delta=1$)} & \textbf{3,48} & $-0{,}034$ & meilleur (RMSFE) \\
+& Méthode 1 --- modèle complet ($\delta$ estimé) & 5,43 & \textbf{0,292} & meilleur (corrélation) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{alertebox}
+\textbf{Une divergence structurelle nette avec Higgins.} Chez lui, le classement (du pire au meilleur RMSFE) est : AR seul $>$ BVAR trimestriel $>$ Factor-AR $>$ Mixed-Freq BVAR $>$ Tracking seul $\approx$ modèle complet --- \textbf{le tracking (indicateurs seuls) est presque aussi bon que le modèle complet}, et nettement meilleur que le BVAR seul.
+
+\textbf{Chez nous, c'est largement l'inverse} : le BVAR seul (Méthode 4) est notre \emph{meilleur} RMSFE, tandis que le tracking seul (Méthode 5) reste parmi les plus faibles avec l'AR et le Factor-AR. \textbf{Nos bridge equations/AR, individuellement, ne sont pas assez puissants pour rivaliser avec un BVAR même très contraint} --- contrairement aux États-Unis de Higgins, où des centaines d'indicateurs mensuels fiables rendent le suivi (tracking) très informatif à lui seul.
+\end{alertebox}
+
+\begin{resultatbox}
+\textbf{Ce que cette comparaison complète révèle, au final} : la richesse et la densité des indicateurs disponibles (bien plus grandes aux États-Unis) expliquent probablement l'essentiel de l'écart avec Higgins --- pas une erreur de méthode. Notre modèle complet (Méthode 1) reste le seul à combiner un vrai signal directionnel (corrélation positive, 0,292) avec un RMSFE raisonnable --- un compromis équilibré, quand aucune de nos 5 méthodes ne domine sur les deux critères à la fois.
+\end{resultatbox}
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7, Table 5.
+\end{enumerate}
+
+\end{document}

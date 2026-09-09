@@ -1,0 +1,134 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlength{\parskip}{0.4em}
+
+\definecolor{bleuprincip}{HTML}{1F4E78}
+\definecolor{bleuclair}{HTML}{2E74B5}
+\definecolor{orangealerte}{HTML}{C55A11}
+\definecolor{vertok}{HTML}{548235}
+
+\titleformat{\section}{\Large\bfseries\color{bleuprincip}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{bleuclair}}{\thesubsection}{0.6em}{}
+
+\newtcolorbox{intuition}[1][]{colback=bleuclair!7,colframe=bleuclair,boxrule=0.5pt,arc=2pt,
+  left=6pt,right=6pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Intuition},#1}
+\newtcolorbox{resultatbox}[1][]{colback=vertok!8,colframe=vertok,boxrule=1pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,#1}
+\newtcolorbox{alertebox}[1][]{colback=orangealerte!7,colframe=orangealerte,boxrule=0.6pt,arc=2pt,
+  left=7pt,right=7pt,top=5pt,bottom=5pt,breakable,title={\small\bfseries Résultat surprenant --- à ne pas mal interpréter},#1}
+
+\newcommand{\cit}[1]{\textsuperscript{\hyperlink{ref#1}{[#1]}}}
+
+\title{\vspace{-1.3cm}\textcolor{bleuprincip}{\Huge\bfseries GDPNow-Maroc}\\[0.3cm]
+\textcolor{black}{\Large Méthode 4 --- BVAR trimestriel simple}\\[0.15cm]
+\textcolor{gray}{\large Réplique du modèle 4 de Higgins (2014), Table 5}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent Le plus simple des quatre modèles construits : le BVAR déjà estimé (\emph{Method\_1}, Étape 1, train 2010--2021 corrigé) agrégé \textbf{directement} par les poids nominaux --- sans aucune combinaison avec une bridge equation ou un AR. Résultat surprenant : RMSFE = 3,48, \textbf{meilleur que le modèle complet} (Méthode 1, 5,43) --- mais ce chiffre doit être interprété avec une prudence particulière, détaillée dans ce document.
+\end{abstract}
+
+\tableofcontents
+\vspace{0.5cm}
+
+% ============================================================================
+\section{Méthode}
+% ============================================================================
+
+\begin{quote}
+\textit{« We use the same 5-lag quarterly BVAR [...] The growth forecasted is then computed using the chain-weighting formula. »}\cit{1} --- Higgins, modèle 4.
+\end{quote}
+
+\begin{equation}
+\Delta\log(PIB_t) = \sum_{i=1}^{16} SH_{t-1}^i \times \Delta\log(VA_t^{i,\text{BVAR}})
+\end{equation}
+
+Aucune nouvelle estimation --- les coefficients du BVAR (déjà corrigés, train 2010--2021) et la formule de pondération nominale (déjà construite, Étape 6) sont simplement combinés directement, sans passer par $\delta$ ni par les bridge equations.
+
+% ============================================================================
+\section{Résultat}
+% ============================================================================
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+& \textbf{En-échantillon} & \textbf{Hors-échantillon} \\
+\midrule
+Corrélation & 0,387 & $-0{,}034$ \\
+RMSFE & --- & \textbf{3,48} \\
+$n$ & 44 & 20 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ============================================================================
+\section{Un résultat à ne pas mal interpréter}
+% ============================================================================
+
+\begin{alertebox}
+\textbf{Le RMSFE le plus bas de toutes nos méthodes ne signifie pas le meilleur modèle.} La figure (\texttt{figures/test\_hors\_echantillon\_BVAR.png}) montre que la prévision du BVAR est \textbf{quasiment plate} --- environ 0,007 à chaque trimestre, sans presque aucune variation --- alors que le réalisé oscille fortement (de $-0{,}013$ à $+0{,}026$). \textbf{Le BVAR ne prédit presque rien de dynamique : il prédit systématiquement proche de la moyenne.}
+\end{alertebox}
+
+\subsection{Pourquoi ce n'est pas un vrai signe de qualité}
+
+\begin{intuition}
+Rappelons que le $\lambda$ retenu pour ce BVAR était le plus petit de la grille testée (0,01) --- la contrainte de type Minnesota la plus forte possible sur notre grille, choisie précisément parce que le train ne compte que 45 trimestres pour 1296 paramètres. Une contrainte aussi forte pousse les prévisions vers le prior (une dynamique proche d'un simple retour à la moyenne), \textbf{pas parce que le modèle a appris quelque chose de fin sur la dynamique de l'économie, mais parce qu'il n'a statistiquement pas assez de données pour s'en écarter}.
+\end{intuition}
+
+\subsection{Le vrai compromis biais-variance à l'œuvre}
+
+Prédire systématiquement une valeur proche de la moyenne \textbf{réduit mécaniquement l'ampleur des erreurs} (jamais très loin de la vérité, jamais un pari extrême et faux) --- d'où un RMSFE artificiellement favorable. Mais cette même prudence signifie que \textbf{le modèle ne capture presque aucun vrai mouvement} --- d'où une corrélation proche de 0, contrairement au modèle complet (Méthode 1, corrélation = 0,292) qui, en essayant réellement de suivre les mouvements, s'expose à de plus grandes erreurs individuelles mais capte un vrai signal directionnel.
+
+% ============================================================================
+\section{Comparaison complète --- les quatre méthodes, Higgins, et cette réserve}
+% ============================================================================
+
+\begin{center}
+\small
+\begin{tabular}{lrrl}
+\toprule
+\textbf{Modèle} & \textbf{RMSFE} & \textbf{Corrélation} & \textbf{Contexte} \\
+\midrule
+Higgins --- Quarterly BVAR & 2,28 & --- & USA \\
+Higgins --- GDPNow complet & \textbf{1,15} & --- & USA \\
+\midrule
+Méthode 2 --- Rolling AR & 14,55 & $-0{,}060$ & Maroc \\
+Méthode 3 --- Factor-Augmented AR & 12,79 & $-0{,}224$ & Maroc \\
+Méthode 1 --- modèle complet & 5,43 & \textbf{0,292} & Maroc \\
+\textbf{Méthode 4 --- BVAR simple} & \textbf{3,48} & $-0{,}034$ & Maroc \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{alertebox}
+\textbf{Un contraste net avec Higgins} : chez lui, le BVAR trimestriel seul (2,28) est nettement \emph{moins bon} que son modèle complet (1,15) --- l'inverse de ce qu'on trouve. Ceci reflète probablement une vraie différence structurelle : le BVAR de Higgins dispose de bien plus de données (14 ans, moins de contrainte de prior nécessaire), tandis que le nôtre, très fortement contraint faute de données, produit des prévisions prudentes qui, par construction, minimisent le RMSFE sans pour autant révéler un vrai pouvoir prédictif.
+\end{alertebox}
+
+\begin{resultatbox}
+\textbf{Conclusion honnête} : sur le seul critère du RMSFE, la Méthode 4 l'emporte. Mais sur le critère de la corrélation --- la capacité à capter un vrai mouvement économique --- \textbf{c'est la Méthode 1 (modèle complet) qui reste la plus informative}, malgré un RMSFE plus élevé. Le choix du « meilleur » modèle dépend de ce qu'on cherche : minimiser l'erreur moyenne (Méthode 4), ou capter un vrai signal directionnel exploitable (Méthode 1).
+\end{resultatbox}
+
+\section*{Références}
+\addcontentsline{toc}{section}{Références}
+\begin{enumerate}[leftmargin=1.6em, label=\textbf{[\arabic*]}]
+\item \hypertarget{ref1}{} Higgins, P. (2014). \textit{GDPNow: A Model for GDP ``Nowcasting''}. Federal Reserve Bank of Atlanta, Working Paper 2014-7, Table 5.
+\end{enumerate}
+
+\end{document}
