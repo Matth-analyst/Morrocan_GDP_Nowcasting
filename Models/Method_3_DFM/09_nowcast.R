@@ -1,4 +1,3 @@
-
 # ============================================================
 # 09_nowcast.R
 # NOWCASTING SECTORIEL DU PIB MAROCAIN
@@ -7,9 +6,15 @@
 # OBJECTIF :
 # Produire le nowcast de la croissance trimestrielle
 # de la valeur ajoutée pour chaque secteur dont un DFM
-# a été estimé.
+# a été estimé -- ET, pour tout secteur qui n'a PAS de DFM
+# exploitable (pas d'indicateur mensuel -- que ce soit un
+# secteur "cible seule" comme Administration_publique,
+# Autres_services, Education-sante, Services_aux_entreprises,
+# ou un secteur comme Information_communication qui n'a que
+# des indicateurs trimestriels volontairement exclus du DFM),
+# un simple AR(p) est estimé sur sa cible déjà transformée.
 #
-# CIBLE DU DFM :
+# CIBLE DU DFM (et de l'AR, identique) :
 #   Δlog(VA)
 #
 # CONVERSION FINALE :
@@ -28,7 +33,7 @@
 #
 # RESULTAT FINAL :
 #   Le fichier CSV contient directement le taux de croissance
-#   trimestriel prévu en pourcentage.
+#   trimestriel prévu en pourcentage, DFM et AR confondus.
 #
 # ============================================================
 
@@ -180,7 +185,7 @@ calculer_horizon <- function(
 # 5. FONCTION : CONVERSION ΔLOG -> CROISSANCE %
 # ============================================================
 #
-# Le DFM prévoit :
+# Le DFM (et l'AR) prévoit :
 #
 #   Δlog(VA)
 #
@@ -207,7 +212,7 @@ convertir_croissance <- function(x) {
 
 
 # ============================================================
-# 6. FONCTION : EXTRAIRE LE NOWCAST
+# 6. FONCTION : EXTRAIRE LE NOWCAST DFM
 # ============================================================
 
 extraire_nowcast <- function(
@@ -397,11 +402,6 @@ extraire_nowcast <- function(
   # ----------------------------------------------------------
   # Retourner les deux informations
   # ----------------------------------------------------------
-  #
-  # nowcast_dlog = prévision brute du DFM
-  # nowcast_pct  = croissance trimestrielle interprétable
-  #
-  # ----------------------------------------------------------
   
   data.frame(
     
@@ -447,7 +447,7 @@ extraire_nowcast <- function(
 
 
 # ============================================================
-# 7. BOUCLE SUR LES SECTEURS
+# 7. BOUCLE SUR LES SECTEURS AVEC DFM
 # ============================================================
 
 resultats_nowcast <- list()
@@ -455,7 +455,7 @@ resultats_nowcast <- list()
 secteurs_modeles <- names(modeles_dfm)
 
 cat("\n============================================================\n")
-cat("CALCUL DES NOWCASTS\n")
+cat("CALCUL DES NOWCASTS (DFM)\n")
 cat("============================================================\n")
 
 
@@ -581,8 +581,507 @@ for (secteur in secteurs_modeles) {
   } else {
     
     cat(
-      "Nowcast non disponible.\n"
+      "Pas de DFM exploitable -> sera basculé sur AR (voir section 7 BIS).\n"
     )
+  }
+}
+
+
+# ============================================================
+# 7 BIS. NOWCAST AR — TOUS LES SECTEURS SANS DFM EXPLOITABLE
+# ============================================================
+#
+# Tout secteur pour lequel aucun nowcast DFM n'a été produit ci-dessus
+# (parce qu'il n'a aucun indicateur mensuel exploitable -- que ce soit
+# un secteur "cible seule" comme Administration_publique, Autres_services,
+# Education-sante, Services_aux_entreprises, ou un secteur comme
+# Information_communication qui n'a que des indicateurs trimestriels,
+# volontairement exclus du DFM cf. 08) est basculé automatiquement sur un
+# simple AR(p) appliqué directement à sa cible déjà transformée en
+# Δlog(VA) (04_transformation.R impose cette transformation à TOUTE
+# cible, DFM ou non -- donc rien à refaire ici : ni log(), ni diff()).
+#
+# La détection est DYNAMIQUE (pas de liste de secteurs codée en dur) :
+# un secteur bascule vers l'AR dès lors qu'il ne figure pas parmi les
+# nowcasts DFM déjà produits dans la boucle ci-dessus. Ça couvre donc
+# automatiquement Information_communication ET les 4 nouveaux secteurs,
+# et continuera de fonctionner si d'autres secteurs sans indicateur sont
+# ajoutés plus tard, sans qu'il faille retoucher ce fichier.
+# ============================================================
+
+nowcast_ar_secteur <- function(secteur_ar, panels_stationnaires_filtres) {
+  
+  if (!(secteur_ar %in% names(panels_stationnaires_filtres))) {
+    cat("\n", secteur_ar, ": panel absent -> ignoré pour l'AR.\n")
+    return(NULL)
+  }
+  
+  cat("\n============================================================\n")
+  cat("NOWCAST AR —", secteur_ar, "\n")
+  cat("============================================================\n")
+  
+  # ----------------------------------------------------------
+  # 1. Récupération du panel
+  # ----------------------------------------------------------
+  
+  panel_ar <- panels_stationnaires_filtres[[secteur_ar]]
+  
+  target_ar <- attr(
+    panel_ar,
+    "target"
+  )
+  
+  if (is.null(target_ar) || !(target_ar %in% colnames(panel_ar))) {
+    cat("Cible introuvable pour", secteur_ar, "-> ignoré.\n")
+    return(NULL)
+  }
+  
+  cat(
+    "Cible :",
+    target_ar,
+    "\n"
+  )
+  
+  
+  # ----------------------------------------------------------
+  # 2. Récupération directe de Δlog(VA)
+  # ----------------------------------------------------------
+  #
+  # ATTENTION :
+  # la série est déjà stationnaire (04_transformation.R impose
+  # log_diff à TOUTE cible, DFM ou non).
+  #
+  # On ne fait PAS :
+  #
+  #   log()
+  #   diff()
+  #
+  # ----------------------------------------------------------
+  
+  serie_ar <- panel_ar[, target_ar]
+  
+  dates_ar <- index(serie_ar)
+  
+  valeurs_ar <- as.numeric(
+    serie_ar
+  )
+  
+  
+  # ----------------------------------------------------------
+  # 3. Garder uniquement les observations disponibles
+  # ----------------------------------------------------------
+  
+  idx_valides <- !is.na(valeurs_ar)
+  
+  valeurs_ar <- valeurs_ar[
+    idx_valides
+  ]
+  
+  dates_ar <- dates_ar[
+    idx_valides
+  ]
+  
+  
+  cat(
+    "Nombre d'observations trimestrielles :",
+    length(valeurs_ar),
+    "\n"
+  )
+  
+  if (length(valeurs_ar) < 10) {
+    cat(
+      "Trop peu d'observations (<10) pour estimer un AR fiable -> ignoré.\n"
+    )
+    return(NULL)
+  }
+  
+  cat(
+    "Dernière observation de Δlog(VA) :",
+    as.character(
+      max(dates_ar)
+    ),
+    "\n"
+  )
+  
+  
+  # ----------------------------------------------------------
+  # 4. Tester AR(1) à AR(6)
+  # ----------------------------------------------------------
+  
+  max_p <- min(
+    6,
+    floor(length(valeurs_ar) / 5)
+  )
+  max_p <- max(max_p, 1)
+  
+  
+  resultats_ar <- data.frame(
+    
+    p = integer(),
+    
+    AIC = numeric(),
+    
+    BIC = numeric(),
+    
+    stringsAsFactors = FALSE
+    
+  )
+  
+  
+  for (p in 1:max_p) {
+    
+    modele_test <- tryCatch(
+      
+      arima(
+        
+        valeurs_ar,
+        
+        order = c(
+          p,
+          0,
+          0
+        ),
+        
+        include.mean = TRUE,
+        
+        method = "ML"
+        
+      ),
+      
+      error = function(e) {
+        NULL
+      }
+      
+    )
+    
+    
+    if (!is.null(modele_test)) {
+      
+      resultats_ar <- rbind(
+        
+        resultats_ar,
+        
+        data.frame(
+          
+          p = p,
+          
+          AIC = AIC(
+            modele_test
+          ),
+          
+          BIC = BIC(
+            modele_test
+          )
+          
+        )
+        
+      )
+    }
+  }
+  
+  
+  # ----------------------------------------------------------
+  # 5. Afficher les critères
+  # ----------------------------------------------------------
+  
+  cat("\nCritères des modèles AR :\n")
+  
+  print(
+    resultats_ar
+  )
+  
+  
+  if (nrow(resultats_ar) == 0) {
+    warning(
+      "Aucun modèle AR n'a pu être estimé pour ",
+      secteur_ar
+    )
+    return(NULL)
+  }
+  
+  
+  # ----------------------------------------------------------
+  # 6. Sélection du meilleur AR
+  # ----------------------------------------------------------
+  
+  p_opt <- resultats_ar$p[
+    which.min(
+      resultats_ar$AIC
+    )
+  ]
+  
+  
+  cat(
+    "\nModèle retenu : AR(",
+    p_opt,
+    ")\n",
+    sep = ""
+  )
+  
+  
+  # ----------------------------------------------------------
+  # 7. Estimation finale
+  # ----------------------------------------------------------
+  
+  modele_ar_final <- arima(
+    
+    valeurs_ar,
+    
+    order = c(
+      p_opt,
+      0,
+      0
+    ),
+    
+    include.mean = TRUE,
+    
+    method = "ML"
+    
+  )
+  
+  
+  # ----------------------------------------------------------
+  # 8. Prévision du prochain trimestre
+  # ----------------------------------------------------------
+  
+  prediction_ar <- predict(
+    
+    modele_ar_final,
+    
+    n.ahead = 1
+    
+  )
+  
+  
+  # Prévision DIRECTE de Δlog(VA)
+  
+  nowcast_dlog_ar <- as.numeric(
+    prediction_ar$pred[1]
+  )
+  
+  
+  # ----------------------------------------------------------
+  # 9. Conversion Δlog(VA) -> croissance %
+  # ----------------------------------------------------------
+  
+  nowcast_pct_ar <- convertir_croissance(
+    nowcast_dlog_ar
+  )
+  
+  
+  # ----------------------------------------------------------
+  # 10. Date de dernière observation
+  # ----------------------------------------------------------
+  
+  date_derniere_ar <- max(
+    dates_ar,
+    na.rm = TRUE
+  )
+  
+  
+  # ----------------------------------------------------------
+  # 11. Prochain trimestre
+  # ----------------------------------------------------------
+  #
+  # IMPORTANT :
+  # Les dates des cibles trimestrielles sont stockées comme
+  # le PREMIER JOUR du trimestre :
+  #
+  #   2025-01-01 = T1 2025
+  #   2025-04-01 = T2 2025
+  #   2025-07-01 = T3 2025
+  #   2025-10-01 = T4 2025
+  #
+  # Donc, si la dernière observation est :
+  #
+  #   2026-01-01 = T1 2026
+  #
+  # le prochain trimestre est :
+  #
+  #   2026-04-01 = T2 2026
+  #
+  # On ajoute simplement 3 mois.
+  # ----------------------------------------------------------
+  
+  date_cible_ar <- seq(
+    from = as.Date(date_derniere_ar),
+    by = "3 months",
+    length.out = 2
+  )[2]
+  
+  
+  # ----------------------------------------------------------
+  # Horizon
+  # ----------------------------------------------------------
+  
+  horizon_ar <- calculer_horizon(
+    date_derniere_ar,
+    date_cible_ar
+  )
+  
+  
+  # ----------------------------------------------------------
+  # Etiquette du trimestre
+  # ----------------------------------------------------------
+  #
+  # Ici la date correspond au PREMIER mois du trimestre :
+  #
+  # janvier  -> T1
+  # avril    -> T2
+  # juillet  -> T3
+  # octobre  -> T4
+  #
+  # ----------------------------------------------------------
+  
+  mois_cible <- as.integer(
+    format(
+      date_cible_ar,
+      "%m"
+    )
+  )
+  
+  trimestre_ar <- paste0(
+    "T",
+    ((mois_cible - 1) %/% 3) + 1,
+    " ",
+    format(
+      date_cible_ar,
+      "%Y"
+    )
+  )
+  
+  # ----------------------------------------------------------
+  # 12. Construire le résultat
+  # ----------------------------------------------------------
+  
+  resultat_ar <- data.frame(
+    
+    secteur = secteur_ar,
+    
+    date_derniere_observation =
+      as.Date(
+        date_derniere_ar
+      ),
+    
+    date_nowcast =
+      as.Date(
+        date_cible_ar
+      ),
+    
+    trimestre_nowcast =
+      trimestre_ar,
+    
+    horizon_mois =
+      horizon_ar,
+    
+    cible =
+      target_ar,
+    
+    nowcast_dlog =
+      nowcast_dlog_ar,
+    
+    nowcast_pct =
+      nowcast_pct_ar,
+    
+    methode =
+      paste0(
+        "AR(",
+        p_opt,
+        ")"
+      ),
+    
+    stringsAsFactors = FALSE
+    
+  )
+  
+  
+  # ----------------------------------------------------------
+  # 13. Affichage
+  # ----------------------------------------------------------
+  
+  cat("\n------------------------------------------------------------\n")
+  
+  cat(
+    "SECTEUR :",
+    secteur_ar,
+    "\n"
+  )
+  
+  cat(
+    "Modèle : AR(",
+    p_opt,
+    ")\n",
+    sep = ""
+  )
+  
+  cat(
+    "Dernière observation :",
+    as.character(
+      date_derniere_ar
+    ),
+    "\n"
+  )
+  
+  cat(
+    "Trimestre prévu :",
+    trimestre_ar,
+    "\n"
+  )
+  
+  cat(
+    "Prévision Δlog(VA) :",
+    round(
+      nowcast_dlog_ar,
+      6
+    ),
+    "\n"
+  )
+  
+  cat(
+    "Croissance prévue :",
+    round(
+      nowcast_pct_ar,
+      2
+    ),
+    "%\n"
+  )
+  
+  cat(
+    "------------------------------------------------------------\n"
+  )
+  
+  resultat_ar
+}
+
+
+# --------------------------------------------------------------------------
+# Détection dynamique des secteurs sans DFM exploitable : tout secteur du
+# panel qui n'a pas déjà un nowcast DFM dans resultats_nowcast.
+# --------------------------------------------------------------------------
+
+secteurs_a_basculer_ar <- setdiff(
+  names(panels_stationnaires_filtres),
+  names(resultats_nowcast)
+)
+
+if (length(secteurs_a_basculer_ar) > 0) {
+  cat("\n============================================================\n")
+  cat("SECTEURS BASCULES VERS UN NOWCAST AR (pas de DFM exploitable) :\n")
+  cat(paste(" -", secteurs_a_basculer_ar), sep = "\n")
+  cat("\n============================================================\n")
+} else {
+  cat("\nAucun secteur à basculer vers l'AR : tous ont un DFM exploitable.\n")
+}
+
+for (secteur_ar in secteurs_a_basculer_ar) {
+  
+  res_ar <- nowcast_ar_secteur(
+    secteur_ar,
+    panels_stationnaires_filtres
+  )
+  
+  if (!is.null(res_ar)) {
+    resultats_nowcast[[secteur_ar]] <- res_ar
   }
 }
 
@@ -608,13 +1107,19 @@ if (length(resultats_nowcast) > 0) {
 # ============================================================
 
 cat("\n============================================================\n")
-cat("RESULTATS DES NOWCASTS\n")
+cat("RESULTATS DES NOWCASTS (DFM + AR)\n")
 cat("============================================================\n")
 
 
 if (nrow(nowcasts) > 0) {
   
   print(nowcasts)
+  
+  cat(
+    "\nRépartition par méthode :\n"
+  )
+  
+  print(table(nowcasts$methode))
   
 } else {
   
@@ -630,8 +1135,9 @@ if (nrow(nowcasts) > 0) {
 #
 # Le CSV contient :
 #
-#   nowcast_dlog = résultat brut du DFM
+#   nowcast_dlog = résultat brut du DFM ou de l'AR
 #   nowcast_pct  = croissance trimestrielle en %
+#   methode      = "qml" (DFM) ou "AR(p)"
 #
 # ============================================================
 
@@ -679,10 +1185,8 @@ saveRDS(
 #   nowcast de Δlog(VA)
 #
 # afin de comparer les observations et la prévision
-# sur la même échelle.
-#
-# Pour une figure destinée au rapport, on pourra ensuite
-# créer une figure dédiée en croissance (%).
+# sur la même échelle. Fonctionne identiquement pour un
+# secteur DFM ou un secteur AR (même cible transformée).
 #
 # ============================================================
 
@@ -795,7 +1299,7 @@ for (secteur in nowcasts$secteur) {
       
       subtitle =
         paste(
-          "Cible : Δlog(VA) |",
+          "Méthode :", nc$methode, "| Cible : Δlog(VA) |",
           nc$trimestre_nowcast,
           "| croissance prévue :",
           round(
@@ -858,6 +1362,18 @@ cat(
 )
 
 cat(
+  "  dont via DFM :",
+  sum(nowcasts$methode == "qml"),
+  "\n"
+)
+
+cat(
+  "  dont via AR  :",
+  sum(grepl("^AR\\(", nowcasts$methode)),
+  "\n"
+)
+
+cat(
   "Résultats :",
   fichier_csv,
   "\n"
@@ -868,5 +1384,3 @@ cat(
   FIG_DIR,
   "\n"
 )
-
-

@@ -525,6 +525,116 @@ if (
 
 
 # ============================================================================
+# 5 BIS. LISTE DES VARIABLES RETENUES PAR SECTEUR
+# ============================================================================
+#
+# Objectif :
+#   Produire la liste exhaustive des séries ayant survécu au filtre
+#   de couverture post-transformation.
+#
+# Cette sortie permet de connaître précisément les variables finalement
+# utilisées dans les panels destinés aux étapes suivantes du pipeline.
+#
+# Sortie :
+#   variables_retenues_post_transfo_par_secteur.csv
+# ============================================================================
+
+
+variables_retenues_post_transfo <-
+  dplyr::bind_rows(
+    
+    lapply(
+      
+      names(panels_stationnaires_filtres),
+      
+      function(s) {
+        
+        panel <-
+          panels_stationnaires_filtres[[s]]
+        
+        
+        # Métadonnées
+        monthly_vars <-
+          attr(
+            panel,
+            "monthly_vars"
+          )
+        
+        quarterly_vars <-
+          attr(
+            panel,
+            "quarterly_vars"
+          )
+        
+        target_name <-
+          attr(
+            panel,
+            "target"
+          )
+        
+        
+        # Variables conservées
+        variables <-
+          colnames(panel)
+        
+        
+        # Détermination de la fréquence
+        frequence <-
+          ifelse(
+            variables %in% monthly_vars,
+            "Mensuelle",
+            ifelse(
+              variables %in% quarterly_vars,
+              "Trimestrielle",
+              "Autre"
+            )
+          )
+        
+        
+        data.frame(
+          
+          secteur = s,
+          
+          variable = variables,
+          
+          frequence = frequence,
+          
+          cible = target_name,
+          
+          stringsAsFactors = FALSE
+        )
+      }
+    )
+  )
+
+
+# Affichage
+message(
+  "\n=== VARIABLES RETENUES PAR SECTEUR ==="
+)
+
+print(
+  variables_retenues_post_transfo,
+  row.names = FALSE
+)
+
+
+# Sauvegarde
+write.csv(
+  
+  variables_retenues_post_transfo,
+  
+  file.path(
+    OUT_DIR,
+    "variables_retenues_post_transfo_par_secteur.csv"
+  ),
+  
+  row.names = FALSE,
+  fileEncoding = "UTF-8"
+)
+
+
+# ============================================================================
 # 6. SAUVEGARDE DU PANEL FINAL
 # ============================================================================
 

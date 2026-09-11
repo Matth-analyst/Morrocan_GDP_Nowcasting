@@ -2,14 +2,26 @@
 # GDPNow Maroc — 02_load_data.R
 # Chargement et construction du panel mensuel par secteur
 # ============================================================================
-# Convention (importante pour tous les fichiers suivants) : dans le panel
-# construit par build_monthly_panel(), la colonne 1 est TOUJOURS la cible
-# (VA sectorielle trimestrielle, placee au 3e mois du trimestre selon la
-# convention Mariano-Murasawa), suivie des indicateurs trimestriels puis
-# mensuels retenus pour ce secteur.
+#
+# CONVENTION TEMPORELLE :
+#
+# Les cibles VA et les indicateurs trimestriels sont datés au
+# PREMIER JOUR du trimestre :
+#
+#   01/01/2026 -> T1 2026
+#   01/04/2026 -> T2 2026
+#   01/07/2026 -> T3 2026
+#   01/10/2026 -> T4 2026
+#
+# Les variables trimestrielles sont donc positionnées directement
+# à leur date d'origine dans la grille mensuelle.
+#
+# Les mois intermédiaires restent NA.
+#
+# IMPORTANT :
+# Cette convention doit être conservée dans tous les fichiers
+# suivants de la chaîne de nowcasting.
 # ============================================================================
-
-
 # --------------------------------------------------------------------------
 # 1. Charger les 3 blocs (, trimestriel, mensuel cible) d'un secteur
 # --------------------------------------------------------------------------
@@ -116,12 +128,13 @@ load_secteur <- function(secteur) {
 # 2. CONSTRUCTION DU PANEL MENSUEL
 #
 # Les variables trimestrielles ne sont PAS interpolées.
-# Elles sont simplement positionnées au 3e mois de chaque trimestre :
 #
-# T1 -> mars
-# T2 -> juin
-# T3 -> septembre
-# T4 -> décembre
+# Elles sont positionnées au PREMIER MOIS du trimestre :
+#
+# T1 -> janvier
+# T2 -> avril
+# T3 -> juillet
+# T4 -> octobre
 #
 # Les autres mois restent NA.
 # ============================================================================
@@ -205,11 +218,22 @@ build_monthly_panel <- function(sd) {
         length(grid)
       )
       
-      # Placement au 3e mois du trimestre
-      qmonth <- ceiling_date(
+      # ----------------------------------------------------------
+      # Placement à la date de début du trimestre
+      #
+      # Convention de la base :
+      #   01/01 = T1
+      #   01/04 = T2
+      #   01/07 = T3
+      #   01/10 = T4
+      #
+      # On conserve donc directement les dates du fichier CSV.
+      # ----------------------------------------------------------
+      
+      qmonth <- floor_date(
         sd$trim$date,
-        "quarter"
-      ) %m-% months(1)
+        "month"
+      )
       
       idx <- match(
         qmonth,
@@ -238,10 +262,20 @@ build_monthly_panel <- function(sd) {
     length(grid)
   )
   
-  qmonth <- ceiling_date(
+  # ----------------------------------------------------------
+  # La cible VA est déjà datée au début du trimestre :
+  #
+  #   2025-10-01 = T4 2025
+  #   2026-01-01 = T1 2026
+  #   2026-04-01 = T2 2026
+  #
+  # On conserve donc directement la date de la cible.
+  # ----------------------------------------------------------
+  
+  qmonth <- floor_date(
     sd$cible$date,
-    "quarter"
-  ) %m-% months(1)
+    "month"
+  )
   
   idx <- match(
     qmonth,

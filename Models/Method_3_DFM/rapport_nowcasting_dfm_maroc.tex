@@ -1,0 +1,477 @@
+\documentclass[11pt,a4paper]{report}
+
+% ============================================================================
+% PACKAGES
+% ============================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{siunitx}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+
+% Dossier(s) contenant les figures produites par 11_visualisation.R
+% -> a adapter si l'arborescence differe sur ta machine.
+\graphicspath{
+  {./resultats_dfm/figures_11/evaluation/}
+  {./resultats_dfm/figures_11/nowcast/}
+  {./figures/}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small Nowcasting sectoriel du PIB marocain -- DFM}
+\lhead{\small \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter.}{20pt}{\huge}
+\setlength{\parskip}{4pt}
+
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\dlogva}{$\Delta\log(\mathrm{VA})$}
+
+% ============================================================================
+\title{
+  \vspace{-2cm}
+  \Huge \textbf{Nowcasting sectoriel du PIB marocain} \\[0.4cm]
+  \Large par modèle à facteurs dynamiques (DFM)
+}
+\author{GDPNow Maroc}
+\date{\today}
+
+% ============================================================================
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent
+Ce rapport documente la construction, l'estimation et l'évaluation d'un dispositif de \emph{nowcasting} de la croissance trimestrielle de la valeur ajoutée (VA) sectorielle de l'économie marocaine, fondé sur des modèles à facteurs dynamiques (\emph{Dynamic Factor Models}, DFM). Seize secteurs d'activité sont modélisés individuellement à partir d'un panel d'indicateurs mensuels et trimestriels de fréquence mixte. Pour les onze secteurs disposant d'indicateurs mensuels exploitables, un DFM est estimé par quasi-maximum de vraisemblance (algorithme EM de Bańbura et Modugno, 2014). Les cinq secteurs restants, dépourvus d'indicateur mensuel exploitable après filtrage des données manquantes, sont nowcastés par un modèle autorégressif AR($p$) appliqué directement à leur cible transformée. La performance du dispositif est évaluée par un protocole de backtest en pseudo temps réel (fenêtre expansive, ré-estimation récursive), comparée à une base de référence AR($p$) appliquée uniformément à tous les secteurs, et testée statistiquement par la procédure de Diebold et Mariano (1995). Les résultats, mitigés selon les secteurs, sont discutés avec leurs limites méthodologiques.
+\end{abstract}
+
+\tableofcontents
+
+% ============================================================================
+\chapter{Introduction}
+% ============================================================================
+
+\section{Contexte et motivation}
+
+Le Produit Intérieur Brut (PIB) trimestriel constitue l'indicateur de référence de l'activité économique, mais sa publication officielle intervient avec un décalage important -- généralement supérieur à un mois après la fin du trimestre de référence, parfois davantage pour les décompositions sectorielles. Ce délai limite la capacité des décideurs publics et privés à évaluer la conjoncture économique en temps réel.
+
+Le \emph{nowcasting} répond à ce problème en exploitant des indicateurs disponibles plus tôt -- le plus souvent mensuels, parfois hebdomadaires ou quotidiens -- pour produire une estimation anticipée de la variable trimestrielle d'intérêt, avant même sa publication officielle. Ce rapport applique cette approche à la croissance trimestrielle de la valeur ajoutée de seize secteurs de l'économie marocaine, en s'appuyant sur la littérature de référence en la matière, notamment Giannone, Reichlin et Small (2008), Chernis et Sekkel (2017) pour le Canada, et Supriyatna, Prastyo et Akbar (2024) pour une application sectorielle en Indonésie -- cette dernière étude partageant l'architecture retenue ici : un DFM estimé secteur par secteur plutôt qu'un unique DFM agrégé.
+
+\section{Objectifs et périmètre}
+
+Le dispositif vise à produire, pour chaque secteur d'activité disponible dans la base de données, une estimation de la croissance trimestrielle de sa valeur ajoutée avant la publication du chiffre officiel. Le périmètre du présent rapport couvre :
+\begin{itemize}[nosep]
+  \item la construction et le nettoyage de la base de données sectorielle ;
+  \item le choix méthodologique du DFM et sa justification ;
+  \item le protocole complet de traitement (stationnarité, valeurs manquantes, sélection des paramètres) ;
+  \item l'estimation et les résultats de nowcast pour le dernier trimestre disponible ;
+  \item l'évaluation rigoureuse de la performance par backtest et test de Diebold-Mariano ;
+  \item les limites constatées et les pistes d'amélioration.
+\end{itemize}
+
+L'agrégation des croissances sectorielles en une estimation unique du PIB national, qui suppose un choix de système de pondération (parts sectorielles dans la VA totale), n'est \textbf{pas} traitée dans ce rapport et constitue une étape ultérieure.
+
+
+% ============================================================================
+\chapter{Fondements théoriques du modèle à facteurs dynamiques}
+% ============================================================================
+
+\section{Principe général}
+
+L'idée du DFM, introduite par Geweke (1977) et Sargent et Sims (1977) puis développée pour le nowcasting par Giannone et al. (2008), repose sur l'hypothèse qu'un grand nombre de séries économiques mensuelles partagent une dynamique commune, résumable par un petit nombre de \emph{facteurs latents} non observés. Chaque série observée $x_{i,t}$ se décompose en :
+\begin{equation}
+  x_{i,t} = \lambda_i' F_t + \varepsilon_{i,t}
+  \label{eq:mesure}
+\end{equation}
+où $F_t$ est un vecteur de $r$ facteurs communs, $\lambda_i$ le vecteur des \emph{loadings} (poids) propres à la série $i$, et $\varepsilon_{i,t}$ une composante idiosyncratique. Les facteurs communs suivent un processus vectoriel autorégressif d'ordre $p$ :
+\begin{equation}
+  F_t = A_1 F_{t-1} + \dots + A_p F_{t-p} + u_t, \qquad u_t \sim \mathcal{N}(0, Q)
+  \label{eq:transition}
+\end{equation}
+
+L'intérêt du DFM pour le nowcasting est triple : il condense l'information d'un grand panel d'indicateurs hétérogènes en quelques facteurs interprétables ; il tolère nativement des calendriers de publication différents entre séries (\emph{ragged edges}) ; et il permet d'intégrer, dans un même cadre statistique, des variables de fréquences différentes (mensuelle et trimestrielle).
+
+\section{Fréquence mixte : traiter une cible trimestrielle dans un cadre mensuel}
+
+La cible -- la croissance de la VA sectorielle -- est trimestrielle, tandis que les facteurs sont estimés à fréquence mensuelle. En suivant l'approche de Mariano et Murasawa (2003), reprise par Giannone et al. (2008) et par Chernis et Sekkel (2017), la variable trimestrielle observée est traitée comme une série mensuelle partiellement observée (valeur connue tous les trois mois, manquante sinon), intégrée dans le même modèle d'espace d'état que les indicateurs mensuels. C'est cette même logique qui permet, symétriquement, de conserver comme \emph{manquantes} les valeurs mensuelles interpolées d'une cible trimestrielle plutôt que de les reconstituer artificiellement.
+
+\section{Estimation par quasi-maximum de vraisemblance (EM)}
+
+Deux grandes familles de méthodes existent dans la littérature pour estimer le DFM :
+\begin{enumerate}[nosep]
+  \item l'approche en deux étapes (\emph{Principal Components + Kalman filter}), proposée par Doz, Giannone et Reichlin (2011), qui nécessite un panel équilibré pour l'étape initiale de composantes principales ;
+  \item l'approche par quasi-maximum de vraisemblance via l'algorithme EM (\emph{Expectation-Maximization}), formalisée par Bańbura et Modugno (2014), qui gère nativement des motifs de données manquantes arbitraires -- sans nécessiter d'imputation préalable.
+\end{enumerate}
+
+Le présent dispositif retient la seconde approche, mise en \oe uvre par le package R \code{dfms} (Krantz, 2023). L'algorithme EM alterne :
+\begin{itemize}[nosep]
+  \item une étape E, où le filtre et le lisseur de Kalman estiment les facteurs $\hat{F}_t$ à partir des paramètres courants, en ne faisant intervenir, à chaque date, que les variables effectivement observées ce mois-là ;
+  \item une étape M, où les paramètres ($\lambda_i$, $A_k$, variances) sont ré-estimés par régression sur les facteurs lissés.
+\end{itemize}
+Ce cycle est répété jusqu'à convergence (stabilisation de la vraisemblance). C'est ce mécanisme qui permet au DFM de traiter directement les valeurs manquantes sans qu'aucune interpolation ne soit nécessaire pour l'estimation finale (cf. section~\ref{sec:missing}).
+
+
+% ============================================================================
+\chapter{Données}
+% ============================================================================
+
+\section{Structure de la base}
+
+La base de données couvre \textbf{seize secteurs} d'activité de l'économie marocaine. Pour chacun, trois blocs de données sont potentiellement disponibles :
+\begin{itemize}[nosep]
+  \item une \textbf{cible} : la valeur ajoutée trimestrielle du secteur (source HCP), disponible de \num{1998}T1 à \num{2026}T1 (113 observations) pour l'ensemble des secteurs, sans aucune valeur manquante ;
+  \item des \textbf{indicateurs trimestriels} (ex. crédit bancaire par branche) ;
+  \item des \textbf{indicateurs mensuels} (ex. production industrielle, trafic portuaire, enquêtes de confiance, Google Trends).
+\end{itemize}
+
+Douze secteurs disposent d'au moins un indicateur (trimestriel et/ou mensuel). Quatre secteurs -- \emph{Administration publique}, \emph{Autres services}, \emph{Éducation-santé} et \emph{Services aux entreprises} -- ne disposent que de leur cible, sans aucun indicateur associé.
+
+\section{Nettoyage préliminaire}
+
+Avant toute modélisation, un nettoyage a été effectué sur le fichier source :
+\begin{itemize}[nosep]
+  \item correction d'un artefact de mise en forme : l'axe de dates de certains blocs trimestriels alternait deux conventions de datation différentes, créant environ 50\,\% de valeurs manquantes apparentes qui n'en étaient pas -- corrigé par simple suppression des lignes vides résiduelles après réalignement sur une grille trimestrielle propre ;
+  \item exclusion des indicateurs trop récents ou trop lacunaires pour être exploitables : seuil de couverture de 50\,\% sur la portion active de la série, ou démarrage postérieur à 2020. Ce filtrage a conduit à retenir 409 séries sur les 434 initialement candidates.
+\end{itemize}
+
+\section{Construction du panel mensuel}
+
+Pour chaque secteur, les trois blocs sont fusionnés sur une grille mensuelle commune. La cible trimestrielle est positionnée au premier mois de chaque trimestre (convention \num{01}/\num{01} = T1, \num{01}/\num{04} = T2, etc.), les mois intermédiaires restant non renseignés. Cette convention est conservée à l'identique pour les indicateurs trimestriels, de sorte que l'ensemble du panel obéit à un calendrier de datation homogène.
+
+
+% ============================================================================
+\chapter{Méthodologie du pipeline}
+% ============================================================================
+
+\section{Diagnostic et traitement de la stationnarité}
+
+\subsection{Diagnostic}
+
+Un test de Dickey-Fuller augmenté (ADF) est appliqué à chaque série, au niveau, sur l'ensemble des 425 variables du panel (indicateurs et cibles confondus). Le diagnostic confirme l'hypothèse de départ : \textbf{40,0\,\%} des séries sont non stationnaires au niveau, 59,8\,\% le sont, et 0,2\,\% affichent un test non concluant (série trop courte, typiquement moins de 15 observations exploitables). Ce diagnostic varie fortement d'un secteur à l'autre -- de 3\,\% de séries non stationnaires pour la Pêche à plus de 90\,\% pour la Finance et les Assurances.
+
+\subsection{Choix et application de la transformation}
+
+Sur la base de ce diagnostic, chaque série reçoit une transformation individuelle selon la règle suivante :
+\begin{enumerate}[nosep]
+  \item série stationnaire au niveau (ADF) $\rightarrow$ conservée telle quelle ;
+  \item série non stationnaire et quasi systématiquement positive $\rightarrow$ passage en \textbf{taux de croissance} (log-différence, en \%) ;
+  \item série non stationnaire avec valeurs négatives ou nulles $\rightarrow$ différence simple ;
+  \item série toujours non stationnaire après une première différenciation $\rightarrow$ différence d'ordre 2, \textbf{signalée} pour vérification manuelle (cas rare, généralement révélateur d'une rupture ou d'un changement de base dans la série source).
+\end{enumerate}
+
+\textbf{La cible est systématiquement transformée en \dlogva{}}, qu'un DFM soit estimé pour ce secteur ou non -- garantissant une échelle homogène pour comparer l'ensemble des secteurs, DFM comme AR. Concrètement, cela signifie que la variable modélisée et nowcastée dans tout le dispositif est la croissance trimestrielle logarithmique, reconvertie en pourcentage \emph{a posteriori} uniquement pour la lecture des résultats :
+\begin{equation}
+  \text{croissance (\%)} = 100 \times \left( e^{\Delta\log(\mathrm{VA})} - 1 \right)
+  \label{eq:conversion}
+\end{equation}
+
+\section{Traitement des valeurs manquantes}
+\label{sec:missing}
+
+Un principe directeur est retenu : \textbf{aucune imputation n'est appliquée aux données utilisées pour l'estimation finale du DFM}. La méthode EM/QML (section \ref{sec:missing}) gère nativement les valeurs manquantes -- c'est précisément l'intérêt de cette approche par rapport à une méthode en deux étapes qui exigerait un panel complet.
+
+Ce fichier remplit néanmoins deux fonctions de sécurité :
+\begin{itemize}[nosep]
+  \item un \textbf{diagnostic} quantifié du taux de valeurs manquantes après transformation (56 à 96\,\% selon les secteurs -- des taux élevés mais attendus, la conséquence directe du positionnement de la cible trimestrielle sur une grille mensuelle) ;
+  \item un \textbf{filtre de sécurité} : toute série dont la couverture, après transformation, tombe sous 30\,\% est exclue du panel final. Ce filtrage a été substantiel : sur 425 séries, 146 ont été écartées à cette étape (34,4\,\%), pour un panel final de 279 séries.
+\end{itemize}
+
+Un panel \emph{équilibré} (obtenu par interpolation linéaire puis complétion des bords) est également construit, mais à usage strictement limité : il sert uniquement de support à l'analyse en composantes principales préalable à la sélection des paramètres $r$ et $p$ (section suivante). Il n'intervient à aucun moment dans l'estimation finale du DFM.
+
+\section{Sélection du nombre de facteurs (r)}
+
+Le nombre de facteurs communs $r$ est déterminé par les critères d'information de Bai et Ng (2002) -- IC1, IC2, IC3 -- calculés sur le panel équilibré, complétés par une vérification croisée via la fonction \code{dfms::ICr()}.
+
+\subsection{Une difficulté rencontrée}
+
+Pour \textbf{huit des onze secteurs} disposant d'indicateurs mensuels, les trois critères de Bai-Ng atteignent simultanément la borne maximale testée (\code{RMAX}), signe qu'aucun minimum interne n'a été trouvé dans la plage explorée -- les critères continuent de préférer davantage de facteurs au-delà de la limite fixée. Cette borne a été portée de 8 à 15 en cours de projet sans que le phénomène disparaisse totalement (cf. chapitre \ref{chap:limites}).
+
+Face à cette limite pratique des critères d'information dans ce contexte (panels de taille modeste, échantillon temporel relativement court), un critère de repli a été retenu comme arbitrage final : le nombre minimal de facteurs nécessaires pour expliquer au moins \textbf{60\,\%} de la variance totale du panel standardisé (noté $r_{(60\%)}$), plafonné par le nombre de variables mensuelles disponibles moins un, pour garantir l'identifiabilité du modèle. C'est ce critère pragmatique -- et non les critères de Bai-Ng bloqués en butée -- qui détermine le $r$ finalement retenu pour chaque secteur.
+
+\section{Sélection de l'ordre des retards (p)}
+
+Le nombre de facteurs étant fixé, l'ordre $p$ du VAR décrivant leur dynamique (équation~\ref{eq:transition}) est estimé sur les facteurs extraits par composantes principales, via les quatre critères usuels (AIC, Hannan-Quinn, Schwarz/BIC, FPE), calculés pour des ordres candidats de 1 à 6.
+
+Un désaccord systématique est observé entre critères : AIC et FPE tendent à sélectionner l'ordre maximal testé, tandis que HQ et SC (plus pénalisants) convergent vers des ordres nettement plus parcimonieux. L'ordre final retenu correspond, d'après les résultats obtenus, à la \textbf{moyenne arrondie de HQ et SC} -- un compromis délibéré qui neutralise le biais de sur-paramétrisation d'AIC/FPE observé sur ces échantillons de taille limitée, sans imposer la sévérité parfois excessive de SC seul.
+
+
+% ============================================================================
+\chapter{Estimation et résultats du DFM}
+% ============================================================================
+
+\section{Paramètres retenus et statut de convergence}
+
+Le tableau \ref{tab:rp} récapitule, pour chaque secteur, le nombre de facteurs $r$, l'ordre de retard $p$, le nombre de variables mensuelles effectivement intégrées au DFM, et le statut de convergence de l'algorithme EM.
+
+\begin{table}[H]
+\centering
+\caption{Paramètres retenus et statut d'estimation, par secteur}
+\label{tab:rp}
+\begin{tabular}{lccccc}
+\toprule
+Secteur & $r$ & $p$ & Var. mensuelles & Convergence \\
+\midrule
+Agriculture               & 1  & 6 & 2  & Oui \\
+Pêche                     & 2  & 1 & 72 & Oui \\
+Industrie de transformation & 6 & 2 & 44 & Oui \\
+Industrie extractive       & 2  & 2 & 7  & Oui \\
+Finances et assurances     & 5  & 4 & 25 & Oui \\
+Hébergement-restauration   & 3  & 4 & 16 & Oui \\
+Construction                & 1  & 1 & 15 & Oui \\
+Commerce                    & 2  & 3 & 14 & Oui \\
+Transports                  & 1  & 5 & 3  & Oui \\
+Électricité, gaz, eau       & 2  & 6 & 61 & Oui \\
+Immobilier                  & 1  & 4 & 4  & Oui \\
+\midrule
+Information-communication  & \multicolumn{4}{c}{\emph{exclu du DFM -- cf. \S\ref{sec:limites-info}, nowcast par AR}} \\
+Administration publique    & \multicolumn{4}{c}{\emph{cible seule -- nowcast par AR}} \\
+Autres services             & \multicolumn{4}{c}{\emph{cible seule -- nowcast par AR}} \\
+Éducation-santé             & \multicolumn{4}{c}{\emph{cible seule -- nowcast par AR}} \\
+Services aux entreprises    & \multicolumn{4}{c}{\emph{cible seule -- nowcast par AR}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Les onze modèles DFM estimés convergent tous (au sens du critère de convergence interne du package \code{dfms}), en 26 à 71 itérations selon le secteur.
+
+\section{Modèle de repli : AR($p$) pour les secteurs sans indicateur mensuel}
+
+Pour tout secteur dépourvu d'indicateur mensuel exploitable -- qu'il s'agisse d'un secteur structurellement « cible seule » ou d'un secteur ayant perdu l'intégralité de ses indicateurs lors du filtrage (section \ref{sec:limites-info}) -- un modèle autorégressif simple est estimé directement sur la cible déjà transformée en \dlogva{} :
+\begin{equation}
+  \Delta\log(\mathrm{VA})_t = c + \sum_{k=1}^{p} \phi_k \, \Delta\log(\mathrm{VA})_{t-k} + \eta_t
+\end{equation}
+L'ordre $p \in \{1, \dots, 6\}$ est sélectionné par minimisation de l'AIC. Cette bascule est détectée \textbf{dynamiquement} dans le pipeline (tout secteur sans nowcast DFM produit), sans liste de secteurs codée en dur -- garantissant que le dispositif reste cohérent si la composition des secteurs disponibles évolue.
+
+\section{Nowcast du dernier trimestre disponible (T2 2026)}
+
+Le tableau \ref{tab:nowcast} présente le nowcast produit pour chaque secteur, ainsi que -- à titre de comparaison -- la prévision qu'aurait produite un simple AR($p$) appliqué au même secteur (« base AR », section \ref{sec:eval-protocole}).
+
+\begin{table}[H]
+\centering
+\caption{Nowcast T2 2026 : modèle retenu vs. base AR}
+\label{tab:nowcast}
+\begin{tabular}{lccc}
+\toprule
+Secteur & Modèle retenu & Nowcast (\%) & Base AR (\%) \\
+\midrule
+Agriculture                 & DFM(1,6) & \phantom{-}1,01 & -0,25 \\
+Pêche                       & DFM(2,1) & -1,94 & -11,24 \\
+Industrie de transformation & DFM(6,2) & \phantom{-}2,84 & \phantom{-}4,45 \\
+Industrie extractive        & DFM(2,2) & -2,27 & -0,11 \\
+Finances et assurances      & DFM(5,4) & \phantom{-}1,26 & \phantom{-}1,26 \\
+Hébergement-restauration    & DFM(3,4) & \phantom{-}9,41 & \phantom{-}0,60 \\
+Construction                & DFM(1,1) & \phantom{-}0,65 & \phantom{-}0,50 \\
+Commerce                    & DFM(2,3) & \phantom{-}0,49 & \phantom{-}0,26 \\
+Transports                  & DFM(1,5) & \phantom{-}0,42 & \phantom{-}0,94 \\
+Électricité, gaz, eau       & DFM(2,6) & \phantom{-}1,08 & \phantom{-}2,43 \\
+Immobilier                  & DFM(1,4) & \phantom{-}0,56 & \phantom{-}1,54 \\
+Information-communication   & AR(6)    & \phantom{-}1,25 & \phantom{-}1,25 \\
+Administration publique     & AR(3)    & \phantom{-}1,04 & \phantom{-}1,04 \\
+Autres services              & AR(5)    & -2,31 & -2,31 \\
+Éducation-santé              & AR(6)    & \phantom{-}1,26 & \phantom{-}1,26 \\
+Services aux entreprises     & AR(3)    & \phantom{-}1,79 & \phantom{-}1,79 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+L'écart entre le nowcast DFM et la base AR est particulièrement marqué pour l'Hébergement-restauration (9,41\,\% contre 0,60\,\%) : ce secteur est structurellement volatil (cf. les papiers de référence, qui rapportent une difficulté similaire pour le secteur financier indonésien), et l'ampleur de l'écart appelle une vérification qualitative avant toute diffusion du chiffre -- une piste immédiate étant l'examen des « news » (contributions marginales de chaque indicateur au nowcast, cf. Bańbura, Giannone et Reichlin, 2011) qui n'a pas été mise en \oe uvre dans ce dispositif.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{01_nowcast_final_tous_secteurs.png}
+\caption{Nowcast de croissance sectorielle, tous secteurs, T2 2026.}
+\label{fig:nowcast-final}
+\end{figure}
+
+
+% ============================================================================
+\chapter{Évaluation de la performance}
+% ============================================================================
+
+\section{Protocole de backtest}
+\label{sec:eval-protocole}
+
+La qualité d'ajustement en échantillon plein (\emph{in-sample}) surestime systématiquement la capacité réelle de nowcasting d'un modèle, puisqu'il « voit » l'ensemble des données au moment de l'estimation. Un protocole de backtest en \textbf{pseudo temps réel} a donc été mis en \oe uvre : pour chaque secteur, le panel est tronqué successivement à des dates antérieures croissantes, le modèle est ré-estimé sur la seule information disponible à cette date, et une prévision à un horizon d'un mois est produite et comparée à la réalisation effective. Ce protocole, dans l'esprit de celui utilisé par Chernis et Sekkel (2017) pour le Canada, a généré 832 prévisions au total sur l'ensemble des seize secteurs.
+
+Une \textbf{base de référence} (\emph{baseline}) a été construite en parallèle : un AR($p$) sélectionné par AIC, appliqué de façon strictement identique à \textbf{tous} les seize secteurs -- y compris les onze modélisés par DFM. Cette base permet d'isoler la contribution propre du DFM par rapport à un modèle univarié simple, sans information exogène.
+
+\section{Métriques retenues}
+
+Pour chaque secteur et chaque modèle, sont calculés :
+\begin{itemize}[nosep]
+  \item la racine de l'erreur quadratique moyenne (RMSE / RMSFE, en pseudo temps réel) ;
+  \item l'erreur absolue moyenne (MAE) ;
+  \item le biais moyen (erreur moyenne signée) ;
+  \item le test de \textbf{Diebold et Mariano} (1995), qui teste formellement si la différence de perte quadratique entre le DFM et la base AR est statistiquement significative.
+\end{itemize}
+
+\section{Résultats par secteur}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Performance du backtest par secteur (RMSE en \%, échelle \dlogva{})}
+\label{tab:eval}
+\begin{tabular}{lccccc}
+\toprule
+Secteur & RMSE mod. & RMSE AR & Gain (\%) & Meilleur & $p$-value DM \\
+\midrule
+Agriculture                 & 7,67  & 6,75  & -6,6  & AR      & 0,121 \\
+Pêche                       & 22,09 & 16,04 & -38,1 & AR      & \textbf{0,001} \\
+Industrie de transformation & 6,99  & 5,16  & -36,3 & AR      & 0,306 \\
+Industrie extractive        & 6,59  & 5,17  & -26,4 & AR      & 0,465 \\
+Finances et assurances      & 1,50  & 1,44  & -4,5  & AR      & 0,505 \\
+Hébergement-restauration    & 10,33 & 18,73 & +42,2 & DFM     & 0,088 \\
+Construction                 & 2,54  & 2,79  & +9,0  & DFM     & 0,073 \\
+Commerce                     & 3,08  & 3,24  & +5,1  & DFM     & 0,251 \\
+Transports                   & 7,55  & 10,15 & +18,2 & DFM     & 0,090 \\
+Électricité, gaz, eau        & 5,64  & 4,60  & -22,7 & AR      & 0,583 \\
+Immobilier                   & 0,77  & 0,93  & +17,4 & DFM     & 0,051 \\
+Information-communication    & \multicolumn{4}{c}{modèle unique (AR) -- comparaison non applicable} & -- \\
+Administration publique      & \multicolumn{4}{c}{modèle unique (AR) -- comparaison non applicable} & -- \\
+Autres services               & \multicolumn{4}{c}{modèle unique (AR) -- comparaison non applicable} & -- \\
+Éducation-santé               & \multicolumn{4}{c}{modèle unique (AR) -- comparaison non applicable} & -- \\
+Services aux entreprises      & \multicolumn{4}{c}{modèle unique (AR) -- comparaison non applicable} & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+\vspace{-0.2cm}
+{\footnotesize « Gain » = réduction relative du RMSE du modèle retenu par rapport à la base AR (positif = le modèle retenu fait mieux). Seul le résultat en gras est statistiquement significatif au seuil de 5\,\%.}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{RMSE_DFM_vs_AR.png}
+\caption{RMSE du DFM contre la base AR, par secteur.}
+\label{fig:rmse}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{MAE_DFM_vs_AR.png}
+\caption{MAE du DFM contre la base AR, par secteur.}
+\label{fig:mae}
+\end{figure}
+
+\section{Performance globale}
+
+\begin{table}[H]
+\centering
+\caption{Performance agrégée, tous secteurs confondus}
+\label{tab:global}
+\begin{tabular}{lcccc}
+\toprule
+Modèle & N prévisions & RMSE (\dlogva{}) & MAE (\dlogva{}) & Biais \\
+\midrule
+DFM (onze secteurs)      & 733 & 0,0779 & 0,0353 & 0,0031 \\
+Base AR (tous secteurs)  & 832 & 0,0826 & 0,0341 & 0,0019 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Sur l'ensemble du dispositif, le DFM affiche un RMSE globalement inférieur de 5,7\,\% à celui de la base AR, mais un biais légèrement supérieur. Ce résultat agrégé masque une réalité contrastée secteur par secteur : le DFM l'emporte sur cinq secteurs, l'AR sur six, et cinq secteurs n'offrent pas de comparaison (modèle AR unique).
+
+
+
+\section{Test de Diebold-Mariano}
+
+Sur les onze comparaisons DFM/AR réalisables, une seule fait apparaître une différence statistiquement significative au seuil de 5\,\% : la \textbf{Pêche}, où l'AR surpasse significativement le DFM ($DM = 3{,}33$, $p = 0{,}0009$). Pour tous les autres secteurs, l'hypothèse nulle d'égalité de performance prédictive ne peut être rejetée -- ce qui, compte tenu du nombre relativement restreint de points de backtest (46 à 52 par secteur), ne permet ni de conclure à la supériorité générale du DFM sur l'AR, ni l'inverse, dans l'état actuel des données.
+
+
+% ============================================================================
+\chapter{Limites constatées et discussion}
+\label{chap:limites}
+% ============================================================================
+
+\section{Le cas Information-communication : un secteur qui bascule entre deux catégories}
+\label{sec:limites-info}
+
+Le secteur Information-communication illustre une limite structurelle du dispositif de filtrage. Ce secteur disposait initialement de 34 indicateurs trimestriels (aucun indicateur mensuel n'était disponible dès l'origine dans la base -- les indicateurs trimestriels étant par construction exclus du DFM, cf. chapitre~\ref{chap:methodo}). Après application du filtre de couverture (section~\ref{sec:missing}), les 33 indicateurs candidats sont exclus faute de couverture suffisante après transformation, ne laissant que la cible. Ce secteur, qui n'appartenait pas au groupe des quatre secteurs « cible seule » identifiés en amont, s'y retrouve \emph{de facto} après filtrage -- et est donc nowcasté par AR comme eux, alors que sa nature (secteur avec indicateurs, mais insuffisamment couverts) diffère de celle des secteurs structurellement dépourvus d'indicateur. C'est un signal que le seuil de couverture retenu (30\,\%) mériterait d'être reconsidéré spécifiquement pour ce secteur, ou que d'autres indicateurs de substitution devraient être recherchés.
+
+\section{Instabilité de la sélection du nombre de facteurs}
+
+Comme indiqué au chapitre~\ref{chap:methodo}, les critères de Bai-Ng (IC1/IC2/IC3) atteignent la borne haute testée pour huit secteurs sur onze, signe qu'ils ne fournissent pas, dans ce contexte, un minimum interne interprétable. Le critère de repli retenu (60\,\% de variance expliquée) est un choix pragmatique et défendable, mais il reste \textbf{arbitraire} dans son seuil (pourquoi 60\,\% et non 50\,\% ou 70\,\%) et mériterait une analyse de sensibilité -- notamment en confrontant plusieurs seuils à la performance de backtest plutôt qu'à un critère statistique in-sample.
+
+\section{Désaccord persistant entre critères de sélection de l'ordre des retards}
+
+De façon similaire, AIC et FPE poussent systématiquement vers l'ordre maximal testé tandis que HQ et SC convergent vers des valeurs plus faibles. Le compromis retenu (moyenne de HQ et SC) est une heuristique, non une procédure validée formellement pour ce cas d'usage. Une piste d'amélioration consisterait à sélectionner $p$ directement par sa contribution à la performance de backtest plutôt que par un critère in-sample.
+
+\section{Backtest sur données finales, non sur vintages réelles}
+
+Le protocole de backtest utilise les données \emph{finales} (révisées), et non des vintages réelles telles qu'elles étaient disponibles à chaque date historique. Cela signifie que la performance mesurée est probablement \textbf{optimiste} par rapport à ce qu'aurait produit le dispositif en conditions réelles d'exploitation, où les révisions de données a posteriori ne sont pas encore intégrées. C'est une limite classique de ce type d'exercice, également présente -- et explicitement reconnue -- dans les deux études de référence.
+
+\section{Hétérogénéité de la performance sectorielle}
+
+Les secteurs où le DFM performe le moins bien par rapport à l'AR (Pêche, Industrie extractive, Électricité-gaz-eau) sont aussi ceux caractérisés par une forte volatilité intrinsèque ou une dépendance à des chocs difficiles à capter par des indicateurs mensuels usuels (aléas climatiques, cours de matières premières). Ce constat rejoint celui du papier indonésien de référence, où le secteur financier -- pour des raisons différentes mais de même nature (indicateurs disponibles insuffisamment informatifs) -- affichait la moins bonne performance du DFM parmi les trois secteurs étudiés.
+
+\section{Absence d'agrégation au niveau du PIB total}
+
+Ce rapport s'arrête au niveau sectoriel. L'agrégation en une estimation unique de croissance du PIB national nécessite un système de pondération (par exemple les parts sectorielles dans la VA totale, éventuellement variables dans le temps) qui reste à définir et sort du périmètre couvert ici.
+
+
+% ============================================================================
+\chapter{Conclusion}
+% ============================================================================
+
+Ce rapport a présenté un dispositif complet de nowcasting sectoriel de la croissance de la valeur ajoutée marocaine, combinant modèles à facteurs dynamiques pour les onze secteurs disposant d'indicateurs mensuels exploitables, et modèles autorégressifs simples pour les cinq secteurs restants. La méthodologie -- diagnostic et traitement systématique de la stationnarité, gestion native des valeurs manquantes par l'algorithme EM, sélection automatisée mais documentée des paramètres $r$ et $p$ -- s'inscrit dans la continuité des standards établis par la littérature de référence (Giannone et al., 2008 ; Bańbura et Modugno, 2014 ; Chernis et Sekkel, 2017 ; Supriyatna et al., 2024).
+
+L'évaluation par backtest en pseudo temps réel dresse un bilan \textbf{nuancé} : le DFM améliore la précision de nowcasting pour cinq secteurs sur onze comparables, la base AR pour six, avec une seule différence statistiquement significative (en faveur de l'AR, pour la Pêche). Ce résultat, loin d'invalider l'approche, souligne l'importance d'une évaluation rigoureuse plutôt que d'une adoption a priori du modèle le plus sophistiqué : pour plusieurs secteurs, un simple AR reste compétitif, voire préférable, au vu des données actuellement disponibles.
+
+Les limites identifiées -- instabilité de la sélection de $r$, désaccord entre critères de sélection de $p$, migration du secteur Information-communication vers le groupe AR après filtrage, absence de vintages réelles pour le backtest -- tracent les priorités des travaux futurs, avant d'envisager l'étape suivante : l'agrégation pondérée des croissances sectorielles en une estimation unique du PIB national.
+
+
+% ============================================================================
+\begin{thebibliography}{99}
+
+\bibitem{banbura2014} Bańbura, M., Modugno, M. (2014). Maximum Likelihood Estimation of Factor Models on Datasets with Arbitrary Pattern of Missing Data. \textit{Journal of Applied Econometrics}, 29(1), 133--160.
+
+\bibitem{banbura2011} Bańbura, M., Giannone, D., Reichlin, L. (2011). Nowcasting. In \textit{The Oxford Handbook of Economic Forecasting}, Oxford University Press.
+
+\bibitem{bai2002} Bai, J., Ng, S. (2002). Determining the Number of Factors in Approximate Factor Models. \textit{Econometrica}, 70(1), 191--221.
+
+\bibitem{chernis2017} Chernis, T., Sekkel, R. (2017). A Dynamic Factor Model for Nowcasting Canadian GDP Growth. \textit{Bank of Canada Staff Working Paper} 2017-2.
+
+\bibitem{diebold1995} Diebold, F. X., Mariano, R. S. (1995). Comparing Predictive Accuracy. \textit{Journal of Business \& Economic Statistics}, 13(3), 253--263.
+
+\bibitem{doz2011} Doz, C., Giannone, D., Reichlin, L. (2011). A Two-Step Estimator for Large Approximate Dynamic Factor Models Based on Kalman Filtering. \textit{Journal of Econometrics}, 164(1), 188--205.
+
+\bibitem{doz2012} Doz, C., Giannone, D., Reichlin, L. (2012). A Quasi-Maximum Likelihood Approach for Large, Approximate Dynamic Factor Models. \textit{Review of Economics and Statistics}, 94(4), 1014--1024.
+
+\bibitem{geweke1977} Geweke, J. (1977). The Dynamic Factor Analysis of Economic Time Series. In \textit{Latent Variables in Socio-Economic Models}, North-Holland.
+
+\bibitem{giannone2008} Giannone, D., Reichlin, L., Small, D. (2008). Nowcasting: The Real-Time Informational Content of Macroeconomic Data. \textit{Journal of Monetary Economics}, 55(4), 665--676.
+
+\bibitem{mariano2003} Mariano, R. S., Murasawa, Y. (2003). A New Coincident Index of Business Cycles Based on Monthly and Quarterly Series. \textit{Journal of Applied Econometrics}, 18(4), 427--443.
+
+\bibitem{sargent1977} Sargent, T. J., Sims, C. A. (1977). Business Cycle Modeling Without Pretending to Have Too Much A Priori Economic Theory. Federal Reserve Bank of Minneapolis.
+
+\bibitem{supriyatna2024} Supriyatna, P. K., Prastyo, D. D., Akbar, M. S. (2024). Application of the Dynamic Factor Model on Nowcasting Sectoral Economic Growth with High-Frequency Data. \textit{Media Statistika}, 17(2), 128--139.
+
+\bibitem{krantz2023} Krantz, S. (2023). \textit{dfms: Dynamic Factor Models}. R package.
+
+\end{thebibliography}
+
+\end{document}
