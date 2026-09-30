@@ -1,0 +1,37 @@
+﻿"echantillon","scenario","comparaison","n_origines","statistique","p_value"
+"etendu (2009-2026)","M0","Combinaison contre BVAR seul",72,-1.16765077315568,0.246853963196342
+"etendu (2009-2026)","M0","Passerelle contre BVAR seul",72,-1.20383628076609,0.232651127550769
+"etendu (2009-2026)","M0","Combinaison contre Passerelle",72,1.22022524270061,0.226416943088222
+"etendu (2009-2026)","M1","Combinaison contre BVAR seul",72,-0.0228286481298306,0.981850993821269
+"etendu (2009-2026)","M1","Passerelle contre BVAR seul",72,-1.46890637058582,0.146275150629641
+"etendu (2009-2026)","M1","Combinaison contre Passerelle",72,1.99295120965712,0.0501110562227281
+"etendu (2009-2026)","M2","Combinaison contre BVAR seul",72,0.496143966097891,0.621325323154147
+"etendu (2009-2026)","M2","Passerelle contre BVAR seul",72,-1.31202787442192,0.193736982027277
+"etendu (2009-2026)","M2","Combinaison contre Passerelle",72,1.98726608956772,0.0507514939127744
+"etendu (2009-2026)","M3","Combinaison contre BVAR seul",72,0.980971188691742,0.329937889824355
+"etendu (2009-2026)","M3","Passerelle contre BVAR seul",72,-1.10885246839992,0.271235763155232
+"etendu (2009-2026)","M3","Combinaison contre Passerelle",72,2.03229608186225,0.0458656549943035
+"principal (2014-2026)","M0","Combinaison contre BVAR seul",48,-1.07282520539831,0.28882720639382
+"principal (2014-2026)","M0","Passerelle contre BVAR seul",48,-2.15492496017524,0.0363228526993272
+"principal (2014-2026)","M0","Combinaison contre Passerelle",48,2.83179016800175,0.00679385329371561
+"principal (2014-2026)","M1","Combinaison contre BVAR seul",48,1.28871021075047,0.203806351897112
+"principal (2014-2026)","M1","Passerelle contre BVAR seul",48,-0.115728886179855,0.908360468066603
+"principal (2014-2026)","M1","Combinaison contre Passerelle",48,1.45499506370747,0.152317407571474
+"principal (2014-2026)","M2","Combinaison contre BVAR seul",48,1.84373217047339,0.0715318004358854
+"principal (2014-2026)","M2","Passerelle contre BVAR seul",48,-0.00687846324061978,0.994540937307173
+"principal (2014-2026)","M2","Combinaison contre Passerelle",48,1.96316284737047,0.0555600397451452
+"principal (2014-2026)","M3","Combinaison contre BVAR seul",48,2.09804664747645,0.0413036268605335
+"principal (2014-2026)","M3","Passerelle contre BVAR seul",48,0.200846294798234,0.841685407247756
+"principal (2014-2026)","M3","Combinaison contre Passerelle",48,1.85371509536605,0.0700620906210832
+"avant 2014 seulement","M0","Combinaison contre BVAR seul",24,-1.20508580491235,0.240423427865366
+"avant 2014 seulement","M0","Passerelle contre BVAR seul",24,-1.22509820708338,0.23293695252637
+"avant 2014 seulement","M0","Combinaison contre Passerelle",24,1.24306175871096,0.226368282751034
+"avant 2014 seulement","M1","Combinaison contre BVAR seul",24,-0.347327798820554,0.731503271412316
+"avant 2014 seulement","M1","Passerelle contre BVAR seul",24,-1.506484476014,0.145555157836952
+"avant 2014 seulement","M1","Combinaison contre Passerelle",24,1.99210382966992,0.0583608861285931
+"avant 2014 seulement","M2","Combinaison contre BVAR seul",24,-0.0795993848418409,0.937244418869463
+"avant 2014 seulement","M2","Passerelle contre BVAR seul",24,-1.50644720942887,0.14556466667193
+"avant 2014 seulement","M2","Combinaison contre Passerelle",24,2.04788166539648,0.0521563841886629
+"avant 2014 seulement","M3","Combinaison contre BVAR seul",24,0.21035389351239,0.83524386127352
+"avant 2014 seulement","M3","Passerelle contre BVAR seul",24,-1.29090106919507,0.209563366759175
+"avant 2014 seulement","M3","Combinaison contre Passerelle",24,1.97856028682811,0.0599627511081518

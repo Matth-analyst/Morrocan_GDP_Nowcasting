@@ -1,0 +1,17 @@
+﻿"branche","rapport_variance","instable"
+"Administration publique",49.3417758520366,TRUE
+"Éducation-santé",3.06983728958148,FALSE
+"Agriculture",3.05261342833026,FALSE
+"Immobilier",2.30137572296734,FALSE
+"Finances et assurances",1.87682341082324,FALSE
+"Information-communication",0.692008074593644,FALSE
+"Construction",0.565918549387633,FALSE
+"Électricité, gaz, eau",0.473246771785364,FALSE
+"Industrie d'extraction",0.313204494910826,FALSE
+"Pêche",0.310781933091028,FALSE
+"Industrie de transformation",0.277332861614789,FALSE
+"Autres services",0.185252358749943,FALSE
+"Commerce",0.118253178817812,FALSE
+"Transports",0.0891515416747283,FALSE
+"Hébergement-restauration",0.0759111707118998,FALSE
+"Services aux entreprises",0.0703496443771875,FALSE

@@ -1,0 +1,6 @@
+﻿"regle","branches","ratio_median","n_ok"
+"delta = 0 (passerelle seule)",12,0.976051875965588,7
+"delta optimise",12,0.977397086733818,8
+"delta borne a [0,2 ; 0,8]",12,0.979224980338345,8
+"delta = 1 (BVAR seul)",12,0.981607008506849,7
+"delta = 0,5 (retenu)",12,0.981680333365353,8

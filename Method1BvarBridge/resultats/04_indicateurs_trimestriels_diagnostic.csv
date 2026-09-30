@@ -1,0 +1,432 @@
+﻿"id_serie","branche","indicateur","frequence","agregation","transformation","n_trimestres","debut","fin","eligible"
+"Agriculture :: Comptes débiteurs et crédits de trésorerie — Agriculture (MDH)","Agriculture","Comptes débiteurs et crédits de trésorerie — Agriculture (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Agriculture :: Crédit bancaire Agriculture et pêche (MDH)","Agriculture","Crédit bancaire Agriculture et pêche (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Agriculture :: Crédits à l'équipement — Agriculture (MDH)","Agriculture","Crédits à l'équipement — Agriculture (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Agriculture :: Moyenne des precipitations","Agriculture","Moyenne des precipitations","mensuel","sum","niveau",25,2020-03-31,2026-03-31,TRUE
+"Agriculture :: Température_moyenne","Agriculture","Température_moyenne","mensuel","mean","niveau",25,2020-03-31,2026-03-31,TRUE
+"Commerce :: Comptes débiteurs et crédits de trésorerie — Commerce (MDH)","Commerce","Comptes débiteurs et crédits de trésorerie — Commerce (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Commerce :: Crédit bancaire Commerce, réparations automobiles (MDH)","Commerce","Crédit bancaire Commerce, réparations automobiles (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Commerce :: Crédits à l'équipement — Commerce (MDH)","Commerce","Crédits à l'équipement — Commerce (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois","Commerce","Evolution des prix des produits finis au cours des trois prochains mois","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (2)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (2)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (3)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (3)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (4)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (4)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (5)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (5)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (6)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (6)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent","Commerce","Evolution des prix des produits finis par rapport au mois précédent","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (2)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (2)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (3)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (3)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (4)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (4)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (5)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (5)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (6)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (6)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Commerce :: Exportation ANP","Commerce","Exportation ANP","mensuel","sum","dlog",48,2010-06-30,2022-12-31,TRUE
+"Commerce :: Importation ANP","Commerce","Importation ANP","mensuel","sum","diff",48,2010-06-30,2022-12-31,TRUE
+"Commerce :: PRODUITS FINIS DE CONSOMMATION 1000 DH","Commerce","PRODUITS FINIS DE CONSOMMATION 1000 DH","mensuel","sum","dlog",32,2018-06-30,2026-03-31,TRUE
+"Commerce :: TOTAL EXPORTATIONS (1000)","Commerce","TOTAL EXPORTATIONS (1000)","mensuel","sum","dlog",32,2018-06-30,2026-03-31,TRUE
+"Commerce :: TOTAL IMPORTATIONS (1000)","Commerce","TOTAL IMPORTATIONS (1000)","mensuel","sum","dlog",32,2018-06-30,2026-03-31,TRUE
+"Construction :: Béni Mellal - Khénifra","Construction","Béni Mellal - Khénifra","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Casablanca - Settat","Construction","Casablanca - Settat","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Chaouia-Ourdigha","Construction","Chaouia-Ourdigha","mensuel","mean","diff",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Comptes débiteurs et crédits de trésorerie — Construction (MDH)","Construction","Comptes débiteurs et crédits de trésorerie — Construction (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Construction :: Crédit bancaire Bâtiment et travaux publics (MDH)","Construction","Crédit bancaire Bâtiment et travaux publics (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Construction :: Crédits à l'équipement — Construction (MDH)","Construction","Crédits à l'équipement — Construction (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Construction :: Dakhla -Oued Ed-Dahab","Construction","Dakhla -Oued Ed-Dahab","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Doukkala-Abda","Construction","Doukkala-Abda","mensuel","mean","dlog",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Drâa - Tafilalet","Construction","Drâa - Tafilalet","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Fès - Meknès","Construction","Fès - Meknès","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Fès Boulemane","Construction","Fès Boulemane","mensuel","mean","dlog",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Gharb-Cherarda-B.Hssen","Construction","Gharb-Cherarda-B.Hssen","mensuel","mean","dlog",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Grand Casablanca","Construction","Grand Casablanca","mensuel","mean","diff",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Guelmim-Es-Smara","Construction","Guelmim-Es-Smara","mensuel","mean","diff",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Guelmim-Oued Noun","Construction","Guelmim-Oued Noun","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Laayoun-S.Elhamra","Construction","Laayoun-S.Elhamra","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Laayoune-Boujdour-S.Elhamra","Construction","Laayoune-Boujdour-S.Elhamra","mensuel","mean","diff",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Marrakech-Safi","Construction","Marrakech-Safi","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Marrakech-Tensift-Haouz","Construction","Marrakech-Tensift-Haouz","mensuel","mean","dlog",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Meknés-Tafilalt","Construction","Meknés-Tafilalt","mensuel","mean","diff",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Oriental","Construction","Oriental","mensuel","mean","dlog",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Oriental (2)","Construction","Oriental (2)","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Rabat-Salé-Kénitra","Construction","Rabat-Salé-Kénitra","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Rabat-salé-Zemmour-Zaer","Construction","Rabat-salé-Zemmour-Zaer","mensuel","mean","dlog",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Souss-Massa","Construction","Souss-Massa","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Souss-Massa-Draa","Construction","Souss-Massa-Draa","mensuel","mean","diff",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Tadla-Azilal","Construction","Tadla-Azilal","mensuel","mean","diff",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Tanger-Tétouan","Construction","Tanger-Tétouan","mensuel","mean","dlog",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Tanger-Tétouan - Al Houceima","Construction","Tanger-Tétouan - Al Houceima","mensuel","mean","dlog",11,2001-06-30,2003-12-31,FALSE
+"Construction :: Taza-Al Houceima-Taounate","Construction","Taza-Al Houceima-Taounate","mensuel","mean","diff",52,2001-12-31,2015-12-31,TRUE
+"Construction :: Total (2)","Construction","Total (2)","mensuel","mean","dlog",26,2000-12-31,2007-03-31,TRUE
+"Construction :: Vente de ciment (1000tonnes)","Construction","Vente de ciment (1000tonnes)","mensuel","sum","dlog",117,1995-06-30,2026-03-31,TRUE
+"Finances et assurances :: Administrations locales","Finances et assurances","Administrations locales","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Autres crédits(3)","Finances et assurances","Autres crédits(3)","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Autres secteurs résidents","Finances et assurances","Autres secteurs résidents","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Autres sociétés financières","Finances et assurances","Autres sociétés financières","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Autres(2)","Finances et assurances","Autres(2)","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Avoirs officiels de réserve","Finances et assurances","Avoirs officiels de réserve","mensuel","last","dlog",64,2010-06-30,2026-03-31,TRUE
+"Finances et assurances :: Comptes débiteurs et crédits de trésorerie","Finances et assurances","Comptes débiteurs et crédits de trésorerie","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Comptes débiteurs et crédits de trésorerie — Finances et assurances (MDH)","Finances et assurances","Comptes débiteurs et crédits de trésorerie — Finances et assurances (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Finances et assurances :: Créances diverses sur la clientèle","Finances et assurances","Créances diverses sur la clientèle","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Créances en souffrance","Finances et assurances","Créances en souffrance","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Crédit bancaire","Finances et assurances","Crédit bancaire","mensuel","mean","dlog",72,2008-06-30,2026-03-31,TRUE
+"Finances et assurances :: Crédit bancaire Activités financières (MDH)","Finances et assurances","Crédit bancaire Activités financières (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Finances et assurances :: Crédits à caractére financier(2)","Finances et assurances","Crédits à caractére financier(2)","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Crédits à l'équipement","Finances et assurances","Crédits à l'équipement","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Crédits à l'équipement — Finances et assurances (MDH)","Finances et assurances","Crédits à l'équipement — Finances et assurances (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Finances et assurances :: Crédits à la consommation","Finances et assurances","Crédits à la consommation","mensuel","sum","dlog",72,2008-06-30,2026-03-31,TRUE
+"Finances et assurances :: Dépôts à vue auprés des banques","Finances et assurances","Dépôts à vue auprés des banques","mensuel","last","dlog",64,2010-06-30,2026-03-31,TRUE
+"Finances et assurances :: Entrepreneurs individuels","Finances et assurances","Entrepreneurs individuels","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Etablissements de crédit assimilés(1)","Finances et assurances","Etablissements de crédit assimilés(1)","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: ISBLSM","Finances et assurances","ISBLSM","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Masse monétaire (M3)","Finances et assurances","Masse monétaire (M3)","mensuel","last","dlog",64,2010-06-30,2026-03-31,TRUE
+"Finances et assurances :: OPCVM autres que monétaires","Finances et assurances","OPCVM autres que monétaires","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Particuliers et Marocains Résidant à l'Etranger","Finances et assurances","Particuliers et Marocains Résidant à l'Etranger","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Prestations (MDH)","Finances et assurances","Prestations (MDH)","trimestriel","sum","diff",32,2016-12-31,2026-03-31,TRUE
+"Finances et assurances :: Primes versées (MDH)","Finances et assurances","Primes versées (MDH)","trimestriel","sum","diff",32,2016-12-31,2026-03-31,TRUE
+"Finances et assurances :: Secteur privé","Finances et assurances","Secteur privé","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Secteur public hors AC","Finances et assurances","Secteur public hors AC","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Sociétés de financement","Finances et assurances","Sociétés de financement","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Sociétés non financières privées","Finances et assurances","Sociétés non financières privées","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Finances et assurances :: Sociétés non financières publiques","Finances et assurances","Sociétés non financières publiques","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Hébergement-restauration :: Agadir","Hébergement-restauration","Agadir","mensuel","mean","dlog",30,2008-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Allemagne","Hébergement-restauration","Allemagne","mensuel","mean","dlog",7,2023-06-30,2024-12-31,FALSE
+"Hébergement-restauration :: Arrivés de MRE aux frontières","Hébergement-restauration","Arrivés de MRE aux frontières","mensuel","sum","dlog",63,2008-06-30,2025-03-31,TRUE
+"Hébergement-restauration :: Arrivés de touristes aux frontières","Hébergement-restauration","Arrivés de touristes aux frontières","mensuel","sum","dlog",72,2008-06-30,2026-03-31,TRUE
+"Hébergement-restauration :: Arrivés de touristes étrangers de Séjour (TES)","Hébergement-restauration","Arrivés de touristes étrangers de Séjour (TES)","mensuel","sum","dlog",63,2008-06-30,2025-03-31,TRUE
+"Hébergement-restauration :: Belgique","Hébergement-restauration","Belgique","mensuel","mean","dlog",7,2023-06-30,2024-12-31,FALSE
+"Hébergement-restauration :: Canada","Hébergement-restauration","Canada","mensuel","mean","dlog",2,2023-09-30,2024-09-30,FALSE
+"Hébergement-restauration :: Casablanca","Hébergement-restauration","Casablanca","mensuel","mean","dlog",30,2008-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Comptes débiteurs et crédits de trésorerie — Hébergement-restauration (MDH)","Hébergement-restauration","Comptes débiteurs et crédits de trésorerie — Hébergement-restauration (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Hébergement-restauration :: Crédit bancaire Hôtels et restaurants (MDH)","Hébergement-restauration","Crédit bancaire Hôtels et restaurants (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Hébergement-restauration :: Crédits à l'équipement — Hébergement-restauration (MDH)","Hébergement-restauration","Crédits à l'équipement — Hébergement-restauration (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Hébergement-restauration :: Divers","Hébergement-restauration","Divers","mensuel","mean","dlog",7,2023-06-30,2024-12-31,FALSE
+"Hébergement-restauration :: EL jadida-mazagan","Hébergement-restauration","EL jadida-mazagan","mensuel","mean","dlog",26,2010-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Espagne","Hébergement-restauration","Espagne","mensuel","mean","dlog",7,2023-06-30,2024-12-31,FALSE
+"Hébergement-restauration :: Essaouira - Mogador","Hébergement-restauration","Essaouira - Mogador","mensuel","mean","dlog",30,2008-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Etats-Unis","Hébergement-restauration","Etats-Unis","mensuel","mean","dlog",7,2023-06-30,2024-12-31,FALSE
+"Hébergement-restauration :: France","Hébergement-restauration","France","mensuel","mean","dlog",7,2023-06-30,2024-12-31,FALSE
+"Hébergement-restauration :: Fès","Hébergement-restauration","Fès","mensuel","mean","dlog",30,2008-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Hollande","Hébergement-restauration","Hollande","mensuel","mean","dlog",7,2023-06-30,2024-12-31,FALSE
+"Hébergement-restauration :: Italie","Hébergement-restauration","Italie","mensuel","mean","dlog",7,2023-06-30,2024-12-31,FALSE
+"Hébergement-restauration :: Marrakech","Hébergement-restauration","Marrakech","mensuel","mean","dlog",30,2008-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Meknès","Hébergement-restauration","Meknès","mensuel","mean","dlog",29,2008-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Ouarzazate","Hébergement-restauration","Ouarzazate","mensuel","mean","dlog",30,2008-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Oujda-Essaidia","Hébergement-restauration","Oujda-Essaidia","mensuel","mean","dlog",26,2010-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Portugal","Hébergement-restauration","Portugal","mensuel","mean","dlog",3,2023-09-30,2024-09-30,FALSE
+"Hébergement-restauration :: Rabat","Hébergement-restauration","Rabat","mensuel","mean","dlog",30,2008-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Recettes touristiques (mensuel (En millions de dirhams))","Hébergement-restauration","Recettes touristiques (mensuel (En millions de dirhams))","mensuel","sum","dlog",71,2008-06-30,2025-12-31,TRUE
+"Hébergement-restauration :: Royaume-Uni","Hébergement-restauration","Royaume-Uni","mensuel","mean","dlog",7,2023-06-30,2024-12-31,FALSE
+"Hébergement-restauration :: Tanger","Hébergement-restauration","Tanger","mensuel","mean","dlog",30,2008-03-31,2019-06-30,TRUE
+"Hébergement-restauration :: Tourisme International","Hébergement-restauration","Tourisme International","mensuel","mean","dlog",3,2025-06-30,2025-12-31,FALSE
+"Hébergement-restauration :: Tourisme National","Hébergement-restauration","Tourisme National","mensuel","mean","dlog",3,2025-06-30,2025-12-31,FALSE
+"Hébergement-restauration :: Tétouan","Hébergement-restauration","Tétouan","mensuel","mean","dlog",29,2008-03-31,2019-03-31,TRUE
+"Immobilier :: Crédits aux promoteurs immobiliers (1)","Immobilier","Crédits aux promoteurs immobiliers (1)","mensuel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Immobilier :: Crédits à l'habitat (MDH) (Jan 18)","Immobilier","Crédits à l'habitat (MDH) (Jan 18)","mensuel","mean","dlog",72,2008-06-30,2026-03-31,TRUE
+"Immobilier :: Crédits à l’immobilier (MDH) (Jan 18)","Immobilier","Crédits à l’immobilier (MDH) (Jan 18)","mensuel","mean","dlog",72,2008-06-30,2026-03-31,TRUE
+"Immobilier :: Dont: Financement participatif à l'habitat","Immobilier","Dont: Financement participatif à l'habitat","mensuel","mean","dlog",33,2018-03-31,2026-03-31,TRUE
+"Immobilier :: IPAI Bureau — prix (var. trim. %)","Immobilier","IPAI Bureau — prix (var. trim. %)","trimestriel","mean","niveau",34,2015-09-30,2026-03-31,TRUE
+"Immobilier :: IPAI Bureau — transactions (var. trim. %)","Immobilier","IPAI Bureau — transactions (var. trim. %)","trimestriel","mean","niveau",28,2015-09-30,2026-03-31,TRUE
+"Immobilier :: IPAI Foncier — prix (var. trim. %)","Immobilier","IPAI Foncier — prix (var. trim. %)","trimestriel","mean","niveau",34,2015-09-30,2026-03-31,TRUE
+"Immobilier :: IPAI Foncier — transactions (var. trim. %)","Immobilier","IPAI Foncier — transactions (var. trim. %)","trimestriel","mean","niveau",30,2015-09-30,2026-03-31,TRUE
+"Immobilier :: IPAI Global — prix (série 1998–2017, var. trim. %)","Immobilier","IPAI Global — prix (série 1998–2017, var. trim. %)","trimestriel","mean","niveau",22,2010-03-31,2017-09-30,TRUE
+"Immobilier :: IPAI Local commercial — prix (var. trim. %)","Immobilier","IPAI Local commercial — prix (var. trim. %)","trimestriel","mean","niveau",33,2015-09-30,2026-03-31,TRUE
+"Immobilier :: IPAI Local commercial — transactions (var. trim. %)","Immobilier","IPAI Local commercial — transactions (var. trim. %)","trimestriel","mean","niveau",33,2015-09-30,2026-03-31,TRUE
+"Immobilier :: IPAI Professionnel — prix (var. trim. %)","Immobilier","IPAI Professionnel — prix (var. trim. %)","trimestriel","mean","niveau",32,2016-09-30,2026-03-31,TRUE
+"Immobilier :: IPAI Professionnel — transactions (var. trim. %)","Immobilier","IPAI Professionnel — transactions (var. trim. %)","trimestriel","mean","niveau",28,2016-09-30,2026-03-31,TRUE
+"Immobilier :: IPAI Résidentiel — transactions (var. trim. %)","Immobilier","IPAI Résidentiel — transactions (var. trim. %)","trimestriel","mean","niveau",33,2015-09-30,2026-03-31,TRUE
+"Industrie d'extraction :: Comptes débiteurs et crédits de trésorerie — Industrie d'extraction (MDH)","Industrie d'extraction","Comptes débiteurs et crédits de trésorerie — Industrie d'extraction (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie d'extraction :: Crédit bancaire Industries extractives (MDH)","Industrie d'extraction","Crédit bancaire Industries extractives (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie d'extraction :: Crédits à l'équipement — Industrie d'extraction (MDH)","Industrie d'extraction","Crédits à l'équipement — Industrie d'extraction (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie d'extraction :: Engrais","Industrie d'extraction","Engrais","mensuel","mean","dlog",18,2009-09-30,2015-09-30,FALSE
+"Industrie d'extraction :: Exportations OCP","Industrie d'extraction","Exportations OCP","mensuel","sum","dlog",31,2018-09-30,2026-03-31,TRUE
+"Industrie d'extraction :: Exportations autres extractions minières (Oct 2018)","Industrie d'extraction","Exportations autres extractions minières (Oct 2018)","mensuel","sum","diff",28,2019-06-30,2026-03-31,TRUE
+"Industrie d'extraction :: Exportations phosphate+derivés","Industrie d'extraction","Exportations phosphate+derivés","mensuel","sum","dlog",44,2015-06-30,2026-03-31,TRUE
+"Industrie d'extraction :: IPM — Autres industries extractives","Industrie d'extraction","IPM — Autres industries extractives","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie d'extraction :: IPM — Extraction de minerais métalliques","Industrie d'extraction","IPM — Extraction de minerais métalliques","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie d'extraction :: IPM — Industries extractives","Industrie d'extraction","IPM — Industries extractives","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie d'extraction :: Phosphates","Industrie d'extraction","Phosphates","mensuel","mean","dlog",58,2000-06-30,2016-06-30,TRUE
+"Industrie d'extraction :: Phosphates (2)","Industrie d'extraction","Phosphates (2)","mensuel","mean","diff",59,1998-12-31,2015-09-30,TRUE
+"Industrie d'extraction :: Production des dérivées de phosphates (Jan 2018)","Industrie d'extraction","Production des dérivées de phosphates (Jan 2018)","mensuel","sum","dlog",0,Inf,-Inf,FALSE
+"Industrie d'extraction :: Soufre liquide","Industrie d'extraction","Soufre liquide","mensuel","mean","diff",27,2000-06-30,2011-06-30,TRUE
+"Industrie d'extraction :: Soufre liquide (2)","Industrie d'extraction","Soufre liquide (2)","mensuel","mean","diff",19,2000-12-31,2011-06-30,FALSE
+"Industrie d'extraction :: Soufre solide","Industrie d'extraction","Soufre solide","mensuel","mean","dlog",27,2000-06-30,2011-06-30,TRUE
+"Industrie d'extraction :: Soufre solide (2)","Industrie d'extraction","Soufre solide (2)","mensuel","mean","dlog",20,2000-12-31,2011-06-30,TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (2)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (2)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (3)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (3)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (4)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (4)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (5)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (5)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédit bancaire Industries alimentaires et tabac (MDH)","Industrie de transformation","Crédit bancaire Industries alimentaires et tabac (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédit bancaire Industries chimiques-parachimiques (MDH)","Industrie de transformation","Crédit bancaire Industries chimiques-parachimiques (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédit bancaire Industries manufacturières diverses (MDH)","Industrie de transformation","Crédit bancaire Industries manufacturières diverses (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédit bancaire Industries métallurgiques-mécaniques-électriques (MDH)","Industrie de transformation","Crédit bancaire Industries métallurgiques-mécaniques-électriques (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédit bancaire Industries textiles-habillement-cuir (MDH)","Industrie de transformation","Crédit bancaire Industries textiles-habillement-cuir (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH) (2)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH) (2)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH) (3)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH) (3)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH) (4)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH) (4)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH) (5)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH) (5)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: DEMI PRODUITS","Industrie de transformation","DEMI PRODUITS","mensuel","mean","dlog",44,2015-06-30,2026-03-31,TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois","Industrie de transformation","Evolution de la production au cours des trois prochains mois","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (2)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (2)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (3)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (3)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (4)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (4)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (5)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (5)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (6)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (6)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent","Industrie de transformation","Evolution de la production par rapport au mois précédent","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (2)","Industrie de transformation","Evolution de la production par rapport au mois précédent (2)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (3)","Industrie de transformation","Evolution de la production par rapport au mois précédent (3)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (4)","Industrie de transformation","Evolution de la production par rapport au mois précédent (4)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (5)","Industrie de transformation","Evolution de la production par rapport au mois précédent (5)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (6)","Industrie de transformation","Evolution de la production par rapport au mois précédent (6)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (2)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (2)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (3)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (3)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (4)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (4)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (5)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (5)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (6)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (6)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois","Industrie de transformation","Evolution des ventes au cours des trois prochains mois","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (2)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (2)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (3)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (3)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (4)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (4)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (5)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (5)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (6)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (6)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent","Industrie de transformation","Evolution des ventes par rapport au mois précédent","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (2)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (2)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (3)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (3)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (4)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (4)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (5)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (5)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (6)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (6)","mensuel","sum","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: IPI — Autres industries manufacturés","Industrie de transformation","IPI — Autres industries manufacturés","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication de boissons","Industrie de transformation","IPI — Fabrication de boissons","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication de machines et équipements n.c.a.","Industrie de transformation","IPI — Fabrication de machines et équipements n.c.a.","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication de meubles","Industrie de transformation","IPI — Fabrication de meubles","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication de produits en caoutchouc et en plastique","Industrie de transformation","IPI — Fabrication de produits en caoutchouc et en plastique","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication de produits informatiques, électroniques et optiques","Industrie de transformation","IPI — Fabrication de produits informatiques, électroniques et optiques","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication de produits métalliques, à l’exclusion des machines et des équipements","Industrie de transformation","IPI — Fabrication de produits métalliques, à l’exclusion des machines et des équipements","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication de produits à base de tabac","Industrie de transformation","IPI — Fabrication de produits à base de tabac","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication de textiles","Industrie de transformation","IPI — Fabrication de textiles","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication d’autres matériels de transport","Industrie de transformation","IPI — Fabrication d’autres matériels de transport","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication d’autres produits minéraux non métalliques","Industrie de transformation","IPI — Fabrication d’autres produits minéraux non métalliques","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Fabrication d’équipements électriques","Industrie de transformation","IPI — Fabrication d’équipements électriques","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Imprimerie et reproduction d’enregistrements","Industrie de transformation","IPI — Imprimerie et reproduction d’enregistrements","trimestriel","sum","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Industrie automobile","Industrie de transformation","IPI — Industrie automobile","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Industrie chimique","Industrie de transformation","IPI — Industrie chimique","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Industrie du cuir et de la chaussure (à l’exception de l’habillement en cuir)","Industrie de transformation","IPI — Industrie du cuir et de la chaussure (à l’exception de l’habillement en cuir)","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Industrie du papier et du carton","Industrie de transformation","IPI — Industrie du papier et du carton","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Industrie d’habillement","Industrie de transformation","IPI — Industrie d’habillement","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Industrie pharmaceutique","Industrie de transformation","IPI — Industrie pharmaceutique","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Industries alimentaires","Industrie de transformation","IPI — Industries alimentaires","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Industries manufacturières hors raffinage de pétrole","Industrie de transformation","IPI — Industries manufacturières hors raffinage de pétrole","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Métallurgie","Industrie de transformation","IPI — Métallurgie","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Réparation et installation de machines et équipements","Industrie de transformation","IPI — Réparation et installation de machines et équipements","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: IPI — Travail du bois et fabrication d’articles en bois et en liège, à l’exception des meubles ; fabrication d’articles en vannerie et sparterie","Industrie de transformation","IPI — Travail du bois et fabrication d’articles en bois et en liège, à l’exception des meubles ; fabrication d’articles en vannerie et sparterie","trimestriel","mean","dlog",40,2016-06-30,2026-03-31,TRUE
+"Industrie de transformation :: Industries","Industrie de transformation","Industries","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Industries (2)","Industrie de transformation","Industries (2)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Industries (3)","Industrie de transformation","Industries (3)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (2)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (2)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (3)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (3)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (4)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (4)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (5)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (5)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (6)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (6)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des stocks de PF","Industrie de transformation","Niveau des stocks de PF","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des stocks de PF (2)","Industrie de transformation","Niveau des stocks de PF (2)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des stocks de PF (3)","Industrie de transformation","Niveau des stocks de PF (3)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des stocks de PF (4)","Industrie de transformation","Niveau des stocks de PF (4)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des stocks de PF (5)","Industrie de transformation","Niveau des stocks de PF (5)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: Niveau des stocks de PF (6)","Industrie de transformation","Niveau des stocks de PF (6)","mensuel","mean","niveau",59,2010-03-31,2024-09-30,TRUE
+"Industrie de transformation :: PRODUITS FINIS D'EQUIPEMENT INDUSTRIEL","Industrie de transformation","PRODUITS FINIS D'EQUIPEMENT INDUSTRIEL","mensuel","mean","dlog",44,2015-06-30,2026-03-31,TRUE
+"Industrie de transformation :: Taux d’Utilisation des Capacités","Industrie de transformation","Taux d’Utilisation des Capacités","mensuel","mean","dlog",61,2010-06-30,2025-06-30,TRUE
+"Industrie de transformation :: Utilisation des capacités de production (cumulé)","Industrie de transformation","Utilisation des capacités de production (cumulé)","mensuel","sum","dlog",32,2015-06-30,2023-03-31,TRUE
+"Information-communication :: Data Only","Information-communication","Data Only","trimestriel","mean","dlog",60,2011-06-30,2026-03-31,TRUE
+"Information-communication :: Data+Voix","Information-communication","Data+Voix","trimestriel","mean","dlog",60,2011-06-30,2026-03-31,TRUE
+"Information-communication :: Domaine .ma","Information-communication","Domaine .ma","trimestriel","last","dlog",29,2009-12-31,2016-12-31,TRUE
+"Information-communication :: Internet","Information-communication","Internet","trimestriel","mean","dlog",89,2004-03-31,2026-03-31,TRUE
+"Information-communication :: Internet (2)","Information-communication","Internet (2)","trimestriel","mean","dlog",57,2011-03-31,2025-03-31,TRUE
+"Information-communication :: Internet (3)","Information-communication","Internet (3)","trimestriel","mean","dlog",24,2011-03-31,2016-12-31,TRUE
+"Information-communication :: Internet 3G","Information-communication","Internet 3G","trimestriel","mean","dlog",73,2008-03-31,2026-03-31,TRUE
+"Information-communication :: Internet 3G (2)","Information-communication","Internet 3G (2)","trimestriel","mean","dlog",24,2011-03-31,2016-12-31,TRUE
+"Information-communication :: Internet ADSL","Information-communication","Internet ADSL","trimestriel","mean","dlog",89,2004-03-31,2026-03-31,TRUE
+"Information-communication :: Internet ADSL (2)","Information-communication","Internet ADSL (2)","trimestriel","mean","dlog",24,2011-03-31,2016-12-31,TRUE
+"Information-communication :: Liaisons louées (LL)","Information-communication","Liaisons louées (LL)","trimestriel","mean","dlog",75,2004-03-31,2026-03-31,TRUE
+"Information-communication :: Nouveaux enregistrements durant le trimestre","Information-communication","Nouveaux enregistrements durant le trimestre","trimestriel","mean","dlog",62,2010-12-31,2026-03-31,TRUE
+"Information-communication :: Parc Internet global (en milliers)","Information-communication","Parc Internet global (en milliers)","trimestriel","last","dlog",80,2006-06-30,2026-03-31,TRUE
+"Information-communication :: Parc de la téléphonie mobile par opérateur — Maroc télecom","Information-communication","Parc de la téléphonie mobile par opérateur — Maroc télecom","trimestriel","last","dlog",76,2006-06-30,2025-03-31,TRUE
+"Information-communication :: Parc de la téléphonie mobile par opérateur — Méditel","Information-communication","Parc de la téléphonie mobile par opérateur — Méditel","trimestriel","last","dlog",76,2006-06-30,2025-03-31,TRUE
+"Information-communication :: Parc de la téléphonie mobile par opérateur — WANA Corporate","Information-communication","Parc de la téléphonie mobile par opérateur — WANA Corporate","trimestriel","last","dlog",66,2008-12-31,2025-03-31,TRUE
+"Information-communication :: Parc des noms de domaine «.ma»","Information-communication","Parc des noms de domaine «.ma»","trimestriel","last","dlog",62,2010-12-31,2026-03-31,TRUE
+"Information-communication :: Parc liaisons Data Entreprises Nationale (T1-2018)","Information-communication","Parc liaisons Data Entreprises Nationale (T1-2018)","trimestriel","last","dlog",32,2018-06-30,2026-03-31,TRUE
+"Information-communication :: Parc téléphonie mobile global (en milliers)","Information-communication","Parc téléphonie mobile global (en milliers)","trimestriel","last","dlog",80,2006-06-30,2026-03-31,TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie fixe — Parc professionnel","Information-communication","Parts de marché dans le secteur de la téléphonie fixe — Parc professionnel","trimestriel","mean","niveau",77,2006-03-31,2025-03-31,TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie fixe — Parc résidentiel","Information-communication","Parts de marché dans le secteur de la téléphonie fixe — Parc résidentiel","trimestriel","mean","niveau",77,2006-03-31,2025-03-31,TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie mobile — Maroc télecom","Information-communication","Parts de marché dans le secteur de la téléphonie mobile — Maroc télecom","trimestriel","mean","niveau",77,2006-03-31,2025-03-31,TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie mobile — Méditel","Information-communication","Parts de marché dans le secteur de la téléphonie mobile — Méditel","trimestriel","mean","niveau",77,2006-03-31,2025-03-31,TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie mobile — WANA Corporate","Information-communication","Parts de marché dans le secteur de la téléphonie mobile — WANA Corporate","trimestriel","mean","niveau",67,2008-09-30,2025-03-31,TRUE
+"Information-communication :: Publiphones","Information-communication","Publiphones","trimestriel","mean","dlog",96,2002-06-30,2026-03-31,TRUE
+"Information-communication :: Revenu moyen d’une minute de communication (ARPM) Mobile — Post payé","Information-communication","Revenu moyen d’une minute de communication (ARPM) Mobile — Post payé","trimestriel","mean","dlog",30,2010-09-30,2017-12-31,TRUE
+"Information-communication :: Revenu moyen d’une minute de communication (ARPM) Mobile — Prépayé","Information-communication","Revenu moyen d’une minute de communication (ARPM) Mobile — Prépayé","trimestriel","mean","dlog",30,2010-09-30,2017-12-31,TRUE
+"Information-communication :: Revenu moyen d’une minute de communication (ARPM) Mobile — Téléphone mobile","Information-communication","Revenu moyen d’une minute de communication (ARPM) Mobile — Téléphone mobile","trimestriel","mean","dlog",30,2010-09-30,2017-12-31,TRUE
+"Information-communication :: Revenu moyen d’une minute de communication (ARPM) — Téléphone fixe","Information-communication","Revenu moyen d’une minute de communication (ARPM) — Téléphone fixe","trimestriel","mean","dlog",27,2010-12-31,2017-12-31,TRUE
+"Information-communication :: Taux de pénétration de l’Internet","Information-communication","Taux de pénétration de l’Internet","trimestriel","last","niveau",62,2010-12-31,2026-03-31,TRUE
+"Information-communication :: Taux de pénétration du mobile","Information-communication","Taux de pénétration du mobile","trimestriel","last","niveau",81,2006-03-31,2026-03-31,TRUE
+"Information-communication :: Trafic voix sortant du Fixe — Téléphone fixe","Information-communication","Trafic voix sortant du Fixe — Téléphone fixe","trimestriel","sum","dlog",31,2011-03-31,2018-09-30,TRUE
+"Pêche :: AGADIR","Pêche","AGADIR","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: AGLOU","Pêche","AGLOU","mensuel","sum","diff",33,2012-03-31,2026-03-31,TRUE
+"Pêche :: AINBIDA","Pêche","AINBIDA","mensuel","sum","diff",31,2012-09-30,2026-03-31,TRUE
+"Pêche :: AL HOCEIMA","Pêche","AL HOCEIMA","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: ALGUES","Pêche","ALGUES","mensuel","sum","diff",41,2012-06-30,2026-03-31,TRUE
+"Pêche :: ALGUES (2)","Pêche","ALGUES (2)","mensuel","sum","diff",43,2012-06-30,2026-03-31,TRUE
+"Pêche :: AMEGRIOU","Pêche","AMEGRIOU","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: AMTAR","Pêche","AMTAR","mensuel","sum","diff",29,2014-06-30,2026-03-31,TRUE
+"Pêche :: ASILAH","Pêche","ASILAH","mensuel","sum","diff",38,2012-03-31,2026-03-31,TRUE
+"Pêche :: ATLANTIQUE","Pêche","ATLANTIQUE","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: BELYOUNECH","Pêche","BELYOUNECH","mensuel","sum","diff",24,2016-09-30,2026-03-31,TRUE
+"Pêche :: BHIBEH","Pêche","BHIBEH","mensuel","sum","diff",27,2014-12-31,2026-03-31,TRUE
+"Pêche :: BOUJDOUR","Pêche","BOUJDOUR","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: CALA IRIS","Pêche","CALA IRIS","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: CASABLANCA","Pêche","CASABLANCA","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: CEPHALOPODES","Pêche","CEPHALOPODES","mensuel","sum","diff",44,2012-03-31,2026-03-31,TRUE
+"Pêche :: CEPHALOPODES (2)","Pêche","CEPHALOPODES (2)","mensuel","sum","diff",42,2012-03-31,2026-03-31,TRUE
+"Pêche :: CHMAALA","Pêche","CHMAALA","mensuel","sum","diff",34,2013-03-31,2026-03-31,TRUE
+"Pêche :: COQUILLAGES","Pêche","COQUILLAGES","mensuel","sum","diff",44,2012-03-31,2026-03-31,TRUE
+"Pêche :: COQUILLAGES (2)","Pêche","COQUILLAGES (2)","mensuel","sum","diff",42,2012-03-31,2026-03-31,TRUE
+"Pêche :: CRUSTACES","Pêche","CRUSTACES","mensuel","sum","diff",44,2012-03-31,2026-03-31,TRUE
+"Pêche :: CRUSTACES (2)","Pêche","CRUSTACES (2)","mensuel","sum","diff",42,2012-03-31,2026-03-31,TRUE
+"Pêche :: Comptes débiteurs et crédits de trésorerie — Pêche (MDH)","Pêche","Comptes débiteurs et crédits de trésorerie — Pêche (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Pêche :: Crédits à l'équipement — Pêche (MDH)","Pêche","Crédits à l'équipement — Pêche (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Pêche :: DAKHLA","Pêche","DAKHLA","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: DAKHLA (STOCK C)","Pêche","DAKHLA (STOCK C)","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: EL JADIDA","Pêche","EL JADIDA","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: ESSAOUIRA","Pêche","ESSAOUIRA","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: FNIDEQ","Pêche","FNIDEQ","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: IMESSOUANE","Pêche","IMESSOUANE","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: IMI OUADDAR","Pêche","IMI OUADDAR","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: INOUAREN","Pêche","INOUAREN","mensuel","sum","diff",34,2013-03-31,2026-03-31,TRUE
+"Pêche :: Imoutlan","Pêche","Imoutlan","mensuel","sum","diff",38,2012-03-31,2026-03-31,TRUE
+"Pêche :: JEBHA","Pêche","JEBHA","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: JORF LASFAR","Pêche","JORF LASFAR","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: KAA ASRAS","Pêche","KAA ASRAS","mensuel","sum","diff",31,2014-06-30,2026-03-31,TRUE
+"Pêche :: KSAR SGHIR","Pêche","KSAR SGHIR","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: LAAYOUNE","Pêche","LAAYOUNE","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: LABOUIRDA","Pêche","LABOUIRDA","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: LACRAA (CAP 7)","Pêche","LACRAA (CAP 7)","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: LAKRAA","Pêche","LAKRAA","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: LARACHE","Pêche","LARACHE","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: LASSARGA","Pêche","LASSARGA","mensuel","sum","diff",38,2012-03-31,2026-03-31,TRUE
+"Pêche :: LMHIRIZ","Pêche","LMHIRIZ","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: Lahdida","Pêche","Lahdida","mensuel","sum","diff",25,2015-12-31,2026-03-31,TRUE
+"Pêche :: M'DIQ","Pêche","M'DIQ","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: MARTIL","Pêche","MARTIL","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: MEDITERRANEE","Pêche","MEDITERRANEE","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: MEHDIA","Pêche","MEHDIA","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: MOHAMMEDIA","Pêche","MOHAMMEDIA","mensuel","sum","dlog",38,2012-03-31,2026-03-31,TRUE
+"Pêche :: NADOR","Pêche","NADOR","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: NTIRIFT","Pêche","NTIRIFT","mensuel","sum","diff",38,2012-03-31,2026-03-31,TRUE
+"Pêche :: OUED LAOU","Pêche","OUED LAOU","mensuel","sum","diff",33,2012-12-31,2026-03-31,TRUE
+"Pêche :: POISSON BLANC","Pêche","POISSON BLANC","mensuel","sum","diff",44,2012-03-31,2026-03-31,TRUE
+"Pêche :: POISSON BLANC (2)","Pêche","POISSON BLANC (2)","mensuel","sum","diff",42,2012-03-31,2026-03-31,TRUE
+"Pêche :: POISSON PELAGIQUE","Pêche","POISSON PELAGIQUE","mensuel","sum","diff",44,2012-03-31,2026-03-31,TRUE
+"Pêche :: POISSON PELAGIQUE (2)","Pêche","POISSON PELAGIQUE (2)","mensuel","sum","diff",42,2012-03-31,2026-03-31,TRUE
+"Pêche :: RAS KEBDANA","Pêche","RAS KEBDANA","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: RKOUNTE","Pêche","RKOUNTE","mensuel","sum","diff",31,2012-03-31,2026-03-31,TRUE
+"Pêche :: SAFI","Pêche","SAFI","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: SALE","Pêche","SALE","mensuel","sum","diff",25,2015-12-31,2026-03-31,TRUE
+"Pêche :: SID ELGHAZI","Pêche","SID ELGHAZI","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: SIDI H'SAINE","Pêche","SIDI H'SAINE","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: SIDI IFNI","Pêche","SIDI IFNI","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: SOUIRIA KDIMA","Pêche","SOUIRIA KDIMA","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: Sidi ABED","Pêche","Sidi ABED","mensuel","sum","diff",29,2014-06-30,2026-03-31,TRUE
+"Pêche :: TAFEDNA","Pêche","TAFEDNA","mensuel","sum","diff",29,2014-06-30,2026-03-31,TRUE
+"Pêche :: TAGHAZOUT","Pêche","TAGHAZOUT","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: TAN TAN","Pêche","TAN TAN","mensuel","sum","diff",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: TANGER","Pêche","TANGER","mensuel","sum","dlog",40,2012-03-31,2026-03-31,TRUE
+"Pêche :: TARFAYA","Pêche","TARFAYA","mensuel","sum","diff",37,2012-03-31,2026-03-31,TRUE
+"Pêche :: TARGHA","Pêche","TARGHA","mensuel","sum","diff",31,2014-06-30,2026-03-31,TRUE
+"Pêche :: TAROUMA","Pêche","TAROUMA","mensuel","sum","diff",24,2015-12-31,2026-03-31,TRUE
+"Pêche :: TIFNIT","Pêche","TIFNIT","mensuel","sum","diff",32,2013-03-31,2026-03-31,TRUE
+"Transports :: Cabotage EXP","Transports","Cabotage EXP","mensuel","sum","dlog",32,2015-03-31,2022-12-31,TRUE
+"Transports :: Cabotage IMP","Transports","Cabotage IMP","mensuel","sum","dlog",30,2015-03-31,2022-12-31,TRUE
+"Transports :: Comptes débiteurs et crédits de trésorerie — Transports (MDH)","Transports","Comptes débiteurs et crédits de trésorerie — Transports (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Transports :: Crédit bancaire Transports et communications (MDH)","Transports","Crédit bancaire Transports et communications (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Transports :: Crédits à l'équipement — Transports (MDH)","Transports","Crédits à l'équipement — Transports (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Transports :: Trafic aérien (Jan 18)","Transports","Trafic aérien (Jan 18)","mensuel","sum","dlog",23,2018-06-30,2026-03-31,TRUE
+"Transports :: Trafic globale gérés par l'ANP","Transports","Trafic globale gérés par l'ANP","mensuel","sum","diff",52,2010-06-30,2023-03-31,TRUE
+"Électricité, gaz, eau :: - Apport des Tiers Nationaux","Électricité, gaz, eau","- Apport des Tiers Nationaux","mensuel","mean","diff",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Auxiliaires des centrales pompes du réseau THT-HT","Électricité, gaz, eau","- Auxiliaires des centrales pompes du réseau THT-HT","mensuel","mean","diff",40,2015-12-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Charbon (en Tonnes) :","Électricité, gaz, eau","- Charbon (en Tonnes) :","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Clients BT","Électricité, gaz, eau","- Clients BT","mensuel","mean","diff",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Clients MT","Électricité, gaz, eau","- Clients MT","mensuel","mean","diff",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Distributeurs","Électricité, gaz, eau","- Distributeurs","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Eolien Loi 13-09_Via réseau client","Électricité, gaz, eau","- Eolien Loi 13-09_Via réseau client","mensuel","mean","dlog",13,2016-03-31,2019-09-30,FALSE
+"Électricité, gaz, eau :: - Fioul (en Tonnes)","Électricité, gaz, eau","- Fioul (en Tonnes)","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Gasoil (en Tonnes)","Électricité, gaz, eau","- Gasoil (en Tonnes)","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Production Privée d'Électricité :","Électricité, gaz, eau","- Production Privée d'Électricité :","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Production Totale ONEE-Branche Électricité :","Électricité, gaz, eau","- Production Totale ONEE-Branche Électricité :","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Projets développés dans le cadre de la loi 13-09 relative aux Energies Renouvelables :","Électricité, gaz, eau","- Projets développés dans le cadre de la loi 13-09 relative aux Energies Renouvelables :","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - STEP Energie absorbée pour le pompage","Électricité, gaz, eau","- STEP Energie absorbée pour le pompage","mensuel","sum","diff",40,2015-12-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: - Solde des échanges d'énergie (Espagne-Algérie) :","Électricité, gaz, eau","- Solde des échanges d'énergie (Espagne-Algérie) :","mensuel","sum","diff",40,2015-12-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Centrale Thermo-solaire d'Ain Béni Mathar","Électricité, gaz, eau",". Centrale Thermo-solaire d'Ain Béni Mathar","mensuel","mean","diff",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Centrale de JLEC 1-4","Électricité, gaz, eau",". Centrale de JLEC 1-4","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Centrale de JLEC 5-6","Électricité, gaz, eau",". Centrale de JLEC 5-6","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Centrale de Jerada","Électricité, gaz, eau",". Centrale de Jerada","mensuel","mean","diff",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Centrale de Mohammedia","Électricité, gaz, eau",". Centrale de Mohammedia","mensuel","mean","diff",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Centrale de SAFIEC","Électricité, gaz, eau",". Centrale de SAFIEC","mensuel","mean","dlog",28,2019-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Centrale de Tahaddart","Électricité, gaz, eau",". Centrale de Tahaddart","mensuel","mean","diff",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Compagnie Eolienne du Détroit (CED)","Électricité, gaz, eau",". Compagnie Eolienne du Détroit (CED)","mensuel","mean","diff",15,2016-03-31,2020-03-31,FALSE
+"Électricité, gaz, eau :: . Energie Electrique de Tahaddart (EET)","Électricité, gaz, eau",". Energie Electrique de Tahaddart (EET)","mensuel","sum","diff",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Eolienne","Électricité, gaz, eau",". Eolienne","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Hydraulique","Électricité, gaz, eau",". Hydraulique","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Jorf Lasfar Energy Company (JLEC 1-4)","Électricité, gaz, eau",". Jorf Lasfar Energy Company (JLEC 1-4)","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Jorf Lasfar Energy Company (JLEC 5-6)","Électricité, gaz, eau",". Jorf Lasfar Energy Company (JLEC 5-6)","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Moroccan Agency for Sustainable Energy (MASEN) (Solaire Noor 1)","Électricité, gaz, eau",". Moroccan Agency for Sustainable Energy (MASEN) (Solaire Noor 1)","mensuel","mean","dlog",38,2016-12-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Parc Eolien JBEL LHDID","Électricité, gaz, eau",". Parc Eolien JBEL LHDID","mensuel","sum","dlog",9,2024-03-31,2026-03-31,FALSE
+"Électricité, gaz, eau :: . Parc Eolien KOUDIA AL BAIDA","Électricité, gaz, eau",". Parc Eolien KOUDIA AL BAIDA","mensuel","sum","dlog",7,2024-09-30,2026-03-31,FALSE
+"Électricité, gaz, eau :: . Parc Eolien de Boujdour","Électricité, gaz, eau",". Parc Eolien de Boujdour","mensuel","sum","dlog",12,2023-06-30,2026-03-31,FALSE
+"Électricité, gaz, eau :: . Parc Eolien de Midelt","Électricité, gaz, eau",". Parc Eolien de Midelt","mensuel","sum","dlog",24,2020-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Parc Eolien de TAZA I","Électricité, gaz, eau",". Parc Eolien de TAZA I","mensuel","sum","dlog",15,2022-09-30,2026-03-31,FALSE
+"Électricité, gaz, eau :: . Parc Eolien de Tarfaya (TAREC)","Électricité, gaz, eau",". Parc Eolien de Tarfaya (TAREC)","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Safi Energy Company (SAFIEC)","Électricité, gaz, eau",". Safi Energy Company (SAFIEC)","mensuel","mean","diff",32,2018-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Solaire (Centrale solaire d'Assa + Tafilalet PV)","Électricité, gaz, eau",". Solaire (Centrale solaire d'Assa + Tafilalet PV)","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: . Thermique","Électricité, gaz, eau",". Thermique","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: .Parc éolien Afissat","Électricité, gaz, eau",".Parc éolien Afissat","mensuel","sum","dlog",31,2018-09-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: .Parc éolien Akhfennir","Électricité, gaz, eau",".Parc éolien Akhfennir","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: .Parc éolien Dakhla","Électricité, gaz, eau",".Parc éolien Dakhla","mensuel","sum","dlog",2,2025-12-31,2026-03-31,FALSE
+"Électricité, gaz, eau :: .Parc éolien Foum El Oued","Électricité, gaz, eau",".Parc éolien Foum El Oued","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: .Parc éolien Haouma","Électricité, gaz, eau",".Parc éolien Haouma","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: .Parc éolien Khelladi","Électricité, gaz, eau",".Parc éolien Khelladi","mensuel","sum","dlog",32,2018-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: .Parc éolien Oualidia","Électricité, gaz, eau",".Parc éolien Oualidia","mensuel","sum","dlog",19,2021-09-30,2026-03-31,FALSE
+"Électricité, gaz, eau :: Apport des Tiers Nationaux","Électricité, gaz, eau","Apport des Tiers Nationaux","mensuel","mean","diff",105,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Autoproducteurs","Électricité, gaz, eau","Autoproducteurs","mensuel","mean","diff",77,1999-06-30,2018-12-31,TRUE
+"Électricité, gaz, eau :: Autres PP","Électricité, gaz, eau","Autres PP","mensuel","mean","dlog",11,2011-09-30,2014-03-31,FALSE
+"Électricité, gaz, eau :: Auxiliaires des centrales pompes du réseau THT-HT","Électricité, gaz, eau","Auxiliaires des centrales pompes du réseau THT-HT","mensuel","mean","diff",61,2010-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Charbon importé","Électricité, gaz, eau","Charbon importé","mensuel","sum","diff",112,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Charbon local","Électricité, gaz, eau","Charbon local","mensuel","mean","diff",112,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Clients BT","Électricité, gaz, eau","Clients BT","mensuel","mean","diff",107,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Clients MT","Électricité, gaz, eau","Clients MT","mensuel","mean","diff",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Clients THT-HT","Électricité, gaz, eau","Clients THT-HT","mensuel","mean","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Comptes débiteurs et crédits de trésorerie — Électricité, gaz, eau (MDH)","Électricité, gaz, eau","Comptes débiteurs et crédits de trésorerie — Électricité, gaz, eau (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Consommation de combustibles (Fioul, Charbon, Gaz oil) Tonnes","Électricité, gaz, eau","Consommation de combustibles (Fioul, Charbon, Gaz oil) Tonnes","mensuel","sum","dlog",32,2018-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Crédit bancaire Électricité, gaz et eau (MDH)","Électricité, gaz, eau","Crédit bancaire Électricité, gaz et eau (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Crédits à l'équipement — Électricité, gaz, eau (MDH)","Électricité, gaz, eau","Crédits à l'équipement — Électricité, gaz, eau (MDH)","trimestriel","mean","dlog",77,2007-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Distributeurs","Électricité, gaz, eau","Distributeurs","mensuel","mean","diff",107,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Energie Electrique de Tahaddart","Électricité, gaz, eau","Energie Electrique de Tahaddart","mensuel","sum","diff",57,2010-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Energie nette appelée","Électricité, gaz, eau","Energie nette appelée","mensuel","sum","dlog",112,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Eolienne","Électricité, gaz, eau","Eolienne","mensuel","mean","diff",92,2003-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Fuel","Électricité, gaz, eau","Fuel","mensuel","mean","dlog",112,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Gasoil","Électricité, gaz, eau","Gasoil","mensuel","mean","diff",112,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Hydraulique","Électricité, gaz, eau","Hydraulique","mensuel","mean","dlog",112,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: I- ENERGIE NETTE APPELEE (en GWh) y compris l’énergie éolienne via réseau clients","Électricité, gaz, eau","I- ENERGIE NETTE APPELEE (en GWh) y compris l’énergie éolienne via réseau clients","mensuel","sum","dlog",13,2016-03-31,2019-09-30,FALSE
+"Électricité, gaz, eau :: II- ENERGIE NETTE APPELEE (en GWh) dont :","Électricité, gaz, eau","II- ENERGIE NETTE APPELEE (en GWh) dont :","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: III- VENTES D'ÉLECTRICITE (en GWh) dont :","Électricité, gaz, eau","III- VENTES D'ÉLECTRICITE (en GWh) dont :","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Parc Eolien : CED","Électricité, gaz, eau","Parc Eolien : CED","mensuel","sum","diff",40,2010-03-31,2019-12-31,TRUE
+"Électricité, gaz, eau :: Parc Eolien de Tarfaya","Électricité, gaz, eau","Parc Eolien de Tarfaya","mensuel","sum","dlog",46,2014-12-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Petcoke","Électricité, gaz, eau","Petcoke","mensuel","mean","diff",96,2000-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Prix du Brent (USD/baril)","Électricité, gaz, eau","Prix du Brent (USD/baril)","mensuel","mean","dlog",34,2016-06-30,2024-09-30,TRUE
+"Électricité, gaz, eau :: Prix du Butane (USD/mt)","Électricité, gaz, eau","Prix du Butane (USD/mt)","mensuel","mean","dlog",34,2016-06-30,2024-09-30,TRUE
+"Électricité, gaz, eau :: Production d'électricité","Électricité, gaz, eau","Production d'électricité","mensuel","sum","dlog",32,2018-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: Production thermique : JLEC","Électricité, gaz, eau","Production thermique : JLEC","mensuel","sum","dlog",62,2010-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Pétrole brut","Électricité, gaz, eau","Pétrole brut","mensuel","mean","dlog",12,2011-06-30,2014-03-31,FALSE
+"Électricité, gaz, eau :: STEP Energie absorbée pour le pompage","Électricité, gaz, eau","STEP Energie absorbée pour le pompage","mensuel","sum","diff",65,2010-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: Thermique (y compris ABM)","Électricité, gaz, eau","Thermique (y compris ABM)","mensuel","mean","dlog",112,1998-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: dont Production de source renouvelable (éolien)","Électricité, gaz, eau","dont Production de source renouvelable (éolien)","mensuel","sum","dlog",20,2021-06-30,2026-03-31,TRUE
+"Électricité, gaz, eau :: dont Turbinage de la STEP","Électricité, gaz, eau","dont Turbinage de la STEP","mensuel","sum","diff",65,2010-03-31,2026-03-31,TRUE
+"Électricité, gaz, eau :: dont Turbinage de la STEP (2)","Électricité, gaz, eau","dont Turbinage de la STEP (2)","mensuel","sum","dlog",39,2016-03-31,2026-03-31,TRUE

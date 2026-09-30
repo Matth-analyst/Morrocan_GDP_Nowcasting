@@ -1,0 +1,8 @@
+﻿"specification","ratio_median","n_branches_ok"
+"fenetre glissante 60 trim.",1.01175238805831,6
+"liste codee en dur (2020 T1/T2/T3)",1.01593875740143,3
+"reference (mode et regle retenus)",1.01671792558341,5
+"sans indicatrice de choc",1.02099231306796,4
+"fenetre glissante 40 trim.",1.03202632770444,4
+"indicatrices de la version 1 (T2 et T3)",1.03697185699675,3
+"hyperparametres fixes de Higgins (p=5, lambda=0.15)",1.05635140666829,2

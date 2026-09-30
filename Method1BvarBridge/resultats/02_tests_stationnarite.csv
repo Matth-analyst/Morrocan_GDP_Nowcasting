@@ -1,0 +1,17 @@
+﻿"branche","p_niveau","p_dlog","stationnaire_niveau","stationnaire_dlog"
+"Administration publique",0.971616913609273,0.01,FALSE,TRUE
+"Agriculture",0.153734872314004,0.01,FALSE,TRUE
+"Autres services",0.791827129439751,0.01,FALSE,TRUE
+"Commerce",0.474226083357059,0.01,FALSE,TRUE
+"Construction",0.897773017439351,0.01,FALSE,TRUE
+"Finances et assurances",0.98674572313425,0.01,FALSE,TRUE
+"Hébergement-restauration",0.0922683624650401,0.01,FALSE,TRUE
+"Immobilier",0.90530058592254,0.01,FALSE,TRUE
+"Industrie d'extraction",0.16354616775967,0.01,FALSE,TRUE
+"Industrie de transformation",0.0468296507680252,0.01,TRUE,TRUE
+"Information-communication",0.857343773555203,0.01,FALSE,TRUE
+"Pêche",0.461383603167025,0.01,FALSE,TRUE
+"Services aux entreprises",0.596406154803455,0.01,FALSE,TRUE
+"Transports",0.546622045490389,0.01,FALSE,TRUE
+"Éducation-santé",0.99,0.01,FALSE,TRUE
+"Électricité, gaz, eau",0.420901361064318,0.01,FALSE,TRUE

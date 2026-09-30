@@ -1,0 +1,317 @@
+﻿"id_serie","branche","trimestres","refuses","bord","interne"
+"Agriculture :: Moyenne des precipitations","Agriculture",26,1,1,0
+"Agriculture :: Température_moyenne","Agriculture",26,1,1,0
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (2)","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (3)","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (4)","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (5)","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (6)","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (2)","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (3)","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (4)","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (5)","Commerce",60,1,1,0
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (6)","Commerce",60,1,1,0
+"Commerce :: Exportation ANP","Commerce",54,4,2,2
+"Commerce :: Importation ANP","Commerce",54,4,2,2
+"Commerce :: PRODUITS FINIS DE CONSOMMATION 1000 DH","Commerce",34,1,1,0
+"Commerce :: TOTAL EXPORTATIONS (1000)","Commerce",34,1,1,0
+"Commerce :: TOTAL IMPORTATIONS (1000)","Commerce",34,1,1,0
+"Construction :: Béni Mellal - Khénifra","Construction",16,3,2,1
+"Construction :: Casablanca - Settat","Construction",16,3,2,1
+"Construction :: Chaouia-Ourdigha","Construction",56,2,1,1
+"Construction :: Dakhla -Oued Ed-Dahab","Construction",16,3,2,1
+"Construction :: Doukkala-Abda","Construction",56,2,1,1
+"Construction :: Drâa - Tafilalet","Construction",16,3,2,1
+"Construction :: Fès - Meknès","Construction",16,3,2,1
+"Construction :: Fès Boulemane","Construction",56,2,1,1
+"Construction :: Gharb-Cherarda-B.Hssen","Construction",56,2,1,1
+"Construction :: Grand Casablanca","Construction",56,2,1,1
+"Construction :: Guelmim-Es-Smara","Construction",56,2,1,1
+"Construction :: Guelmim-Oued Noun","Construction",16,3,2,1
+"Construction :: Laayoun-S.Elhamra","Construction",16,3,2,1
+"Construction :: Laayoune-Boujdour-S.Elhamra","Construction",57,3,1,2
+"Construction :: Marrakech-Safi","Construction",16,3,2,1
+"Construction :: Marrakech-Tensift-Haouz","Construction",56,2,1,1
+"Construction :: Meknés-Tafilalt","Construction",56,2,1,1
+"Construction :: Oriental","Construction",56,2,1,1
+"Construction :: Oriental (2)","Construction",16,3,2,1
+"Construction :: Rabat-Salé-Kénitra","Construction",16,3,2,1
+"Construction :: Rabat-salé-Zemmour-Zaer","Construction",57,3,1,2
+"Construction :: Souss-Massa","Construction",16,3,2,1
+"Construction :: Souss-Massa-Draa","Construction",56,2,1,1
+"Construction :: Tadla-Azilal","Construction",57,3,1,2
+"Construction :: Tanger-Tétouan","Construction",57,3,1,2
+"Construction :: Tanger-Tétouan - Al Houceima","Construction",16,3,2,1
+"Construction :: Taza-Al Houceima-Taounate","Construction",57,3,1,2
+"Construction :: Total (2)","Construction",28,1,1,0
+"Construction :: Vente de ciment (1000tonnes)","Construction",126,5,1,4
+"Finances et assurances :: Administrations locales","Finances et assurances",99,2,2,0
+"Finances et assurances :: Autres crédits(3)","Finances et assurances",99,2,2,0
+"Finances et assurances :: Autres secteurs résidents","Finances et assurances",99,2,2,0
+"Finances et assurances :: Autres sociétés financières","Finances et assurances",99,2,2,0
+"Finances et assurances :: Autres(2)","Finances et assurances",99,2,2,0
+"Finances et assurances :: Avoirs officiels de réserve","Finances et assurances",66,1,1,0
+"Finances et assurances :: Comptes débiteurs et crédits de trésorerie","Finances et assurances",99,2,2,0
+"Finances et assurances :: Créances diverses sur la clientèle","Finances et assurances",99,2,2,0
+"Finances et assurances :: Créances en souffrance","Finances et assurances",99,2,2,0
+"Finances et assurances :: Crédit bancaire","Finances et assurances",75,2,2,0
+"Finances et assurances :: Crédits à caractére financier(2)","Finances et assurances",99,2,2,0
+"Finances et assurances :: Crédits à l'équipement","Finances et assurances",99,2,2,0
+"Finances et assurances :: Crédits à la consommation","Finances et assurances",75,2,2,0
+"Finances et assurances :: Dépôts à vue auprés des banques","Finances et assurances",66,1,1,0
+"Finances et assurances :: Entrepreneurs individuels","Finances et assurances",99,2,2,0
+"Finances et assurances :: Etablissements de crédit assimilés(1)","Finances et assurances",99,2,2,0
+"Finances et assurances :: ISBLSM","Finances et assurances",99,2,2,0
+"Finances et assurances :: Masse monétaire (M3)","Finances et assurances",66,1,1,0
+"Finances et assurances :: OPCVM autres que monétaires","Finances et assurances",99,2,2,0
+"Finances et assurances :: Particuliers et Marocains Résidant à l'Etranger","Finances et assurances",99,2,2,0
+"Finances et assurances :: Secteur privé","Finances et assurances",99,2,2,0
+"Finances et assurances :: Secteur public hors AC","Finances et assurances",99,2,2,0
+"Finances et assurances :: Sociétés de financement","Finances et assurances",99,2,2,0
+"Finances et assurances :: Sociétés non financières privées","Finances et assurances",99,2,2,0
+"Finances et assurances :: Sociétés non financières publiques","Finances et assurances",99,2,2,0
+"Hébergement-restauration :: Agadir","Hébergement-restauration",50,12,2,10
+"Hébergement-restauration :: Allemagne","Hébergement-restauration",9,1,1,0
+"Hébergement-restauration :: Arrivés de MRE aux frontières","Hébergement-restauration",69,3,1,2
+"Hébergement-restauration :: Arrivés de touristes aux frontières","Hébergement-restauration",74,1,1,0
+"Hébergement-restauration :: Arrivés de touristes étrangers de Séjour (TES)","Hébergement-restauration",69,3,1,2
+"Hébergement-restauration :: Belgique","Hébergement-restauration",9,1,1,0
+"Hébergement-restauration :: Canada","Hébergement-restauration",8,4,1,3
+"Hébergement-restauration :: Casablanca","Hébergement-restauration",50,12,2,10
+"Hébergement-restauration :: Divers","Hébergement-restauration",9,1,1,0
+"Hébergement-restauration :: EL jadida-mazagan","Hébergement-restauration",44,11,2,9
+"Hébergement-restauration :: Espagne","Hébergement-restauration",9,1,1,0
+"Hébergement-restauration :: Essaouira - Mogador","Hébergement-restauration",50,12,2,10
+"Hébergement-restauration :: Etats-Unis","Hébergement-restauration",9,1,1,0
+"Hébergement-restauration :: France","Hébergement-restauration",9,1,1,0
+"Hébergement-restauration :: Fès","Hébergement-restauration",50,12,2,10
+"Hébergement-restauration :: Hollande","Hébergement-restauration",9,1,1,0
+"Hébergement-restauration :: Italie","Hébergement-restauration",9,1,1,0
+"Hébergement-restauration :: Marrakech","Hébergement-restauration",50,12,2,10
+"Hébergement-restauration :: Meknès","Hébergement-restauration",49,12,2,10
+"Hébergement-restauration :: Ouarzazate","Hébergement-restauration",50,12,2,10
+"Hébergement-restauration :: Oujda-Essaidia","Hébergement-restauration",44,11,2,9
+"Hébergement-restauration :: Portugal","Hébergement-restauration",9,4,2,2
+"Hébergement-restauration :: Rabat","Hébergement-restauration",50,12,2,10
+"Hébergement-restauration :: Recettes touristiques (mensuel (En millions de dirhams))","Hébergement-restauration",73,1,1,0
+"Hébergement-restauration :: Royaume-Uni","Hébergement-restauration",9,1,1,0
+"Hébergement-restauration :: Tanger","Hébergement-restauration",50,12,2,10
+"Hébergement-restauration :: Tourisme International","Hébergement-restauration",4,0,0,0
+"Hébergement-restauration :: Tourisme National","Hébergement-restauration",4,0,0,0
+"Hébergement-restauration :: Tétouan","Hébergement-restauration",49,12,2,10
+"Immobilier :: Crédits aux promoteurs immobiliers (1)","Immobilier",99,2,2,0
+"Immobilier :: Crédits à l'habitat (MDH) (Jan 18)","Immobilier",75,2,2,0
+"Immobilier :: Crédits à l’immobilier (MDH) (Jan 18)","Immobilier",75,2,2,0
+"Immobilier :: Dont: Financement participatif à l'habitat","Immobilier",35,1,1,0
+"Industrie d'extraction :: Engrais","Industrie d'extraction",28,8,1,7
+"Industrie d'extraction :: Exportations OCP","Industrie d'extraction",34,2,2,0
+"Industrie d'extraction :: Exportations autres extractions minières (Oct 2018)","Industrie d'extraction",30,1,1,0
+"Industrie d'extraction :: Exportations phosphate+derivés","Industrie d'extraction",46,1,1,0
+"Industrie d'extraction :: Phosphates","Industrie d'extraction",71,7,0,7
+"Industrie d'extraction :: Phosphates (2)","Industrie d'extraction",72,10,2,8
+"Industrie d'extraction :: Production des dérivées de phosphates (Jan 2018)","Industrie d'extraction",32,31,2,29
+"Industrie d'extraction :: Soufre liquide","Industrie d'extraction",51,13,0,13
+"Industrie d'extraction :: Soufre liquide (2)","Industrie d'extraction",51,18,0,18
+"Industrie d'extraction :: Soufre solide","Industrie d'extraction",51,13,0,13
+"Industrie d'extraction :: Soufre solide (2)","Industrie d'extraction",51,17,0,17
+"Industrie de transformation :: DEMI PRODUITS","Industrie de transformation",46,1,1,0
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (2)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (3)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (4)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (5)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (6)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (2)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (3)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (4)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (5)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (6)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (2)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (3)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (4)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (5)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (6)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (2)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (3)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (4)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (5)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (6)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (2)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (3)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (4)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (5)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (6)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (2)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (3)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (4)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (5)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (6)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des stocks de PF","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des stocks de PF (2)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des stocks de PF (3)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des stocks de PF (4)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des stocks de PF (5)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: Niveau des stocks de PF (6)","Industrie de transformation",60,1,1,0
+"Industrie de transformation :: PRODUITS FINIS D'EQUIPEMENT INDUSTRIEL","Industrie de transformation",46,1,1,0
+"Industrie de transformation :: Taux d’Utilisation des Capacités","Industrie de transformation",63,1,1,0
+"Industrie de transformation :: Utilisation des capacités de production (cumulé)","Industrie de transformation",33,0,0,0
+"Pêche :: AGADIR","Pêche",60,12,2,10
+"Pêche :: AGLOU","Pêche",59,15,2,13
+"Pêche :: AINBIDA","Pêche",59,16,2,14
+"Pêche :: AL HOCEIMA","Pêche",60,12,2,10
+"Pêche :: ALGUES","Pêche",62,13,2,11
+"Pêche :: ALGUES (2)","Pêche",62,12,2,10
+"Pêche :: AMEGRIOU","Pêche",60,12,2,10
+"Pêche :: AMTAR","Pêche",48,11,2,9
+"Pêche :: ASILAH","Pêche",58,11,2,9
+"Pêche :: ATLANTIQUE","Pêche",60,12,2,10
+"Pêche :: BELYOUNECH","Pêche",43,12,2,10
+"Pêche :: BHIBEH","Pêche",48,13,2,11
+"Pêche :: BOUJDOUR","Pêche",60,12,2,10
+"Pêche :: CALA IRIS","Pêche",60,12,2,10
+"Pêche :: CASABLANCA","Pêche",60,12,2,10
+"Pêche :: CEPHALOPODES","Pêche",62,11,2,9
+"Pêche :: CEPHALOPODES (2)","Pêche",62,12,2,10
+"Pêche :: CHMAALA","Pêche",53,11,2,9
+"Pêche :: COQUILLAGES","Pêche",62,11,2,9
+"Pêche :: COQUILLAGES (2)","Pêche",62,12,2,10
+"Pêche :: CRUSTACES","Pêche",62,11,2,9
+"Pêche :: CRUSTACES (2)","Pêche",62,12,2,10
+"Pêche :: DAKHLA","Pêche",60,12,2,10
+"Pêche :: DAKHLA (STOCK C)","Pêche",59,11,2,9
+"Pêche :: EL JADIDA","Pêche",60,12,2,10
+"Pêche :: ESSAOUIRA","Pêche",60,12,2,10
+"Pêche :: FNIDEQ","Pêche",60,12,2,10
+"Pêche :: IMESSOUANE","Pêche",60,12,2,10
+"Pêche :: IMI OUADDAR","Pêche",60,12,2,10
+"Pêche :: INOUAREN","Pêche",53,11,2,9
+"Pêche :: Imoutlan","Pêche",60,13,2,11
+"Pêche :: JEBHA","Pêche",60,12,2,10
+"Pêche :: JORF LASFAR","Pêche",60,12,2,10
+"Pêche :: KAA ASRAS","Pêche",48,10,2,8
+"Pêche :: KSAR SGHIR","Pêche",60,12,2,10
+"Pêche :: LAAYOUNE","Pêche",60,12,2,10
+"Pêche :: LABOUIRDA","Pêche",60,12,2,10
+"Pêche :: LACRAA (CAP 7)","Pêche",60,12,2,10
+"Pêche :: LAKRAA","Pêche",60,12,2,10
+"Pêche :: LARACHE","Pêche",60,12,2,10
+"Pêche :: LASSARGA","Pêche",60,13,2,11
+"Pêche :: LMHIRIZ","Pêche",60,12,2,10
+"Pêche :: Lahdida","Pêche",49,14,2,12
+"Pêche :: M'DIQ","Pêche",60,12,2,10
+"Pêche :: MARTIL","Pêche",58,11,2,9
+"Pêche :: MEDITERRANEE","Pêche",60,12,2,10
+"Pêche :: MEHDIA","Pêche",60,12,2,10
+"Pêche :: MOHAMMEDIA","Pêche",60,13,2,11
+"Pêche :: NADOR","Pêche",60,12,2,10
+"Pêche :: NTIRIFT","Pêche",60,13,2,11
+"Pêche :: OUED LAOU","Pêche",58,14,2,12
+"Pêche :: POISSON BLANC","Pêche",62,11,2,9
+"Pêche :: POISSON BLANC (2)","Pêche",62,12,2,10
+"Pêche :: POISSON PELAGIQUE","Pêche",62,11,2,9
+"Pêche :: POISSON PELAGIQUE (2)","Pêche",62,12,2,10
+"Pêche :: RAS KEBDANA","Pêche",60,12,2,10
+"Pêche :: RKOUNTE","Pêche",56,14,2,12
+"Pêche :: SAFI","Pêche",60,12,2,10
+"Pêche :: SALE","Pêche",44,12,2,10
+"Pêche :: SID ELGHAZI","Pêche",60,12,2,10
+"Pêche :: SIDI H'SAINE","Pêche",60,12,2,10
+"Pêche :: SIDI IFNI","Pêche",60,12,2,10
+"Pêche :: SOUIRIA KDIMA","Pêche",60,12,2,10
+"Pêche :: Sidi ABED","Pêche",51,13,2,11
+"Pêche :: TAFEDNA","Pêche",49,12,2,10
+"Pêche :: TAGHAZOUT","Pêche",60,12,2,10
+"Pêche :: TAN TAN","Pêche",60,12,2,10
+"Pêche :: TANGER","Pêche",60,12,2,10
+"Pêche :: TARFAYA","Pêche",59,13,2,11
+"Pêche :: TARGHA","Pêche",48,10,2,8
+"Pêche :: TAROUMA","Pêche",43,12,2,10
+"Pêche :: TIFNIT","Pêche",53,12,2,10
+"Transports :: Cabotage EXP","Transports",37,4,2,2
+"Transports :: Cabotage IMP","Transports",37,5,2,3
+"Transports :: Trafic aérien (Jan 18)","Transports",33,6,1,5
+"Transports :: Trafic globale gérés par l'ANP","Transports",54,1,1,0
+"Électricité, gaz, eau :: - Apport des Tiers Nationaux","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - Auxiliaires des centrales pompes du réseau THT-HT","Électricité, gaz, eau",44,2,1,1
+"Électricité, gaz, eau :: - Charbon (en Tonnes) :","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - Clients BT","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - Clients MT","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - Distributeurs","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - Eolien Loi 13-09_Via réseau client","Électricité, gaz, eau",18,3,2,1
+"Électricité, gaz, eau :: - Fioul (en Tonnes)","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - Gasoil (en Tonnes)","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - Production Privée d'Électricité :","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - Production Totale ONEE-Branche Électricité :","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - Projets développés dans le cadre de la loi 13-09 relative aux Energies Renouvelables :","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: - STEP Energie absorbée pour le pompage","Électricité, gaz, eau",44,2,1,1
+"Électricité, gaz, eau :: - Solde des échanges d'énergie (Espagne-Algérie) :","Électricité, gaz, eau",44,2,1,1
+"Électricité, gaz, eau :: . Centrale Thermo-solaire d'Ain Béni Mathar","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Centrale de JLEC 1-4","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Centrale de JLEC 5-6","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Centrale de Jerada","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Centrale de Mohammedia","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Centrale de SAFIEC","Électricité, gaz, eau",31,2,2,0
+"Électricité, gaz, eau :: . Centrale de Tahaddart","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Compagnie Eolienne du Détroit (CED)","Électricité, gaz, eau",19,2,1,1
+"Électricité, gaz, eau :: . Energie Electrique de Tahaddart (EET)","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Eolienne","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Hydraulique","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Jorf Lasfar Energy Company (JLEC 1-4)","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Jorf Lasfar Energy Company (JLEC 5-6)","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Moroccan Agency for Sustainable Energy (MASEN) (Solaire Noor 1)","Électricité, gaz, eau",43,3,2,1
+"Électricité, gaz, eau :: . Parc Eolien JBEL LHDID","Électricité, gaz, eau",11,1,1,0
+"Électricité, gaz, eau :: . Parc Eolien KOUDIA AL BAIDA","Électricité, gaz, eau",10,2,2,0
+"Électricité, gaz, eau :: . Parc Eolien de Boujdour","Électricité, gaz, eau",14,1,1,0
+"Électricité, gaz, eau :: . Parc Eolien de Midelt","Électricité, gaz, eau",26,1,1,0
+"Électricité, gaz, eau :: . Parc Eolien de TAZA I","Électricité, gaz, eau",18,2,2,0
+"Électricité, gaz, eau :: . Parc Eolien de Tarfaya (TAREC)","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Safi Energy Company (SAFIEC)","Électricité, gaz, eau",35,2,2,0
+"Électricité, gaz, eau :: . Solaire (Centrale solaire d'Assa + Tafilalet PV)","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: . Thermique","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: .Parc éolien Afissat","Électricité, gaz, eau",33,1,1,0
+"Électricité, gaz, eau :: .Parc éolien Akhfennir","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: .Parc éolien Dakhla","Électricité, gaz, eau",5,2,2,0
+"Électricité, gaz, eau :: .Parc éolien Foum El Oued","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: .Parc éolien Haouma","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: .Parc éolien Khelladi","Électricité, gaz, eau",34,1,1,0
+"Électricité, gaz, eau :: .Parc éolien Oualidia","Électricité, gaz, eau",21,1,1,0
+"Électricité, gaz, eau :: Apport des Tiers Nationaux","Électricité, gaz, eau",114,5,1,4
+"Électricité, gaz, eau :: Autoproducteurs","Électricité, gaz, eau",81,2,1,1
+"Électricité, gaz, eau :: Autres PP","Électricité, gaz, eau",14,2,2,0
+"Électricité, gaz, eau :: Auxiliaires des centrales pompes du réseau THT-HT","Électricité, gaz, eau",68,4,2,2
+"Électricité, gaz, eau :: Charbon importé","Électricité, gaz, eau",114,1,1,0
+"Électricité, gaz, eau :: Charbon local","Électricité, gaz, eau",114,1,1,0
+"Électricité, gaz, eau :: Clients BT","Électricité, gaz, eau",114,4,1,3
+"Électricité, gaz, eau :: Clients MT","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: Clients THT-HT","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: Consommation de combustibles (Fioul, Charbon, Gaz oil) Tonnes","Électricité, gaz, eau",34,1,1,0
+"Électricité, gaz, eau :: Distributeurs","Électricité, gaz, eau",114,4,1,3
+"Électricité, gaz, eau :: Energie Electrique de Tahaddart","Électricité, gaz, eau",64,4,1,3
+"Électricité, gaz, eau :: Energie nette appelée","Électricité, gaz, eau",114,1,1,0
+"Électricité, gaz, eau :: Eolienne","Électricité, gaz, eau",95,2,2,0
+"Électricité, gaz, eau :: Fuel","Électricité, gaz, eau",114,1,1,0
+"Électricité, gaz, eau :: Gasoil","Électricité, gaz, eau",114,1,1,0
+"Électricité, gaz, eau :: Hydraulique","Électricité, gaz, eau",114,1,1,0
+"Électricité, gaz, eau :: I- ENERGIE NETTE APPELEE (en GWh) y compris l’énergie éolienne via réseau clients","Électricité, gaz, eau",18,3,2,1
+"Électricité, gaz, eau :: II- ENERGIE NETTE APPELEE (en GWh) dont :","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: III- VENTES D'ÉLECTRICITE (en GWh) dont :","Électricité, gaz, eau",44,3,2,1
+"Électricité, gaz, eau :: Parc Eolien : CED","Électricité, gaz, eau",41,0,0,0
+"Électricité, gaz, eau :: Parc Eolien de Tarfaya","Électricité, gaz, eau",49,2,2,0
+"Électricité, gaz, eau :: Petcoke","Électricité, gaz, eau",101,2,1,1
+"Électricité, gaz, eau :: Prix du Brent (USD/baril)","Électricité, gaz, eau",36,1,1,0
+"Électricité, gaz, eau :: Prix du Butane (USD/mt)","Électricité, gaz, eau",36,1,1,0
+"Électricité, gaz, eau :: Production d'électricité","Électricité, gaz, eau",33,0,0,0
+"Électricité, gaz, eau :: Production thermique : JLEC","Électricité, gaz, eau",66,2,1,1
+"Électricité, gaz, eau :: Pétrole brut","Électricité, gaz, eau",14,1,1,0
+"Électricité, gaz, eau :: STEP Energie absorbée pour le pompage","Électricité, gaz, eau",68,2,2,0
+"Électricité, gaz, eau :: Thermique (y compris ABM)","Électricité, gaz, eau",114,1,1,0
+"Électricité, gaz, eau :: dont Production de source renouvelable (éolien)","Électricité, gaz, eau",25,4,2,2
+"Électricité, gaz, eau :: dont Turbinage de la STEP","Électricité, gaz, eau",67,1,1,0
+"Électricité, gaz, eau :: dont Turbinage de la STEP (2)","Électricité, gaz, eau",44,3,2,1

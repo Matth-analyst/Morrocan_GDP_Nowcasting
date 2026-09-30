@@ -1,0 +1,10 @@
+﻿"mesure","valeur"
+"couples ou delta est reellement estime",309
+"part des couples au mode par defaut",0.463541666666667
+"moyenne du delta estime",0.46177353578917
+"mediane du delta estime",0.555500187899349
+"part en solution de coin (0 ou 1)",0.359223300970874
+"saut median d'un trimestre au suivant",0.000123133339432147
+"saut moyen",0.0262987608417529
+"part des sauts superieurs a 0,25",0.01
+"ecart-type intra-branche moyen",0.123177308941453

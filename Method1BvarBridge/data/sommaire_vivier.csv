@@ -1,0 +1,13 @@
+﻿"branche","dossier","mensuel","trimestriel","total","debut","fin","n_obs"
+"Industrie de transformation","Industrie_transformation",46,42,88,2006-12-31,2026-05-31,10425
+"Électricité, gaz, eau","Electricite_gaz_eau",77,3,80,1998-01-31,2026-05-31,11720
+"Pêche","Peche",72,2,74,2006-12-31,2026-05-31,11108
+"Construction","Construction",29,3,32,1995-01-31,2026-05-31,3701
+"Hébergement-restauration","Hebergement_restauration",29,3,32,2006-12-31,2026-05-31,2953
+"Information-communication","Information_communication",0,32,32,2002-03-31,2026-03-31,1928
+"Finances et assurances","Finances_assurances",25,5,30,2001-12-31,2026-05-31,7216
+"Commerce","Commerce",17,3,20,2006-12-31,2026-05-31,2987
+"Industrie d'extraction","Industrie_extraction",11,6,17,1998-06-30,2026-05-31,1727
+"Immobilier","Immobilier",4,10,14,2001-12-31,2026-05-31,1149
+"Transports","Transports",4,3,7,2006-12-31,2026-04-30,689
+"Agriculture","Agriculture",2,3,5,2006-12-31,2026-04-30,386

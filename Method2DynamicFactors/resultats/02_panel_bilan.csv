@@ -1,0 +1,13 @@
+﻿"branche","mois","series","mensuelles","trimestrielles","taux_observation","obs_cible"
+"Agriculture",335,5,2,3,0.246268656716418,112
+"Pêche",336,74,72,2,0.413214285714286,112
+"Industrie d'extraction",336,17,11,6,0.285218253968254,112
+"Industrie de transformation",336,88,46,42,0.350822632423756,112
+"Électricité, gaz, eau",340,79,76,3,0.429595588235294,112
+"Construction",376,32,29,3,0.299806576402321,112
+"Commerce",336,20,17,3,0.4375,112
+"Transports",335,7,4,3,0.292537313432836,112
+"Hébergement-restauration",336,30,27,3,0.276881720430108,112
+"Information-communication",334,32,0,32,0.182544002903284,112
+"Finances et assurances",336,30,25,5,0.700268817204301,112
+"Immobilier",336,14,4,10,0.249404761904762,112

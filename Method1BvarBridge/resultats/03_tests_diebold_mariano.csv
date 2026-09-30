@@ -1,0 +1,7 @@
+﻿"specification","n_branches","alternative_meilleure","reference_meilleure","non_significatif"
+"hyperparametres fixes de Higgins (p=5, lambda=0.15)",16,0,3,13
+"indicatrices de la version 1 (T2 et T3)",16,0,3,13
+"sans indicatrice de choc",16,0,1,15
+"liste codee en dur (2020 T1/T2/T3)",16,0,0,16
+"fenetre glissante 60 trim.",16,2,1,13
+"fenetre glissante 40 trim.",16,3,0,13

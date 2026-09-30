@@ -1,0 +1,12 @@
+﻿"retard_mois","position","scenario_effectif","ratio_combinaison","ratio_bvar"
+0,"fin du mois 1 du trimestre","M1",0.977230950806875,0.978479577948751
+0,"fin du mois 2 du trimestre","M2",0.954151646397731,0.978479577948751
+0,"fin du mois 3 du trimestre","M3",0.919732964735555,0.978479577948751
+1,"fin du mois 1 du trimestre","M0",1.03525226895354,0.978479577948751
+1,"fin du mois 2 du trimestre","M1",0.977230950806875,0.978479577948751
+1,"fin du mois 3 du trimestre","M2",0.954151646397731,0.978479577948751
+1,"1 mois apres la fin du trimestre","M3",0.919732964735555,0.978479577948751
+2,"fin du mois 1 du trimestre","M0",1.03525226895354,0.978479577948751
+2,"fin du mois 2 du trimestre","M0",1.03525226895354,0.978479577948751
+2,"fin du mois 3 du trimestre","M1",0.977230950806875,0.978479577948751
+2,"1 mois apres la fin du trimestre","M2",0.954151646397731,0.978479577948751

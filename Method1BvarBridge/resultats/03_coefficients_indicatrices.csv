@@ -1,0 +1,81 @@
+﻿"indicatrice","branche","coefficient"
+"choc_T4-2008","Agriculture",0.050085183697756
+"choc_T4-2008","Pêche",-0.288603075297314
+"choc_T4-2008","Industrie d'extraction",-0.22809838664254
+"choc_T4-2008","Industrie de transformation",-0.0146605923212353
+"choc_T4-2008","Électricité, gaz, eau",-0.00076752709493431
+"choc_T4-2008","Construction",-0.00361866576948401
+"choc_T4-2008","Commerce",-0.0659725886606397
+"choc_T4-2008","Transports",-0.064282381943417
+"choc_T4-2008","Hébergement-restauration",0.0032308281101494
+"choc_T4-2008","Information-communication",0.02352138052429
+"choc_T4-2008","Finances et assurances",0.0139723450167865
+"choc_T4-2008","Immobilier",-0.0045413173475238
+"choc_T4-2008","Services aux entreprises",-0.0147342210264593
+"choc_T4-2008","Administration publique",0.00660971614059269
+"choc_T4-2008","Éducation-santé",-0.00550184270185624
+"choc_T4-2008","Autres services",0.003118963662158
+"choc_T2-2019","Agriculture",0.0173737985977966
+"choc_T2-2019","Pêche",-0.0888113710352634
+"choc_T2-2019","Industrie d'extraction",-0.0293897645986795
+"choc_T2-2019","Industrie de transformation",0.0292626066677843
+"choc_T2-2019","Électricité, gaz, eau",-0.0178668310928624
+"choc_T2-2019","Construction",0.0382797351289797
+"choc_T2-2019","Commerce",0.0269474289538007
+"choc_T2-2019","Transports",0.088394825626807
+"choc_T2-2019","Hébergement-restauration",0.0248175963634785
+"choc_T2-2019","Information-communication",-0.0128777581408926
+"choc_T2-2019","Finances et assurances",-0.0143796684748659
+"choc_T2-2019","Immobilier",-0.00552800959791582
+"choc_T2-2019","Services aux entreprises",0.0502361467318442
+"choc_T2-2019","Administration publique",0.00905757159773046
+"choc_T2-2019","Éducation-santé",-0.00548001089356667
+"choc_T2-2019","Autres services",-0.0213146800913037
+"choc_T2-2020","Agriculture",-0.00503436226737868
+"choc_T2-2020","Pêche",-0.151661063353275
+"choc_T2-2020","Industrie d'extraction",-0.00434716143904851
+"choc_T2-2020","Industrie de transformation",-0.217694155338829
+"choc_T2-2020","Électricité, gaz, eau",-0.103207309946166
+"choc_T2-2020","Construction",-0.110047307723787
+"choc_T2-2020","Commerce",-0.153769088430946
+"choc_T2-2020","Transports",-0.509841249734028
+"choc_T2-2020","Hébergement-restauration",-0.846528139096237
+"choc_T2-2020","Information-communication",-0.0484117670028664
+"choc_T2-2020","Finances et assurances",0.00577959551654797
+"choc_T2-2020","Immobilier",-0.00402566100196703
+"choc_T2-2020","Services aux entreprises",-0.272462215558097
+"choc_T2-2020","Administration publique",0.00428505320075661
+"choc_T2-2020","Éducation-santé",-0.00334530526657832
+"choc_T2-2020","Autres services",-0.0423118526699231
+"choc_T3-2020","Agriculture",-0.0540443449707624
+"choc_T3-2020","Pêche",0.502491153810243
+"choc_T3-2020","Industrie d'extraction",-0.00224537534331454
+"choc_T3-2020","Industrie de transformation",0.185493842142864
+"choc_T3-2020","Électricité, gaz, eau",0.115536487415598
+"choc_T3-2020","Construction",0.0299986715145257
+"choc_T3-2020","Commerce",0.1074860116045
+"choc_T3-2020","Transports",0.096978558814992
+"choc_T3-2020","Hébergement-restauration",0.172180771283351
+"choc_T3-2020","Information-communication",-0.0387956586503973
+"choc_T3-2020","Finances et assurances",0.00867844192157651
+"choc_T3-2020","Immobilier",-0.00664942769983173
+"choc_T3-2020","Services aux entreprises",0.171207213071433
+"choc_T3-2020","Administration publique",-0.00092308634210207
+"choc_T3-2020","Éducation-santé",0.00223758424011449
+"choc_T3-2020","Autres services",0.00285767758450716
+"choc_T4-2020","Agriculture",0.0359203636144083
+"choc_T4-2020","Pêche",-0.517408300000419
+"choc_T4-2020","Industrie d'extraction",-0.00550172964091534
+"choc_T4-2020","Industrie de transformation",-0.0168556758939836
+"choc_T4-2020","Électricité, gaz, eau",-0.0380456943610342
+"choc_T4-2020","Construction",0.0556552718796609
+"choc_T4-2020","Commerce",0.0156020490410943
+"choc_T4-2020","Transports",0.131003275120251
+"choc_T4-2020","Hébergement-restauration",0.247462218608738
+"choc_T4-2020","Information-communication",0.00285708343033847
+"choc_T4-2020","Finances et assurances",-0.0034069244799897
+"choc_T4-2020","Immobilier",-0.00324270890008277
+"choc_T4-2020","Services aux entreprises",0.0439030446816761
+"choc_T4-2020","Administration publique",0.00508257549610652
+"choc_T4-2020","Éducation-santé",-0.000752619131531123
+"choc_T4-2020","Autres services",-6.00252094390895e-05

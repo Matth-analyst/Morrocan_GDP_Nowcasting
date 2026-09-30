@@ -1,0 +1,448 @@
+﻿"id_serie","branche","indicateur","frequence","transformation","locale"
+"CIBLE :: Administration publique","Administration publique","VA","trimestriel","dlog",TRUE
+"CIBLE :: Agriculture","Agriculture","VA","trimestriel","dlog",TRUE
+"CIBLE :: Autres services","Autres services","VA","trimestriel","dlog",TRUE
+"CIBLE :: Commerce","Commerce","VA","trimestriel","dlog",TRUE
+"CIBLE :: Construction","Construction","VA","trimestriel","dlog",TRUE
+"CIBLE :: Finances et assurances","Finances et assurances","VA","trimestriel","dlog",TRUE
+"CIBLE :: Hébergement-restauration","Hébergement-restauration","VA","trimestriel","dlog",TRUE
+"CIBLE :: Immobilier","Immobilier","VA","trimestriel","dlog",TRUE
+"CIBLE :: Industrie d'extraction","Industrie d'extraction","VA","trimestriel","dlog",TRUE
+"CIBLE :: Industrie de transformation","Industrie de transformation","VA","trimestriel","dlog",TRUE
+"CIBLE :: Information-communication","Information-communication","VA","trimestriel","dlog",TRUE
+"CIBLE :: Pêche","Pêche","VA","trimestriel","dlog",TRUE
+"CIBLE :: Services aux entreprises","Services aux entreprises","VA","trimestriel","dlog",TRUE
+"CIBLE :: Transports","Transports","VA","trimestriel","dlog",TRUE
+"CIBLE :: Éducation-santé","Éducation-santé","VA","trimestriel","dlog",TRUE
+"CIBLE :: Électricité, gaz, eau","Électricité, gaz, eau","VA","trimestriel","dlog",TRUE
+"Agriculture :: Comptes débiteurs et crédits de trésorerie — Agriculture (MDH)","Agriculture","Comptes débiteurs et crédits de trésorerie — Agriculture (MDH)","trimestriel","dlog",TRUE
+"Agriculture :: Crédit bancaire Agriculture et pêche (MDH)","Agriculture","Crédit bancaire Agriculture et pêche (MDH)","trimestriel","dlog",TRUE
+"Agriculture :: Crédits à l'équipement — Agriculture (MDH)","Agriculture","Crédits à l'équipement — Agriculture (MDH)","trimestriel","dlog",TRUE
+"Agriculture :: Moyenne des precipitations","Agriculture","Moyenne des precipitations","mensuel","niveau",TRUE
+"Agriculture :: Température_moyenne","Agriculture","Température_moyenne","mensuel","niveau",TRUE
+"Commerce :: Comptes débiteurs et crédits de trésorerie — Commerce (MDH)","Commerce","Comptes débiteurs et crédits de trésorerie — Commerce (MDH)","trimestriel","dlog",TRUE
+"Commerce :: Crédit bancaire Commerce, réparations automobiles (MDH)","Commerce","Crédit bancaire Commerce, réparations automobiles (MDH)","trimestriel","dlog",TRUE
+"Commerce :: Crédits à l'équipement — Commerce (MDH)","Commerce","Crédits à l'équipement — Commerce (MDH)","trimestriel","dlog",TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois","Commerce","Evolution des prix des produits finis au cours des trois prochains mois","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (2)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (2)","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (3)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (3)","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (4)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (4)","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (5)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (5)","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis au cours des trois prochains mois (6)","Commerce","Evolution des prix des produits finis au cours des trois prochains mois (6)","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent","Commerce","Evolution des prix des produits finis par rapport au mois précédent","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (2)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (2)","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (3)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (3)","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (4)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (4)","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (5)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (5)","mensuel","niveau",TRUE
+"Commerce :: Evolution des prix des produits finis par rapport au mois précédent (6)","Commerce","Evolution des prix des produits finis par rapport au mois précédent (6)","mensuel","niveau",TRUE
+"Commerce :: Exportation ANP","Commerce","Exportation ANP","mensuel","dlog",TRUE
+"Commerce :: Importation ANP","Commerce","Importation ANP","mensuel","diff",TRUE
+"Commerce :: PRODUITS FINIS DE CONSOMMATION 1000 DH","Commerce","PRODUITS FINIS DE CONSOMMATION 1000 DH","mensuel","dlog",TRUE
+"Commerce :: TOTAL EXPORTATIONS (1000)","Commerce","TOTAL EXPORTATIONS (1000)","mensuel","dlog",TRUE
+"Commerce :: TOTAL IMPORTATIONS (1000)","Commerce","TOTAL IMPORTATIONS (1000)","mensuel","dlog",TRUE
+"Construction :: Béni Mellal - Khénifra","Construction","Béni Mellal - Khénifra","mensuel","dlog",TRUE
+"Construction :: Casablanca - Settat","Construction","Casablanca - Settat","mensuel","dlog",TRUE
+"Construction :: Chaouia-Ourdigha","Construction","Chaouia-Ourdigha","mensuel","diff",TRUE
+"Construction :: Comptes débiteurs et crédits de trésorerie — Construction (MDH)","Construction","Comptes débiteurs et crédits de trésorerie — Construction (MDH)","trimestriel","dlog",TRUE
+"Construction :: Crédit bancaire Bâtiment et travaux publics (MDH)","Construction","Crédit bancaire Bâtiment et travaux publics (MDH)","trimestriel","dlog",TRUE
+"Construction :: Crédits à l'équipement — Construction (MDH)","Construction","Crédits à l'équipement — Construction (MDH)","trimestriel","dlog",TRUE
+"Construction :: Dakhla -Oued Ed-Dahab","Construction","Dakhla -Oued Ed-Dahab","mensuel","dlog",TRUE
+"Construction :: Doukkala-Abda","Construction","Doukkala-Abda","mensuel","dlog",TRUE
+"Construction :: Drâa - Tafilalet","Construction","Drâa - Tafilalet","mensuel","dlog",TRUE
+"Construction :: Fès - Meknès","Construction","Fès - Meknès","mensuel","dlog",TRUE
+"Construction :: Fès Boulemane","Construction","Fès Boulemane","mensuel","dlog",TRUE
+"Construction :: Gharb-Cherarda-B.Hssen","Construction","Gharb-Cherarda-B.Hssen","mensuel","dlog",TRUE
+"Construction :: Grand Casablanca","Construction","Grand Casablanca","mensuel","diff",TRUE
+"Construction :: Guelmim-Es-Smara","Construction","Guelmim-Es-Smara","mensuel","diff",TRUE
+"Construction :: Guelmim-Oued Noun","Construction","Guelmim-Oued Noun","mensuel","dlog",TRUE
+"Construction :: Laayoun-S.Elhamra","Construction","Laayoun-S.Elhamra","mensuel","dlog",TRUE
+"Construction :: Laayoune-Boujdour-S.Elhamra","Construction","Laayoune-Boujdour-S.Elhamra","mensuel","diff",TRUE
+"Construction :: Marrakech-Safi","Construction","Marrakech-Safi","mensuel","dlog",TRUE
+"Construction :: Marrakech-Tensift-Haouz","Construction","Marrakech-Tensift-Haouz","mensuel","dlog",TRUE
+"Construction :: Meknés-Tafilalt","Construction","Meknés-Tafilalt","mensuel","diff",TRUE
+"Construction :: Oriental","Construction","Oriental","mensuel","dlog",TRUE
+"Construction :: Oriental (2)","Construction","Oriental (2)","mensuel","dlog",TRUE
+"Construction :: Rabat-Salé-Kénitra","Construction","Rabat-Salé-Kénitra","mensuel","dlog",TRUE
+"Construction :: Rabat-salé-Zemmour-Zaer","Construction","Rabat-salé-Zemmour-Zaer","mensuel","dlog",TRUE
+"Construction :: Souss-Massa","Construction","Souss-Massa","mensuel","dlog",TRUE
+"Construction :: Souss-Massa-Draa","Construction","Souss-Massa-Draa","mensuel","diff",TRUE
+"Construction :: Tadla-Azilal","Construction","Tadla-Azilal","mensuel","diff",TRUE
+"Construction :: Tanger-Tétouan","Construction","Tanger-Tétouan","mensuel","dlog",TRUE
+"Construction :: Tanger-Tétouan - Al Houceima","Construction","Tanger-Tétouan - Al Houceima","mensuel","dlog",TRUE
+"Construction :: Taza-Al Houceima-Taounate","Construction","Taza-Al Houceima-Taounate","mensuel","diff",TRUE
+"Construction :: Total (2)","Construction","Total (2)","mensuel","dlog",TRUE
+"Construction :: Vente de ciment (1000tonnes)","Construction","Vente de ciment (1000tonnes)","mensuel","dlog",TRUE
+"Finances et assurances :: Administrations locales","Finances et assurances","Administrations locales","mensuel","dlog",TRUE
+"Finances et assurances :: Autres crédits(3)","Finances et assurances","Autres crédits(3)","mensuel","dlog",TRUE
+"Finances et assurances :: Autres secteurs résidents","Finances et assurances","Autres secteurs résidents","mensuel","dlog",TRUE
+"Finances et assurances :: Autres sociétés financières","Finances et assurances","Autres sociétés financières","mensuel","dlog",TRUE
+"Finances et assurances :: Autres(2)","Finances et assurances","Autres(2)","mensuel","dlog",TRUE
+"Finances et assurances :: Avoirs officiels de réserve","Finances et assurances","Avoirs officiels de réserve","mensuel","dlog",TRUE
+"Finances et assurances :: Comptes débiteurs et crédits de trésorerie","Finances et assurances","Comptes débiteurs et crédits de trésorerie","mensuel","dlog",TRUE
+"Finances et assurances :: Comptes débiteurs et crédits de trésorerie — Finances et assurances (MDH)","Finances et assurances","Comptes débiteurs et crédits de trésorerie — Finances et assurances (MDH)","trimestriel","dlog",TRUE
+"Finances et assurances :: Créances diverses sur la clientèle","Finances et assurances","Créances diverses sur la clientèle","mensuel","dlog",TRUE
+"Finances et assurances :: Créances en souffrance","Finances et assurances","Créances en souffrance","mensuel","dlog",TRUE
+"Finances et assurances :: Crédit bancaire","Finances et assurances","Crédit bancaire","mensuel","dlog",TRUE
+"Finances et assurances :: Crédit bancaire Activités financières (MDH)","Finances et assurances","Crédit bancaire Activités financières (MDH)","trimestriel","dlog",TRUE
+"Finances et assurances :: Crédits à caractére financier(2)","Finances et assurances","Crédits à caractére financier(2)","mensuel","dlog",TRUE
+"Finances et assurances :: Crédits à l'équipement","Finances et assurances","Crédits à l'équipement","mensuel","dlog",TRUE
+"Finances et assurances :: Crédits à l'équipement — Finances et assurances (MDH)","Finances et assurances","Crédits à l'équipement — Finances et assurances (MDH)","trimestriel","dlog",TRUE
+"Finances et assurances :: Crédits à la consommation","Finances et assurances","Crédits à la consommation","mensuel","dlog",TRUE
+"Finances et assurances :: Dépôts à vue auprés des banques","Finances et assurances","Dépôts à vue auprés des banques","mensuel","dlog",TRUE
+"Finances et assurances :: Entrepreneurs individuels","Finances et assurances","Entrepreneurs individuels","mensuel","dlog",TRUE
+"Finances et assurances :: Etablissements de crédit assimilés(1)","Finances et assurances","Etablissements de crédit assimilés(1)","mensuel","dlog",TRUE
+"Finances et assurances :: ISBLSM","Finances et assurances","ISBLSM","mensuel","dlog",TRUE
+"Finances et assurances :: Masse monétaire (M3)","Finances et assurances","Masse monétaire (M3)","mensuel","dlog",TRUE
+"Finances et assurances :: OPCVM autres que monétaires","Finances et assurances","OPCVM autres que monétaires","mensuel","dlog",TRUE
+"Finances et assurances :: Particuliers et Marocains Résidant à l'Etranger","Finances et assurances","Particuliers et Marocains Résidant à l'Etranger","mensuel","dlog",TRUE
+"Finances et assurances :: Prestations (MDH)","Finances et assurances","Prestations (MDH)","trimestriel","diff",TRUE
+"Finances et assurances :: Primes versées (MDH)","Finances et assurances","Primes versées (MDH)","trimestriel","diff",TRUE
+"Finances et assurances :: Secteur privé","Finances et assurances","Secteur privé","mensuel","dlog",TRUE
+"Finances et assurances :: Secteur public hors AC","Finances et assurances","Secteur public hors AC","mensuel","dlog",TRUE
+"Finances et assurances :: Sociétés de financement","Finances et assurances","Sociétés de financement","mensuel","dlog",TRUE
+"Finances et assurances :: Sociétés non financières privées","Finances et assurances","Sociétés non financières privées","mensuel","dlog",TRUE
+"Finances et assurances :: Sociétés non financières publiques","Finances et assurances","Sociétés non financières publiques","mensuel","dlog",TRUE
+"Hébergement-restauration :: Agadir","Hébergement-restauration","Agadir","mensuel","dlog",TRUE
+"Hébergement-restauration :: Allemagne","Hébergement-restauration","Allemagne","mensuel","dlog",TRUE
+"Hébergement-restauration :: Arrivés de MRE aux frontières","Hébergement-restauration","Arrivés de MRE aux frontières","mensuel","dlog",TRUE
+"Hébergement-restauration :: Arrivés de touristes aux frontières","Hébergement-restauration","Arrivés de touristes aux frontières","mensuel","dlog",TRUE
+"Hébergement-restauration :: Arrivés de touristes étrangers de Séjour (TES)","Hébergement-restauration","Arrivés de touristes étrangers de Séjour (TES)","mensuel","dlog",TRUE
+"Hébergement-restauration :: Belgique","Hébergement-restauration","Belgique","mensuel","dlog",TRUE
+"Hébergement-restauration :: Canada","Hébergement-restauration","Canada","mensuel","dlog",TRUE
+"Hébergement-restauration :: Casablanca","Hébergement-restauration","Casablanca","mensuel","dlog",TRUE
+"Hébergement-restauration :: Comptes débiteurs et crédits de trésorerie — Hébergement-restauration (MDH)","Hébergement-restauration","Comptes débiteurs et crédits de trésorerie — Hébergement-restauration (MDH)","trimestriel","dlog",TRUE
+"Hébergement-restauration :: Crédit bancaire Hôtels et restaurants (MDH)","Hébergement-restauration","Crédit bancaire Hôtels et restaurants (MDH)","trimestriel","dlog",TRUE
+"Hébergement-restauration :: Crédits à l'équipement — Hébergement-restauration (MDH)","Hébergement-restauration","Crédits à l'équipement — Hébergement-restauration (MDH)","trimestriel","dlog",TRUE
+"Hébergement-restauration :: Divers","Hébergement-restauration","Divers","mensuel","dlog",TRUE
+"Hébergement-restauration :: EL jadida-mazagan","Hébergement-restauration","EL jadida-mazagan","mensuel","dlog",TRUE
+"Hébergement-restauration :: Espagne","Hébergement-restauration","Espagne","mensuel","dlog",TRUE
+"Hébergement-restauration :: Essaouira - Mogador","Hébergement-restauration","Essaouira - Mogador","mensuel","dlog",TRUE
+"Hébergement-restauration :: Etats-Unis","Hébergement-restauration","Etats-Unis","mensuel","dlog",TRUE
+"Hébergement-restauration :: France","Hébergement-restauration","France","mensuel","dlog",TRUE
+"Hébergement-restauration :: Fès","Hébergement-restauration","Fès","mensuel","dlog",TRUE
+"Hébergement-restauration :: Hollande","Hébergement-restauration","Hollande","mensuel","dlog",TRUE
+"Hébergement-restauration :: Italie","Hébergement-restauration","Italie","mensuel","dlog",TRUE
+"Hébergement-restauration :: Marrakech","Hébergement-restauration","Marrakech","mensuel","dlog",TRUE
+"Hébergement-restauration :: Meknès","Hébergement-restauration","Meknès","mensuel","dlog",TRUE
+"Hébergement-restauration :: Ouarzazate","Hébergement-restauration","Ouarzazate","mensuel","dlog",TRUE
+"Hébergement-restauration :: Oujda-Essaidia","Hébergement-restauration","Oujda-Essaidia","mensuel","dlog",TRUE
+"Hébergement-restauration :: Portugal","Hébergement-restauration","Portugal","mensuel","dlog",TRUE
+"Hébergement-restauration :: Rabat","Hébergement-restauration","Rabat","mensuel","dlog",TRUE
+"Hébergement-restauration :: Recettes touristiques (mensuel (En millions de dirhams))","Hébergement-restauration","Recettes touristiques (mensuel (En millions de dirhams))","mensuel","dlog",TRUE
+"Hébergement-restauration :: Royaume-Uni","Hébergement-restauration","Royaume-Uni","mensuel","dlog",TRUE
+"Hébergement-restauration :: Tanger","Hébergement-restauration","Tanger","mensuel","dlog",TRUE
+"Hébergement-restauration :: Tourisme International","Hébergement-restauration","Tourisme International","mensuel","dlog",TRUE
+"Hébergement-restauration :: Tourisme National","Hébergement-restauration","Tourisme National","mensuel","dlog",TRUE
+"Hébergement-restauration :: Tétouan","Hébergement-restauration","Tétouan","mensuel","dlog",TRUE
+"Immobilier :: Crédits aux promoteurs immobiliers (1)","Immobilier","Crédits aux promoteurs immobiliers (1)","mensuel","dlog",TRUE
+"Immobilier :: Crédits à l'habitat (MDH) (Jan 18)","Immobilier","Crédits à l'habitat (MDH) (Jan 18)","mensuel","dlog",TRUE
+"Immobilier :: Crédits à l’immobilier (MDH) (Jan 18)","Immobilier","Crédits à l’immobilier (MDH) (Jan 18)","mensuel","dlog",TRUE
+"Immobilier :: Dont: Financement participatif à l'habitat","Immobilier","Dont: Financement participatif à l'habitat","mensuel","dlog",TRUE
+"Immobilier :: IPAI Bureau — prix (var. trim. %)","Immobilier","IPAI Bureau — prix (var. trim. %)","trimestriel","niveau",TRUE
+"Immobilier :: IPAI Bureau — transactions (var. trim. %)","Immobilier","IPAI Bureau — transactions (var. trim. %)","trimestriel","niveau",TRUE
+"Immobilier :: IPAI Foncier — prix (var. trim. %)","Immobilier","IPAI Foncier — prix (var. trim. %)","trimestriel","niveau",TRUE
+"Immobilier :: IPAI Foncier — transactions (var. trim. %)","Immobilier","IPAI Foncier — transactions (var. trim. %)","trimestriel","niveau",TRUE
+"Immobilier :: IPAI Global — prix (série 1998–2017, var. trim. %)","Immobilier","IPAI Global — prix (série 1998–2017, var. trim. %)","trimestriel","niveau",TRUE
+"Immobilier :: IPAI Local commercial — prix (var. trim. %)","Immobilier","IPAI Local commercial — prix (var. trim. %)","trimestriel","niveau",TRUE
+"Immobilier :: IPAI Local commercial — transactions (var. trim. %)","Immobilier","IPAI Local commercial — transactions (var. trim. %)","trimestriel","niveau",TRUE
+"Immobilier :: IPAI Professionnel — prix (var. trim. %)","Immobilier","IPAI Professionnel — prix (var. trim. %)","trimestriel","niveau",TRUE
+"Immobilier :: IPAI Professionnel — transactions (var. trim. %)","Immobilier","IPAI Professionnel — transactions (var. trim. %)","trimestriel","niveau",TRUE
+"Immobilier :: IPAI Résidentiel — transactions (var. trim. %)","Immobilier","IPAI Résidentiel — transactions (var. trim. %)","trimestriel","niveau",TRUE
+"Industrie d'extraction :: Comptes débiteurs et crédits de trésorerie — Industrie d'extraction (MDH)","Industrie d'extraction","Comptes débiteurs et crédits de trésorerie — Industrie d'extraction (MDH)","trimestriel","dlog",TRUE
+"Industrie d'extraction :: Crédit bancaire Industries extractives (MDH)","Industrie d'extraction","Crédit bancaire Industries extractives (MDH)","trimestriel","dlog",TRUE
+"Industrie d'extraction :: Crédits à l'équipement — Industrie d'extraction (MDH)","Industrie d'extraction","Crédits à l'équipement — Industrie d'extraction (MDH)","trimestriel","dlog",TRUE
+"Industrie d'extraction :: Engrais","Industrie d'extraction","Engrais","mensuel","dlog",TRUE
+"Industrie d'extraction :: Exportations OCP","Industrie d'extraction","Exportations OCP","mensuel","dlog",TRUE
+"Industrie d'extraction :: Exportations autres extractions minières (Oct 2018)","Industrie d'extraction","Exportations autres extractions minières (Oct 2018)","mensuel","diff",TRUE
+"Industrie d'extraction :: Exportations phosphate+derivés","Industrie d'extraction","Exportations phosphate+derivés","mensuel","dlog",TRUE
+"Industrie d'extraction :: IPM — Autres industries extractives","Industrie d'extraction","IPM — Autres industries extractives","trimestriel","dlog",TRUE
+"Industrie d'extraction :: IPM — Extraction de minerais métalliques","Industrie d'extraction","IPM — Extraction de minerais métalliques","trimestriel","dlog",TRUE
+"Industrie d'extraction :: IPM — Industries extractives","Industrie d'extraction","IPM — Industries extractives","trimestriel","dlog",TRUE
+"Industrie d'extraction :: Phosphates","Industrie d'extraction","Phosphates","mensuel","dlog",TRUE
+"Industrie d'extraction :: Phosphates (2)","Industrie d'extraction","Phosphates (2)","mensuel","diff",TRUE
+"Industrie d'extraction :: Production des dérivées de phosphates (Jan 2018)","Industrie d'extraction","Production des dérivées de phosphates (Jan 2018)","mensuel","dlog",TRUE
+"Industrie d'extraction :: Soufre liquide","Industrie d'extraction","Soufre liquide","mensuel","diff",TRUE
+"Industrie d'extraction :: Soufre liquide (2)","Industrie d'extraction","Soufre liquide (2)","mensuel","diff",TRUE
+"Industrie d'extraction :: Soufre solide","Industrie d'extraction","Soufre solide","mensuel","dlog",TRUE
+"Industrie d'extraction :: Soufre solide (2)","Industrie d'extraction","Soufre solide (2)","mensuel","dlog",TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (2)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (2)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (3)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (3)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (4)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (4)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (5)","Industrie de transformation","Comptes débiteurs et crédits de trésorerie — Industrie de transformation (MDH) (5)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédit bancaire Industries alimentaires et tabac (MDH)","Industrie de transformation","Crédit bancaire Industries alimentaires et tabac (MDH)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédit bancaire Industries chimiques-parachimiques (MDH)","Industrie de transformation","Crédit bancaire Industries chimiques-parachimiques (MDH)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédit bancaire Industries manufacturières diverses (MDH)","Industrie de transformation","Crédit bancaire Industries manufacturières diverses (MDH)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédit bancaire Industries métallurgiques-mécaniques-électriques (MDH)","Industrie de transformation","Crédit bancaire Industries métallurgiques-mécaniques-électriques (MDH)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédit bancaire Industries textiles-habillement-cuir (MDH)","Industrie de transformation","Crédit bancaire Industries textiles-habillement-cuir (MDH)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH) (2)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH) (2)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH) (3)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH) (3)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH) (4)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH) (4)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Crédits à l'équipement — Industrie de transformation (MDH) (5)","Industrie de transformation","Crédits à l'équipement — Industrie de transformation (MDH) (5)","trimestriel","dlog",TRUE
+"Industrie de transformation :: DEMI PRODUITS","Industrie de transformation","DEMI PRODUITS","mensuel","dlog",TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois","Industrie de transformation","Evolution de la production au cours des trois prochains mois","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (2)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (2)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (3)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (3)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (4)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (4)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (5)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (5)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production au cours des trois prochains mois (6)","Industrie de transformation","Evolution de la production au cours des trois prochains mois (6)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent","Industrie de transformation","Evolution de la production par rapport au mois précédent","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (2)","Industrie de transformation","Evolution de la production par rapport au mois précédent (2)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (3)","Industrie de transformation","Evolution de la production par rapport au mois précédent (3)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (4)","Industrie de transformation","Evolution de la production par rapport au mois précédent (4)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (5)","Industrie de transformation","Evolution de la production par rapport au mois précédent (5)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution de la production par rapport au mois précédent (6)","Industrie de transformation","Evolution de la production par rapport au mois précédent (6)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (2)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (2)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (3)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (3)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (4)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (4)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (5)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (5)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des nouvelles commandes par rapport au mois précédent (6)","Industrie de transformation","Evolution des nouvelles commandes par rapport au mois précédent (6)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois","Industrie de transformation","Evolution des ventes au cours des trois prochains mois","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (2)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (2)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (3)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (3)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (4)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (4)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (5)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (5)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes au cours des trois prochains mois (6)","Industrie de transformation","Evolution des ventes au cours des trois prochains mois (6)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent","Industrie de transformation","Evolution des ventes par rapport au mois précédent","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (2)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (2)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (3)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (3)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (4)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (4)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (5)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (5)","mensuel","niveau",TRUE
+"Industrie de transformation :: Evolution des ventes par rapport au mois précédent (6)","Industrie de transformation","Evolution des ventes par rapport au mois précédent (6)","mensuel","niveau",TRUE
+"Industrie de transformation :: IPI — Autres industries manufacturés","Industrie de transformation","IPI — Autres industries manufacturés","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication de boissons","Industrie de transformation","IPI — Fabrication de boissons","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication de machines et équipements n.c.a.","Industrie de transformation","IPI — Fabrication de machines et équipements n.c.a.","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication de meubles","Industrie de transformation","IPI — Fabrication de meubles","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication de produits en caoutchouc et en plastique","Industrie de transformation","IPI — Fabrication de produits en caoutchouc et en plastique","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication de produits informatiques, électroniques et optiques","Industrie de transformation","IPI — Fabrication de produits informatiques, électroniques et optiques","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication de produits métalliques, à l’exclusion des machines et des équipements","Industrie de transformation","IPI — Fabrication de produits métalliques, à l’exclusion des machines et des équipements","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication de produits à base de tabac","Industrie de transformation","IPI — Fabrication de produits à base de tabac","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication de textiles","Industrie de transformation","IPI — Fabrication de textiles","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication d’autres matériels de transport","Industrie de transformation","IPI — Fabrication d’autres matériels de transport","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication d’autres produits minéraux non métalliques","Industrie de transformation","IPI — Fabrication d’autres produits minéraux non métalliques","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Fabrication d’équipements électriques","Industrie de transformation","IPI — Fabrication d’équipements électriques","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Imprimerie et reproduction d’enregistrements","Industrie de transformation","IPI — Imprimerie et reproduction d’enregistrements","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Industrie automobile","Industrie de transformation","IPI — Industrie automobile","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Industrie chimique","Industrie de transformation","IPI — Industrie chimique","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Industrie du cuir et de la chaussure (à l’exception de l’habillement en cuir)","Industrie de transformation","IPI — Industrie du cuir et de la chaussure (à l’exception de l’habillement en cuir)","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Industrie du papier et du carton","Industrie de transformation","IPI — Industrie du papier et du carton","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Industrie d’habillement","Industrie de transformation","IPI — Industrie d’habillement","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Industrie pharmaceutique","Industrie de transformation","IPI — Industrie pharmaceutique","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Industries alimentaires","Industrie de transformation","IPI — Industries alimentaires","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Industries manufacturières hors raffinage de pétrole","Industrie de transformation","IPI — Industries manufacturières hors raffinage de pétrole","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Métallurgie","Industrie de transformation","IPI — Métallurgie","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Réparation et installation de machines et équipements","Industrie de transformation","IPI — Réparation et installation de machines et équipements","trimestriel","dlog",TRUE
+"Industrie de transformation :: IPI — Travail du bois et fabrication d’articles en bois et en liège, à l’exception des meubles ; fabrication d’articles en vannerie et sparterie","Industrie de transformation","IPI — Travail du bois et fabrication d’articles en bois et en liège, à l’exception des meubles ; fabrication d’articles en vannerie et sparterie","trimestriel","dlog",TRUE
+"Industrie de transformation :: Industries","Industrie de transformation","Industries","trimestriel","dlog",TRUE
+"Industrie de transformation :: Industries (2)","Industrie de transformation","Industries (2)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Industries (3)","Industrie de transformation","Industries (3)","trimestriel","dlog",TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (2)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (2)","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (3)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (3)","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (4)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (4)","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (5)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (5)","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des carnets de commandes par rapport au mois précédent (6)","Industrie de transformation","Niveau des carnets de commandes par rapport au mois précédent (6)","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des stocks de PF","Industrie de transformation","Niveau des stocks de PF","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des stocks de PF (2)","Industrie de transformation","Niveau des stocks de PF (2)","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des stocks de PF (3)","Industrie de transformation","Niveau des stocks de PF (3)","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des stocks de PF (4)","Industrie de transformation","Niveau des stocks de PF (4)","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des stocks de PF (5)","Industrie de transformation","Niveau des stocks de PF (5)","mensuel","niveau",TRUE
+"Industrie de transformation :: Niveau des stocks de PF (6)","Industrie de transformation","Niveau des stocks de PF (6)","mensuel","niveau",TRUE
+"Industrie de transformation :: PRODUITS FINIS D'EQUIPEMENT INDUSTRIEL","Industrie de transformation","PRODUITS FINIS D'EQUIPEMENT INDUSTRIEL","mensuel","dlog",TRUE
+"Industrie de transformation :: Taux d’Utilisation des Capacités","Industrie de transformation","Taux d’Utilisation des Capacités","mensuel","dlog",TRUE
+"Industrie de transformation :: Utilisation des capacités de production (cumulé)","Industrie de transformation","Utilisation des capacités de production (cumulé)","mensuel","dlog",TRUE
+"Information-communication :: Data Only","Information-communication","Data Only","trimestriel","dlog",TRUE
+"Information-communication :: Data+Voix","Information-communication","Data+Voix","trimestriel","dlog",TRUE
+"Information-communication :: Domaine .ma","Information-communication","Domaine .ma","trimestriel","dlog",TRUE
+"Information-communication :: Internet","Information-communication","Internet","trimestriel","dlog",TRUE
+"Information-communication :: Internet (2)","Information-communication","Internet (2)","trimestriel","dlog",TRUE
+"Information-communication :: Internet (3)","Information-communication","Internet (3)","trimestriel","dlog",TRUE
+"Information-communication :: Internet 3G","Information-communication","Internet 3G","trimestriel","dlog",TRUE
+"Information-communication :: Internet 3G (2)","Information-communication","Internet 3G (2)","trimestriel","dlog",TRUE
+"Information-communication :: Internet ADSL","Information-communication","Internet ADSL","trimestriel","dlog",TRUE
+"Information-communication :: Internet ADSL (2)","Information-communication","Internet ADSL (2)","trimestriel","dlog",TRUE
+"Information-communication :: Liaisons louées (LL)","Information-communication","Liaisons louées (LL)","trimestriel","dlog",TRUE
+"Information-communication :: Nouveaux enregistrements durant le trimestre","Information-communication","Nouveaux enregistrements durant le trimestre","trimestriel","dlog",TRUE
+"Information-communication :: Parc Internet global (en milliers)","Information-communication","Parc Internet global (en milliers)","trimestriel","dlog",TRUE
+"Information-communication :: Parc de la téléphonie mobile par opérateur — Maroc télecom","Information-communication","Parc de la téléphonie mobile par opérateur — Maroc télecom","trimestriel","dlog",TRUE
+"Information-communication :: Parc de la téléphonie mobile par opérateur — Méditel","Information-communication","Parc de la téléphonie mobile par opérateur — Méditel","trimestriel","dlog",TRUE
+"Information-communication :: Parc de la téléphonie mobile par opérateur — WANA Corporate","Information-communication","Parc de la téléphonie mobile par opérateur — WANA Corporate","trimestriel","dlog",TRUE
+"Information-communication :: Parc des noms de domaine «.ma»","Information-communication","Parc des noms de domaine «.ma»","trimestriel","dlog",TRUE
+"Information-communication :: Parc liaisons Data Entreprises Nationale (T1-2018)","Information-communication","Parc liaisons Data Entreprises Nationale (T1-2018)","trimestriel","dlog",TRUE
+"Information-communication :: Parc téléphonie mobile global (en milliers)","Information-communication","Parc téléphonie mobile global (en milliers)","trimestriel","dlog",TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie fixe — Parc professionnel","Information-communication","Parts de marché dans le secteur de la téléphonie fixe — Parc professionnel","trimestriel","niveau",TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie fixe — Parc résidentiel","Information-communication","Parts de marché dans le secteur de la téléphonie fixe — Parc résidentiel","trimestriel","niveau",TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie mobile — Maroc télecom","Information-communication","Parts de marché dans le secteur de la téléphonie mobile — Maroc télecom","trimestriel","niveau",TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie mobile — Méditel","Information-communication","Parts de marché dans le secteur de la téléphonie mobile — Méditel","trimestriel","niveau",TRUE
+"Information-communication :: Parts de marché dans le secteur de la téléphonie mobile — WANA Corporate","Information-communication","Parts de marché dans le secteur de la téléphonie mobile — WANA Corporate","trimestriel","niveau",TRUE
+"Information-communication :: Publiphones","Information-communication","Publiphones","trimestriel","dlog",TRUE
+"Information-communication :: Revenu moyen d’une minute de communication (ARPM) Mobile — Post payé","Information-communication","Revenu moyen d’une minute de communication (ARPM) Mobile — Post payé","trimestriel","dlog",TRUE
+"Information-communication :: Revenu moyen d’une minute de communication (ARPM) Mobile — Prépayé","Information-communication","Revenu moyen d’une minute de communication (ARPM) Mobile — Prépayé","trimestriel","dlog",TRUE
+"Information-communication :: Revenu moyen d’une minute de communication (ARPM) Mobile — Téléphone mobile","Information-communication","Revenu moyen d’une minute de communication (ARPM) Mobile — Téléphone mobile","trimestriel","dlog",TRUE
+"Information-communication :: Revenu moyen d’une minute de communication (ARPM) — Téléphone fixe","Information-communication","Revenu moyen d’une minute de communication (ARPM) — Téléphone fixe","trimestriel","dlog",TRUE
+"Information-communication :: Taux de pénétration de l’Internet","Information-communication","Taux de pénétration de l’Internet","trimestriel","niveau",TRUE
+"Information-communication :: Taux de pénétration du mobile","Information-communication","Taux de pénétration du mobile","trimestriel","niveau",TRUE
+"Information-communication :: Trafic voix sortant du Fixe — Téléphone fixe","Information-communication","Trafic voix sortant du Fixe — Téléphone fixe","trimestriel","dlog",TRUE
+"Pêche :: AGADIR","Pêche","AGADIR","mensuel","diff",TRUE
+"Pêche :: AGLOU","Pêche","AGLOU","mensuel","diff",TRUE
+"Pêche :: AINBIDA","Pêche","AINBIDA","mensuel","diff",TRUE
+"Pêche :: AL HOCEIMA","Pêche","AL HOCEIMA","mensuel","dlog",TRUE
+"Pêche :: ALGUES","Pêche","ALGUES","mensuel","diff",TRUE
+"Pêche :: ALGUES (2)","Pêche","ALGUES (2)","mensuel","diff",TRUE
+"Pêche :: AMEGRIOU","Pêche","AMEGRIOU","mensuel","diff",TRUE
+"Pêche :: AMTAR","Pêche","AMTAR","mensuel","diff",TRUE
+"Pêche :: ASILAH","Pêche","ASILAH","mensuel","diff",TRUE
+"Pêche :: ATLANTIQUE","Pêche","ATLANTIQUE","mensuel","diff",TRUE
+"Pêche :: BELYOUNECH","Pêche","BELYOUNECH","mensuel","diff",TRUE
+"Pêche :: BHIBEH","Pêche","BHIBEH","mensuel","diff",TRUE
+"Pêche :: BOUJDOUR","Pêche","BOUJDOUR","mensuel","diff",TRUE
+"Pêche :: CALA IRIS","Pêche","CALA IRIS","mensuel","diff",TRUE
+"Pêche :: CASABLANCA","Pêche","CASABLANCA","mensuel","dlog",TRUE
+"Pêche :: CEPHALOPODES","Pêche","CEPHALOPODES","mensuel","diff",TRUE
+"Pêche :: CEPHALOPODES (2)","Pêche","CEPHALOPODES (2)","mensuel","diff",TRUE
+"Pêche :: CHMAALA","Pêche","CHMAALA","mensuel","diff",TRUE
+"Pêche :: COQUILLAGES","Pêche","COQUILLAGES","mensuel","diff",TRUE
+"Pêche :: COQUILLAGES (2)","Pêche","COQUILLAGES (2)","mensuel","diff",TRUE
+"Pêche :: CRUSTACES","Pêche","CRUSTACES","mensuel","diff",TRUE
+"Pêche :: CRUSTACES (2)","Pêche","CRUSTACES (2)","mensuel","diff",TRUE
+"Pêche :: Comptes débiteurs et crédits de trésorerie — Pêche (MDH)","Pêche","Comptes débiteurs et crédits de trésorerie — Pêche (MDH)","trimestriel","dlog",TRUE
+"Pêche :: Crédits à l'équipement — Pêche (MDH)","Pêche","Crédits à l'équipement — Pêche (MDH)","trimestriel","dlog",TRUE
+"Pêche :: DAKHLA","Pêche","DAKHLA","mensuel","diff",TRUE
+"Pêche :: DAKHLA (STOCK C)","Pêche","DAKHLA (STOCK C)","mensuel","diff",TRUE
+"Pêche :: EL JADIDA","Pêche","EL JADIDA","mensuel","dlog",TRUE
+"Pêche :: ESSAOUIRA","Pêche","ESSAOUIRA","mensuel","dlog",TRUE
+"Pêche :: FNIDEQ","Pêche","FNIDEQ","mensuel","diff",TRUE
+"Pêche :: IMESSOUANE","Pêche","IMESSOUANE","mensuel","dlog",TRUE
+"Pêche :: IMI OUADDAR","Pêche","IMI OUADDAR","mensuel","diff",TRUE
+"Pêche :: INOUAREN","Pêche","INOUAREN","mensuel","diff",TRUE
+"Pêche :: Imoutlan","Pêche","Imoutlan","mensuel","diff",TRUE
+"Pêche :: JEBHA","Pêche","JEBHA","mensuel","dlog",TRUE
+"Pêche :: JORF LASFAR","Pêche","JORF LASFAR","mensuel","dlog",TRUE
+"Pêche :: KAA ASRAS","Pêche","KAA ASRAS","mensuel","diff",TRUE
+"Pêche :: KSAR SGHIR","Pêche","KSAR SGHIR","mensuel","diff",TRUE
+"Pêche :: LAAYOUNE","Pêche","LAAYOUNE","mensuel","diff",TRUE
+"Pêche :: LABOUIRDA","Pêche","LABOUIRDA","mensuel","diff",TRUE
+"Pêche :: LACRAA (CAP 7)","Pêche","LACRAA (CAP 7)","mensuel","diff",TRUE
+"Pêche :: LAKRAA","Pêche","LAKRAA","mensuel","diff",TRUE
+"Pêche :: LARACHE","Pêche","LARACHE","mensuel","diff",TRUE
+"Pêche :: LASSARGA","Pêche","LASSARGA","mensuel","diff",TRUE
+"Pêche :: LMHIRIZ","Pêche","LMHIRIZ","mensuel","diff",TRUE
+"Pêche :: Lahdida","Pêche","Lahdida","mensuel","diff",TRUE
+"Pêche :: M'DIQ","Pêche","M'DIQ","mensuel","dlog",TRUE
+"Pêche :: MARTIL","Pêche","MARTIL","mensuel","diff",TRUE
+"Pêche :: MEDITERRANEE","Pêche","MEDITERRANEE","mensuel","dlog",TRUE
+"Pêche :: MEHDIA","Pêche","MEHDIA","mensuel","diff",TRUE
+"Pêche :: MOHAMMEDIA","Pêche","MOHAMMEDIA","mensuel","dlog",TRUE
+"Pêche :: NADOR","Pêche","NADOR","mensuel","dlog",TRUE
+"Pêche :: NTIRIFT","Pêche","NTIRIFT","mensuel","diff",TRUE
+"Pêche :: OUED LAOU","Pêche","OUED LAOU","mensuel","diff",TRUE
+"Pêche :: POISSON BLANC","Pêche","POISSON BLANC","mensuel","diff",TRUE
+"Pêche :: POISSON BLANC (2)","Pêche","POISSON BLANC (2)","mensuel","diff",TRUE
+"Pêche :: POISSON PELAGIQUE","Pêche","POISSON PELAGIQUE","mensuel","diff",TRUE
+"Pêche :: POISSON PELAGIQUE (2)","Pêche","POISSON PELAGIQUE (2)","mensuel","diff",TRUE
+"Pêche :: RAS KEBDANA","Pêche","RAS KEBDANA","mensuel","dlog",TRUE
+"Pêche :: RKOUNTE","Pêche","RKOUNTE","mensuel","diff",TRUE
+"Pêche :: SAFI","Pêche","SAFI","mensuel","dlog",TRUE
+"Pêche :: SALE","Pêche","SALE","mensuel","diff",TRUE
+"Pêche :: SID ELGHAZI","Pêche","SID ELGHAZI","mensuel","diff",TRUE
+"Pêche :: SIDI H'SAINE","Pêche","SIDI H'SAINE","mensuel","diff",TRUE
+"Pêche :: SIDI IFNI","Pêche","SIDI IFNI","mensuel","diff",TRUE
+"Pêche :: SOUIRIA KDIMA","Pêche","SOUIRIA KDIMA","mensuel","diff",TRUE
+"Pêche :: Sidi ABED","Pêche","Sidi ABED","mensuel","diff",TRUE
+"Pêche :: TAFEDNA","Pêche","TAFEDNA","mensuel","diff",TRUE
+"Pêche :: TAGHAZOUT","Pêche","TAGHAZOUT","mensuel","diff",TRUE
+"Pêche :: TAN TAN","Pêche","TAN TAN","mensuel","diff",TRUE
+"Pêche :: TANGER","Pêche","TANGER","mensuel","dlog",TRUE
+"Pêche :: TARFAYA","Pêche","TARFAYA","mensuel","diff",TRUE
+"Pêche :: TARGHA","Pêche","TARGHA","mensuel","diff",TRUE
+"Pêche :: TAROUMA","Pêche","TAROUMA","mensuel","diff",TRUE
+"Pêche :: TIFNIT","Pêche","TIFNIT","mensuel","diff",TRUE
+"Transports :: Cabotage EXP","Transports","Cabotage EXP","mensuel","dlog",TRUE
+"Transports :: Cabotage IMP","Transports","Cabotage IMP","mensuel","dlog",TRUE
+"Transports :: Comptes débiteurs et crédits de trésorerie — Transports (MDH)","Transports","Comptes débiteurs et crédits de trésorerie — Transports (MDH)","trimestriel","dlog",TRUE
+"Transports :: Crédit bancaire Transports et communications (MDH)","Transports","Crédit bancaire Transports et communications (MDH)","trimestriel","dlog",TRUE
+"Transports :: Crédits à l'équipement — Transports (MDH)","Transports","Crédits à l'équipement — Transports (MDH)","trimestriel","dlog",TRUE
+"Transports :: Trafic aérien (Jan 18)","Transports","Trafic aérien (Jan 18)","mensuel","dlog",TRUE
+"Transports :: Trafic globale gérés par l'ANP","Transports","Trafic globale gérés par l'ANP","mensuel","diff",TRUE
+"Électricité, gaz, eau :: - Apport des Tiers Nationaux","Électricité, gaz, eau","- Apport des Tiers Nationaux","mensuel","diff",TRUE
+"Électricité, gaz, eau :: - Auxiliaires des centrales pompes du réseau THT-HT","Électricité, gaz, eau","- Auxiliaires des centrales pompes du réseau THT-HT","mensuel","diff",TRUE
+"Électricité, gaz, eau :: - Charbon (en Tonnes) :","Électricité, gaz, eau","- Charbon (en Tonnes) :","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: - Clients BT","Électricité, gaz, eau","- Clients BT","mensuel","diff",TRUE
+"Électricité, gaz, eau :: - Clients MT","Électricité, gaz, eau","- Clients MT","mensuel","diff",TRUE
+"Électricité, gaz, eau :: - Distributeurs","Électricité, gaz, eau","- Distributeurs","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: - Eolien Loi 13-09_Via réseau client","Électricité, gaz, eau","- Eolien Loi 13-09_Via réseau client","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: - Fioul (en Tonnes)","Électricité, gaz, eau","- Fioul (en Tonnes)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: - Gasoil (en Tonnes)","Électricité, gaz, eau","- Gasoil (en Tonnes)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: - Production Privée d'Électricité :","Électricité, gaz, eau","- Production Privée d'Électricité :","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: - Production Totale ONEE-Branche Électricité :","Électricité, gaz, eau","- Production Totale ONEE-Branche Électricité :","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: - Projets développés dans le cadre de la loi 13-09 relative aux Energies Renouvelables :","Électricité, gaz, eau","- Projets développés dans le cadre de la loi 13-09 relative aux Energies Renouvelables :","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: - STEP Energie absorbée pour le pompage","Électricité, gaz, eau","- STEP Energie absorbée pour le pompage","mensuel","diff",TRUE
+"Électricité, gaz, eau :: - Solde des échanges d'énergie (Espagne-Algérie) :","Électricité, gaz, eau","- Solde des échanges d'énergie (Espagne-Algérie) :","mensuel","diff",TRUE
+"Électricité, gaz, eau :: . Centrale Thermo-solaire d'Ain Béni Mathar","Électricité, gaz, eau",". Centrale Thermo-solaire d'Ain Béni Mathar","mensuel","diff",TRUE
+"Électricité, gaz, eau :: . Centrale de JLEC 1-4","Électricité, gaz, eau",". Centrale de JLEC 1-4","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Centrale de JLEC 5-6","Électricité, gaz, eau",". Centrale de JLEC 5-6","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Centrale de Jerada","Électricité, gaz, eau",". Centrale de Jerada","mensuel","diff",TRUE
+"Électricité, gaz, eau :: . Centrale de Mohammedia","Électricité, gaz, eau",". Centrale de Mohammedia","mensuel","diff",TRUE
+"Électricité, gaz, eau :: . Centrale de SAFIEC","Électricité, gaz, eau",". Centrale de SAFIEC","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Centrale de Tahaddart","Électricité, gaz, eau",". Centrale de Tahaddart","mensuel","diff",TRUE
+"Électricité, gaz, eau :: . Compagnie Eolienne du Détroit (CED)","Électricité, gaz, eau",". Compagnie Eolienne du Détroit (CED)","mensuel","diff",TRUE
+"Électricité, gaz, eau :: . Energie Electrique de Tahaddart (EET)","Électricité, gaz, eau",". Energie Electrique de Tahaddart (EET)","mensuel","diff",TRUE
+"Électricité, gaz, eau :: . Eolienne","Électricité, gaz, eau",". Eolienne","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Hydraulique","Électricité, gaz, eau",". Hydraulique","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Jorf Lasfar Energy Company (JLEC 1-4)","Électricité, gaz, eau",". Jorf Lasfar Energy Company (JLEC 1-4)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Jorf Lasfar Energy Company (JLEC 5-6)","Électricité, gaz, eau",". Jorf Lasfar Energy Company (JLEC 5-6)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Moroccan Agency for Sustainable Energy (MASEN) (Solaire Noor 1)","Électricité, gaz, eau",". Moroccan Agency for Sustainable Energy (MASEN) (Solaire Noor 1)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Parc Eolien JBEL LHDID","Électricité, gaz, eau",". Parc Eolien JBEL LHDID","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Parc Eolien KOUDIA AL BAIDA","Électricité, gaz, eau",". Parc Eolien KOUDIA AL BAIDA","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Parc Eolien de Boujdour","Électricité, gaz, eau",". Parc Eolien de Boujdour","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Parc Eolien de Midelt","Électricité, gaz, eau",". Parc Eolien de Midelt","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Parc Eolien de TAZA I","Électricité, gaz, eau",". Parc Eolien de TAZA I","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Parc Eolien de Tarfaya (TAREC)","Électricité, gaz, eau",". Parc Eolien de Tarfaya (TAREC)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Safi Energy Company (SAFIEC)","Électricité, gaz, eau",". Safi Energy Company (SAFIEC)","mensuel","diff",TRUE
+"Électricité, gaz, eau :: . Solaire (Centrale solaire d'Assa + Tafilalet PV)","Électricité, gaz, eau",". Solaire (Centrale solaire d'Assa + Tafilalet PV)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: . Thermique","Électricité, gaz, eau",". Thermique","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: .Parc éolien Afissat","Électricité, gaz, eau",".Parc éolien Afissat","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: .Parc éolien Akhfennir","Électricité, gaz, eau",".Parc éolien Akhfennir","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: .Parc éolien Dakhla","Électricité, gaz, eau",".Parc éolien Dakhla","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: .Parc éolien Foum El Oued","Électricité, gaz, eau",".Parc éolien Foum El Oued","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: .Parc éolien Haouma","Électricité, gaz, eau",".Parc éolien Haouma","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: .Parc éolien Khelladi","Électricité, gaz, eau",".Parc éolien Khelladi","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: .Parc éolien Oualidia","Électricité, gaz, eau",".Parc éolien Oualidia","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Apport des Tiers Nationaux","Électricité, gaz, eau","Apport des Tiers Nationaux","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Autoproducteurs","Électricité, gaz, eau","Autoproducteurs","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Autres PP","Électricité, gaz, eau","Autres PP","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Auxiliaires des centrales pompes du réseau THT-HT","Électricité, gaz, eau","Auxiliaires des centrales pompes du réseau THT-HT","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Charbon importé","Électricité, gaz, eau","Charbon importé","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Charbon local","Électricité, gaz, eau","Charbon local","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Clients BT","Électricité, gaz, eau","Clients BT","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Clients MT","Électricité, gaz, eau","Clients MT","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Clients THT-HT","Électricité, gaz, eau","Clients THT-HT","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Comptes débiteurs et crédits de trésorerie — Électricité, gaz, eau (MDH)","Électricité, gaz, eau","Comptes débiteurs et crédits de trésorerie — Électricité, gaz, eau (MDH)","trimestriel","dlog",TRUE
+"Électricité, gaz, eau :: Consommation de combustibles (Fioul, Charbon, Gaz oil) Tonnes","Électricité, gaz, eau","Consommation de combustibles (Fioul, Charbon, Gaz oil) Tonnes","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Crédit bancaire Électricité, gaz et eau (MDH)","Électricité, gaz, eau","Crédit bancaire Électricité, gaz et eau (MDH)","trimestriel","dlog",TRUE
+"Électricité, gaz, eau :: Crédits à l'équipement — Électricité, gaz, eau (MDH)","Électricité, gaz, eau","Crédits à l'équipement — Électricité, gaz, eau (MDH)","trimestriel","dlog",TRUE
+"Électricité, gaz, eau :: Distributeurs","Électricité, gaz, eau","Distributeurs","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Energie Electrique de Tahaddart","Électricité, gaz, eau","Energie Electrique de Tahaddart","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Energie nette appelée","Électricité, gaz, eau","Energie nette appelée","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Eolienne","Électricité, gaz, eau","Eolienne","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Fuel","Électricité, gaz, eau","Fuel","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Gasoil","Électricité, gaz, eau","Gasoil","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Hydraulique","Électricité, gaz, eau","Hydraulique","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: I- ENERGIE NETTE APPELEE (en GWh) y compris l’énergie éolienne via réseau clients","Électricité, gaz, eau","I- ENERGIE NETTE APPELEE (en GWh) y compris l’énergie éolienne via réseau clients","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: II- ENERGIE NETTE APPELEE (en GWh) dont :","Électricité, gaz, eau","II- ENERGIE NETTE APPELEE (en GWh) dont :","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: III- VENTES D'ÉLECTRICITE (en GWh) dont :","Électricité, gaz, eau","III- VENTES D'ÉLECTRICITE (en GWh) dont :","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Parc Eolien : CED","Électricité, gaz, eau","Parc Eolien : CED","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Parc Eolien de Tarfaya","Électricité, gaz, eau","Parc Eolien de Tarfaya","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Petcoke","Électricité, gaz, eau","Petcoke","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Prix du Brent (USD/baril)","Électricité, gaz, eau","Prix du Brent (USD/baril)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Prix du Butane (USD/mt)","Électricité, gaz, eau","Prix du Butane (USD/mt)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Production d'électricité","Électricité, gaz, eau","Production d'électricité","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Production thermique : JLEC","Électricité, gaz, eau","Production thermique : JLEC","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: Pétrole brut","Électricité, gaz, eau","Pétrole brut","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: STEP Energie absorbée pour le pompage","Électricité, gaz, eau","STEP Energie absorbée pour le pompage","mensuel","diff",TRUE
+"Électricité, gaz, eau :: Thermique (y compris ABM)","Électricité, gaz, eau","Thermique (y compris ABM)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: dont Production de source renouvelable (éolien)","Électricité, gaz, eau","dont Production de source renouvelable (éolien)","mensuel","dlog",TRUE
+"Électricité, gaz, eau :: dont Turbinage de la STEP","Électricité, gaz, eau","dont Turbinage de la STEP","mensuel","diff",TRUE
+"Électricité, gaz, eau :: dont Turbinage de la STEP (2)","Électricité, gaz, eau","dont Turbinage de la STEP (2)","mensuel","dlog",TRUE

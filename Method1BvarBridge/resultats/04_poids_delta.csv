@@ -1,0 +1,577 @@
+﻿"branche","origine","delta","delta_mode","delta_n_obs"
+"Agriculture",2014-06-30,0.5,"constant",0
+"Agriculture",2014-09-30,0.5,"constant",1
+"Agriculture",2014-12-31,0.5,"constant",2
+"Agriculture",2015-03-31,0.5,"constant",3
+"Agriculture",2015-06-30,0.5,"constant",4
+"Agriculture",2015-09-30,0.5,"constant",5
+"Agriculture",2015-12-31,0.5,"constant",6
+"Agriculture",2016-03-31,0.5,"constant",7
+"Agriculture",2016-06-30,0.5,"constant",8
+"Agriculture",2016-09-30,0.5,"constant",9
+"Agriculture",2016-12-31,0.5,"constant",10
+"Agriculture",2017-03-31,0.5,"constant",11
+"Agriculture",2017-06-30,0.5,"constant",12
+"Agriculture",2017-09-30,0.5,"constant",12
+"Agriculture",2017-12-31,0.5,"constant",12
+"Agriculture",2018-03-31,0.5,"constant",12
+"Agriculture",2018-06-30,0.5,"constant",12
+"Agriculture",2018-09-30,0.5,"constant",12
+"Agriculture",2018-12-31,0.5,"constant",12
+"Agriculture",2019-03-31,0.5,"constant",12
+"Agriculture",2019-06-30,0.5,"constant",12
+"Agriculture",2019-09-30,0.5,"constant",12
+"Agriculture",2019-12-31,0.5,"constant",12
+"Agriculture",2020-03-31,0.5,"constant",12
+"Agriculture",2020-06-30,0.5,"constant",12
+"Agriculture",2020-09-30,0.5,"constant",12
+"Agriculture",2020-12-31,0.5,"constant",12
+"Agriculture",2021-03-31,0.5,"constant",12
+"Agriculture",2021-06-30,0.5,"constant",12
+"Agriculture",2021-09-30,0.5,"constant",12
+"Agriculture",2021-12-31,0.5,"constant",12
+"Agriculture",2022-03-31,0.5,"constant",12
+"Agriculture",2022-06-30,0.5,"constant",12
+"Agriculture",2022-09-30,0.5,"constant",12
+"Agriculture",2022-12-31,0.5,"constant",12
+"Agriculture",2023-03-31,0.5,"constant",12
+"Agriculture",2023-06-30,0.5,"constant",12
+"Agriculture",2023-09-30,0.5,"constant",12
+"Agriculture",2023-12-31,0.5,"constant",12
+"Agriculture",2024-03-31,0.5,"constant",12
+"Agriculture",2024-06-30,0.5,"constant",12
+"Agriculture",2024-09-30,0.5,"constant",12
+"Agriculture",2024-12-31,0.5,"constant",12
+"Agriculture",2025-03-31,0.5,"constant",12
+"Agriculture",2025-06-30,0.5,"constant",12
+"Agriculture",2025-09-30,0.5,"constant",13
+"Agriculture",2025-12-31,0.5,"constant",14
+"Agriculture",2026-03-31,0.5,"constant",15
+"Commerce",2014-06-30,0.5,"constant",0
+"Commerce",2014-09-30,0.5,"constant",1
+"Commerce",2014-12-31,0.5,"constant",2
+"Commerce",2015-03-31,0.5,"constant",3
+"Commerce",2015-06-30,0.5,"constant",4
+"Commerce",2015-09-30,0.5,"constant",5
+"Commerce",2015-12-31,0.5,"constant",6
+"Commerce",2016-03-31,0.5,"constant",7
+"Commerce",2016-06-30,0.5,"constant",8
+"Commerce",2016-09-30,0.5,"constant",9
+"Commerce",2016-12-31,0.5,"constant",10
+"Commerce",2017-03-31,0.5,"constant",11
+"Commerce",2017-06-30,0.5,"constant",12
+"Commerce",2017-09-30,0.5,"constant",13
+"Commerce",2017-12-31,0.5,"constant",14
+"Commerce",2018-03-31,0.5,"constant",15
+"Commerce",2018-06-30,0.5,"constant",16
+"Commerce",2018-09-30,0.5,"constant",17
+"Commerce",2018-12-31,0.5,"constant",18
+"Commerce",2019-03-31,0.5,"constant",19
+"Commerce",2019-06-30,0.5,"constant",20
+"Commerce",2019-09-30,0.5,"constant",21
+"Commerce",2019-12-31,0.5,"constant",22
+"Commerce",2020-03-31,0.5,"constant",23
+"Commerce",2020-06-30,0.5,"constant",23
+"Commerce",2020-09-30,0.5,"constant",23
+"Commerce",2020-12-31,0.5,"constant",23
+"Commerce",2021-03-31,0.5,"constant",24
+"Commerce",2021-06-30,0.5,"constant",25
+"Commerce",2021-09-30,0.5,"constant",26
+"Commerce",2021-12-31,0.5,"constant",27
+"Commerce",2022-03-31,0.5,"constant",28
+"Commerce",2022-06-30,0.5,"constant",29
+"Commerce",2022-09-30,0.5,"constant",30
+"Commerce",2022-12-31,0.5,"constant",31
+"Commerce",2023-03-31,0.5,"constant",32
+"Commerce",2023-06-30,0.5,"constant",32
+"Commerce",2023-09-30,0.5,"constant",32
+"Commerce",2023-12-31,0.5,"constant",32
+"Commerce",2024-03-31,0.5,"constant",32
+"Commerce",2024-06-30,0.5,"constant",32
+"Commerce",2024-09-30,0.5,"constant",32
+"Commerce",2024-12-31,0.5,"constant",32
+"Commerce",2025-03-31,0.5,"constant",32
+"Commerce",2025-06-30,0.5,"constant",32
+"Commerce",2025-09-30,0.5,"constant",32
+"Commerce",2025-12-31,0.5,"constant",32
+"Commerce",2026-03-31,0.5,"constant",32
+"Construction",2014-06-30,0.5,"constant",0
+"Construction",2014-09-30,0.5,"constant",1
+"Construction",2014-12-31,0.5,"constant",2
+"Construction",2015-03-31,0.5,"constant",3
+"Construction",2015-06-30,0.5,"constant",4
+"Construction",2015-09-30,0.5,"constant",5
+"Construction",2015-12-31,0.5,"constant",6
+"Construction",2016-03-31,0.5,"constant",7
+"Construction",2016-06-30,0.5,"constant",7
+"Construction",2016-09-30,0.5,"constant",7
+"Construction",2016-12-31,0.5,"constant",7
+"Construction",2017-03-31,0.5,"constant",7
+"Construction",2017-06-30,0.5,"constant",7
+"Construction",2017-09-30,0.5,"constant",7
+"Construction",2017-12-31,0.5,"constant",7
+"Construction",2018-03-31,0.5,"constant",7
+"Construction",2018-06-30,0.5,"constant",7
+"Construction",2018-09-30,0.5,"constant",7
+"Construction",2018-12-31,0.5,"constant",7
+"Construction",2019-03-31,0.5,"constant",7
+"Construction",2019-06-30,0.5,"constant",7
+"Construction",2019-09-30,0.5,"constant",7
+"Construction",2019-12-31,0.5,"constant",7
+"Construction",2020-03-31,0.5,"constant",7
+"Construction",2020-06-30,0.5,"constant",7
+"Construction",2020-09-30,0.5,"constant",7
+"Construction",2020-12-31,0.5,"constant",7
+"Construction",2021-03-31,0.5,"constant",7
+"Construction",2021-06-30,0.5,"constant",7
+"Construction",2021-09-30,0.5,"constant",7
+"Construction",2021-12-31,0.5,"constant",7
+"Construction",2022-03-31,0.5,"constant",7
+"Construction",2022-06-30,0.5,"constant",7
+"Construction",2022-09-30,0.5,"constant",7
+"Construction",2022-12-31,0.5,"constant",7
+"Construction",2023-03-31,0.5,"constant",7
+"Construction",2023-06-30,0.5,"constant",7
+"Construction",2023-09-30,0.5,"constant",7
+"Construction",2023-12-31,0.5,"constant",7
+"Construction",2024-03-31,0.5,"constant",7
+"Construction",2024-06-30,0.5,"constant",7
+"Construction",2024-09-30,0.5,"constant",7
+"Construction",2024-12-31,0.5,"constant",7
+"Construction",2025-03-31,0.5,"constant",7
+"Construction",2025-06-30,0.5,"constant",7
+"Construction",2025-09-30,0.5,"constant",7
+"Construction",2025-12-31,0.5,"constant",7
+"Construction",2026-03-31,0.5,"constant",7
+"Finances et assurances",2014-06-30,0.5,"constant",0
+"Finances et assurances",2014-09-30,0.5,"constant",1
+"Finances et assurances",2014-12-31,0.5,"constant",2
+"Finances et assurances",2015-03-31,0.5,"constant",3
+"Finances et assurances",2015-06-30,0.5,"constant",4
+"Finances et assurances",2015-09-30,0.5,"constant",5
+"Finances et assurances",2015-12-31,0.5,"constant",6
+"Finances et assurances",2016-03-31,0.5,"constant",7
+"Finances et assurances",2016-06-30,0.5,"constant",8
+"Finances et assurances",2016-09-30,0.5,"constant",9
+"Finances et assurances",2016-12-31,0.5,"constant",10
+"Finances et assurances",2017-03-31,0.5,"constant",11
+"Finances et assurances",2017-06-30,0.5,"constant",12
+"Finances et assurances",2017-09-30,0.5,"constant",13
+"Finances et assurances",2017-12-31,0.5,"constant",14
+"Finances et assurances",2018-03-31,0.5,"constant",15
+"Finances et assurances",2018-06-30,0.5,"constant",16
+"Finances et assurances",2018-09-30,0.5,"constant",17
+"Finances et assurances",2018-12-31,0.5,"constant",18
+"Finances et assurances",2019-03-31,0.5,"constant",19
+"Finances et assurances",2019-06-30,0.5,"constant",20
+"Finances et assurances",2019-09-30,0.5,"constant",21
+"Finances et assurances",2019-12-31,0.5,"constant",22
+"Finances et assurances",2020-03-31,0.5,"constant",23
+"Finances et assurances",2020-06-30,0.5,"constant",24
+"Finances et assurances",2020-09-30,0.5,"constant",25
+"Finances et assurances",2020-12-31,0.5,"constant",26
+"Finances et assurances",2021-03-31,0.5,"constant",27
+"Finances et assurances",2021-06-30,0.5,"constant",28
+"Finances et assurances",2021-09-30,0.5,"constant",29
+"Finances et assurances",2021-12-31,0.5,"constant",30
+"Finances et assurances",2022-03-31,0.5,"constant",31
+"Finances et assurances",2022-06-30,0.5,"constant",32
+"Finances et assurances",2022-09-30,0.5,"constant",33
+"Finances et assurances",2022-12-31,0.5,"constant",34
+"Finances et assurances",2023-03-31,0.5,"constant",35
+"Finances et assurances",2023-06-30,0.5,"constant",36
+"Finances et assurances",2023-09-30,0.5,"constant",37
+"Finances et assurances",2023-12-31,0.5,"constant",38
+"Finances et assurances",2024-03-31,0.5,"constant",39
+"Finances et assurances",2024-06-30,0.5,"constant",40
+"Finances et assurances",2024-09-30,0.5,"constant",41
+"Finances et assurances",2024-12-31,0.5,"constant",42
+"Finances et assurances",2025-03-31,0.5,"constant",43
+"Finances et assurances",2025-06-30,0.5,"constant",44
+"Finances et assurances",2025-09-30,0.5,"constant",45
+"Finances et assurances",2025-12-31,0.5,"constant",46
+"Finances et assurances",2026-03-31,0.5,"constant",47
+"Hébergement-restauration",2014-06-30,0.5,"constant",0
+"Hébergement-restauration",2014-09-30,0.5,"constant",0
+"Hébergement-restauration",2014-12-31,0.5,"constant",0
+"Hébergement-restauration",2015-03-31,0.5,"constant",0
+"Hébergement-restauration",2015-06-30,0.5,"constant",0
+"Hébergement-restauration",2015-09-30,0.5,"constant",0
+"Hébergement-restauration",2015-12-31,0.5,"constant",0
+"Hébergement-restauration",2016-03-31,0.5,"constant",0
+"Hébergement-restauration",2016-06-30,0.5,"constant",0
+"Hébergement-restauration",2016-09-30,0.5,"constant",0
+"Hébergement-restauration",2016-12-31,0.5,"constant",0
+"Hébergement-restauration",2017-03-31,0.5,"constant",0
+"Hébergement-restauration",2017-06-30,0.5,"constant",0
+"Hébergement-restauration",2017-09-30,0.5,"constant",0
+"Hébergement-restauration",2017-12-31,0.5,"constant",0
+"Hébergement-restauration",2018-03-31,0.5,"constant",0
+"Hébergement-restauration",2018-06-30,0.5,"constant",0
+"Hébergement-restauration",2018-09-30,0.5,"constant",0
+"Hébergement-restauration",2018-12-31,0.5,"constant",0
+"Hébergement-restauration",2019-03-31,0.5,"constant",0
+"Hébergement-restauration",2019-06-30,0.5,"constant",0
+"Hébergement-restauration",2019-09-30,0.5,"constant",0
+"Hébergement-restauration",2019-12-31,0.5,"constant",0
+"Hébergement-restauration",2020-03-31,0.5,"constant",0
+"Hébergement-restauration",2020-06-30,0.5,"constant",1
+"Hébergement-restauration",2020-09-30,0.5,"constant",2
+"Hébergement-restauration",2020-12-31,0.5,"constant",3
+"Hébergement-restauration",2021-03-31,0.5,"constant",4
+"Hébergement-restauration",2021-06-30,0.5,"constant",5
+"Hébergement-restauration",2021-09-30,0.5,"constant",5
+"Hébergement-restauration",2021-12-31,0.5,"constant",5
+"Hébergement-restauration",2022-03-31,0.5,"constant",6
+"Hébergement-restauration",2022-06-30,0.5,"constant",7
+"Hébergement-restauration",2022-09-30,0.5,"constant",7
+"Hébergement-restauration",2022-12-31,0.5,"constant",7
+"Hébergement-restauration",2023-03-31,0.5,"constant",7
+"Hébergement-restauration",2023-06-30,0.5,"constant",8
+"Hébergement-restauration",2023-09-30,0.5,"constant",9
+"Hébergement-restauration",2023-12-31,0.5,"constant",10
+"Hébergement-restauration",2024-03-31,0.5,"constant",11
+"Hébergement-restauration",2024-06-30,0.5,"constant",12
+"Hébergement-restauration",2024-09-30,0.5,"constant",13
+"Hébergement-restauration",2024-12-31,0.5,"constant",14
+"Hébergement-restauration",2025-03-31,0.5,"constant",15
+"Hébergement-restauration",2025-06-30,0.5,"constant",16
+"Hébergement-restauration",2025-09-30,0.5,"constant",16
+"Hébergement-restauration",2025-12-31,0.5,"constant",16
+"Hébergement-restauration",2026-03-31,0.5,"constant",16
+"Immobilier",2014-06-30,0.5,"constant",0
+"Immobilier",2014-09-30,0.5,"constant",1
+"Immobilier",2014-12-31,0.5,"constant",2
+"Immobilier",2015-03-31,0.5,"constant",3
+"Immobilier",2015-06-30,0.5,"constant",4
+"Immobilier",2015-09-30,0.5,"constant",5
+"Immobilier",2015-12-31,0.5,"constant",6
+"Immobilier",2016-03-31,0.5,"constant",7
+"Immobilier",2016-06-30,0.5,"constant",8
+"Immobilier",2016-09-30,0.5,"constant",9
+"Immobilier",2016-12-31,0.5,"constant",10
+"Immobilier",2017-03-31,0.5,"constant",11
+"Immobilier",2017-06-30,0.5,"constant",12
+"Immobilier",2017-09-30,0.5,"constant",13
+"Immobilier",2017-12-31,0.5,"constant",14
+"Immobilier",2018-03-31,0.5,"constant",15
+"Immobilier",2018-06-30,0.5,"constant",16
+"Immobilier",2018-09-30,0.5,"constant",17
+"Immobilier",2018-12-31,0.5,"constant",18
+"Immobilier",2019-03-31,0.5,"constant",19
+"Immobilier",2019-06-30,0.5,"constant",20
+"Immobilier",2019-09-30,0.5,"constant",21
+"Immobilier",2019-12-31,0.5,"constant",22
+"Immobilier",2020-03-31,0.5,"constant",23
+"Immobilier",2020-06-30,0.5,"constant",24
+"Immobilier",2020-09-30,0.5,"constant",25
+"Immobilier",2020-12-31,0.5,"constant",26
+"Immobilier",2021-03-31,0.5,"constant",27
+"Immobilier",2021-06-30,0.5,"constant",28
+"Immobilier",2021-09-30,0.5,"constant",29
+"Immobilier",2021-12-31,0.5,"constant",30
+"Immobilier",2022-03-31,0.5,"constant",31
+"Immobilier",2022-06-30,0.5,"constant",32
+"Immobilier",2022-09-30,0.5,"constant",33
+"Immobilier",2022-12-31,0.5,"constant",34
+"Immobilier",2023-03-31,0.5,"constant",35
+"Immobilier",2023-06-30,0.5,"constant",36
+"Immobilier",2023-09-30,0.5,"constant",37
+"Immobilier",2023-12-31,0.5,"constant",38
+"Immobilier",2024-03-31,0.5,"constant",39
+"Immobilier",2024-06-30,0.5,"constant",40
+"Immobilier",2024-09-30,0.5,"constant",41
+"Immobilier",2024-12-31,0.5,"constant",42
+"Immobilier",2025-03-31,0.5,"constant",42
+"Immobilier",2025-06-30,0.5,"constant",43
+"Immobilier",2025-09-30,0.5,"constant",44
+"Immobilier",2025-12-31,0.5,"constant",45
+"Immobilier",2026-03-31,0.5,"constant",46
+"Industrie d'extraction",2014-06-30,0.5,"constant",0
+"Industrie d'extraction",2014-09-30,0.5,"constant",0
+"Industrie d'extraction",2014-12-31,0.5,"constant",0
+"Industrie d'extraction",2015-03-31,0.5,"constant",0
+"Industrie d'extraction",2015-06-30,0.5,"constant",0
+"Industrie d'extraction",2015-09-30,0.5,"constant",0
+"Industrie d'extraction",2015-12-31,0.5,"constant",0
+"Industrie d'extraction",2016-03-31,0.5,"constant",0
+"Industrie d'extraction",2016-06-30,0.5,"constant",0
+"Industrie d'extraction",2016-09-30,0.5,"constant",0
+"Industrie d'extraction",2016-12-31,0.5,"constant",0
+"Industrie d'extraction",2017-03-31,0.5,"constant",0
+"Industrie d'extraction",2017-06-30,0.5,"constant",0
+"Industrie d'extraction",2017-09-30,0.5,"constant",0
+"Industrie d'extraction",2017-12-31,0.5,"constant",0
+"Industrie d'extraction",2018-03-31,0.5,"constant",0
+"Industrie d'extraction",2018-06-30,0.5,"constant",0
+"Industrie d'extraction",2018-09-30,0.5,"constant",0
+"Industrie d'extraction",2018-12-31,0.5,"constant",0
+"Industrie d'extraction",2019-03-31,0.5,"constant",0
+"Industrie d'extraction",2019-06-30,0.5,"constant",0
+"Industrie d'extraction",2019-09-30,0.5,"constant",0
+"Industrie d'extraction",2019-12-31,0.5,"constant",0
+"Industrie d'extraction",2020-03-31,0.5,"constant",0
+"Industrie d'extraction",2020-06-30,0.5,"constant",0
+"Industrie d'extraction",2020-09-30,0.5,"constant",0
+"Industrie d'extraction",2020-12-31,0.5,"constant",0
+"Industrie d'extraction",2021-03-31,0.5,"constant",0
+"Industrie d'extraction",2021-06-30,0.5,"constant",0
+"Industrie d'extraction",2021-09-30,0.5,"constant",0
+"Industrie d'extraction",2021-12-31,0.5,"constant",0
+"Industrie d'extraction",2022-03-31,0.5,"constant",0
+"Industrie d'extraction",2022-06-30,0.5,"constant",0
+"Industrie d'extraction",2022-09-30,0.5,"constant",0
+"Industrie d'extraction",2022-12-31,0.5,"constant",0
+"Industrie d'extraction",2023-03-31,0.5,"constant",0
+"Industrie d'extraction",2023-06-30,0.5,"constant",0
+"Industrie d'extraction",2023-09-30,0.5,"constant",0
+"Industrie d'extraction",2023-12-31,0.5,"constant",0
+"Industrie d'extraction",2024-03-31,0.5,"constant",0
+"Industrie d'extraction",2024-06-30,0.5,"constant",0
+"Industrie d'extraction",2024-09-30,0.5,"constant",0
+"Industrie d'extraction",2024-12-31,0.5,"constant",0
+"Industrie d'extraction",2025-03-31,0.5,"constant",0
+"Industrie d'extraction",2025-06-30,0.5,"constant",0
+"Industrie d'extraction",2025-09-30,0.5,"constant",0
+"Industrie d'extraction",2025-12-31,0.5,"constant",0
+"Industrie d'extraction",2026-03-31,0.5,"constant",0
+"Industrie de transformation",2014-06-30,0.5,"constant",0
+"Industrie de transformation",2014-09-30,0.5,"constant",1
+"Industrie de transformation",2014-12-31,0.5,"constant",2
+"Industrie de transformation",2015-03-31,0.5,"constant",3
+"Industrie de transformation",2015-06-30,0.5,"constant",4
+"Industrie de transformation",2015-09-30,0.5,"constant",5
+"Industrie de transformation",2015-12-31,0.5,"constant",6
+"Industrie de transformation",2016-03-31,0.5,"constant",7
+"Industrie de transformation",2016-06-30,0.5,"constant",8
+"Industrie de transformation",2016-09-30,0.5,"constant",9
+"Industrie de transformation",2016-12-31,0.5,"constant",10
+"Industrie de transformation",2017-03-31,0.5,"constant",11
+"Industrie de transformation",2017-06-30,0.5,"constant",12
+"Industrie de transformation",2017-09-30,0.5,"constant",13
+"Industrie de transformation",2017-12-31,0.5,"constant",14
+"Industrie de transformation",2018-03-31,0.5,"constant",15
+"Industrie de transformation",2018-06-30,0.5,"constant",16
+"Industrie de transformation",2018-09-30,0.5,"constant",17
+"Industrie de transformation",2018-12-31,0.5,"constant",18
+"Industrie de transformation",2019-03-31,0.5,"constant",19
+"Industrie de transformation",2019-06-30,0.5,"constant",20
+"Industrie de transformation",2019-09-30,0.5,"constant",21
+"Industrie de transformation",2019-12-31,0.5,"constant",22
+"Industrie de transformation",2020-03-31,0.5,"constant",23
+"Industrie de transformation",2020-06-30,0.5,"constant",24
+"Industrie de transformation",2020-09-30,0.5,"constant",25
+"Industrie de transformation",2020-12-31,0.5,"constant",26
+"Industrie de transformation",2021-03-31,0.5,"constant",27
+"Industrie de transformation",2021-06-30,0.5,"constant",28
+"Industrie de transformation",2021-09-30,0.5,"constant",29
+"Industrie de transformation",2021-12-31,0.5,"constant",30
+"Industrie de transformation",2022-03-31,0.5,"constant",31
+"Industrie de transformation",2022-06-30,0.5,"constant",32
+"Industrie de transformation",2022-09-30,0.5,"constant",33
+"Industrie de transformation",2022-12-31,0.5,"constant",34
+"Industrie de transformation",2023-03-31,0.5,"constant",35
+"Industrie de transformation",2023-06-30,0.5,"constant",36
+"Industrie de transformation",2023-09-30,0.5,"constant",37
+"Industrie de transformation",2023-12-31,0.5,"constant",38
+"Industrie de transformation",2024-03-31,0.5,"constant",39
+"Industrie de transformation",2024-06-30,0.5,"constant",40
+"Industrie de transformation",2024-09-30,0.5,"constant",41
+"Industrie de transformation",2024-12-31,0.5,"constant",42
+"Industrie de transformation",2025-03-31,0.5,"constant",43
+"Industrie de transformation",2025-06-30,0.5,"constant",44
+"Industrie de transformation",2025-09-30,0.5,"constant",45
+"Industrie de transformation",2025-12-31,0.5,"constant",46
+"Industrie de transformation",2026-03-31,0.5,"constant",47
+"Information-communication",2014-06-30,0.5,"constant",0
+"Information-communication",2014-09-30,0.5,"constant",1
+"Information-communication",2014-12-31,0.5,"constant",2
+"Information-communication",2015-03-31,0.5,"constant",3
+"Information-communication",2015-06-30,0.5,"constant",4
+"Information-communication",2015-09-30,0.5,"constant",5
+"Information-communication",2015-12-31,0.5,"constant",6
+"Information-communication",2016-03-31,0.5,"constant",7
+"Information-communication",2016-06-30,0.5,"constant",8
+"Information-communication",2016-09-30,0.5,"constant",9
+"Information-communication",2016-12-31,0.5,"constant",10
+"Information-communication",2017-03-31,0.5,"constant",11
+"Information-communication",2017-06-30,0.5,"constant",11
+"Information-communication",2017-09-30,0.5,"constant",11
+"Information-communication",2017-12-31,0.5,"constant",11
+"Information-communication",2018-03-31,0.5,"constant",11
+"Information-communication",2018-06-30,0.5,"constant",11
+"Information-communication",2018-09-30,0.5,"constant",11
+"Information-communication",2018-12-31,0.5,"constant",11
+"Information-communication",2019-03-31,0.5,"constant",11
+"Information-communication",2019-06-30,0.5,"constant",11
+"Information-communication",2019-09-30,0.5,"constant",11
+"Information-communication",2019-12-31,0.5,"constant",11
+"Information-communication",2020-03-31,0.5,"constant",11
+"Information-communication",2020-06-30,0.5,"constant",11
+"Information-communication",2020-09-30,0.5,"constant",11
+"Information-communication",2020-12-31,0.5,"constant",11
+"Information-communication",2021-03-31,0.5,"constant",11
+"Information-communication",2021-06-30,0.5,"constant",11
+"Information-communication",2021-09-30,0.5,"constant",11
+"Information-communication",2021-12-31,0.5,"constant",11
+"Information-communication",2022-03-31,0.5,"constant",11
+"Information-communication",2022-06-30,0.5,"constant",11
+"Information-communication",2022-09-30,0.5,"constant",11
+"Information-communication",2022-12-31,0.5,"constant",11
+"Information-communication",2023-03-31,0.5,"constant",11
+"Information-communication",2023-06-30,0.5,"constant",11
+"Information-communication",2023-09-30,0.5,"constant",11
+"Information-communication",2023-12-31,0.5,"constant",11
+"Information-communication",2024-03-31,0.5,"constant",11
+"Information-communication",2024-06-30,0.5,"constant",11
+"Information-communication",2024-09-30,0.5,"constant",11
+"Information-communication",2024-12-31,0.5,"constant",11
+"Information-communication",2025-03-31,0.5,"constant",11
+"Information-communication",2025-06-30,0.5,"constant",11
+"Information-communication",2025-09-30,0.5,"constant",11
+"Information-communication",2025-12-31,0.5,"constant",11
+"Information-communication",2026-03-31,0.5,"constant",11
+"Pêche",2014-06-30,0.5,"constant",0
+"Pêche",2014-09-30,0.5,"constant",1
+"Pêche",2014-12-31,0.5,"constant",2
+"Pêche",2015-03-31,0.5,"constant",3
+"Pêche",2015-06-30,0.5,"constant",4
+"Pêche",2015-09-30,0.5,"constant",5
+"Pêche",2015-12-31,0.5,"constant",6
+"Pêche",2016-03-31,0.5,"constant",7
+"Pêche",2016-06-30,0.5,"constant",8
+"Pêche",2016-09-30,0.5,"constant",9
+"Pêche",2016-12-31,0.5,"constant",10
+"Pêche",2017-03-31,0.5,"constant",11
+"Pêche",2017-06-30,0.5,"constant",12
+"Pêche",2017-09-30,0.5,"constant",13
+"Pêche",2017-12-31,0.5,"constant",14
+"Pêche",2018-03-31,0.5,"constant",15
+"Pêche",2018-06-30,0.5,"constant",16
+"Pêche",2018-09-30,0.5,"constant",17
+"Pêche",2018-12-31,0.5,"constant",17
+"Pêche",2019-03-31,0.5,"constant",17
+"Pêche",2019-06-30,0.5,"constant",17
+"Pêche",2019-09-30,0.5,"constant",17
+"Pêche",2019-12-31,0.5,"constant",17
+"Pêche",2020-03-31,0.5,"constant",18
+"Pêche",2020-06-30,0.5,"constant",18
+"Pêche",2020-09-30,0.5,"constant",18
+"Pêche",2020-12-31,0.5,"constant",18
+"Pêche",2021-03-31,0.5,"constant",18
+"Pêche",2021-06-30,0.5,"constant",19
+"Pêche",2021-09-30,0.5,"constant",20
+"Pêche",2021-12-31,0.5,"constant",21
+"Pêche",2022-03-31,0.5,"constant",22
+"Pêche",2022-06-30,0.5,"constant",23
+"Pêche",2022-09-30,0.5,"constant",24
+"Pêche",2022-12-31,0.5,"constant",25
+"Pêche",2023-03-31,0.5,"constant",25
+"Pêche",2023-06-30,0.5,"constant",25
+"Pêche",2023-09-30,0.5,"constant",25
+"Pêche",2023-12-31,0.5,"constant",25
+"Pêche",2024-03-31,0.5,"constant",26
+"Pêche",2024-06-30,0.5,"constant",27
+"Pêche",2024-09-30,0.5,"constant",28
+"Pêche",2024-12-31,0.5,"constant",29
+"Pêche",2025-03-31,0.5,"constant",30
+"Pêche",2025-06-30,0.5,"constant",31
+"Pêche",2025-09-30,0.5,"constant",32
+"Pêche",2025-12-31,0.5,"constant",33
+"Pêche",2026-03-31,0.5,"constant",34
+"Transports",2014-06-30,0.5,"constant",0
+"Transports",2014-09-30,0.5,"constant",0
+"Transports",2014-12-31,0.5,"constant",0
+"Transports",2015-03-31,0.5,"constant",0
+"Transports",2015-06-30,0.5,"constant",0
+"Transports",2015-09-30,0.5,"constant",0
+"Transports",2015-12-31,0.5,"constant",0
+"Transports",2016-03-31,0.5,"constant",0
+"Transports",2016-06-30,0.5,"constant",0
+"Transports",2016-09-30,0.5,"constant",0
+"Transports",2016-12-31,0.5,"constant",0
+"Transports",2017-03-31,0.5,"constant",0
+"Transports",2017-06-30,0.5,"constant",0
+"Transports",2017-09-30,0.5,"constant",0
+"Transports",2017-12-31,0.5,"constant",0
+"Transports",2018-03-31,0.5,"constant",0
+"Transports",2018-06-30,0.5,"constant",0
+"Transports",2018-09-30,0.5,"constant",0
+"Transports",2018-12-31,0.5,"constant",0
+"Transports",2019-03-31,0.5,"constant",0
+"Transports",2019-06-30,0.5,"constant",0
+"Transports",2019-09-30,0.5,"constant",0
+"Transports",2019-12-31,0.5,"constant",0
+"Transports",2020-03-31,0.5,"constant",0
+"Transports",2020-06-30,0.5,"constant",0
+"Transports",2020-09-30,0.5,"constant",0
+"Transports",2020-12-31,0.5,"constant",0
+"Transports",2021-03-31,0.5,"constant",0
+"Transports",2021-06-30,0.5,"constant",0
+"Transports",2021-09-30,0.5,"constant",0
+"Transports",2021-12-31,0.5,"constant",0
+"Transports",2022-03-31,0.5,"constant",0
+"Transports",2022-06-30,0.5,"constant",0
+"Transports",2022-09-30,0.5,"constant",0
+"Transports",2022-12-31,0.5,"constant",0
+"Transports",2023-03-31,0.5,"constant",0
+"Transports",2023-06-30,0.5,"constant",0
+"Transports",2023-09-30,0.5,"constant",0
+"Transports",2023-12-31,0.5,"constant",0
+"Transports",2024-03-31,0.5,"constant",0
+"Transports",2024-06-30,0.5,"constant",0
+"Transports",2024-09-30,0.5,"constant",0
+"Transports",2024-12-31,0.5,"constant",0
+"Transports",2025-03-31,0.5,"constant",0
+"Transports",2025-06-30,0.5,"constant",0
+"Transports",2025-09-30,0.5,"constant",0
+"Transports",2025-12-31,0.5,"constant",0
+"Transports",2026-03-31,0.5,"constant",0
+"Électricité, gaz, eau",2014-06-30,0.5,"constant",0
+"Électricité, gaz, eau",2014-09-30,0.5,"constant",1
+"Électricité, gaz, eau",2014-12-31,0.5,"constant",2
+"Électricité, gaz, eau",2015-03-31,0.5,"constant",3
+"Électricité, gaz, eau",2015-06-30,0.5,"constant",4
+"Électricité, gaz, eau",2015-09-30,0.5,"constant",5
+"Électricité, gaz, eau",2015-12-31,0.5,"constant",6
+"Électricité, gaz, eau",2016-03-31,0.5,"constant",7
+"Électricité, gaz, eau",2016-06-30,0.5,"constant",8
+"Électricité, gaz, eau",2016-09-30,0.5,"constant",9
+"Électricité, gaz, eau",2016-12-31,0.5,"constant",10
+"Électricité, gaz, eau",2017-03-31,0.5,"constant",11
+"Électricité, gaz, eau",2017-06-30,0.5,"constant",12
+"Électricité, gaz, eau",2017-09-30,0.5,"constant",13
+"Électricité, gaz, eau",2017-12-31,0.5,"constant",14
+"Électricité, gaz, eau",2018-03-31,0.5,"constant",15
+"Électricité, gaz, eau",2018-06-30,0.5,"constant",16
+"Électricité, gaz, eau",2018-09-30,0.5,"constant",17
+"Électricité, gaz, eau",2018-12-31,0.5,"constant",18
+"Électricité, gaz, eau",2019-03-31,0.5,"constant",19
+"Électricité, gaz, eau",2019-06-30,0.5,"constant",20
+"Électricité, gaz, eau",2019-09-30,0.5,"constant",21
+"Électricité, gaz, eau",2019-12-31,0.5,"constant",22
+"Électricité, gaz, eau",2020-03-31,0.5,"constant",23
+"Électricité, gaz, eau",2020-06-30,0.5,"constant",24
+"Électricité, gaz, eau",2020-09-30,0.5,"constant",25
+"Électricité, gaz, eau",2020-12-31,0.5,"constant",26
+"Électricité, gaz, eau",2021-03-31,0.5,"constant",27
+"Électricité, gaz, eau",2021-06-30,0.5,"constant",28
+"Électricité, gaz, eau",2021-09-30,0.5,"constant",29
+"Électricité, gaz, eau",2021-12-31,0.5,"constant",30
+"Électricité, gaz, eau",2022-03-31,0.5,"constant",31
+"Électricité, gaz, eau",2022-06-30,0.5,"constant",32
+"Électricité, gaz, eau",2022-09-30,0.5,"constant",33
+"Électricité, gaz, eau",2022-12-31,0.5,"constant",34
+"Électricité, gaz, eau",2023-03-31,0.5,"constant",35
+"Électricité, gaz, eau",2023-06-30,0.5,"constant",36
+"Électricité, gaz, eau",2023-09-30,0.5,"constant",37
+"Électricité, gaz, eau",2023-12-31,0.5,"constant",38
+"Électricité, gaz, eau",2024-03-31,0.5,"constant",39
+"Électricité, gaz, eau",2024-06-30,0.5,"constant",40
+"Électricité, gaz, eau",2024-09-30,0.5,"constant",41
+"Électricité, gaz, eau",2024-12-31,0.5,"constant",42
+"Électricité, gaz, eau",2025-03-31,0.5,"constant",43
+"Électricité, gaz, eau",2025-06-30,0.5,"constant",44
+"Électricité, gaz, eau",2025-09-30,0.5,"constant",45
+"Électricité, gaz, eau",2025-12-31,0.5,"constant",46
+"Électricité, gaz, eau",2026-03-31,0.5,"constant",47

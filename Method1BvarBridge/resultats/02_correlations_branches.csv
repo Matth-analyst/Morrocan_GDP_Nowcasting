@@ -1,0 +1,257 @@
+﻿"branche_1","branche_2","correlation"
+"Agriculture","Agriculture",1
+"Pêche","Agriculture",-0.0151704101164961
+"Industrie d'extraction","Agriculture",0.0657230272540253
+"Industrie de transformation","Agriculture",-0.124417549157926
+"Électricité, gaz, eau","Agriculture",0.0129418493629795
+"Construction","Agriculture",0.0380957393209638
+"Commerce","Agriculture",0.104200698015038
+"Transports","Agriculture",0.0332837678140844
+"Hébergement-restauration","Agriculture",0.00991080515970023
+"Information-communication","Agriculture",-0.183276483938371
+"Finances et assurances","Agriculture",-0.239435988137325
+"Immobilier","Agriculture",-0.0287961085472446
+"Services aux entreprises","Agriculture",-0.0719654114648457
+"Administration publique","Agriculture",0.15235756626305
+"Éducation-santé","Agriculture",-0.066233972275669
+"Autres services","Agriculture",0.112497976330476
+"Agriculture","Pêche",-0.0151704101164961
+"Pêche","Pêche",1
+"Industrie d'extraction","Pêche",-0.135765474847168
+"Industrie de transformation","Pêche",0.126466099776557
+"Électricité, gaz, eau","Pêche",0.18708994693376
+"Construction","Pêche",-0.00849790142101119
+"Commerce","Pêche",0.249244493961019
+"Transports","Pêche",0.0777662337745973
+"Hébergement-restauration","Pêche",-0.0229211417046443
+"Information-communication","Pêche",-0.00886981671952562
+"Finances et assurances","Pêche",-0.0304458013342303
+"Immobilier","Pêche",-0.0210345158108719
+"Services aux entreprises","Pêche",0.127888304893701
+"Administration publique","Pêche",0.0244302736645035
+"Éducation-santé","Pêche",-0.0371415898719663
+"Autres services","Pêche",-0.0714763603506007
+"Agriculture","Industrie d'extraction",0.0657230272540253
+"Pêche","Industrie d'extraction",-0.135765474847168
+"Industrie d'extraction","Industrie d'extraction",1
+"Industrie de transformation","Industrie d'extraction",0.135671239357522
+"Électricité, gaz, eau","Industrie d'extraction",0.172291212131074
+"Construction","Industrie d'extraction",0.103417654346095
+"Commerce","Industrie d'extraction",0.131554892198082
+"Transports","Industrie d'extraction",0.0562463085491365
+"Hébergement-restauration","Industrie d'extraction",-0.0223236083914934
+"Information-communication","Industrie d'extraction",-0.140495964884055
+"Finances et assurances","Industrie d'extraction",0.125671884282128
+"Immobilier","Industrie d'extraction",-0.000900436401620826
+"Services aux entreprises","Industrie d'extraction",-0.0649599910159972
+"Administration publique","Industrie d'extraction",-0.111002095587183
+"Éducation-santé","Industrie d'extraction",0.00784091923813629
+"Autres services","Industrie d'extraction",0.0228610373940131
+"Agriculture","Industrie de transformation",-0.124417549157926
+"Pêche","Industrie de transformation",0.126466099776557
+"Industrie d'extraction","Industrie de transformation",0.135671239357522
+"Industrie de transformation","Industrie de transformation",1
+"Électricité, gaz, eau","Industrie de transformation",0.402715592560976
+"Construction","Industrie de transformation",0.417997017404834
+"Commerce","Industrie de transformation",0.551920984546191
+"Transports","Industrie de transformation",0.610800744385748
+"Hébergement-restauration","Industrie de transformation",0.592078431566734
+"Information-communication","Industrie de transformation",-0.0369136275471294
+"Finances et assurances","Industrie de transformation",0.123124874973311
+"Immobilier","Industrie de transformation",-0.0853293837929021
+"Services aux entreprises","Industrie de transformation",0.735061949332765
+"Administration publique","Industrie de transformation",-0.116228416516015
+"Éducation-santé","Industrie de transformation",0.0270337675013325
+"Autres services","Industrie de transformation",0.221368042103372
+"Agriculture","Électricité, gaz, eau",0.0129418493629795
+"Pêche","Électricité, gaz, eau",0.18708994693376
+"Industrie d'extraction","Électricité, gaz, eau",0.172291212131074
+"Industrie de transformation","Électricité, gaz, eau",0.402715592560976
+"Électricité, gaz, eau","Électricité, gaz, eau",1
+"Construction","Électricité, gaz, eau",0.13574160258511
+"Commerce","Électricité, gaz, eau",0.0794906820290156
+"Transports","Électricité, gaz, eau",0.198984209622227
+"Hébergement-restauration","Électricité, gaz, eau",0.20374115421923
+"Information-communication","Électricité, gaz, eau",-0.141014499894825
+"Finances et assurances","Électricité, gaz, eau",0.220335658614186
+"Immobilier","Électricité, gaz, eau",-0.192788419296486
+"Services aux entreprises","Électricité, gaz, eau",0.27715491926628
+"Administration publique","Électricité, gaz, eau",-0.101359893282845
+"Éducation-santé","Électricité, gaz, eau",-0.0362308102535994
+"Autres services","Électricité, gaz, eau",0.104828292356176
+"Agriculture","Construction",0.0380957393209638
+"Pêche","Construction",-0.00849790142101119
+"Industrie d'extraction","Construction",0.103417654346095
+"Industrie de transformation","Construction",0.417997017404834
+"Électricité, gaz, eau","Construction",0.13574160258511
+"Construction","Construction",1
+"Commerce","Construction",0.421165669759601
+"Transports","Construction",0.579937236833205
+"Hébergement-restauration","Construction",0.453961757040859
+"Information-communication","Construction",0.141846682910804
+"Finances et assurances","Construction",0.148220683806985
+"Immobilier","Construction",0.41552823114744
+"Services aux entreprises","Construction",0.559149468627648
+"Administration publique","Construction",-0.000442007580582768
+"Éducation-santé","Construction",0.112365948350587
+"Autres services","Construction",0.173384171720345
+"Agriculture","Commerce",0.104200698015038
+"Pêche","Commerce",0.249244493961019
+"Industrie d'extraction","Commerce",0.131554892198082
+"Industrie de transformation","Commerce",0.551920984546191
+"Électricité, gaz, eau","Commerce",0.0794906820290156
+"Construction","Commerce",0.421165669759601
+"Commerce","Commerce",1
+"Transports","Commerce",0.696425854293691
+"Hébergement-restauration","Commerce",0.543453576070844
+"Information-communication","Commerce",-0.00131623051251584
+"Finances et assurances","Commerce",-0.123593898854245
+"Immobilier","Commerce",0.110845769617253
+"Services aux entreprises","Commerce",0.614143638341984
+"Administration publique","Commerce",0.137251436785517
+"Éducation-santé","Commerce",0.0016353250142098
+"Autres services","Commerce",0.164595313189931
+"Agriculture","Transports",0.0332837678140844
+"Pêche","Transports",0.0777662337745973
+"Industrie d'extraction","Transports",0.0562463085491365
+"Industrie de transformation","Transports",0.610800744385748
+"Électricité, gaz, eau","Transports",0.198984209622227
+"Construction","Transports",0.579937236833205
+"Commerce","Transports",0.696425854293691
+"Transports","Transports",1
+"Hébergement-restauration","Transports",0.803171594594364
+"Information-communication","Transports",0.0998231266691702
+"Finances et assurances","Transports",-0.0632762763601119
+"Immobilier","Transports",0.0545800472022027
+"Services aux entreprises","Transports",0.812465930456633
+"Administration publique","Transports",0.0225227234778158
+"Éducation-santé","Transports",0.0270158384555601
+"Autres services","Transports",0.272611144009108
+"Agriculture","Hébergement-restauration",0.00991080515970023
+"Pêche","Hébergement-restauration",-0.0229211417046443
+"Industrie d'extraction","Hébergement-restauration",-0.0223236083914934
+"Industrie de transformation","Hébergement-restauration",0.592078431566734
+"Électricité, gaz, eau","Hébergement-restauration",0.20374115421923
+"Construction","Hébergement-restauration",0.453961757040859
+"Commerce","Hébergement-restauration",0.543453576070844
+"Transports","Hébergement-restauration",0.803171594594364
+"Hébergement-restauration","Hébergement-restauration",1
+"Information-communication","Hébergement-restauration",0.0320666806334039
+"Finances et assurances","Hébergement-restauration",0.0964694745124967
+"Immobilier","Hébergement-restauration",0.0573835332429333
+"Services aux entreprises","Hébergement-restauration",0.787033145938737
+"Administration publique","Hébergement-restauration",0.016958547849219
+"Éducation-santé","Hébergement-restauration",0.139360100366015
+"Autres services","Hébergement-restauration",0.500008305983802
+"Agriculture","Information-communication",-0.183276483938371
+"Pêche","Information-communication",-0.00886981671952562
+"Industrie d'extraction","Information-communication",-0.140495964884055
+"Industrie de transformation","Information-communication",-0.0369136275471294
+"Électricité, gaz, eau","Information-communication",-0.141014499894825
+"Construction","Information-communication",0.141846682910804
+"Commerce","Information-communication",-0.00131623051251584
+"Transports","Information-communication",0.0998231266691702
+"Hébergement-restauration","Information-communication",0.0320666806334039
+"Information-communication","Information-communication",1
+"Finances et assurances","Information-communication",-0.120828568091535
+"Immobilier","Information-communication",0.138066146316352
+"Services aux entreprises","Information-communication",0.0455447142519977
+"Administration publique","Information-communication",0.186748725837195
+"Éducation-santé","Information-communication",0.372468298595665
+"Autres services","Information-communication",-0.0481212306085517
+"Agriculture","Finances et assurances",-0.239435988137325
+"Pêche","Finances et assurances",-0.0304458013342303
+"Industrie d'extraction","Finances et assurances",0.125671884282128
+"Industrie de transformation","Finances et assurances",0.123124874973311
+"Électricité, gaz, eau","Finances et assurances",0.220335658614186
+"Construction","Finances et assurances",0.148220683806985
+"Commerce","Finances et assurances",-0.123593898854245
+"Transports","Finances et assurances",-0.0632762763601119
+"Hébergement-restauration","Finances et assurances",0.0964694745124967
+"Information-communication","Finances et assurances",-0.120828568091535
+"Finances et assurances","Finances et assurances",1
+"Immobilier","Finances et assurances",0.223010646745626
+"Services aux entreprises","Finances et assurances",0.114663113179485
+"Administration publique","Finances et assurances",-0.141479387897613
+"Éducation-santé","Finances et assurances",0.227401896143081
+"Autres services","Finances et assurances",0.182654349529695
+"Agriculture","Immobilier",-0.0287961085472446
+"Pêche","Immobilier",-0.0210345158108719
+"Industrie d'extraction","Immobilier",-0.000900436401620826
+"Industrie de transformation","Immobilier",-0.0853293837929021
+"Électricité, gaz, eau","Immobilier",-0.192788419296486
+"Construction","Immobilier",0.41552823114744
+"Commerce","Immobilier",0.110845769617253
+"Transports","Immobilier",0.0545800472022027
+"Hébergement-restauration","Immobilier",0.0573835332429333
+"Information-communication","Immobilier",0.138066146316352
+"Finances et assurances","Immobilier",0.223010646745626
+"Immobilier","Immobilier",1
+"Services aux entreprises","Immobilier",0.0485506974077228
+"Administration publique","Immobilier",0.0728308898820701
+"Éducation-santé","Immobilier",0.0777023048265906
+"Autres services","Immobilier",0.134820524503353
+"Agriculture","Services aux entreprises",-0.0719654114648457
+"Pêche","Services aux entreprises",0.127888304893701
+"Industrie d'extraction","Services aux entreprises",-0.0649599910159972
+"Industrie de transformation","Services aux entreprises",0.735061949332765
+"Électricité, gaz, eau","Services aux entreprises",0.27715491926628
+"Construction","Services aux entreprises",0.559149468627648
+"Commerce","Services aux entreprises",0.614143638341984
+"Transports","Services aux entreprises",0.812465930456633
+"Hébergement-restauration","Services aux entreprises",0.787033145938737
+"Information-communication","Services aux entreprises",0.0455447142519977
+"Finances et assurances","Services aux entreprises",0.114663113179485
+"Immobilier","Services aux entreprises",0.0485506974077228
+"Services aux entreprises","Services aux entreprises",1
+"Administration publique","Services aux entreprises",-0.0358028256217911
+"Éducation-santé","Services aux entreprises",0.0553842695614389
+"Autres services","Services aux entreprises",0.299410566756854
+"Agriculture","Administration publique",0.15235756626305
+"Pêche","Administration publique",0.0244302736645035
+"Industrie d'extraction","Administration publique",-0.111002095587183
+"Industrie de transformation","Administration publique",-0.116228416516015
+"Électricité, gaz, eau","Administration publique",-0.101359893282845
+"Construction","Administration publique",-0.000442007580582768
+"Commerce","Administration publique",0.137251436785517
+"Transports","Administration publique",0.0225227234778158
+"Hébergement-restauration","Administration publique",0.016958547849219
+"Information-communication","Administration publique",0.186748725837195
+"Finances et assurances","Administration publique",-0.141479387897613
+"Immobilier","Administration publique",0.0728308898820701
+"Services aux entreprises","Administration publique",-0.0358028256217911
+"Administration publique","Administration publique",1
+"Éducation-santé","Administration publique",0.0774965546182278
+"Autres services","Administration publique",0.0577740836578137
+"Agriculture","Éducation-santé",-0.066233972275669
+"Pêche","Éducation-santé",-0.0371415898719663
+"Industrie d'extraction","Éducation-santé",0.00784091923813629
+"Industrie de transformation","Éducation-santé",0.0270337675013325
+"Électricité, gaz, eau","Éducation-santé",-0.0362308102535994
+"Construction","Éducation-santé",0.112365948350587
+"Commerce","Éducation-santé",0.0016353250142098
+"Transports","Éducation-santé",0.0270158384555601
+"Hébergement-restauration","Éducation-santé",0.139360100366015
+"Information-communication","Éducation-santé",0.372468298595665
+"Finances et assurances","Éducation-santé",0.227401896143081
+"Immobilier","Éducation-santé",0.0777023048265906
+"Services aux entreprises","Éducation-santé",0.0553842695614389
+"Administration publique","Éducation-santé",0.0774965546182278
+"Éducation-santé","Éducation-santé",1
+"Autres services","Éducation-santé",0.132929115953618
+"Agriculture","Autres services",0.112497976330476
+"Pêche","Autres services",-0.0714763603506007
+"Industrie d'extraction","Autres services",0.0228610373940131
+"Industrie de transformation","Autres services",0.221368042103372
+"Électricité, gaz, eau","Autres services",0.104828292356176
+"Construction","Autres services",0.173384171720345
+"Commerce","Autres services",0.164595313189931
+"Transports","Autres services",0.272611144009108
+"Hébergement-restauration","Autres services",0.500008305983802
+"Information-communication","Autres services",-0.0481212306085517
+"Finances et assurances","Autres services",0.182654349529695
+"Immobilier","Autres services",0.134820524503353
+"Services aux entreprises","Autres services",0.299410566756854
+"Administration publique","Autres services",0.0577740836578137
+"Éducation-santé","Autres services",0.132929115953618
+"Autres services","Autres services",1

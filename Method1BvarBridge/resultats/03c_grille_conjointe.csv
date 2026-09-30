@@ -1,0 +1,127 @@
+﻿"mode","regle","levier","ratio_median","n_branches_ok","correl_mediane"
+"vraisemblance marginale","regle z=4, k=3","rho = 0.97",0.971478353313083,10,0.221708393285512
+"vraisemblance marginale","regle z=4, k=3","rho = 0.99",0.976458466363942,10,0.214700822869401
+"critere d'ajustement","regle z=4, k=3","sigma sur 60 trimestres",0.978412580666007,10,0.244447537737141
+"critere d'ajustement","regle z=4, k=3","sigma sur 40 trimestres",0.980215743616258,10,0.244235286874291
+"hyperparametres fixes (Higgins)","liste codee en dur","rho = 0.99",0.980737565422292,9,0.199710367984439
+"hyperparametres fixes (Higgins)","liste codee en dur","theta = 0.50",0.982103861702261,10,0.167568613974329
+"critere d'ajustement","regle z=4, k=3","rho = 0.99",0.983213962643449,11,0.185729477862819
+"vraisemblance marginale","regle z=5, k=3","rho = 0.99",0.983325359840173,10,0.160870445601122
+"critere d'ajustement","regle z=4, k=3","aucun levier",0.98436264341966,10,0.159543279108086
+"vraisemblance marginale","regle z=5, k=3","rho = 0.97",0.98497663079798,10,0.208316225562662
+"vraisemblance marginale","liste codee en dur","rho = 0.97",0.98531263889737,9,0.156875747059047
+"vraisemblance marginale","regle z=4, k=3","theta = 0.50",0.985822518253982,9,0.163049426696317
+"critere d'ajustement","regle z=4, k=3","rho = 0.97",0.986902910146232,12,0.11890182593413
+"vraisemblance marginale","liste codee en dur","theta = 0.50",0.987816255307366,9,0.134627079493431
+"critere d'ajustement","regle z=5, k=3","rho = 0.97",0.988422569597764,12,0.0777901867702478
+"hyperparametres fixes (Higgins)","liste codee en dur","theta = 0.25",0.988978860930497,9,0.143633812834644
+"vraisemblance marginale","regle z=5, k=2","theta = 0.50",0.989422941921223,10,0.156896127927695
+"critere d'ajustement","regle z=5, k=3","rho = 0.99",0.990130408191231,12,0.0912097535937911
+"vraisemblance marginale","regle z=4, k=3","theta = 0.25",0.990185845097189,9,0.0927894693274867
+"vraisemblance marginale","regle z=5, k=2","theta = 0.25",0.990824493701113,9,0.103289432884488
+"hyperparametres fixes (Higgins)","regle z=5, k=3","rho = 0.99",0.990961591400798,9,0.239355725489257
+"critere d'ajustement","regle z=5, k=3","theta = 0.50",0.991651050468954,13,0.0420685790309557
+"vraisemblance marginale","regle z=6, k=2","rho = 0.97",0.992170529264691,8,0.152504925834447
+"hyperparametres fixes (Higgins)","regle z=5, k=3","theta = 0.25",0.992345543707852,9,0.123816036174539
+"critere d'ajustement","regle z=5, k=3","theta = 0.25",0.992419299737429,13,0.0327467018898443
+"critere d'ajustement","regle z=4, k=3","theta = 0.50",0.992452359342922,10,0.0902863141463431
+"hyperparametres fixes (Higgins)","regle z=5, k=3","theta = 0.50",0.99259496494799,9,0.166253515879458
+"vraisemblance marginale","regle z=6, k=2","theta = 0.50",0.992650295637193,9,0.100723423045106
+"hyperparametres fixes (Higgins)","regle z=4, k=3","sigma sur 60 trimestres",0.992737557631662,9,0.244415827140649
+"critere d'ajustement","regle z=5, k=2","aucun levier",0.992838165400926,11,0.0598237192720501
+"critere d'ajustement","liste codee en dur","rho = 0.97",0.992864732720454,9,0.0383066915290484
+"vraisemblance marginale","regle z=5, k=3","theta = 0.25",0.993237640682403,9,0.0667086900489461
+"critere d'ajustement","regle z=5, k=2","rho = 0.99",0.993335266021998,11,0.037872119823867
+"critere d'ajustement","regle z=5, k=3","sigma sur 60 trimestres",0.993510323728543,9,0.0967154136710798
+"vraisemblance marginale","regle z=6, k=2","theta = 0.25",0.993531285582147,9,0.064054548524052
+"vraisemblance marginale","liste codee en dur","theta = 0.25",0.993887391748834,10,0.0738593385370631
+"critere d'ajustement","regle z=5, k=3","aucun levier",0.993992691270545,10,0.0788881369756142
+"critere d'ajustement","liste codee en dur","rho = 0.99",0.994031175493981,8,0.0688596774661314
+"critere d'ajustement","regle z=5, k=2","sigma sur 40 trimestres",0.994064979700958,10,0.0399181971136643
+"critere d'ajustement","regle z=5, k=2","sigma sur 60 trimestres",0.994444645843877,11,0.0607206411800279
+"hyperparametres fixes (Higgins)","regle z=5, k=3","rho = 0.97",0.994518438547061,9,0.198222174486726
+"critere d'ajustement","regle z=5, k=2","rho = 0.97",0.994543324174049,10,-0.00419899225825051
+"critere d'ajustement","regle z=5, k=2","theta = 0.50",0.994730899411468,11,0.0159043117883828
+"hyperparametres fixes (Higgins)","regle z=5, k=3","aucun levier",0.994854352532635,10,0.194721160858098
+"critere d'ajustement","regle z=4, k=3","theta = 0.25",0.995296091395496,9,-0.0239036412673955
+"critere d'ajustement","regle z=5, k=3","sigma sur 40 trimestres",0.995677265084632,9,0.0754625009941615
+"hyperparametres fixes (Higgins)","regle z=4, k=3","aucun levier",0.995804429271121,8,0.24912772048943
+"critere d'ajustement","regle z=5, k=2","theta = 0.25",0.995973128541067,11,0.0035214653927053
+"critere d'ajustement","liste codee en dur","theta = 0.25",0.996174030369013,10,0.0654050227742685
+"vraisemblance marginale","regle z=5, k=3","theta = 0.50",0.996312473457075,8,0.101587223370587
+"hyperparametres fixes (Higgins)","regle z=5, k=3","sigma sur 60 trimestres",0.99664732876171,9,0.204655708031068
+"critere d'ajustement","liste codee en dur","aucun levier",0.996859251275275,9,0.0611848125329095
+"hyperparametres fixes (Higgins)","regle z=4, k=3","rho = 0.99",0.997289117700144,8,0.258855256844539
+"hyperparametres fixes (Higgins)","regle z=5, k=3","sigma sur 40 trimestres",0.997653088499089,9,0.14841396793863
+"hyperparametres fixes (Higgins)","regle z=4, k=3","theta = 0.50",0.997789549453748,9,0.221515125466225
+"hyperparametres fixes (Higgins)","regle z=5, k=2","theta = 0.50",0.997872990420757,8,0.111438696988761
+"hyperparametres fixes (Higgins)","regle z=5, k=2","theta = 0.25",0.997980879948442,8,0.0714366786400551
+"hyperparametres fixes (Higgins)","regle z=4, k=3","rho = 0.97",0.998005689380649,8,0.25813630849889
+"hyperparametres fixes (Higgins)","regle z=4, k=3","sigma sur 40 trimestres",0.998248868540369,8,0.216698724221377
+"vraisemblance marginale","regle z=5, k=3","aucun levier",0.998629458494571,8,0.131376644887061
+"vraisemblance marginale","regle z=5, k=3","sigma sur 60 trimestres",0.99889315607405,8,0.14244104170757
+"critere d'ajustement","liste codee en dur","theta = 0.50",0.999291526824892,8,0.018292066912047
+"critere d'ajustement","liste codee en dur","sigma sur 60 trimestres",0.999462403442715,8,0.0533044377668404
+"critere d'ajustement","liste codee en dur","sigma sur 40 trimestres",0.999558261705122,8,0.0281115545474725
+"hyperparametres fixes (Higgins)","regle z=4, k=3","theta = 0.25",1.00201969508941,8,0.112721127628201
+"critere d'ajustement","aucune indicatrice","theta = 0.25",1.00212904790145,7,-0.131888929012359
+"hyperparametres fixes (Higgins)","regle z=5, k=2","rho = 0.97",1.00312939564017,8,0.136594663406951
+"hyperparametres fixes (Higgins)","liste codee en dur","rho = 0.97",1.00331812475739,7,0.168376107422887
+"vraisemblance marginale","regle z=5, k=2","rho = 0.97",1.00640730643316,8,0.146639066581026
+"critere d'ajustement","regle z=6, k=2","theta = 0.25",1.00688329303345,7,0.0428870832038223
+"vraisemblance marginale","regle z=5, k=2","rho = 0.99",1.00760451924938,8,0.150347623322952
+"hyperparametres fixes (Higgins)","regle z=6, k=2","theta = 0.25",1.0076453546641,7,0.0397841937125281
+"critere d'ajustement","aucune indicatrice","theta = 0.50",1.00944169723999,4,-0.12828533943926
+"vraisemblance marginale","regle z=4, k=3","aucun levier",1.00946459076431,8,0.170431550975773
+"vraisemblance marginale","liste codee en dur","rho = 0.99",1.00969597465439,7,0.116787189355703
+"vraisemblance marginale","regle z=4, k=3","sigma sur 60 trimestres",1.0114709860846,8,0.204315104179353
+"hyperparametres fixes (Higgins)","regle z=5, k=2","rho = 0.99",1.01263019929021,8,0.149958991241509
+"vraisemblance marginale","regle z=6, k=2","rho = 0.99",1.01269085169199,8,0.143299780414522
+"critere d'ajustement","regle z=6, k=2","theta = 0.50",1.01589703568204,6,0.0397314572470736
+"vraisemblance marginale","regle z=4, k=3","sigma sur 40 trimestres",1.01636433249269,7,0.169926635197405
+"hyperparametres fixes (Higgins)","regle z=6, k=2","theta = 0.50",1.01779156770814,7,0.00763449380523736
+"hyperparametres fixes (Higgins)","regle z=6, k=2","rho = 0.99",1.01792272862471,8,0.0873878361765217
+"vraisemblance marginale","regle z=5, k=3","sigma sur 40 trimestres",1.02028397617461,6,0.124797431856189
+"critere d'ajustement","aucune indicatrice","rho = 0.97",1.02148149862676,3,-0.115793037705801
+"critere d'ajustement","regle z=6, k=2","rho = 0.97",1.02223286000001,7,0.106955828789029
+"vraisemblance marginale","aucune indicatrice","theta = 0.25",1.02276745373834,6,-0.10661580032612
+"hyperparametres fixes (Higgins)","regle z=6, k=2","rho = 0.97",1.02676149776132,7,0.157844234627446
+"critere d'ajustement","aucune indicatrice","sigma sur 40 trimestres",1.03029635235276,3,-0.124725557160664
+"critere d'ajustement","aucune indicatrice","rho = 0.99",1.0317602459403,4,-0.11917633734997
+"critere d'ajustement","aucune indicatrice","sigma sur 60 trimestres",1.0328661658455,4,-0.11522464024051
+"critere d'ajustement","aucune indicatrice","aucun levier",1.03443131056111,4,-0.128420207762685
+"hyperparametres fixes (Higgins)","liste codee en dur","sigma sur 40 trimestres",1.03465400560566,8,0.151535039283885
+"vraisemblance marginale","liste codee en dur","sigma sur 60 trimestres",1.03652894998302,6,0.0983924231047138
+"critere d'ajustement","regle z=6, k=2","rho = 0.99",1.03819803552024,6,0.0877617684433074
+"critere d'ajustement","regle z=6, k=2","sigma sur 40 trimestres",1.04008280377666,5,0.0383369958687264
+"vraisemblance marginale","liste codee en dur","aucun levier",1.0415358403719,7,0.127120247674069
+"critere d'ajustement","regle z=6, k=2","sigma sur 60 trimestres",1.04242407289022,6,0.0514167901158379
+"vraisemblance marginale","liste codee en dur","sigma sur 40 trimestres",1.04745847304133,7,0.11699046826529
+"hyperparametres fixes (Higgins)","liste codee en dur","sigma sur 60 trimestres",1.04768624665666,7,0.139243956999596
+"critere d'ajustement","regle z=6, k=2","aucun levier",1.0482633130701,5,0.0527778353582919
+"hyperparametres fixes (Higgins)","regle z=6, k=2","sigma sur 40 trimestres",1.05033678320574,5,0.0157332075350227
+"vraisemblance marginale","regle z=5, k=2","aucun levier",1.0528213028086,5,0.121193583131233
+"vraisemblance marginale","regle z=6, k=2","aucun levier",1.05302533384109,6,0.101467624741224
+"hyperparametres fixes (Higgins)","aucune indicatrice","theta = 0.25",1.05386792872749,6,-0.100861296849065
+"vraisemblance marginale","regle z=6, k=2","sigma sur 40 trimestres",1.05399056850881,5,0.0734236276675712
+"hyperparametres fixes (Higgins)","liste codee en dur","aucun levier",1.0542908174498,6,0.132781859425186
+"hyperparametres fixes (Higgins)","regle z=5, k=2","sigma sur 40 trimestres",1.05513572515492,6,0.0973855369963058
+"vraisemblance marginale","regle z=6, k=2","sigma sur 60 trimestres",1.05780095889666,6,0.0860810725258544
+"hyperparametres fixes (Higgins)","regle z=5, k=2","aucun levier",1.05846540457044,6,0.112155884106323
+"hyperparametres fixes (Higgins)","regle z=5, k=2","sigma sur 60 trimestres",1.06318209020063,6,0.0878102806582074
+"hyperparametres fixes (Higgins)","regle z=6, k=2","aucun levier",1.06544689905071,6,0.0268726518534921
+"vraisemblance marginale","regle z=5, k=2","sigma sur 40 trimestres",1.06563863425451,4,0.0845895711729164
+"hyperparametres fixes (Higgins)","regle z=6, k=2","sigma sur 60 trimestres",1.0745872960415,6,0.0283923230942425
+"vraisemblance marginale","aucune indicatrice","rho = 0.97",1.07478412300335,5,-0.0491670736026399
+"vraisemblance marginale","regle z=5, k=2","sigma sur 60 trimestres",1.08358544670327,5,0.0880089267725564
+"vraisemblance marginale","aucune indicatrice","theta = 0.50",1.08882996965251,6,-0.0610190471540735
+"vraisemblance marginale","aucune indicatrice","sigma sur 40 trimestres",1.0947889209985,4,-0.0458034100785383
+"hyperparametres fixes (Higgins)","aucune indicatrice","rho = 0.97",1.09716044194023,4,-0.0332898490136441
+"hyperparametres fixes (Higgins)","aucune indicatrice","theta = 0.50",1.10355113650102,4,-0.104592453998617
+"vraisemblance marginale","aucune indicatrice","sigma sur 60 trimestres",1.11102576692485,5,-0.0410806722963986
+"hyperparametres fixes (Higgins)","aucune indicatrice","sigma sur 60 trimestres",1.11632467475171,3,-0.0474971885462005
+"hyperparametres fixes (Higgins)","aucune indicatrice","sigma sur 40 trimestres",1.11713084217794,3,-0.0737074803029157
+"hyperparametres fixes (Higgins)","aucune indicatrice","rho = 0.99",1.12100851337988,3,-0.0243934019837349
+"hyperparametres fixes (Higgins)","aucune indicatrice","aucun levier",1.12523203112733,3,-0.0331351728194258
+"vraisemblance marginale","aucune indicatrice","aucun levier",1.13952118307895,3,-0.0536705957531032
+"vraisemblance marginale","aucune indicatrice","rho = 0.99",1.14212737185158,5,-0.0496134438397136

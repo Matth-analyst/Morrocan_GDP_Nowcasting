@@ -1,0 +1,71 @@
+﻿"specification","branche","n","ratio","correlation"
+"1+4 + Kalman","Agriculture",16,0.953921743435975,0.236595181577209
+"1+4 + Kalman","Commerce",48,1.21442279212366,-0.042490553368122
+"1+4 + Kalman","Construction",27,1.03798338216535,0.0379682823517471
+"1+4 + Kalman","Finances et assurances",48,1.07473198459476,0.0193222026664023
+"1+4 + Kalman","Hébergement-restauration",36,0.985397196562573,0.681462411137779
+"1+4 + Kalman","Immobilier",48,1.13773454852679,-0.1549522744794
+"1+4 + Kalman","Industrie d'extraction",33,1.24589835614757,0.0618553211744819
+"1+4 + Kalman","Industrie de transformation",48,0.97529905666824,0.425080202307834
+"1+4 + Kalman","Information-communication",32,1.77050475810927,0.0360475158784757
+"1+4 + Kalman","Pêche",47,0.832611498127501,0.586186433567404
+"1+4 + Kalman","Transports",12,1.85634596288841,-0.392226982359991
+"1+4 + Kalman","Électricité, gaz, eau",48,0.944717915138231,0.504007155324785
+"1+4 sans Kalman","Agriculture",16,0.953921743435975,0.236595181577209
+"1+4 sans Kalman","Commerce",48,1.05680681785219,0.0808148132064121
+"1+4 sans Kalman","Construction",26,0.954319048769146,0.24054773697396
+"1+4 sans Kalman","Finances et assurances",48,1.07473198459476,0.0193222026664017
+"1+4 sans Kalman","Hébergement-restauration",25,0.973836594077131,0.683621068098974
+"1+4 sans Kalman","Immobilier",48,1.13773454852679,-0.1549522744794
+"1+4 sans Kalman","Industrie d'extraction",33,1.24961050972331,0.071822188668393
+"1+4 sans Kalman","Industrie de transformation",48,0.975299056668239,0.425080202307835
+"1+4 sans Kalman","Information-communication",32,1.77050475810927,0.0360475158784755
+"1+4 sans Kalman","Pêche",48,0.807970989137303,0.581393513890425
+"1+4 sans Kalman","Électricité, gaz, eau",48,0.975418606207882,0.484024012063857
+"ACP + Kalman","Agriculture",48,1.11205067938524,-0.393110431476207
+"ACP + Kalman","Commerce",48,1.14729056116371,-0.234213169391834
+"ACP + Kalman","Construction",48,1.02909869978238,0.0499327156909905
+"ACP + Kalman","Finances et assurances",48,1.02957939251221,0.237457540324274
+"ACP + Kalman","Hébergement-restauration",48,0.595558317098195,0.831150232921585
+"ACP + Kalman","Immobilier",44,1.12614739294323,-0.238245305219381
+"ACP + Kalman","Industrie d'extraction",48,1.25259778246324,0.0174540837231211
+"ACP + Kalman","Industrie de transformation",48,0.976174575066573,0.236282273291315
+"ACP + Kalman","Information-communication",48,1.25278606153827,-0.042785400017928
+"ACP + Kalman","Pêche",4,0.929731007047687,-0.436274619268568
+"ACP + Kalman","Transports",48,1.05938161110919,-0.0655652023189763
+"ACP + Kalman","Électricité, gaz, eau",48,0.943883935202868,0.312147699887163
+"ACP sans Kalman","Agriculture",48,1.11205067938524,-0.393110431476208
+"ACP sans Kalman","Commerce",48,1.16306231348659,-0.254900060810684
+"ACP sans Kalman","Construction",48,1.03863196700664,-0.0455083533764799
+"ACP sans Kalman","Finances et assurances",48,1.02957939251221,0.237457540324274
+"ACP sans Kalman","Hébergement-restauration",48,0.623981461376639,0.819669665547955
+"ACP sans Kalman","Immobilier",44,1.12614739294323,-0.238245305219381
+"ACP sans Kalman","Industrie d'extraction",48,1.20366055571297,0.027763086881864
+"ACP sans Kalman","Industrie de transformation",48,0.976174575066573,0.236282273291315
+"ACP sans Kalman","Information-communication",48,1.25278606153827,-0.0427854000179281
+"ACP sans Kalman","Transports",48,1.05140680938711,-0.0669144197708386
+"ACP sans Kalman","Électricité, gaz, eau",48,0.964833504876464,0.261698085327357
+"ridge + AR + Kalman","Agriculture",48,1.04419052654954,-0.0963968693616455
+"ridge + AR + Kalman","Commerce",48,1.18957374921062,-0.00355490469125433
+"ridge + AR + Kalman","Construction",45,1.0428345340888,-0.106757308527994
+"ridge + AR + Kalman","Finances et assurances",48,1.09753513280457,0.116170148079918
+"ridge + AR + Kalman","Hébergement-restauration",48,1.19535269252663,0.713726661605539
+"ridge + AR + Kalman","Immobilier",40,1.03684691131181,-0.0668356298379389
+"ridge + AR + Kalman","Industrie d'extraction",45,1.30749109521612,-0.103293938387801
+"ridge + AR + Kalman","Industrie de transformation",48,1.05465191570862,0.307680382128837
+"ridge + AR + Kalman","Information-communication",48,1.01222230989779,0.124184807021521
+"ridge + AR + Kalman","Pêche",48,0.750144491223604,0.657344160561918
+"ridge + AR + Kalman","Transports",48,1.07303056752477,-0.314181662982307
+"ridge + AR + Kalman","Électricité, gaz, eau",48,1.05515997555745,0.317211871437919
+"ridge + AR sans Kalman","Agriculture",48,1.04419052654954,-0.0963968693616456
+"ridge + AR sans Kalman","Commerce",48,1.18729892835225,0.0209201594581471
+"ridge + AR sans Kalman","Construction",45,1.04669548033598,-0.162124085417616
+"ridge + AR sans Kalman","Finances et assurances",48,1.09753513280457,0.116170148079917
+"ridge + AR sans Kalman","Hébergement-restauration",48,1.19243743592187,0.714414537422299
+"ridge + AR sans Kalman","Immobilier",40,1.03684691131181,-0.0668356298379391
+"ridge + AR sans Kalman","Industrie d'extraction",45,1.17448227129641,-0.238891981417482
+"ridge + AR sans Kalman","Industrie de transformation",48,1.05465191570862,0.307680382128837
+"ridge + AR sans Kalman","Information-communication",48,1.01222230989779,0.124184807021521
+"ridge + AR sans Kalman","Pêche",48,0.750320037257992,0.657203534104684
+"ridge + AR sans Kalman","Transports",48,1.07302181640111,-0.3142356449868
+"ridge + AR sans Kalman","Électricité, gaz, eau",48,1.0909849155502,0.178488539112303

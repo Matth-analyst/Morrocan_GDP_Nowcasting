@@ -1,0 +1,8 @@
+﻿"controle","objet","description","resultat","detail"
+"C1","troncature du panel","aucune ligne posterieure au dernier mois du trimestre cible","OK","253 mois retenus sur 336"
+"C2","cible du trimestre vise","la valeur ajoutee du trimestre cible est mise a NA avant estimation","OK","impose dans prevoir_branche, verifie par C6"
+"C3","standardisation","moyenne et ecart-type calcules sur la seule information anterieure","OK","ecart a la moyenne globale : 3.26e+04"
+"C4","poids d'agregation","le poids applique a l'origine T date du trimestre T-1","OK","784 couples verifies"
+"C5","choix de r et p","la configuration retenue ne coincide pas avec l'optimum a posteriori","OK","coincidence : 72 % des origines"
+"C6","perturbation du futur","une alteration violente des donnees posterieures a T ne change rien","OK","9 cas | ecart maximal 0.0e+00"
+"C7","disponibilite des series","une serie sans observation avant T est ecartee par la standardisation","OK","ecart-type non calculable donc colonne exclue"

@@ -1,0 +1,37 @@
+﻿"variante","modele","branches","mae_moyenne","ratio_median","n_ratio_ok","periode","z0","bascules"
+"1+4. disponibilite + terme AR","comb_etat",12,0.0381742873430488,0.987391788198088,7,"toutes origines",1,84
+"reference (phase 4)","comb_etat",12,0.0383532404009745,1.00404880408924,5,"toutes origines",1,84
+"1+4. disponibilite + terme AR","comb_etat",12,0.094956925961768,0.867403647466556,9,"2020",1,84
+"reference (phase 4)","comb_etat",12,0.0957835575045284,0.882984414975075,9,"2020",1,84
+"1+4. disponibilite + terme AR","comb_etat",12,0.0330122292868016,1.04281419421131,4,"hors 2020",1,84
+"reference (phase 4)","comb_etat",12,0.0331323024824696,1.04981719040337,3,"hors 2020",1,84
+"1+4. disponibilite + terme AR","comb_etat",12,0.0383077527141132,0.985288882371832,8,"toutes origines",1.5,44
+"reference (phase 4)","comb_etat",12,0.0385369279625893,0.996834389277174,6,"toutes origines",1.5,44
+"1+4. disponibilite + terme AR","comb_etat",12,0.0990138510015774,0.867403647466556,9,"2020",1.5,44
+"reference (phase 4)","comb_etat",12,0.0957835575045284,0.882984414975075,9,"2020",1.5,44
+"1+4. disponibilite + terme AR","comb_etat",12,0.0327890165061619,1.04281419421131,4,"hors 2020",1.5,44
+"reference (phase 4)","comb_etat",12,0.0333326889133221,1.04981719040337,3,"hors 2020",1.5,44
+"1+4. disponibilite + terme AR","comb_etat",12,0.0379408018607618,0.987397757381974,8,"toutes origines",2,28
+"reference (phase 4)","comb_etat",12,0.0379218488267048,0.996834389277174,6,"toutes origines",2,28
+"1+4. disponibilite + terme AR","comb_etat",12,0.0990138510015774,0.867403647466556,9,"2020",2,28
+"reference (phase 4)","comb_etat",12,0.0951790684949227,0.872573370880153,9,"2020",2,28
+"1+4. disponibilite + terme AR","comb_etat",12,0.032388706484324,1.04281419421131,4,"hors 2020",2,28
+"reference (phase 4)","comb_etat",12,0.032716647038685,1.04981719040337,3,"hors 2020",2,28
+"1+4. disponibilite + terme AR","comb_etat",12,0.0376361387036319,0.987397757381974,8,"toutes origines",2.5,16
+"reference (phase 4)","comb_etat",12,0.0377416869803119,0.996834389277174,6,"toutes origines",2.5,16
+"1+4. disponibilite + terme AR","comb_etat",12,0.0990138510015774,0.867403647466556,9,"2020",2.5,16
+"reference (phase 4)","comb_etat",12,0.0951790684949227,0.872573370880153,9,"2020",2.5,16
+"1+4. disponibilite + terme AR","comb_etat",12,0.0320563466765459,1.04281419421131,4,"hors 2020",2.5,16
+"reference (phase 4)","comb_etat",12,0.0325201068426201,1.04981719040337,3,"hors 2020",2.5,16
+"1+4. disponibilite + terme AR","comb_etat",12,0.0376015348154733,0.990260870199182,7,"toutes origines",3,13
+"reference (phase 4)","comb_etat",12,0.0376672524713813,0.996834389277174,6,"toutes origines",3,13
+"1+4. disponibilite + terme AR","comb_etat",12,0.0985986043436749,0.867403647466556,9,"2020",3,13
+"reference (phase 4)","comb_etat",12,0.094285854387755,0.872573370880153,9,"2020",3,13
+"1+4. disponibilite + terme AR","comb_etat",12,0.0320563466765459,1.04281419421131,4,"hors 2020",3,13
+"reference (phase 4)","comb_etat",12,0.0325201068426201,1.04981719040337,3,"hors 2020",3,13
+"1+4. disponibilite + terme AR","comb_etat",12,0.0368721571886073,0.982646445613382,8,"toutes origines",Inf,0
+"reference (phase 4)","comb_etat",12,0.0373830951402283,0.984327021294175,7,"toutes origines",Inf,0
+"1+4. disponibilite + terme AR","comb_etat",12,0.095935225233199,0.838134071715299,9,"2020",Inf,0
+"reference (phase 4)","comb_etat",12,0.0955215755604772,0.872573370880153,9,"2020",Inf,0
+"1+4. disponibilite + terme AR","comb_etat",12,0.0315027873663717,1.02790295413349,5,"hors 2020",Inf,0
+"reference (phase 4)","comb_etat",12,0.0320977787383875,1.0296494973946,4,"hors 2020",Inf,0

@@ -1,0 +1,5 @@
+﻿"test","statistique","p_value","lecture"
+"Ljung-Box sur les residus (4 retards)",7.08438809162109,0.131495337996311,"pas d'autocorrelation detectee"
+"Ljung-Box sur les residus au carre (effet ARCH)",2.2196232429573,0.695438319342602,"pas d'heteroscedasticite detectee"
+"Shapiro-Wilk (normalite)",0.752774623474641,1.29436911082409e-07,"residus NON normaux : queues epaisses"
+"Residus au-dela de 2 ecarts-types",3,,"3 trimestres sur 48"

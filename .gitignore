@@ -1,17 +1,53 @@
-# Python
+# ============================================================================
+# Ce qui n'a pas sa place dans le depot
+# ============================================================================
+
+# --- Travaux anterieurs, conserves hors suivi -------------------------------
+# Archive/ garde la trace des methodes explorees puis abandonnees, des versions
+# intermediaires et des sauvegardes. Rien de ce qui s'y trouve n'alimente les
+# chaines actuelles.
+Archive/
+
+# --- Sortie regenerable de graphify (graphe de connaissances) ---------------
+graphify-out/
+
+# --- Etat d'execution de l'application de production ------------------------
+# Productions horodatees, journal, observations saisies dans l'interface : cet
+# etat appartient a la machine qui fait tourner l'application, pas au depot.
+NowcastApp/productions/
+NowcastApp/donnees_ajoutees/*.csv
+
+# --- Journaux d'execution ---------------------------------------------------
+*.log
+
+# --- Fichiers auxiliaires LaTeX ---------------------------------------------
+# Seul rapport.pdf est un livrable ; le reste est regenere a chaque compilation.
+Report/*.aux
+Report/*.log
+Report/*.toc
+Report/*.lof
+Report/*.lot
+Report/*.out
+Report/*.fls
+Report/*.fdb_latexmk
+Report/*.synctex.gz
+Report/apercu/
+
+# --- R ----------------------------------------------------------------------
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# --- Python -----------------------------------------------------------------
 __pycache__/
 *.pyc
 
-# Fichiers temporaires Excel (verrous ouverts par l'application)
+# --- Verrous Excel (fichier ouvert dans l'application) ----------------------
 ~$*.xlsx
 
-# Sortie regenerable de graphify (graphe de connaissances)
-graphify-out/
-
-# Cache de l'app Shiny (regenere automatiquement depuis le classeur source)
-R_gdpnow_maroc/shiny_app/data/.cache_*.rds
-
-# Configuration locale de l'outil Claude Code (specifique a la machine)
+# --- Configuration locale de l'outil Claude Code ----------------------------
 .claude/
-
+Report/
+Documentation/
 Archive/

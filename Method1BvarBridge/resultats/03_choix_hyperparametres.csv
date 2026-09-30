@@ -1,0 +1,4 @@
+﻿"specification","ratio_median","n_branches_ok","correl_mediane","retenu"
+"critere d'ajustement (Banbura-Giannone-Reichlin)",0.996859251275275,9,0.0611848125329095,TRUE
+"vraisemblance marginale (Giannone-Lenza-Primiceri)",1.0415358403719,7,0.127120247674069,FALSE
+"hyperparametres fixes (Higgins) : p = 5, lambda = 0.15",1.0542908174498,6,0.132781859425186,FALSE

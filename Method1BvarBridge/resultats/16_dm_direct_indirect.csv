@@ -1,0 +1,4 @@
+﻿"reference","alternative","n","RMSFE_ref","RMSFE_alt","p_value","verdict"
+"Indirecte (16 branches agregees)","Directe (passerelle sur l'agregat)",48,0.0194150640573771,0.0165665625394527,0.631775496042555,"non significatif"
+"Indirecte (16 branches agregees)","Combinaison des deux voies",48,0.0194150640573771,0.0154253308920209,0.370148413581159,"non significatif"
+"Directe (passerelle sur l'agregat)","Combinaison des deux voies",48,0.0165665625394527,0.0154253308920209,0.55634731784145,"non significatif"

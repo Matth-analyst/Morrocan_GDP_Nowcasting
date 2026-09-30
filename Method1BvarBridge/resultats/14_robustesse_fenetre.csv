@@ -1,0 +1,4 @@
+﻿"specification","ratio_median","n_branches_ok","correl_mediane"
+"reference (mode et regle retenus)",0.978412580666007,10,0.244447537737141
+"fenetre glissante 60 trim.",0.997179925020288,10,0.0172768038419533
+"fenetre glissante 40 trim.",0.997983753880651,9,0.0528183271258217

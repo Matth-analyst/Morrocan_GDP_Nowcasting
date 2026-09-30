@@ -1,0 +1,5 @@
+﻿"branche","modele","ratio"
+"Administration publique","moyenne recursive",1.04000652367007
+"Autres services","SARIMA",0.873849902410017
+"Services aux entreprises","BVAR (phase 3)",0.967958067935989
+"Éducation-santé","marche aleatoire",0.757056338319641

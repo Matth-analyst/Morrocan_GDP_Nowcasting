@@ -1,0 +1,5 @@
+﻿"procedure","phase","mode","regle","levier","ratio_median","n_branches_ok","correl_mediane"
+"sequentielle (16 candidats)","validation","vraisemblance marginale","regle z=5, k=3","rho = 0.99",1.01475467222355,5,0.0393273708962229
+"conjointe (126 candidats)","validation","hyperparametres fixes (Higgins)","regle z=6, k=2","rho = 0.97",0.999937909137615,8,0.0871342391563942
+"sequentielle (16 candidats)","test","vraisemblance marginale","regle z=5, k=3","rho = 0.99",0.981024863507164,10,0.232423268661918
+"conjointe (126 candidats)","test","hyperparametres fixes (Higgins)","regle z=6, k=2","rho = 0.97",1.01468044501184,7,0.228502728382348

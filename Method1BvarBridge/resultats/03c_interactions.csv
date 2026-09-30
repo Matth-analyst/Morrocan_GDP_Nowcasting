@@ -1,0 +1,13 @@
+﻿"axe","valeur","n"
+"levier optimal","rho = 0.97",5
+"levier optimal","theta = 0.25",5
+"levier optimal","rho = 0.99",3
+"levier optimal","sigma sur 60 trimestres",2
+"levier optimal","theta = 0.50",2
+"levier optimal","aucun levier",1
+"mode optimal","critere d'ajustement",25
+"mode optimal","vraisemblance marginale",13
+"mode optimal","hyperparametres fixes (Higgins)",4
+"regle optimale","regle z=4, k=3",11
+"regle optimale","regle z=5, k=3",7
+"regle optimale","liste codee en dur",3

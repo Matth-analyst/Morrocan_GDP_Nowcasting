@@ -1,0 +1,7 @@
+﻿"scenario","branches","ratio_median","br_ok","n_retenus_moyen"
+"M3 mensuel seul",10,0.934,6,2.88
+"M3",10,0.945,6,2.93
+"M3 avec trimestriels",10,0.975,6,3.13
+"M2",10,0.987,5,2.95
+"M1",10,1.015,5,2.95
+"M0",10,1.112,2,2.95
