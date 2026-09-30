@@ -49,6 +49,5 @@ __pycache__/
 # --- Configuration locale de l'outil Claude Code ----------------------------
 .claude/
 Report/
-Documentation/
 Archive/
-Models/
+Models/Method_3_DFM/
