@@ -21,9 +21,7 @@ STAGE/
 ├── Method1BvarBridge/       méthode 1 : BVAR + équations de passerelle
 ├── Method2DynamicFactors/   méthode 2 : modèle à facteurs dynamiques
 ├── NowcastApp/              l'application de production
-├── Report/                  le rapport complet, en LaTeX
-├── Documentation/           documents de référence
-└── Archive/                 travaux antérieurs, hors suivi git
+├── 
 ```
 
 Les classeurs sources existent **en un seul exemplaire**, dans `SourceData/`.
